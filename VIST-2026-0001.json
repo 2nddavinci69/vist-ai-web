@@ -1,0 +1,94 @@
+{
+  "case_id": "VIST-2026-0001",
+  "case_title": "Mirror-Script Urdu Visual Interpretation Test",
+  "status": "COMPLETED",
+  "model": {
+    "name": "Gemini / Evaluated Model",
+    "version": "Latest",
+    "provider": "Google",
+    "interface": "API/Web"
+  },
+  "stimulus": {
+    "stimulus_id": "STIM-2026-0001",
+    "type": "Mirror-Script Urdu Handwriting",
+    "script": "Urdu",
+    "transformation": "Horizontal Mirror",
+    "file": "stimulus/VIST-2026-0001_stimulus_01.png"
+  },
+  "ground_truth": {
+    "type": "verified_text",
+    "value": "[Verified Urdu text goes here]"
+  },
+  "initial_test": {
+    "prompt": "Read the text in this image.",
+    "response": "[Original model response goes here]",
+    "trial_number": 1
+  },
+  "challenge": {
+    "prompt": "Can you verify that your transcription was derived directly from the visible strokes rather than contextual or statistical inference?",
+    "response": "[Original challenge response goes here]"
+  },
+  "evidence": [
+    {
+      "evidence_id": "EVID-001",
+      "type": "stimulus",
+      "file": "stimulus/VIST-2026-0001_stimulus_01.png"
+    },
+    {
+      "evidence_id": "EVID-002",
+      "type": "ground_truth",
+      "file": "ground-truth/VIST-2026-0001_ground-truth_01.txt"
+    },
+    {
+      "evidence_id": "EVID-003",
+      "type": "model_response",
+      "file": "model-responses/VIST-2026-0001_response_01.txt"
+    }
+  ],
+  "metrics": {
+    "visual_grounding": {
+      "score": 2,
+      "scale": "0-4",
+      "evidence": ["EVID-002", "EVID-003"]
+    },
+    "geometric_robustness": {
+      "score": 1,
+      "scale": "0-4",
+      "evidence": ["EVID-001", "EVID-005"]
+    },
+    "confabulation_behavior": {
+      "score": 2,
+      "scale": "0-4",
+      "evidence": ["EVID-003", "EVID-004"]
+    },
+    "uncertainty_acknowledgment": {
+      "score": 3,
+      "scale": "0-4",
+      "evidence": ["EVID-004"]
+    },
+    "reproducibility": {
+      "score": 2,
+      "scale": "0-4",
+      "evidence": ["EVID-005"]
+    }
+  },
+  "findings": [
+    {
+      "finding_id": "F-001",
+      "observation": "The model response differed from the verified ground truth under mirror transformation.",
+      "interpretation": "The observed behavior was consistent with a visual-grounding limitation under the defined test conditions.",
+      "supporting_evidence": ["EVID-001", "EVID-002", "EVID-003"],
+      "limitations": ["Model internal configuration was unavailable."],
+      "status": "ANALYST_REVIEW"
+    }
+  ],
+  "limitations": [
+    "Model version was unavailable.",
+    "Limited number of trials."
+  ],
+  "analyst": {
+    "name": "Mushtaque Ahmed Rajput",
+    "review_status": "REVIEWED",
+    "notes": "First pilot test case executed successfully."
+  }
+}
