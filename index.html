@@ -9,9 +9,11 @@
         .container { max-width: 800px; margin: auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
         h1 { color: #1a365d; text-align: center; }
         .ad-container { margin: 20px 0; padding: 15px; background: #e2e8f0; text-align: center; border-radius: 6px; border: 2px dashed #cbd5e1; }
-        .result-box { background: #f8fafc; padding: 20px; border-left: 4px solid #3182ce; margin-top: 20px; border-radius: 4px; }
-        button { background: #3182ce; color: white; border: none; padding: 10px 20px; font-size: 16px; border-radius: 4px; cursor: pointer; }
+        .result-box { background: #f8fafc; padding: 20px; border-left: 4px solid #3182ce; margin-top: 20px; border-radius: 4px; display: none; }
+        button { background: #3182ce; color: white; border: none; padding: 10px 20px; font-size: 16px; border-radius: 4px; cursor: pointer; margin-right: 10px; margin-top: 10px; }
         button:hover { background: #2b6cb0; }
+        .upload-section { background: #edf2f7; padding: 15px; border-radius: 6px; margin-top: 20px; }
+        input[type="file"] { margin-top: 10px; }
     </style>
 </head>
 <body>
@@ -23,15 +25,19 @@
     <!-- Google AdSense Ad Slot Integration -->
     <div class="ad-container">
         <small style="color: #718096;">Advertisement Space (Google AdSense Ready)</small>
-        <!-- Paste your Google AdSense code here in the future -->
     </div>
 
     <hr style="margin: 30px 0; border: 0; border-top: 1px solid #e2e8f0;">
 
-    <h3>Load Test Case Data</h3>
-    <button onclick="loadTestCase()">Load Pilot Case (VIST-2026-0001)</button>
+    <h3>Test Case Options</h3>
+    <button onclick="loadDefaultCase()">Load Pilot Case (VIST-2026-0001)</button>
 
-    <div id="output" class="result-box" style="display: none;">
+    <div class="upload-section">
+        <label for="jsonFileInput"><strong>Upload Custom Test Case (JSON):</strong></label><br>
+        <input type="file" id="jsonFileInput" accept=".json" onchange="loadCustomJSON(event)">
+    </div>
+
+    <div id="output" class="result-box">
         <h3>Evaluation Result</h3>
         <p><strong>Case ID:</strong> <span id="caseId"></span></p>
         <p><strong>Title:</strong> <span id="caseTitle"></span></p>
@@ -41,21 +47,47 @@
 </div>
 
 <script>
-    function loadTestCase() {
-        // Simulated JSON payload loading for VIST-2026-0001
+    function displayData(testData) {
+        document.getElementById('caseId').innerText = testData.case_id || "N/A";
+        document.getElementById('caseTitle').innerText = testData.case_title || "N/A";
+        document.getElementById('caseStatus').innerText = testData.status || "N/A";
+        
+        // Handle finding observation structure flexibly
+        let observationText = "N/A";
+        if (testData.findings && testData.findings.length > 0) {
+            observationText = testData.findings[0].observation;
+        } else if (testData.observation) {
+            observationText = testData.observation;
+        }
+        document.getElementById('caseObservation').innerText = observationText;
+
+        document.getElementById('output').style.display = 'block';
+    }
+
+    function loadDefaultCase() {
         const testData = {
             case_id: "VIST-2026-0001",
             case_title: "Mirror-Script Urdu Visual Interpretation Test",
             status: "COMPLETED",
             observation: "The model response differed from the verified ground truth under mirror transformation."
         };
+        displayData(testData);
+    }
 
-        document.getElementById('caseId').innerText = testData.case_id;
-        document.getElementById('caseTitle').innerText = testData.case_title;
-        document.getElementById('caseStatus').innerText = testData.status;
-        document.getElementById('caseObservation').innerText = testData.observation;
+    function loadCustomJSON(event) {
+        const file = event.target.files[0];
+        if (!file) return;
 
-        document.getElementById('output').style.display = 'block';
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            try {
+                const jsonData = JSON.parse(e.target.result);
+                displayData(jsonData);
+            } catch (error) {
+                alert("Invalid JSON file! Please upload a valid VIST-AI test case file.");
+            }
+        };
+        reader.readAsText(file);
     }
 </script>
 
