@@ -11,6 +11,7 @@
             padding: 20px !important; 
             background: #0f172a !important; 
             color: #e2e8f0 !important; 
+            scroll-behavior: smooth;
         }
         .container { 
             max-width: 950px !important; 
@@ -26,6 +27,34 @@
         h3 { color: #38bdf8 !important; }
         p { color: #94a3b8 !important; }
         li { color: #cbd5e1 !important; margin-bottom: 8px; }
+        
+        /* Top Clickable Navigation Bar */
+        .nav-bar {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+            padding: 10px;
+            background: #0f172a;
+            border-radius: 6px;
+            border: 1px solid #334155;
+        }
+        .nav-bar a {
+            color: #38bdf8;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+            padding: 6px 12px;
+            background: #334155;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+        .nav-bar a:hover {
+            background: #0284c7;
+            color: white;
+        }
+
         .ad-container { 
             margin: 20px 0 !important; 
             padding: 15px !important; 
@@ -70,7 +99,7 @@
             padding: 20px !important; 
             border-radius: 8px !important; 
             margin-top: 20px !important; 
-            border: 1px solid #475569 !important; 
+            border: 1px solid #334155 !important; 
         }
         .evidence-image { 
             max-width: 100% !important; 
@@ -100,7 +129,7 @@
             margin-top: 40px;
             padding-top: 20px;
             border-top: 1px solid #334155;
-            color: #94a3b8;
+            color: #ffffff;
             font-size: 14px;
         }
         label { color: #cbd5e1 !important; }
@@ -113,6 +142,14 @@
     <div class="founder-title">Created & Founded by Mushtaque Ahmed Rajput (Founder VIST-AI)</div>
     <p style="text-align: center;">Multilingual Geometric Robustness, Live Mirror Tools & AI Benchmarking Hub</p>
 
+    <!-- Top Clickable Quick Navigation Bar -->
+    <div class="nav-bar">
+        <a href="#tool-img">Image Mirror</a>
+        <a href="#tool-text">Text Mirror</a>
+        <a href="#tool-json">JSON Upload</a>
+        <a href="#tool-gallery">Handwriting Gallery</a>
+    </div>
+
     <!-- Google AdSense Ad Slot Integration -->
     <div class="ad-container">
         <small style="color: #64748b;">Advertisement Space (Google AdSense Ready)</small>
@@ -120,9 +157,28 @@
 
     <hr style="margin: 30px 0; border: 0; border-top: 1px solid #334155;">
 
-    <!-- TOP SECTION 1: Live Text Mirror Tool -->
-    <div class="section" style="border: 1px solid #38bdf8 !important;">
-        <h3>Live Multilingual Text Mirror Tool</h3>
+    <!-- 1st SECTION: Live Image Mirror Tool (Normal Page to Mirror Page with Result) -->
+    <div id="tool-img" class="section">
+        <h3>1. Live Image Mirror Tool (Normal Page to Mirror Page)</h3>
+        <label for="imageNormalInput"><strong>Upload Normal Writing Image:</strong></label><br>
+        <input type="file" id="imageNormalInput" accept="image/*">
+        <button onclick="processNormalImage()">Process & Mirror Image</button>
+    </div>
+
+    <!-- Compact Output Box for Image Mirror -->
+    <div id="output" class="result-box">
+        <div id="imageContainer" style="display: none;">
+            <canvas id="mirrorCanvas" style="display:none;"></canvas>
+            <img id="evidenceImg" class="evidence-image" src="" alt="Mirrored Evidence Specimen"><br>
+            <a id="downloadLink" href="#" download="mirrored-evidence.jpg" style="display: none; margin-top: 10px; text-decoration: none;">
+                <button style="background: #16a34a !important; width: auto; padding: 8px 20px !important;">Download Mirrored Image</button>
+            </a>
+        </div>
+    </div>
+
+    <!-- 2nd SECTION: Live Text Mirror Tool -->
+    <div id="tool-text" class="section" style="border: 1px solid #38bdf8 !important;">
+        <h3>2. Live Multilingual Text Mirror Tool</h3>
         <p>Type any text or sentence in any language to instantly generate its mirrored preview:</p>
         <label for="userInputText"><strong>Enter Text to Mirror:</strong></label>
         <textarea id="userInputText" placeholder="Type or paste text here..."></textarea>
@@ -134,9 +190,17 @@
         </div>
     </div>
 
-    <!-- TOP SECTION 2: Global Test Case Gallery (Handwriting Evidence Pages) -->
-    <div class="section">
-        <h3>Select Global Test Case Gallery</h3>
+    <!-- 3rd SECTION: Custom JSON Test Case Upload -->
+    <div id="tool-json" class="section">
+        <h3>3. Upload Test Assets (JSON Files):</h3>
+        <label for="jsonFileInput"><strong>Upload JSON Test Case:</strong></label><br>
+        <input type="file" id="jsonFileInput" accept=".json">
+        <button onclick="processJSONFile()">Process JSON Case</button>
+    </div>
+
+    <!-- 4th SECTION: Global Test Case Gallery (Handwriting Evidence Pages) -->
+    <div id="tool-gallery" class="section">
+        <h3>4. Founder's Handwriting Evidence Gallery</h3>
         <label for="caseSelect"><strong>Choose Language / Script Specimen:</strong></label><br>
         <select id="caseSelect">
             <option value="">-- Select Multilingual Specimen --</option>
@@ -151,32 +215,6 @@
         </select>
         <br><br>
         <button onclick="loadSelectedCase()">Load Handwriting Evidence Page</button>
-    </div>
-
-    <!-- TOP SECTION 3: Live Image Mirror Tool (Upload Normal Image & Mirror It) -->
-    <div class="section">
-        <h3>Live Image Mirror Tool (Upload Normal Image)</h3>
-        <label for="imageNormalInput"><strong>Upload Normal Writing Image:</strong></label><br>
-        <input type="file" id="imageNormalInput" accept="image/*">
-        <button onclick="processNormalImage()">Process & Mirror Image</button>
-    </div>
-
-    <!-- TOP SECTION 4: Custom JSON Test Case Upload -->
-    <div class="section">
-        <h3>Upload Test Assets (JSON Files):</h3>
-        <label for="jsonFileInput"><strong>Upload JSON Test Case:</strong></label><br>
-        <input type="file" id="jsonFileInput" accept=".json">
-        <button onclick="processJSONFile()">Process JSON Case</button>
-    </div>
-
-    <!-- Compact Output Box -->
-    <div id="output" class="result-box">
-        <div id="imageContainer" style="display: none;">
-            <img id="evidenceImg" class="evidence-image" src="" alt="Evidence Specimen"><br>
-            <a id="downloadLink" href="#" download="mirrored-evidence.jpg" style="display: none; margin-top: 10px; text-decoration: none;">
-                <button style="background: #16a34a !important; width: auto; padding: 8px 20px !important;">Download Mirrored Image</button>
-            </a>
-        </div>
     </div>
 
     <!-- SECTION 5: Cross-Model Benchmarking Guide & Methodology -->
@@ -258,17 +296,33 @@
 
         const reader = new FileReader();
         reader.onload = function(e) {
-            const imgElement = document.getElementById('evidenceImg');
-            imgElement.src = e.target.result;
-            imgElement.style.transform = "scaleX(-1)"; // Mirror uploaded image live
+            const img = new Image();
+            img.onload = function() {
+                const canvas = document.getElementById('mirrorCanvas');
+                const ctx = canvas.getContext('2d');
+                canvas.width = img.width;
+                canvas.height = img.height;
+                
+                // Flip horizontally to truly mirror the image data
+                ctx.translate(canvas.width, 0);
+                ctx.scale(-1, 1);
+                ctx.drawImage(img, 0, 0);
 
-            document.getElementById('imageContainer').style.display = 'block';
+                const mirroredDataUrl = canvas.toDataURL('image/jpeg');
 
-            const downloadLink = document.getElementById('downloadLink');
-            downloadLink.href = e.target.result;
-            downloadLink.style.display = 'inline-block';
+                const imgElement = document.getElementById('evidenceImg');
+                imgElement.src = mirroredDataUrl;
+                imgElement.style.transform = "none"; // Already flipped via canvas data
 
-            document.getElementById('output').style.display = 'block';
+                document.getElementById('imageContainer').style.display = 'block';
+
+                const downloadLink = document.getElementById('downloadLink');
+                downloadLink.href = mirroredDataUrl;
+                downloadLink.style.display = 'inline-block';
+
+                document.getElementById('output').style.display = 'block';
+            };
+            img.src = e.target.result;
         };
         reader.readAsDataURL(file);
     }
