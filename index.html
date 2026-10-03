@@ -152,7 +152,7 @@
     <div class="nav-bar">
         <a href="#tool-img">Image Mirror</a>
         <a href="#tool-text">Text Mirror</a>
-        <a href="#tool-gallery">Handwriting Gallery</a>
+        <a href="#tool-contact">Contact Us</a>
         <a href="#tool-guide">Testing Guide</a>
     </div>
 
@@ -196,34 +196,11 @@
         </div>
     </div>
 
-    <!-- 3. Founder's Handwriting Evidence Gallery -->
-    <div id="tool-gallery" class="section">
-        <h3>3. Founder's Handwriting Evidence Gallery</h3>
-        <p>Select any multilingual handwriting specimen to view and download directly:</p>
-        <label for="caseSelect"><strong>Choose Language / Script Specimen:</strong></label><br>
-        <select id="caseSelect">
-            <option value="">-- Select Multilingual Specimen --</option>
-            <option value="urdu">Urdu / Sindhi (Pakistan National Anthem & Poetry)</option>
-            <option value="arabic">Arabic (Pentagon Stress Test & Paradox)</option>
-            <option value="hebrew">Hebrew (Vowel-dotted Mirror Script)</option>
-            <option value="korean">Korean Hangul (Pentagon Stress Test)</option>
-            <option value="japanese_chinese">Japanese / Chinese (Kanji/Hanzi Traps)</option>
-            <option value="russian">Russian (Pushkin & Akhmatova Existential)</option>
-            <option value="french_italian">French & Italian (Hugo, Dante, Montale)</option>
-            <option value="thai">Thai Script (Complex Geometric Inversion)</option>
-        </select>
-        <br><br>
-        <button onclick="loadSelectedCase()">Load & Download Language Specimen</button>
-    </div>
-
-    <!-- Gallery Output Box -->
-    <div id="galleryOutput" class="result-box">
-        <div id="galleryImageContainer" style="display: none;">
-            <img id="galleryEvidenceImg" class="evidence-image" src="" alt="Handwriting Specimen"><br>
-            <a id="galleryDownloadLink" href="#" download="handwriting-page.jpg" style="display: inline-block; margin-top: 10px; text-decoration: none;">
-                <button style="background: #16a34a !important; width: auto; padding: 8px 20px !important;">Download Selected Page</button>
-            </a>
-        </div>
+    <!-- 3. Contact Us Section for Real Mirror Writing -->
+    <div id="tool-contact" class="section">
+        <h3>3. Contact Us for Real Mirror Writing</h3>
+        <p>If you need real, professional mirror writing specimens for any language, please contact us:</p>
+        <p style="color: #38bdf8; font-size: 16px; font-weight: bold; margin-top: 10px;">Email: 2nddavinci69@gmail.com</p>
     </div>
 
     <!-- 4. AI Chatbots Testing Guide -->
@@ -231,7 +208,7 @@
         <h3 style="color: #38bdf8 !important; text-align: center;">How to Test & Benchmark AI Chatbots (ChatGPT, Claude, Gemini, Copilot, Qwen, etc.)</h3>
         <p style="text-align: center; color: #94a3b8;">Follow these 4 simple steps to evaluate the visual grounding and geometric robustness of ChatGPT, Claude, Gemini, Copilot, Qwen, etc.:</p>
         <ul style="line-height: 1.6; padding-left: 20px;">
-            <li><strong>Step 1 (Generate or Select Specimen):</strong> Use the tools above to generate a mirrored image or select and download a specimen from the handwriting gallery above.</li>
+            <li><strong>Step 1 (Generate Specimen):</strong> Use the live image or text mirror tools above to create your test specimen.</li>
             <li><strong>Step 2 (Open an AI Chatbot):</strong> Launch OpenAI ChatGPT, Anthropic Claude, Google Gemini, Microsoft Copilot, Qwen, etc.</li>
             <li><strong>Step 3 (Upload and Prompt):</strong> Upload the mirrored image to the chatbot along with this prompt:<br>
                 <code style="color: #38bdf8; background: #111827; padding: 6px 10px; display: inline-block; margin-top: 5px; border-radius: 4px;">"Decode this mirrored/inverted script and provide the exact textual translation accurately without hallucinations."</code>
@@ -249,17 +226,6 @@
 </div>
 
 <script>
-    const database = {
-        "urdu": { image: "Urdu.jpeg" },
-        "arabic": { image: "A1.jpeg" },
-        "hebrew": { image: "Screenshot 2026-10-01 11.52.52 PM.png" },
-        "korean": { image: "K1.jpeg" },
-        "japanese_chinese": { image: "JC1.jpeg" },
-        "russian": { image: "Russian.jpeg" },
-        "french_italian": { image: "French.jpeg" },
-        "thai": { image: "Thai.jpeg" }
-    };
-
     function generateLiveMirror() {
         const text = document.getElementById('userInputText').value;
         if (!text.trim()) {
@@ -268,27 +234,6 @@
         }
         document.getElementById('mirroredDisplay').innerText = text;
         document.getElementById('mirrorResultBox').style.display = 'block';
-    }
-
-    function loadSelectedCase() {
-        const select = document.getElementById('caseSelect');
-        const val = select.value;
-        if (!val || !database[val]) {
-            alert("Please select a valid language category from the dropdown!");
-            return;
-        }
-        const data = database[val];
-
-        const imgElement = document.getElementById('galleryEvidenceImg');
-        imgElement.src = data.image;
-        
-        document.getElementById('galleryImageContainer').style.display = 'block';
-
-        const downloadLink = document.getElementById('galleryDownloadLink');
-        downloadLink.href = data.image;
-        downloadLink.download = val + "-mirror-handwriting.jpg";
-
-        document.getElementById('galleryOutput').style.display = 'block';
     }
 
     function processNormalImage() {
