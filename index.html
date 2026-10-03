@@ -5,16 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VIST-AI Global Forensic Test Viewer</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background: #f4f7f6; color: #333; }
-        .container { max-width: 900px; margin: auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-        h1 { color: #1a365d; text-align: center; }
-        .ad-container { margin: 20px 0; padding: 15px; background: #e2e8f0; text-align: center; border-radius: 6px; border: 2px dashed #cbd5e1; }
-        .result-box { background: #f8fafc; padding: 20px; border-left: 4px solid #3182ce; margin-top: 20px; border-radius: 4px; display: none; }
-        select, input[type="file"], button { padding: 10px; font-size: 15px; margin-top: 10px; border-radius: 4px; border: 1px solid #cbd5e1; }
-        button { background: #3182ce; color: white; border: none; cursor: pointer; }
-        button:hover { background: #2b6cb0; }
-        .section { background: #edf2f7; padding: 15px; border-radius: 6px; margin-top: 20px; }
-        .evidence-image { max-width: 100%; height: auto; border: 1px solid #cbd5e1; border-radius: 4px; margin-top: 15px; display: block; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background: #0f172a; color: #e2e8f0; }
+        .container { max-width: 900px; margin: auto; background: #1e293b; padding: 30px; border-radius: 10px; box-shadow: 0 8px 20px rgba(0,0,0,0.5); border: 1px solid #334155; }
+        h1 { color: #38bdf8; text-align: center; }
+        p { color: #94a3b8; }
+        .ad-container { margin: 20px 0; padding: 15px; background: #0f172a; text-align: center; border-radius: 6px; border: 2px dashed #475569; }
+        .result-box { background: #0f172a; padding: 20px; border-left: 4px solid #38bdf8; margin-top: 20px; border-radius: 6px; display: none; border: 1px solid #334155; }
+        select, input[type="file"], button { padding: 10px; font-size: 15px; margin-top: 10px; border-radius: 6px; border: 1px solid #475569; background: #334155; color: #f8fafc; width: 100%; box-sizing: border-box; }
+        input[type="file"] { padding: 8px; background: #1e293b; }
+        button { background: #0284c7; color: white; border: none; cursor: pointer; font-weight: bold; }
+        button:hover { background: #0369a1; }
+        .section { background: #334155; padding: 20px; border-radius: 8px; margin-top: 20px; border: 1px solid #475569; }
+        .evidence-image { max-width: 100%; height: auto; border: 1px solid #475569; border-radius: 6px; margin-top: 15px; display: block; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+        label { color: #cbd5e1; }
     </style>
 </head>
 <body>
@@ -23,16 +26,17 @@
     <h1>VIST-AI Global Forensic Test Viewer</h1>
     <p style="text-align: center;">Multilingual Geometric Robustness & Visual Grounding Benchmark</p>
 
+    <!-- Google AdSense Ad Slot Integration -->
     <div class="ad-container">
-        <small style="color: #718096;">Advertisement Space (Google AdSense Ready)</small>
+        <small style="color: #64748b;">Advertisement Space (Google AdSense Ready)</small>
     </div>
 
-    <hr style="margin: 30px 0; border: 0; border-top: 1px solid #e2e8f0;">
+    <hr style="margin: 30px 0; border: 0; border-top: 1px solid #334155;">
 
     <div class="section">
         <h3>Select Global Test Case</h3>
         <label for="caseSelect"><strong>Choose Language / Script:</strong></label><br>
-        <select id="caseSelect" style="width: 100%;">
+        <select id="caseSelect">
             <option value="">-- Select Multilingual Specimen --</option>
             <option value="urdu">Urdu / Sindhi (Pakistan National Anthem & Poetry)</option>
             <option value="arabic">Arabic (Pentagon Stress Test & Paradox)</option>
@@ -43,25 +47,29 @@
             <option value="french_italian">French & Italian (Hugo, Dante, Montale)</option>
             <option value="thai">Thai Script (Complex Geometric Inversion)</option>
         </select>
-        <br>
-        <button onclick="loadSelectedCase()">Load Forensic Case & Evidence</button>
+        <br><br>
+        <button onclick="loadSelectedCase()">Load Forensic Case</button>
     </div>
 
     <div class="section">
-        <label for="jsonFileInput"><strong>Or Upload Custom JSON Test Case:</strong></label><br>
-        <input type="file" id="jsonFileInput" accept=".json" onchange="loadCustomJSON(event)">
+        <h3>Upload Test Assets (Custom Files):</h3>
+        <label for="jsonFileInput"><strong>Upload JSON Test Case:</strong></label><br>
+        <input type="file" id="jsonFileInput" accept=".json" onchange="loadCustomJSON(event)"><br><br>
+        
+        <label for="imageFileInput"><strong>Upload Mirror Writing Image (Evidence):</strong></label><br>
+        <input type="file" id="imageFileInput" accept="image/*" onchange="loadCustomImage(event)">
     </div>
 
     <div id="output" class="result-box">
         <h3>Forensic Evaluation & Evidence Viewer</h3>
-        <p><strong>Script Category:</strong> <span id="caseCategory"></span></p>
-        <p><strong>Description:</strong> <span id="caseTitle"></span></p>
-        <p><strong>Status:</strong> <span id="caseStatus"></span></p>
-        <p><strong>Forensic Observation:</strong> <span id="caseObservation"></span></p>
+        <p><strong>Script Category:</strong> <span id="caseCategory" style="color: #38bdf8;"></span></p>
+        <p><strong>Description:</strong> <span id="caseTitle" style="color: #f8fafc;"></span></p>
+        <p><strong>Status:</strong> <span id="caseStatus" style="color: #4ade80;"></span></p>
+        <p><strong>Forensic Observation:</strong> <span id="caseObservation" style="color: #cbd5e1;"></span></p>
         
-        <div id="imageContainer" style="margin-top: 20px;">
+        <div id="imageContainer" style="margin-top: 20px; display: none;">
             <strong>Visual Evidence Specimen:</strong><br>
-            <img id="evidenceImg" class="evidence-image" src="" alt="Mirror Writing Evidence Specimen">
+            <img id="evidenceImg" class="evidence-image" src="" alt="Uploaded Mirror Writing Evidence">
         </div>
     </div>
 </div>
@@ -72,57 +80,49 @@
             category: "Urdu / Sindhi (RTL Script)",
             title: "Pakistan National Anthem & Shah Abdul Latif Bhittai Poetry Mirror Test",
             status: "COMPLETED",
-            observation: "Multimodal AI models exhibit severe ligature confusion and token inversion under connected Right-to-Left script stress.",
-            image: "Urdu.jpeg"
+            observation: "Multimodal AI models exhibit severe ligature confusion and token inversion under connected Right-to-Left script stress."
         },
         "arabic": {
             category: "Arabic Pentagon Stress Test",
             title: "Mathematical, Syntactic, and Probability Traps in Mirror Format",
             status: "COMPLETED",
-            observation: "Diacritic dots and contextual letter forms caused confabulation in baseline vision models.",
-            image: "A1.jpeg"
+            observation: "Diacritic dots and contextual letter forms caused confabulation in baseline vision models."
         },
         "hebrew": {
             category: "Hebrew Mirror Script",
             title: "Handwritten Niqqud (Vowel-dotted) Geometric Inversion",
             status: "COMPLETED",
-            observation: "High visual grounding failure; models failed to map inverted consonantal frameworks accurately.",
-            image: "Screenshot 2026-10-01 11.52.52 PM.png"
+            observation: "High visual grounding failure; models failed to map inverted consonantal frameworks accurately."
         },
         "korean": {
             category: "Korean Hangul Pentagon Test",
             title: "Jamo Stroke Order and Mathematical Logic Inversion",
             status: "COMPLETED",
-            observation: "Block-based syllabic grouping disrupted spatial parsing in OCR and vision-language modules.",
-            image: "K1.jpeg"
+            observation: "Block-based syllabic grouping disrupted spatial parsing in OCR and vision-language modules."
         },
         "japanese_chinese": {
             category: "Japanese & Chinese (Kanji/Hanzi)",
             title: "High Stroke-Density Character Inversion and Logic Traps",
             status: "COMPLETED",
-            observation: "Dense stroke intersections led to semantic hallucination and incorrect stroke-order resolution.",
-            image: "JC1.jpeg"
+            observation: "Dense stroke intersections led to semantic hallucination and incorrect stroke-order resolution."
         },
         "russian": {
             category: "Russian Cyrillic (Pushkin & Akhmatova)",
             title: "Love, Destiny, and Existential Poetry Mirror Inversion",
             status: "COMPLETED",
-            observation: "Cyrillic character mirroring resulted in structural reading errors and token splitting.",
-            image: "Russian.jpeg"
+            observation: "Cyrillic character mirroring resulted in structural reading errors and token splitting."
         },
         "french_italian": {
             category: "French & Italian (Latin Script)",
             title: "Victor Hugo, Dante Alighieri, and Eugenio Montale Verses",
             status: "COMPLETED",
-            observation: "Standard Latin scripts showed better resilience but failed under complex cursive mirror distortions.",
-            image: "French.jpeg"
+            observation: "Standard Latin scripts showed better resilience but failed under complex cursive mirror distortions."
         },
         "thai": {
             category: "Thai Script Geometric Test",
             title: "Multi-tier Vowel and Consonant Inversion Stress Test",
             status: "COMPLETED",
-            observation: "Above and below-line vowel markers created severe spatial mapping discrepancies.",
-            image: "Thai.jpeg"
+            observation: "Above and below-line vowel markers created severe spatial mapping discrepancies."
         }
     };
 
@@ -133,16 +133,6 @@
         
         let observationText = data.observation || (data.findings && data.findings[0] ? data.findings[0].observation : "N/A");
         document.getElementById('caseObservation').innerText = observationText;
-
-        const imgElement = document.getElementById('evidenceImg');
-        const imgContainer = document.getElementById('imageContainer');
-
-        if (data.image) {
-            imgElement.src = data.image;
-            imgContainer.style.display = 'block';
-        } else {
-            imgContainer.style.display = 'none';
-        }
 
         document.getElementById('output').style.display = 'block';
     }
@@ -171,6 +161,20 @@
             }
         };
         reader.readAsText(file);
+    }
+
+    function loadCustomImage(event) {
+        const file = event.target.files[0];
+        if (!file) return;
+
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            const imgElement = document.getElementById('evidenceImg');
+            imgElement.src = e.target.result;
+            document.getElementById('imageContainer').style.display = 'block';
+            document.getElementById('output').style.display = 'block';
+        };
+        reader.readAsDataURL(file);
     }
 </script>
 
