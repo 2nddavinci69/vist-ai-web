@@ -9,24 +9,24 @@
             font-family: Arial, sans-serif !important; 
             margin: 0 !important; 
             padding: 20px !important; 
-            background: #0f172a !important; 
+            background: #090d16 !important; /* Deepest Dark Background */
             color: #e2e8f0 !important; 
             scroll-behavior: smooth;
         }
         .container { 
             max-width: 950px !important; 
             margin: auto !important; 
-            background: #1e293b !important; 
+            background: #111827 !important; /* Rich Dark Panel */
             padding: 30px !important; 
             border-radius: 10px !important; 
-            box-shadow: 0 8px 20px rgba(0,0,0,0.8) !important; 
-            border: 1px solid #334155 !important; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.9) !important; 
+            border: 1px solid #1f2937 !important; 
         }
         h1 { color: #38bdf8 !important; text-align: center !important; margin-bottom: 5px; }
         .founder-title { text-align: center; color: #ffffff !important; font-size: 18px; font-weight: bold; margin-bottom: 20px; }
         h3 { color: #38bdf8 !important; }
         p { color: #94a3b8 !important; }
-        li { color: #cbd5e1 !important; margin-bottom: 8px; }
+        li { color: #cbd5e1 !important; margin-bottom: 10px; }
         
         /* Top Clickable Navigation Bar */
         .nav-bar {
@@ -35,18 +35,18 @@
             flex-wrap: wrap;
             gap: 10px;
             margin: 20px 0;
-            padding: 10px;
-            background: #0f172a;
+            padding: 12px;
+            background: #090d16;
             border-radius: 6px;
-            border: 1px solid #334155;
+            border: 1px solid #1f2937;
         }
         .nav-bar a {
             color: #38bdf8;
             text-decoration: none;
             font-size: 14px;
             font-weight: bold;
-            padding: 6px 12px;
-            background: #334155;
+            padding: 8px 14px;
+            background: #1e293b;
             border-radius: 4px;
             transition: background 0.3s;
         }
@@ -58,19 +58,19 @@
         .ad-container { 
             margin: 20px 0 !important; 
             padding: 15px !important; 
-            background: #0f172a !important; 
+            background: #090d16 !important; 
             text-align: center !important; 
             border-radius: 6px !important; 
-            border: 2px dashed #475569 !important; 
+            border: 2px dashed #334155 !important; 
         }
         .result-box { 
-            background: #0f172a !important; 
+            background: #090d16 !important; 
             padding: 15px !important; 
             border-left: 4px solid #38bdf8 !important; 
             margin-top: 20px !important; 
             border-radius: 6px !important; 
             display: none; 
-            border: 1px solid #334155 !important; 
+            border: 1px solid #1f2937 !important; 
             text-align: center;
         }
         select, input[type="file"], textarea, button { 
@@ -78,14 +78,14 @@
             font-size: 15px !important; 
             margin-top: 10px !important; 
             border-radius: 6px !important; 
-            border: 1px solid #475569 !important; 
-            background: #334155 !important; 
+            border: 1px solid #334155 !important; 
+            background: #1e293b !important; 
             color: #f8fafc !important; 
             width: 100% !important; 
             box-sizing: border-box !important; 
         }
         textarea { resize: vertical; height: 70px; }
-        input[type="file"] { padding: 8px !important; background: #1e293b !important; }
+        input[type="file"] { padding: 8px !important; background: #111827 !important; }
         button { 
             background: #0284c7 !important; 
             color: white !important; 
@@ -95,7 +95,7 @@
         }
         button:hover { background: #0369a1 !important; }
         .section { 
-            background: #334155 !important; 
+            background: #1e293b !important; 
             padding: 20px !important; 
             border-radius: 8px !important; 
             margin-top: 20px !important; 
@@ -105,14 +105,14 @@
             max-width: 100% !important; 
             max-height: 350px !important; 
             height: auto !important; 
-            border: 1px solid #475569 !important; 
+            border: 1px solid #334155 !important; 
             border-radius: 6px !important; 
             margin: 10px auto !important; 
             display: inline-block !important; 
-            box-shadow: 0 4px 10px rgba(0,0,0,0.5) !important; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.6) !important; 
         }
         .mirror-output {
-            background: #0f172a;
+            background: #090d16;
             padding: 12px;
             border-radius: 6px;
             margin-top: 10px;
@@ -120,7 +120,7 @@
             letter-spacing: 2px;
             text-align: center;
             color: #38bdf8;
-            border: 1px solid #475569;
+            border: 1px solid #334155;
             word-break: break-all;
             transform: scaleX(-1);
         }
@@ -128,7 +128,7 @@
             text-align: center;
             margin-top: 40px;
             padding-top: 20px;
-            border-top: 1px solid #334155;
+            border-top: 1px solid #1f2937;
             color: #ffffff;
             font-size: 14px;
         }
@@ -155,33 +155,23 @@
         <small style="color: #64748b;">Advertisement Space (Google AdSense Ready)</small>
     </div>
 
-    <hr style="margin: 30px 0; border: 0; border-top: 1px solid #334155;">
+    <hr style="margin: 30px 0; border: 0; border-top: 1px solid #1f2937;">
 
-    <!-- 1st SECTION: Live Image Mirror Tool (Normal Page to Mirror Page with Result) -->
+    <!-- 1st SECTION: Live Image Mirror Tool -->
     <div id="tool-img" class="section">
         <h3>1. Live Image Mirror Tool (Normal Page to Mirror Page)</h3>
+        <p>Aam likhai (normal writing) ki tasveer yahan upload karen aur foran mirror (ulti) hui tasveer hasil karen:</p>
         <label for="imageNormalInput"><strong>Upload Normal Writing Image:</strong></label><br>
         <input type="file" id="imageNormalInput" accept="image/*">
         <button onclick="processNormalImage()">Process & Mirror Image</button>
     </div>
 
-    <!-- Compact Output Box for Image Mirror -->
-    <div id="output" class="result-box">
-        <div id="imageContainer" style="display: none;">
-            <canvas id="mirrorCanvas" style="display:none;"></canvas>
-            <img id="evidenceImg" class="evidence-image" src="" alt="Mirrored Evidence Specimen"><br>
-            <a id="downloadLink" href="#" download="mirrored-evidence.jpg" style="display: none; margin-top: 10px; text-decoration: none;">
-                <button style="background: #16a34a !important; width: auto; padding: 8px 20px !important;">Download Mirrored Image</button>
-            </a>
-        </div>
-    </div>
-
     <!-- 2nd SECTION: Live Text Mirror Tool -->
     <div id="tool-text" class="section" style="border: 1px solid #38bdf8 !important;">
         <h3>2. Live Multilingual Text Mirror Tool</h3>
-        <p>Type any text or sentence in any language to instantly generate its mirrored preview:</p>
+        <p>Koi bhi text ya jumla kisi bhi zaban mein likhein aur foran uska mirror preview dekhein:</p>
         <label for="userInputText"><strong>Enter Text to Mirror:</strong></label>
-        <textarea id="userInputText" placeholder="Type or paste text here..."></textarea>
+        <textarea id="userInputText" placeholder="Yahan apna text type ya paste karen..."></textarea>
         <button onclick="generateLiveMirror()">Generate Mirrored Text</button>
         
         <div id="mirrorResultBox" style="display: none; margin-top: 15px;">
@@ -193,6 +183,7 @@
     <!-- 3rd SECTION: Custom JSON Test Case Upload -->
     <div id="tool-json" class="section">
         <h3>3. Upload Test Assets (JSON Files):</h3>
+        <p>Apna custom JSON test case file yahan upload karen:</p>
         <label for="jsonFileInput"><strong>Upload JSON Test Case:</strong></label><br>
         <input type="file" id="jsonFileInput" accept=".json">
         <button onclick="processJSONFile()">Process JSON Case</button>
@@ -201,41 +192,46 @@
     <!-- 4th SECTION: Global Test Case Gallery (Handwriting Evidence Pages) -->
     <div id="tool-gallery" class="section">
         <h3>4. Founder's Handwriting Evidence Gallery</h3>
+        <p>Mukhtalif zubanun ke asli haath ke likhe hue mirror writing specimens yahan se select karen:</p>
         <label for="caseSelect"><strong>Choose Language / Script Specimen:</strong></label><br>
         <select id="caseSelect">
             <option value="">-- Select Multilingual Specimen --</option>
-            <option value="urdu">Urdu / Sindhi (Pakistan National Anthem & Poetry)[cite: 20, 21]</option>
-            <option value="arabic">Arabic (Pentagon Stress Test & Paradox)[cite: 19]</option>
-            <option value="hebrew">Hebrew (Vowel-dotted Mirror Script)[cite: 14]</option>
-            <option value="korean">Korean Hangul (Pentagon Stress Test)[cite: 11]</option>
-            <option value="japanese_chinese">Japanese / Chinese (Kanji/Hanzi Traps)[cite: 15]</option>
-            <option value="russian">Russian (Pushkin & Akhmatova Existential)[cite: 17]</option>
-            <option value="french_italian">French & Italian (Hugo, Dante, Montale)[cite: 18, 19]</option>
-            <option value="thai">Thai Script (Complex Geometric Inversion)[cite: 16]</option>
+            <option value="urdu">Urdu / Sindhi (Pakistan National Anthem & Poetry)</option>
+            <option value="arabic">Arabic (Pentagon Stress Test & Paradox)</option>
+            <option value="hebrew">Hebrew (Vowel-dotted Mirror Script)</option>
+            <option value="korean">Korean Hangul (Pentagon Stress Test)</option>
+            <option value="japanese_chinese">Japanese / Chinese (Kanji/Hanzi Traps)</option>
+            <option value="russian">Russian (Pushkin & Akhmatova Existential)</option>
+            <option value="french_italian">French & Italian (Hugo, Dante, Montale)</option>
+            <option value="thai">Thai Script (Complex Geometric Inversion)</option>
         </select>
         <br><br>
         <button onclick="loadSelectedCase()">Load Handwriting Evidence Page</button>
     </div>
 
-    <!-- SECTION 5: Cross-Model Benchmarking Guide & Methodology -->
-    <div class="section" style="margin-top: 30px; background: #0f172a !important; border: 1px dashed #38bdf8 !important;">
-        <h3>How to Test & Benchmark Against All Chatbots (ChatGPT, Claude, Gemini, Copilot)</h3>
-        <p>Follow this standardized testing protocol to evaluate multimodal AI visual grounding vulnerabilities:</p>
-        <ul>
-            <li><strong>Step 1 (Generate or Upload):</strong> Use the Live Text Mirror tool, select a handwriting page from the gallery, or upload any normal writing image to convert it.</li>
-            <li><strong>Step 2 (Target Chatbots):</strong> Open OpenAI ChatGPT, Anthropic Claude, Google Gemini, or Microsoft Copilot.</li>
-            <li><strong>Step 3 (Execute Prompt):</strong> Upload the mirrored image and prompt: <br><em>"Decode this inverted/mirrored script and provide the exact textual translation without hallucinations."</em></li>
-            <li><strong>Step 4 (Analyze Failures):</strong> Observe how models suffer from token splitting, ligature collapse, RTL inversion errors, and spatial grounding failures.</li>
-        </ul>
+    <!-- Compact Output Box for Images / Gallery -->
+    <div id="output" class="result-box">
+        <div id="imageContainer" style="display: none;">
+            <canvas id="mirrorCanvas" style="display:none;"></canvas>
+            <img id="evidenceImg" class="evidence-image" src="" alt="Evidence Specimen"><br>
+            <a id="downloadLink" href="#" download="evidence-page.jpg" style="display: none; margin-top: 10px; text-decoration: none;">
+                <button style="background: #16a34a !important; width: auto; padding: 8px 20px !important;">Download Page</button>
+            </a>
+        </div>
     </div>
 
-    <!-- BOTTOM SECTION: Download All Founder's Writing Pages (ZIP Bundle) -->
-    <div class="section" style="text-align: center; background: #0284c7 !important; margin-top: 30px;">
-        <h3 style="color: white !important;">Founder's Handwriting Evidence Repository</h3>
-        <p style="color: #e2e8f0 !important;">Download all official multilingual mirror-writing test pages created by Mushtaque Ahmed Rajput[cite: 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21].</p>
-        <a href="#" onclick="downloadAllPages(event)">
-            <button style="background: #0f172a !important; width: auto; padding: 12px 25px !important;">Download All Writing Pages (ZIP/Bundle)</button>
-        </a>
+    <!-- SECTION 5: Very Easy Guide to Test Chatbots (Darkest & Simplest Theme) -->
+    <div class="section" style="margin-top: 30px; background: #090d16 !important; border: 1px solid #38bdf8 !important;">
+        <h3 style="color: #38bdf8 !important; text-align: center;">AI Chatbots ko Check karne ka Asaan Tareeqa (Simple Testing Guide)</h3>
+        <p style="text-align: center; color: #94a3b8;">Ye jaan'ne ke liye ke ChatGPT, Claude, Gemini aur Copilot kitne pani mein hain, ye 4 aasan steps follow karen:</p>
+        <ul style="line-height: 1.6; padding-left: 20px;">
+            <li><strong>Step 1 (Tasweer Banayein ya Chuntein):</strong> Oopar diye gaye tools se koi bhi mirror writing tasweer tayar karen ya gallery se select karke apne paas download kar lein.</li>
+            <li><strong>Step 2 (Chatbot Kholein):</strong> OpenAI ChatGPT, Anthropic Claude, Google Gemini ya Microsoft Copilot mein se koi bhi AI chatbot kholen.</li>
+            <li><strong>Step 3 (Tasweer Bhejein):</strong> Us chatbot ko wo mirror writing wali tasweer upload karen aur ye line likh kar bhejein:<br>
+                <code style="color: #38bdf8; background: #111827; padding: 4px 8px; display: inline-block; margin-top: 5px; border-radius: 4px;">"Is ulti (mirrored) likhai ko parh kar bilkul theek tarjuma (translation) batayein, koi ghalat bayani na karen."</code>
+            </li>
+            <li><strong>Step 4 (Nateeja Dekhein):</strong> Gaur karen ke AI model kaise ghaltian karta hai, lafz tor deta hai (token splitting), ya ulta likha dekh kar confuse ho jata hai.</li>
+        </ul>
     </div>
 
     <!-- Footer Copyrights -->
@@ -279,10 +275,15 @@
 
         const imgElement = document.getElementById('evidenceImg');
         imgElement.src = data.image;
-        imgElement.style.transform = "none"; // Original handwriting specimen
+        imgElement.style.transform = "none"; 
         
         document.getElementById('imageContainer').style.display = 'block';
-        document.getElementById('downloadLink').style.display = 'none';
+
+        const downloadLink = document.getElementById('downloadLink');
+        downloadLink.href = data.image;
+        downloadLink.download = val + "-handwriting-page.jpg";
+        downloadLink.style.display = 'inline-block';
+
         document.getElementById('output').style.display = 'block';
     }
 
@@ -303,7 +304,6 @@
                 canvas.width = img.width;
                 canvas.height = img.height;
                 
-                // Flip horizontally to truly mirror the image data
                 ctx.translate(canvas.width, 0);
                 ctx.scale(-1, 1);
                 ctx.drawImage(img, 0, 0);
@@ -312,12 +312,13 @@
 
                 const imgElement = document.getElementById('evidenceImg');
                 imgElement.src = mirroredDataUrl;
-                imgElement.style.transform = "none"; // Already flipped via canvas data
+                imgElement.style.transform = "none"; 
 
                 document.getElementById('imageContainer').style.display = 'block';
 
                 const downloadLink = document.getElementById('downloadLink');
                 downloadLink.href = mirroredDataUrl;
+                downloadLink.download = "mirrored-evidence.jpg";
                 downloadLink.style.display = 'inline-block';
 
                 document.getElementById('output').style.display = 'block';
@@ -335,11 +336,6 @@
             return;
         }
         alert("JSON Test Case uploaded successfully.");
-    }
-
-    function downloadAllPages(event) {
-        event.preventDefault();
-        alert("Preparing bundle of all writing evidence pages created by Mushtaque Ahmed Rajput[cite: 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]. Your download will begin shortly!");
     }
 </script>
 
