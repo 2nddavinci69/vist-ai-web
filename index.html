@@ -434,6 +434,7 @@
         </script>
     </div>
 
+    <!-- 1. IMAGE MIRROR TOOL -->
     <div id="tool-img" class="section">
         <h3 data-key="sec1Title">1. Live Image Mirror Tool</h3>
         <p data-key="sec1Desc">Upload a normal writing image to generate a horizontally mirrored test specimen for controlled visual evaluation.</p>
@@ -450,6 +451,7 @@
         </div>
     </div>
 
+    <!-- 2. TEXT MIRROR TOOL -->
     <div id="tool-text" class="section highlight">
         <h3 data-key="sec2Title">2. Live Multilingual Text Mirror Tool</h3>
         <p data-key="sec2Desc">Enter text in any supported writing system to generate a visually mirrored preview for controlled testing.</p>
@@ -464,12 +466,95 @@
         </div>
     </div>
 
+    <!-- 3. METHODOLOGY -->
+    <div id="tool-methodology" class="section">
+        <h3 data-key="methTitle">3. VIST-AI Research Methodology</h3>
+        <p data-key="methDesc">VIST-AI uses controlled visual specimens to investigate multimodal AI interpretation under geometric and multilingual conditions.</p>
+
+        <div class="step">
+            <span class="step-number" data-key="stepCond">Test Condition</span>
+            <p data-key="stepCondDesc">A known specimen is transformed using a defined visual operation such as horizontal mirroring.</p>
+        </div>
+        <div class="step">
+            <span class="step-number" data-key="stepObs">Model Observation</span>
+            <p data-key="stepObsDesc">The same specimen and standardized prompt can be presented to one or more multimodal AI systems.</p>
+        </div>
+        <div class="step">
+            <span class="step-number" data-key="stepComp">Ground-Truth Comparison</span>
+            <p data-key="stepCompDesc">Model output is compared with the known source specimen, transformation condition, and expected interpretation.</p>
+        </div>
+        <div class="step">
+            <span class="step-number" data-key="stepErr">Error Analysis</span>
+            <p data-key="stepErrDesc">Researchers can record observable discrepancies such as character confusion, spatial interpretation errors, ligature-related errors, tokenization-related observations, or unsupported claims.</p>
+        </div>
+    </div>
+
+    <!-- 4. TESTING GUIDE -->
+    <div id="tool-guide" class="section highlight">
+        <h3 style="text-align:center;" data-key="guideTitle">4. How to Test Multimodal AI Systems</h3>
+        <p style="text-align:center;" data-key="guideDesc">Use the following procedure to conduct a controlled VIST-AI visual-grounding and geometric-robustness test.</p>
+
+        <div class="step">
+            <span class="step-number" data-key="gStep1">Step 1 — Generate a Test Specimen</span>
+            <p data-key="gStep1Desc">Use the Image Mirror Tool or Text Mirror Tool above to create a controlled visual specimen.</p>
+        </div>
+        <div class="step">
+            <span class="step-number" data-key="gStep2">Step 2 — Select a Multimodal AI System</span>
+            <p data-key="gStep2Desc">Open a multimodal AI system capable of receiving image input.</p>
+        </div>
+        <div class="step">
+            <span class="step-number" data-key="gStep3">Step 3 — Upload and Use a Standardized Prompt</span>
+            <p data-key="gStep3Desc">Upload the mirrored specimen and use a neutral prompt such as the following:</p>
+            <code class="prompt-box">Analyze this image as a visual specimen.
+
+Describe exactly what you can determine from the image.
+
+If the writing appears mirrored, inverted, transformed, or otherwise unusual, identify that condition.
+
+Do not guess missing characters. Clearly distinguish direct visual observations from interpretation or uncertainty.</code>
+        </div>
+        <div class="step">
+            <span class="step-number" data-key="gStep4">Step 4 — Record the Output</span>
+            <p data-key="gStep4Desc">Preserve the model response, test specimen, prompt, model/version information, and test date.</p>
+        </div>
+        <div class="step">
+            <span class="step-number" data-key="gStep5">Step 5 — Analyze the Result</span>
+            <p data-key="gStep5Desc">Compare the model output with the known specimen and transformation condition. Record observable discrepancies without assuming a failure in advance.</p>
+        </div>
+    </div>
+
+    <!-- 5. OBSERVATION RECORD -->
+    <div id="tool-record" class="section">
+        <h3 data-key="recTitle">5. VIST-AI Observation Record</h3>
+        <p data-key="recDesc">For reproducible research, record the same basic information for every test.</p>
+
+        <div class="record-grid">
+            <div class="record-item"><strong data-key="rec1">Test ID</strong> Example: VIST-2026-001</div>
+            <div class="record-item"><strong data-key="rec2">Test Date</strong> Record the date of the experiment.</div>
+            <div class="record-item"><strong data-key="rec3">AI System / Model</strong> Record the exact model name/version when available.</div>
+            <div class="record-item"><strong data-key="rec4">Input Type</strong> Image / Mirrored Script / Multilingual Specimen</div>
+            <div class="record-item"><strong data-key="rec5">Transformation</strong> Horizontal Mirror / Other Controlled Transformation</div>
+            <div class="record-item"><strong data-key="rec6">Prompt</strong> Record the exact prompt used.</div>
+            <div class="record-item"><strong data-key="rec7">Observed Output</strong> Preserve the original model response.</div>
+            <div class="record-item"><strong data-key="rec8">Ground-Truth Comparison</strong> Compare output against the known specimen.</div>
+        </div>
+    </div>
+
+    <!-- 6. CONTACT -->
     <div id="tool-contact" class="section">
         <h3 data-key="contactTitle">6. Contact VIST-AI</h3>
         <p data-key="contactDesc">For research collaboration, custom mirror-writing specimens, multilingual test material, or VIST-AI framework discussion, contact:</p>
         <p class="email">2nddavinci69@gmail.com</p>
     </div>
 
+    <!-- ABOUT VIST-AI -->
+    <div class="section">
+        <h3 data-key="aboutTitle">About VIST-AI</h3>
+        <p data-key="aboutDesc1">VIST-AI is an open research and evaluation framework focused on visual grounding, geometric transformations, multilingual writing systems, and observable multimodal AI behavior.</p>
+        <p data-key="aboutDesc2">The framework is intended to support controlled experiments, reproducibility, comparative testing, and forensic-style analysis of model outputs.</p>
+    </div>
+
+    <!-- FOOTER -->
     <div class="footer-box">
         <p>&copy; 2026 VIST-AI Framework. All Rights Reserved.</p>
         <p><strong>Founder:</strong> Mushtaque Ahmed Rajput</p>
@@ -497,8 +582,27 @@
             genTextBtn: "Generate Mirrored Preview",
             previewLabel: "Visual Mirrored Preview",
             mirrorNote: "Note: this is a visual horizontal transformation. The underlying Unicode text is not reversed or translated.",
+            methTitle: "3. VIST-AI Research Methodology",
+            methDesc: "VIST-AI uses controlled visual specimens to investigate multimodal AI interpretation under geometric and multilingual conditions.",
+            stepCond: "Test Condition", stepCondDesc: "A known specimen is transformed using a defined visual operation such as horizontal mirroring.",
+            stepObs: "Model Observation", stepObsDesc: "The same specimen and standardized prompt can be presented to one or more multimodal AI systems.",
+            stepComp: "Ground-Truth Comparison", stepCompDesc: "Model output is compared with the known source specimen, transformation condition, and expected interpretation.",
+            stepErr: "Error Analysis", stepErrDesc: "Researchers can record observable discrepancies such as character confusion, spatial interpretation errors, ligature-related errors, tokenization-related observations, or unsupported claims.",
+            guideTitle: "4. How to Test Multimodal AI Systems",
+            guideDesc: "Use the following procedure to conduct a controlled VIST-AI visual-grounding and geometric-robustness test.",
+            gStep1: "Step 1 — Generate a Test Specimen", gStep1Desc: "Use the Image Mirror Tool or Text Mirror Tool above to create a controlled visual specimen.",
+            gStep2: "Step 2 — Select a Multimodal AI System", gStep2Desc: "Open a multimodal AI system capable of receiving image input.",
+            gStep3: "Step 3 — Upload and Use a Standardized Prompt", gStep3Desc: "Upload the mirrored specimen and use a neutral prompt such as the following:",
+            gStep4: "Step 4 — Record the Output", gStep4Desc: "Preserve the model response, test specimen, prompt, model/version information, and test date.",
+            gStep5: "Step 5 — Analyze the Result", gStep5Desc: "Compare the model output with the known specimen and transformation condition. Record observable discrepancies without assuming a failure in advance.",
+            recTitle: "5. VIST-AI Observation Record",
+            recDesc: "For reproducible research, record the same basic information for every test.",
+            rec1: "Test ID", rec2: "Test Date", rec3: "AI System / Model", rec4: "Input Type", rec5: "Transformation", rec6: "Prompt", rec7: "Observed Output", rec8: "Ground-Truth Comparison",
             contactTitle: "6. Contact VIST-AI",
-            contactDesc: "For research collaboration, custom mirror-writing specimens, multilingual test material, or VIST-AI framework discussion, contact:"
+            contactDesc: "For research collaboration, custom mirror-writing specimens, multilingual test material, or VIST-AI framework discussion, contact:",
+            aboutTitle: "About VIST-AI",
+            aboutDesc1: "VIST-AI is an open research and evaluation framework focused on visual grounding, geometric transformations, multilingual writing systems, and observable multimodal AI behavior.",
+            aboutDesc2: "The framework is intended to support controlled experiments, reproducibility, comparative testing, and forensic-style analysis of model outputs."
         },
         ja: {
             title: "グローバルフォレンジックAIテスター",
@@ -518,8 +622,27 @@
             genTextBtn: "ミラープレビューを生成",
             previewLabel: "視覚的ミラープレビュー",
             mirrorNote: "注：これは視覚的な水平変換です。基盤となるUnicodeテキストは反転または翻訳されません。",
+            methTitle: "3. VIST-AI 研究方法論",
+            methDesc: "VIST-AIは、制御された視覚標本を使用して、幾何学的および多言語の条件下でのマルチモーダルAIの解釈を調査します。",
+            stepCond: "テスト条件", stepCondDesc: "既知の標本は、水平ミラーリングなどの定義された視覚的操作を使用して変換されます。",
+            stepObs: "モデルの観察", stepObsDesc: "同じ標本と標準化されたプロンプトを1つ以上のマルチモーダルAIシステムに提示できます。",
+            stepComp: "グラウンド真実比較", stepCompDesc: "モデルの出力を、既知のソース標本、変換条件、および期待される解釈と比較します。",
+            stepErr: "エラー分析", stepErrDesc: "研究者は、文字の混동、空間解釈エラー、リガチャー関連エラーなどの観察可能な不一致を記録できます。",
+            guideTitle: "4. マルチモーダルAIシステムのテスト方法",
+            guideDesc: "制御されたVIST-AI視覚グラウンディングおよび幾何学的堅牢性テストを実施するには、次の手順に従います。",
+            gStep1: "ステップ1 — テスト標本の生成", gStep1Desc: "上記の画像ミラーツールまたはテキストミラーツールを使用して、制御された視覚標本を作成します。",
+            gStep2: "ステップ2 — マルチモーダルAIシステムの選択", gStep2Desc: "画像入力を受け取る能力を持つマルチモーダルAIシステムを開きます。",
+            gStep3: "ステップ3 — 標準化されたプロンプトの使用", gStep3Desc: "ミラーリングされた標本をアップロードし、次のようなニュートラルなプロンプトを使用します。",
+            gStep4: "ステップ4 — 出力の記録", gStep4Desc: "モデルの応答、テスト標本、プロンプト、モデル/バージョン情報、テスト日を保存します。",
+            gStep5: "ステップ5 — 結果の分析", gStep5Desc: "モデル出力を既知の標本と比較します。",
+            recTitle: "5. VIST-AI 観察記録",
+            recDesc: "再現可能な研究のために、すべてのテストで同じ基本情報を記録します。",
+            rec1: "テストID", rec2: "テスト日", rec3: "AIシステム/モデル", rec4: "入力タイプ", rec5: "変換", rec6: "プロンプト", rec7: "観察された出力", rec8: "グラウンド真実比較",
             contactTitle: "6. VIST-AIへのお問い合わせ",
-            contactDesc: "研究協力、カスタムミラーライティング標本、多言語テスト資料、またはVIST-AIフレームワークの議論については、以下にお問い合わせください："
+            contactDesc: "研究協力、カスタムミラーライティング標本については、以下にお問い合わせください：",
+            aboutTitle: "VIST-AIについて",
+            aboutDesc1: "VIST-AIは、視覚的グラウンディング、幾何学的変換に焦点を当てたオープンな研究および評価フレームワークです。",
+            aboutDesc2: "このフレームワークは、制御された実験と再現性をサポートすることを目的としています。"
         },
         ru: {
             title: "Глобальный тестер судебной экспертизы ИИ",
@@ -539,8 +662,27 @@
             genTextBtn: "Создать превью",
             previewLabel: "Зеркальный предпросмотр",
             mirrorNote: "Примечание: это визуальное горизонтальное преобразование. Исходный текст не переворачивается.",
+            methTitle: "3. Методология исследования VIST-AI",
+            methDesc: "VIST-AI использует контролируемые визуальные образцы для исследования интерпретации мультимодального ИИ.",
+            stepCond: "Условие теста", stepCondDesc: "Известный образец преобразуется с помощью определенной визуальной операции.",
+            stepObs: "Наблюдение за моделью", stepObsDesc: "Один и тот же образец может быть представлен одной или нескольким системам ИИ.",
+            stepComp: "Сравнение с эталоном", stepCompDesc: "Результат модели сравнивается с известным исходным образцом.",
+            stepErr: "Анализ ошибок", stepErrDesc: "Исследователи могут фиксировать наблюдаемые расхождения.",
+            guideTitle: "4. Как тестировать мультимодальные системы ИИ",
+            guideDesc: "Используйте следующую процедуру для проведения контролируемого теста VIST-AI.",
+            gStep1: "Шаг 1 — Создание образца", gStep1Desc: "Используйте инструмент зеркалирования изображений или текста.",
+            gStep2: "Шаг 2 — Выбор ИИ системы", gStep2Desc: "Откройте мультимодальную систему ИИ, способную принимать изображения.",
+            gStep3: "Шаг 3 — Использование стандартного промпта", gStep3Desc: "Загрузите зеркальный образец и используйте нейтральный промпт.",
+            gStep4: "Шаг 4 — Запись результата", gStep4Desc: "Сохраните ответ модели, образец, промпт и дату теста.",
+            gStep5: "Шаг 5 — Анализ результата", gStep5Desc: "Сравните результат модели с известным образцом.",
+            recTitle: "5. Запись наблюдений VIST-AI",
+            recDesc: "Для воспроизводимых исследований записывайте базовую информацию для каждого теста.",
+            rec1: "ID теста", rec2: "Дата теста", rec3: "Система / Модель", rec4: "Тип ввода", rec5: "Трансформация", rec6: "Промпт", rec7: "Вывод", rec8: "Сравнение с эталоном",
             contactTitle: "6. Контакты VIST-AI",
-            contactDesc: "Для сотрудничества и вопросов обращайтесь:"
+            contactDesc: "Для сотрудничества и вопросов обращайтесь:",
+            aboutTitle: "О VIST-AI",
+            aboutDesc1: "VIST-AI — это открытая исследовательская платформа, ориентированная на визуальное обоснование.",
+            aboutDesc2: "Платформа предназначена для поддержки контролируемых экспериментов."
         },
         ar: {
             title: "مختبر الذكاء الاصطناعي الجنائي العالمي",
@@ -560,8 +702,27 @@
             genTextBtn: "توليد معاينة معكوسة",
             previewLabel: "معاينة مرئية معكوسة",
             mirrorNote: "ملاحظة: هذا تحويل أفقي بصري. لا يتم عكس نص يونيكود الأساسي أو ترجمته.",
+            methTitle: "3. منهجية بحث VIST-AI",
+            methDesc: "يستخدم VIST-AI عينات مرئية خاضعة للرقابة للتحقيق في تفسير الذكاء الاصطناعي.",
+            stepCond: "شرط الاختبار", stepCondDesc: "يتم تحويل عينة معروفة باستخدام عملية مرئية محددة.",
+            stepObs: "مراقبة النموذج", stepObsDesc: "يمكن تقديم نفس العينة إلى نظام واحد أو أكثر.",
+            stepComp: "مقارنة الحقيقة الأساسية", stepCompDesc: "يتم مقارنة مخرجات النموذج مع العينة الأصلية.",
+            stepErr: "تحليل الأخطاء", stepErrDesc: "يمكن للباحثين تسجيل التناقضات الملحوظة.",
+            guideTitle: "4. كيفية اختبار أنظمة الذكاء الاصطناعي",
+            guideDesc: "استخدم الإجراء التالي لإجراء اختبار خاضع للرقابة.",
+            gStep1: "الخطوة 1 — توليد عينة اختبار", gStep1Desc: "استخدم أداة مرآة الصور أو النصوص لإنشاء عينة مرئية.",
+            gStep2: "الخطوة 2 — حدد نظام الذكاء الاصطناعي", gStep2Desc: "افتح نظام ذكاء اصطناعي قادر على استقبال الصور.",
+            gStep3: "الخطوة 3 — تحميل واستخدام موجه قياسي", gStep3Desc: "قم بتحميل العينة المعكوسة واستخدم موجه محايد.",
+            gStep4: "الخطوة 4 — تسجيل الإخراج", gStep4Desc: "حفظ استجابة النموذج وتاريخ الاختبار.",
+            gStep5: "الخطوة 5 — تحليل النتيجة", gStep5Desc: "مقارنة مخرجات النموذج مع العينة المعروفة.",
+            recTitle: "5. سجل ملاحظات VIST-AI",
+            recDesc: "للبحوث القابلة للاستنسخ، سجل المعلومات الأساسية لكل اختبار.",
+            rec1: "معرف الاختبار", rec2: "تاريخ الاختبار", rec3: "النظام / النموذج", rec4: "نوع الإدخال", rec5: "التحويل", rec6: "الموجه", rec7: "الناتج الملاحظ", rec8: "مقارنة الحقيقة الأساسية",
             contactTitle: "6. اتصل بـ VIST-AI",
-            contactDesc: "للتعاون البحثي أو الاستفسارات، اتصل بـ:"
+            contactDesc: "للتعاون البحثي أو الاستفسارات، اتصل بـ:",
+            aboutTitle: "حول VIST-AI",
+            aboutDesc1: "VIST-AI هو إطار عمل بحثي وتقييمي مفتوح تركز على الأساس البصري.",
+            aboutDesc2: "يهدف الإطار إلى دعم التجارب الخاضعة للرقابة وإمكانية التكرار."
         },
         he: {
             title: "בודق בינה מלאכותית פורנסית גלובלי",
@@ -581,8 +742,27 @@
             genTextBtn: "צור תצוגה מקדימה הפוכה",
             previewLabel: "תצוגה מקדימה הפוכה חזותית",
             mirrorNote: "הערה: זוהי המרה אופقية חזותית. טקסט היוניקוד הבסיסי אינו מתהפך או מתורגם.",
+            methTitle: "3. מתודולוגיית המחקר של VIST-AI",
+            methDesc: "VIST-AI משתמשת בדגימות חזותיות מבוקרות לחקירת פרשנות בינה מלאכותית.",
+            stepCond: "תנאי בדיקה", stepCondDesc: "דגימה ידועה עוברת שינוי באמצעות פעולה חזותית מוגדרת.",
+            stepObs: "תצפית מודל", stepObsDesc: "ניתן להציג את אותה דגימה למערכת אחת או יותר.",
+            stepComp: "השוואת אמת-יסוד", stepCompDesc: "פלט המודל מ מול הדגימה המקורית.",
+            stepErr: "ניתוח שגיאות", stepErrDesc: "חוקרים יכולים לרשום אי-התאמות ניתנות לתצפית.",
+            guideTitle: "4. כיצד לבדוק מערכות בינה מלאכותית",
+            guideDesc: "השתמש בהליך הבא לביצוע בדיקה מבוקרת.",
+            gStep1: "שלב 1 — צור דגימת בדיקה", gStep1Desc: "השתמש בכלי מראת התמונות או הטקסט.",
+            gStep2: "שלב 2 — בחר מערכת בינה מלאכותית", gStep2Desc: "פתח מערכת המסוגלת לקבל קלט תמונה.",
+            gStep3: "שלב 3 — העלה והשתמש בהנחיה סטנדרטית", gStep3Desc: "העלה את הדגימה ההפוכה והשתמש בהנחיה ניטרלית.",
+            gStep4: "שלב 4 — רשום את הפלט", gStep4Desc: "שמור את תגובת המודל ותאריך הבדיקה.",
+            gStep5: "שלב 5 — נתח את התוצאה", gStep5Desc: "השווה את פלט המודל מול הדגימה הידועה.",
+            recTitle: "5. רישום תצפית VIST-AI",
+            recDesc: "למחקר ניתן לשחזור, רשום את אותו מידע בסיסי לכל בדיקה.",
+            rec1: "מזהה בדיקה", rec2: "תאריך בדיקה", rec3: "מערכת / מודל", rec4: "סוג קלט", rec5: "טרנספורמציה", rec6: "הנחיה", rec7: "פלט שנצפה", rec8: "השוואת אמת-יסוד",
             contactTitle: "6. צור קשר עם VIST-AI",
-            contactDesc: "לשיתוף פעולה מחקרי או דיון במסגרת, צור קשר:"
+            contactDesc: "לשיתוף פעולה מחקרי, צור קשר:",
+            aboutTitle: "אודות VIST-AI",
+            aboutDesc1: "VIST-AI היא מסגרת מחקר והערכה פתוחה המתמקדת בעיגון חזותי.",
+            aboutDesc2: "המסגרת נועדה לתמוך בניסויים מבוקרים."
         },
         hi: {
             title: "ग्लोबल फ़ोरेंसिक एआई टेस्टर",
@@ -602,8 +782,27 @@
             genTextBtn: "Mirrored पूर्वावलोकन बनाएं",
             previewLabel: "विजुअल Mirrored पूर्वावलोकन",
             mirrorNote: "नोट: यह एक दृश्य क्षैतिज परिवर्तन है। अंत Plying यूनिकोड पाठ उलटा या अनुवादित नहीं होता है।",
+            methTitle: "3. VIST-AI अनुसंधान कार्यप्रणाली",
+            methDesc: "VIST-AI ज्यामितीय और बहुभाषी परिस्थितियों में मल्टीमोडल एआई व्याख्या की जांच के लिए नियंत्रित दृश्य नमूनों का उपयोग करता है।",
+            stepCond: "परीक्षण की स्थिति", stepCondDesc: "एक ज्ञात नमूने को क्षैतिज मिररिंग जैसे परिभाषित दृश्य संचालन का उपयोग करके रूपांतरित किया जाता है।",
+            stepObs: "मॉडल अवलोकन", stepObsDesc: "समान नमूना और मानकीकृत प्रॉम्प्ट को एक या अधिक मल्टीमोडल एआई प्रणालियों के सामने प्रस्तुत किया जा सकता है।",
+            stepComp: "ग्राउंड-ट्रूथ तुलना", stepCompDesc: "मॉडल आउटपुट की तुलना ज्ञात स्रोत नमूने से की जाती है।",
+            stepErr: "त्रुटि विश्लेषण", stepErrDesc: "शोधकर्ता चरित्र भ्रम जैसी विसंगतियों को रिकॉर्ड कर सकते हैं।",
+            guideTitle: "4. मल्टीमोडल एआई सिस्टम का परीक्षण कैसे करें",
+            guideDesc: "नियंत्रित परीक्षण करने के लिए निम्नलिखित प्रक्रिया का उपयोग करें।",
+            gStep1: "चरण 1 — परीक्षण नमूना तैयार करें", gStep1Desc: "नियंत्रित दृश्य नमूना बनाने के लिए ऊपर दिए गए टूल का उपयोग करें।",
+            gStep2: "चरण 2 — एक मल्टीमोडल एआई सिस्टम चुनें", gStep2Desc: "छवि इनपुट प्राप्त करने में सक्षम एआई सिस्टम खोलें।",
+            gStep3: "चरण 3 — मानकीकृत प्रॉम्प्ट का उपयोग करें", gStep3Desc: "मिरर किए गए नमूने को अपलोड करें और एक तटस्थ प्रॉम्प्ट का उपयोग करें।",
+            gStep4: "चरण 4 — आउटपुट रिकॉर्ड करें", gStep4Desc: "मॉडल प्रतिक्रिया, परीक्षण नमूना और दिनांक को संरक्षित करें।",
+            gStep5: "चरण 5 — परिणाम का विश्लेषण करें", gStep5Desc: "ज्ञात नमूने के साथ मॉडल आउटपुट की तुलना करें।",
+            recTitle: "5. VIST-AI अवलोकन रिकॉर्ड",
+            recDesc: "पुनः पेश करने योग्य अनुसंधान के लिए, प्रत्येक परीक्षण के लिए समान बुनियादी जानकारी रिकॉर्ड करें।",
+            rec1: "टेस्ट आईडी", rec2: "परीक्षण तिथि", rec3: "एआई सिस्टम / मॉडल", rec4: "इनपुट प्रकार", rec5: "परिवर्तन", rec6: "प्रॉम्प्ट", rec7: "देखा गया आउटपुट", rec8: "ग्राउंड-ट्रूथ तुलना",
             contactTitle: "6. VIST-AI से संपर्क करें",
-            contactDesc: "शोध सहयोग, कस्टम मिरर-राइटिंग नमूनों या VIST-AI फ्रेमवर्क चर्चा के लिए संपर्क करें:"
+            contactDesc: "शोध सहयोग या चर्चा के लिए संपर्क करें:",
+            aboutTitle: "VIST-AI के बारे में",
+            aboutDesc1: "VIST-AI एक खुला अनुसंधान और मूल्यांकन ढांचा है जो विजुअल ग्राउंडिंग पर केंद्रित है।",
+            aboutDesc2: "यह फ्रेमवर्क नियंत्रित प्रयोगों का समर्थन करने के लिए है।"
         },
         ko: {
             title: "글로벌 포렌식 AI 테스터",
@@ -623,8 +822,27 @@
             genTextBtn: "미러 미리보기 생성",
             previewLabel: "시각적 미러 미리보기",
             mirrorNote: "참고: 이것은 시각적 수평 변환입니다. 기본 유니코드 텍스트는 반전되거나 번역되지 않습니다.",
+            methTitle: "3. VIST-AI 연구 방법론",
+            methDesc: "VIST-AI는 제어된 시각적 표본을 사용하여 기하학적 및 다국어 조건에서 멀티모달 AI 해석을 조사합니다.",
+            stepCond: "테스트 조건", stepCondDesc: "알려진 표본은 수평 미러링과 같은 정의된 시각적 작업을 사용하여 변환됩니다.",
+            stepObs: "모델 관찰", stepObsDesc: "동일한 표본과 표준화된 프롬프트를 하나 이상의 멀티모달 AI 시스템에 제공할 수 있습니다.",
+            stepComp: "정답 비교", stepCompDesc: "모델 출력을 알려진 소스 표본과 비교합니다.",
+            stepErr: "오류 분석", stepErrDesc: "연구원은 관찰 가능한 불일치를 기록할 수 있습니다.",
+            guideTitle: "4. 멀티모달 AI 시스템 테스트 방법",
+            guideDesc: "제어된 테스트를 수행하려면 다음 절차를 따르십시오.",
+            gStep1: "단계 1 — 테스트 표본 생성", gStep1Desc: "위의 도구를 사용하여 제어된 시각적 표본을 만듭니다.",
+            gStep2: "단계 2 — 멀티모달 AI 시스템 선택", gStep2Desc: "이미지 입력을 받을 수 있는 시스템을 엽니다.",
+            gStep3: "단계 3 — 표준화된 프롬프트 사용", gStep3Desc: "미러링된 표본을 업로드하고 중립적인 프롬프트를 사용합니다.",
+            gStep4: "단계 4 — 출력 기록", gStep4Desc: "모델 응답, 테스트 표본 및 날짜를 보존합니다.",
+            gStep5: "단계 5 — 결과 분석", gStep5Desc: "모델 출력을 알려진 표본과 비교합니다.",
+            recTitle: "5. VIST-AI 관찰 기록",
+            recDesc: "재현 가능한 연구를 위해 모든 테스트에 대해 동일한 기본 정보를 기록하십시오.",
+            rec1: "테스트 ID", rec2: "테스트 날짜", rec3: "AI 시스템 / 모델", rec4: "입력 유형", rec5: "변환", rec6: "프롬프트", rec7: "관찰된 출력", rec8: "정답 비교",
             contactTitle: "6. VIST-AI 연락처",
-            contactDesc: "연구 협력 또는 프레임워크 토론을 위해 다음으로 연락하십시오:"
+            contactDesc: "연구 협력 또는 프레임워크 토론을 위해 다음으로 연락하십시오:",
+            aboutTitle: "VIST-AI 소개",
+            aboutDesc1: "VIST-AI는 시각적 접지에 초점을 맞춘 오픈 연구 및 평가 프레임워크입니다.",
+            aboutDesc2: "이 프레임워크는 제어된 실험과 재현성을 지원하기 위한 것입니다."
         },
         zh: {
             title: "全球法医人工智能测试仪",
@@ -644,8 +862,27 @@
             genTextBtn: "生成镜像预览",
             previewLabel: "视觉镜像预览",
             mirrorNote: "注意：这是视觉水平转换。底层 Unicode 文本不会被反转或翻译。",
+            methTitle: "3. VIST-AI 研究方法论",
+            methDesc: "VIST-AI 使用受控的视觉样本来研究多模态 AI 在几何和多语言条件下的解释。",
+            stepCond: "测试条件", stepCondDesc: "使用定义的视觉操作（如水平镜像）转换已知样本。",
+            stepObs: "模型观察", stepObsDesc: "可以将相同的样本和标准化提示提供给一个或多个多模态 AI 系统。",
+            stepComp: "真值比较", stepCompDesc: "将模型输出与已知源样本进行比较。",
+            stepErr: "错误分析", stepErrDesc: "研究人员可以记录可观察到的差异。",
+            guideTitle: "4. 如何测试多模态 AI 系统",
+            guideDesc: "使用以下程序进行受控测试。",
+            gStep1: "步骤 1 — 生成测试样本", gStep1Desc: "使用上面的工具创建受控的视觉样本。",
+            gStep2: "步骤 2 — 选择多模态 AI 系统", gStep2Desc: "打开能够接收图像输入的 AI 系统。",
+            gStep3: "步骤 3 — 上传并使用标准化提示", gStep3Desc: "上传镜像样本并使用中性提示。",
+            gStep4: "步骤 4 — 记录输出", gStep4Desc: "保存模型响应、测试样本和测试日期。",
+            gStep5: "步骤 5 — 分析结果", gStep5Desc: "将模型输出与已知样本进行比较。",
+            recTitle: "5. VIST-AI 观察记录",
+            recDesc: "为了进行可重复的研究，请记录每次测试的基本信息。",
+            rec1: "测试 ID", rec2: "测试日期", rec3: "AI 系统 / 模型", rec4: "输入类型", rec5: "转换", rec6: "提示", rec7: "观察到的输出", rec8: "真值比较",
             contactTitle: "6. 联系 VIST-AI",
-            contactDesc: "如需研究合作、自定义镜像书写样本或框架讨论，请联系："
+            contactDesc: "如需研究合作或框架讨论，请联系：",
+            aboutTitle: "关于 VIST-AI",
+            aboutDesc1: "VIST-AI 是一个专注于视觉基础的开放研究和评估框架。",
+            aboutDesc2: "该框架旨在支持受控实验和可重复性。"
         },
         ur: {
             title: "گلوبل فارنزک اے آئی ٹیسٹر",
@@ -665,8 +902,27 @@
             genTextBtn: "عکس کا پیش نظارہ بنائیں",
             previewLabel: "بصری عکس کا پیش نظارہ",
             mirrorNote: "نوٹ: یہ ایک بصری افقی تبدیلی ہے۔ بنیادی یونیکوڈ ٹیکسٹ تبدیل یا ترجمہ نہیں ہوتا۔",
+            methTitle: "3. VIST-AI ریسرچ میتھڈالوجی",
+            methDesc: "VIST-AI جومیٹرک اور ملٹی لسنگ حالات میں ملٹی موڈل AI کی تشریح کا جائزہ لینے کے لیے کنٹرول شدہ بصری نمونے استعمال کرتا ہے۔",
+            stepCond: "ٹیسٹ کی حالت", stepCondDesc: "ایک معروف نمونے کو افقی مررنگ جیسے بصری عمل کے ذریعے تبدیل کیا جاتا ہے۔",
+            stepObs: "ماڈل کا مشاہدہ", stepObsDesc: "وہی نمونہ اور معیاری پرامپٹ ایک یا زیادہ ملٹی موڈل AI سسٹمز کو پیش کیا جا سکتا ہے۔",
+            stepComp: "گراؤنڈ ٹروتھ موازنہ", stepCompDesc: "ماڈل کے آؤٹ پٹ کا معروف سورس نمونے کے ساتھ موازنہ کیا جاتا ہے۔",
+            stepErr: "خرابی کا تجزیہ", stepErrDesc: "محققین قابل مشاہدہ تضادات کو ریکارڈ کر سکتے ہیں۔",
+            guideTitle: "4. ملٹی موڈل اے آئی سسٹمز کا ٹیسٹ کیسے کریں",
+            guideDesc: "کنٹرول شدہ ٹیسٹ کرنے کے لیے درج ذیل طریقہ کار استعمال کریں۔",
+            gStep1: "مرحلہ 1 — ٹیسٹ کا نمونہ بنائیں", gStep1Desc: "کنٹرول شدہ بصری نمونہ بنانے کے لیے اوپر دیے گئے ٹूल کا استعمال کریں۔",
+            gStep2: "مرحلہ 2 — ملٹی موڈل AI سسٹم منتخب کریں", gStep2Desc: "تصویر کا ان پٹ حاصل کرنے کی صلاحیت رکھنے والا AI سسٹم کھولیں۔",
+            gStep3: "مرحلہ 3 — معیاری پرامپٹ استعمال کریں", gStep3Desc: "مرر شدہ نمونہ اپ لوڈ کریں اور ایک غیر جانبدار پرامپٹ استعمال کریں۔",
+            gStep4: "مرحلہ 4 — آؤٹ پٹ ریکارڈ کریں", gStep4Desc: "ماڈل کا جواب، ٹیسٹ کا نمونہ اور تاریخ محفوظ کریں۔",
+            gStep5: "مرحلہ 5 — نتیجہ کا تجزیہ کریں", gStep5Desc: "معروف نمونے کے ساتھ ماڈل آؤٹ پٹ کا موازنہ کریں۔",
+            recTitle: "5. VIST-AI مشاہداتی ریکارڈ",
+            recDesc: "قابلِ تولید تحقیق کے لیے، ہر ٹیسٹ کے لیے ایک جیسی بنیادی معلومات ریکارڈ کریں۔",
+            rec1: "ٹیسٹ ID", rec2: "ٹیسٹ کی تاریخ", rec3: "AI سسٹم / ماڈل", rec4: "ان پٹ کی قسم", rec5: "تبدیلی", rec6: "پرامپٹ", rec7: "مشاہدہ شدہ آؤٹ پٹ", rec8: "گراؤنڈ ٹروتھ موازنہ",
             contactTitle: "6. رابطہ VIST-AI",
-            contactDesc: "تحقیقی تعاون یا بات چیت کے لیے رابطہ کریں:"
+            contactDesc: "تحقیقی تعاون یا بات چیت کے لیے رابطہ کریں:",
+            aboutTitle: "VIST-AI کے بارے میں",
+            aboutDesc1: "VIST-AI ایک اوپن ریسرچ اور ایویلویشن فریم ورک ہے جو وزوئل گراؤنڈنگ پر مرکوز ہے۔",
+            aboutDesc2: "یہ فریم ورک کنٹرول تجربات کی حمایت کے لیے ہے۔"
         }
     };
 
