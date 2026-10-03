@@ -14,7 +14,7 @@
         button { background: #3182ce; color: white; border: none; cursor: pointer; }
         button:hover { background: #2b6cb0; }
         .section { background: #edf2f7; padding: 15px; border-radius: 6px; margin-top: 20px; }
-        .evidence-image { max-width: 100%; height: auto; border: 1px solid #cbd5e1; border-radius: 4px; margin-top: 15px; display: block; }
+        .evidence-image { max-width: 100%; height: auto; border: 1px solid #cbd5e1; border-radius: 4px; margin-top: 15px; display: block; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
     </style>
 </head>
 <body>
@@ -23,7 +23,6 @@
     <h1>VIST-AI Global Forensic Test Viewer</h1>
     <p style="text-align: center;">Multilingual Geometric Robustness & Visual Grounding Benchmark</p>
 
-    <!-- Google AdSense Ad Slot Integration -->
     <div class="ad-container">
         <small style="color: #718096;">Advertisement Space (Google AdSense Ready)</small>
     </div>
@@ -135,13 +134,14 @@
         let observationText = data.observation || (data.findings && data.findings[0] ? data.findings[0].observation : "N/A");
         document.getElementById('caseObservation').innerText = observationText;
 
-        // Image Handling
         const imgElement = document.getElementById('evidenceImg');
+        const imgContainer = document.getElementById('imageContainer');
+
         if (data.image) {
             imgElement.src = data.image;
-            document.getElementById('imageContainer').style.display = 'block';
+            imgContainer.style.display = 'block';
         } else {
-            document.getElementById('imageContainer').style.display = 'none';
+            imgContainer.style.display = 'none';
         }
 
         document.getElementById('output').style.display = 'block';
