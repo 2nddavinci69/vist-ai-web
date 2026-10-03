@@ -6,7 +6,7 @@
     <title>VIST-AI Global Forensic Test Viewer</title>
     <style>
         body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background: #f4f7f6; color: #333; }
-        .container { max-width: 850px; margin: auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .container { max-width: 900px; margin: auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
         h1 { color: #1a365d; text-align: center; }
         .ad-container { margin: 20px 0; padding: 15px; background: #e2e8f0; text-align: center; border-radius: 6px; border: 2px dashed #cbd5e1; }
         .result-box { background: #f8fafc; padding: 20px; border-left: 4px solid #3182ce; margin-top: 20px; border-radius: 4px; display: none; }
@@ -14,6 +14,7 @@
         button { background: #3182ce; color: white; border: none; cursor: pointer; }
         button:hover { background: #2b6cb0; }
         .section { background: #edf2f7; padding: 15px; border-radius: 6px; margin-top: 20px; }
+        .evidence-image { max-width: 100%; height: auto; border: 1px solid #cbd5e1; border-radius: 4px; margin-top: 15px; display: block; }
     </style>
 </head>
 <body>
@@ -44,7 +45,7 @@
             <option value="thai">Thai Script (Complex Geometric Inversion)</option>
         </select>
         <br>
-        <button onclick="loadSelectedCase()">Load Forensic Case</button>
+        <button onclick="loadSelectedCase()">Load Forensic Case & Evidence</button>
     </div>
 
     <div class="section">
@@ -53,11 +54,16 @@
     </div>
 
     <div id="output" class="result-box">
-        <h3>Evaluation Result</h3>
+        <h3>Forensic Evaluation & Evidence Viewer</h3>
         <p><strong>Script Category:</strong> <span id="caseCategory"></span></p>
         <p><strong>Description:</strong> <span id="caseTitle"></span></p>
         <p><strong>Status:</strong> <span id="caseStatus"></span></p>
         <p><strong>Forensic Observation:</strong> <span id="caseObservation"></span></p>
+        
+        <div id="imageContainer" style="margin-top: 20px;">
+            <strong>Visual Evidence Specimen:</strong><br>
+            <img id="evidenceImg" class="evidence-image" src="" alt="Mirror Writing Evidence Specimen">
+        </div>
     </div>
 </div>
 
@@ -67,49 +73,57 @@
             category: "Urdu / Sindhi (RTL Script)",
             title: "Pakistan National Anthem & Shah Abdul Latif Bhittai Poetry Mirror Test",
             status: "COMPLETED",
-            observation: "Multimodal AI models exhibit severe ligature confusion and token inversion under connected Right-to-Left script stress."
+            observation: "Multimodal AI models exhibit severe ligature confusion and token inversion under connected Right-to-Left script stress.",
+            image: "Urdu.jpeg"
         },
         "arabic": {
             category: "Arabic Pentagon Stress Test",
             title: "Mathematical, Syntactic, and Probability Traps in Mirror Format",
             status: "COMPLETED",
-            observation: "Diacritic dots and contextual letter forms caused confabulation in baseline vision models."
+            observation: "Diacritic dots and contextual letter forms caused confabulation in baseline vision models.",
+            image: "A1.jpeg"
         },
         "hebrew": {
             category: "Hebrew Mirror Script",
             title: "Handwritten Niqqud (Vowel-dotted) Geometric Inversion",
             status: "COMPLETED",
-            observation: "High visual grounding failure; models failed to map inverted consonantal frameworks accurately."
+            observation: "High visual grounding failure; models failed to map inverted consonantal frameworks accurately.",
+            image: "Screenshot 2026-10-01 11.52.52 PM.png"
         },
         "korean": {
             category: "Korean Hangul Pentagon Test",
             title: "Jamo Stroke Order and Mathematical Logic Inversion",
             status: "COMPLETED",
-            observation: "Block-based syllabic grouping disrupted spatial parsing in OCR and vision-language modules."
+            observation: "Block-based syllabic grouping disrupted spatial parsing in OCR and vision-language modules.",
+            image: "K1.jpeg"
         },
         "japanese_chinese": {
             category: "Japanese & Chinese (Kanji/Hanzi)",
             title: "High Stroke-Density Character Inversion and Logic Traps",
             status: "COMPLETED",
-            observation: "Dense stroke intersections led to semantic hallucination and incorrect stroke-order resolution."
+            observation: "Dense stroke intersections led to semantic hallucination and incorrect stroke-order resolution.",
+            image: "JC1.jpeg"
         },
         "russian": {
             category: "Russian Cyrillic (Pushkin & Akhmatova)",
             title: "Love, Destiny, and Existential Poetry Mirror Inversion",
             status: "COMPLETED",
-            observation: "Cyrillic character mirroring resulted in structural reading errors and token splitting."
+            observation: "Cyrillic character mirroring resulted in structural reading errors and token splitting.",
+            image: "Russian.jpeg"
         },
         "french_italian": {
             category: "French & Italian (Latin Script)",
             title: "Victor Hugo, Dante Alighieri, and Eugenio Montale Verses",
             status: "COMPLETED",
-            observation: "Standard Latin scripts showed better resilience but failed under complex cursive mirror distortions."
+            observation: "Standard Latin scripts showed better resilience but failed under complex cursive mirror distortions.",
+            image: "French.jpeg"
         },
         "thai": {
             category: "Thai Script Geometric Test",
             title: "Multi-tier Vowel and Consonant Inversion Stress Test",
             status: "COMPLETED",
-            observation: "Above and below-line vowel markers created severe spatial mapping discrepancies."
+            observation: "Above and below-line vowel markers created severe spatial mapping discrepancies.",
+            image: "Thai.jpeg"
         }
     };
 
@@ -120,6 +134,15 @@
         
         let observationText = data.observation || (data.findings && data.findings[0] ? data.findings[0].observation : "N/A");
         document.getElementById('caseObservation').innerText = observationText;
+
+        // Image Handling
+        const imgElement = document.getElementById('evidenceImg');
+        if (data.image) {
+            imgElement.src = data.image;
+            document.getElementById('imageContainer').style.display = 'block';
+        } else {
+            document.getElementById('imageContainer').style.display = 'none';
+        }
 
         document.getElementById('output').style.display = 'block';
     }
