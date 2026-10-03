@@ -3,24 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VIST-AI Forensic Test Viewer</title>
+    <title>VIST-AI Global Forensic Test Viewer</title>
     <style>
         body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background: #f4f7f6; color: #333; }
-        .container { max-width: 800px; margin: auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .container { max-width: 850px; margin: auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
         h1 { color: #1a365d; text-align: center; }
         .ad-container { margin: 20px 0; padding: 15px; background: #e2e8f0; text-align: center; border-radius: 6px; border: 2px dashed #cbd5e1; }
         .result-box { background: #f8fafc; padding: 20px; border-left: 4px solid #3182ce; margin-top: 20px; border-radius: 4px; display: none; }
-        button { background: #3182ce; color: white; border: none; padding: 10px 20px; font-size: 16px; border-radius: 4px; cursor: pointer; margin-right: 10px; margin-top: 10px; }
+        select, input[type="file"], button { padding: 10px; font-size: 15px; margin-top: 10px; border-radius: 4px; border: 1px solid #cbd5e1; }
+        button { background: #3182ce; color: white; border: none; cursor: pointer; }
         button:hover { background: #2b6cb0; }
-        .upload-section { background: #edf2f7; padding: 15px; border-radius: 6px; margin-top: 20px; }
-        input[type="file"] { margin-top: 10px; }
+        .section { background: #edf2f7; padding: 15px; border-radius: 6px; margin-top: 20px; }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h1>VIST-AI Forensic Test Viewer</h1>
-    <p style="text-align: center;">Independent Forensic Evaluation Framework for Multimodal AI Systems</p>
+    <h1>VIST-AI Global Forensic Test Viewer</h1>
+    <p style="text-align: center;">Multilingual Geometric Robustness & Visual Grounding Benchmark</p>
 
     <!-- Google AdSense Ad Slot Integration -->
     <div class="ad-container">
@@ -29,49 +29,109 @@
 
     <hr style="margin: 30px 0; border: 0; border-top: 1px solid #e2e8f0;">
 
-    <h3>Test Case Options</h3>
-    <button onclick="loadDefaultCase()">Load Pilot Case (VIST-2026-0001)</button>
+    <div class="section">
+        <h3>Select Global Test Case</h3>
+        <label for="caseSelect"><strong>Choose Language / Script:</strong></label><br>
+        <select id="caseSelect" style="width: 100%;">
+            <option value="">-- Select Multilingual Specimen --</option>
+            <option value="urdu">Urdu / Sindhi (Pakistan National Anthem & Poetry)</option>
+            <option value="arabic">Arabic (Pentagon Stress Test & Paradox)</option>
+            <option value="hebrew">Hebrew (Vowel-dotted Mirror Script)</option>
+            <option value="korean">Korean Hangul (Pentagon Stress Test)</option>
+            <option value="japanese_chinese">Japanese / Chinese (Kanji/Hanzi Traps)</option>
+            <option value="russian">Russian (Pushkin & Akhmatova Existential)</option>
+            <option value="french_italian">French & Italian (Hugo, Dante, Montale)</option>
+            <option value="thai">Thai Script (Complex Geometric Inversion)</option>
+        </select>
+        <br>
+        <button onclick="loadSelectedCase()">Load Forensic Case</button>
+    </div>
 
-    <div class="upload-section">
-        <label for="jsonFileInput"><strong>Upload Custom Test Case (JSON):</strong></label><br>
+    <div class="section">
+        <label for="jsonFileInput"><strong>Or Upload Custom JSON Test Case:</strong></label><br>
         <input type="file" id="jsonFileInput" accept=".json" onchange="loadCustomJSON(event)">
     </div>
 
     <div id="output" class="result-box">
         <h3>Evaluation Result</h3>
-        <p><strong>Case ID:</strong> <span id="caseId"></span></p>
-        <p><strong>Title:</strong> <span id="caseTitle"></span></p>
+        <p><strong>Script Category:</strong> <span id="caseCategory"></span></p>
+        <p><strong>Description:</strong> <span id="caseTitle"></span></p>
         <p><strong>Status:</strong> <span id="caseStatus"></span></p>
-        <p><strong>Finding Observation:</strong> <span id="caseObservation"></span></p>
+        <p><strong>Forensic Observation:</strong> <span id="caseObservation"></span></p>
     </div>
 </div>
 
 <script>
-    function displayData(testData) {
-        document.getElementById('caseId').innerText = testData.case_id || "N/A";
-        document.getElementById('caseTitle').innerText = testData.case_title || "N/A";
-        document.getElementById('caseStatus').innerText = testData.status || "N/A";
-        
-        // Handle finding observation structure flexibly
-        let observationText = "N/A";
-        if (testData.findings && testData.findings.length > 0) {
-            observationText = testData.findings[0].observation;
-        } else if (testData.observation) {
-            observationText = testData.observation;
+    const database = {
+        "urdu": {
+            category: "Urdu / Sindhi (RTL Script)",
+            title: "Pakistan National Anthem & Shah Abdul Latif Bhittai Poetry Mirror Test",
+            status: "COMPLETED",
+            observation: "Multimodal AI models exhibit severe ligature confusion and token inversion under connected Right-to-Left script stress."
+        },
+        "arabic": {
+            category: "Arabic Pentagon Stress Test",
+            title: "Mathematical, Syntactic, and Probability Traps in Mirror Format",
+            status: "COMPLETED",
+            observation: "Diacritic dots and contextual letter forms caused confabulation in baseline vision models."
+        },
+        "hebrew": {
+            category: "Hebrew Mirror Script",
+            title: "Handwritten Niqqud (Vowel-dotted) Geometric Inversion",
+            status: "COMPLETED",
+            observation: "High visual grounding failure; models failed to map inverted consonantal frameworks accurately."
+        },
+        "korean": {
+            category: "Korean Hangul Pentagon Test",
+            title: "Jamo Stroke Order and Mathematical Logic Inversion",
+            status: "COMPLETED",
+            observation: "Block-based syllabic grouping disrupted spatial parsing in OCR and vision-language modules."
+        },
+        "japanese_chinese": {
+            category: "Japanese & Chinese (Kanji/Hanzi)",
+            title: "High Stroke-Density Character Inversion and Logic Traps",
+            status: "COMPLETED",
+            observation: "Dense stroke intersections led to semantic hallucination and incorrect stroke-order resolution."
+        },
+        "russian": {
+            category: "Russian Cyrillic (Pushkin & Akhmatova)",
+            title: "Love, Destiny, and Existential Poetry Mirror Inversion",
+            status: "COMPLETED",
+            observation: "Cyrillic character mirroring resulted in structural reading errors and token splitting."
+        },
+        "french_italian": {
+            category: "French & Italian (Latin Script)",
+            title: "Victor Hugo, Dante Alighieri, and Eugenio Montale Verses",
+            status: "COMPLETED",
+            observation: "Standard Latin scripts showed better resilience but failed under complex cursive mirror distortions."
+        },
+        "thai": {
+            category: "Thai Script Geometric Test",
+            title: "Multi-tier Vowel and Consonant Inversion Stress Test",
+            status: "COMPLETED",
+            observation: "Above and below-line vowel markers created severe spatial mapping discrepancies."
         }
+    };
+
+    function displayData(data) {
+        document.getElementById('caseCategory').innerText = data.category || data.case_id || "N/A";
+        document.getElementById('caseTitle').innerText = data.title || data.case_title || "N/A";
+        document.getElementById('caseStatus').innerText = data.status || "N/A";
+        
+        let observationText = data.observation || (data.findings && data.findings[0] ? data.findings[0].observation : "N/A");
         document.getElementById('caseObservation').innerText = observationText;
 
         document.getElementById('output').style.display = 'block';
     }
 
-    function loadDefaultCase() {
-        const testData = {
-            case_id: "VIST-2026-0001",
-            case_title: "Mirror-Script Urdu Visual Interpretation Test",
-            status: "COMPLETED",
-            observation: "The model response differed from the verified ground truth under mirror transformation."
-        };
-        displayData(testData);
+    function loadSelectedCase() {
+        const select = document.getElementById('caseSelect');
+        const val = select.value;
+        if (!val || !database[val]) {
+            alert("Please select a valid language category from the dropdown!");
+            return;
+        }
+        displayData(database[val]);
     }
 
     function loadCustomJSON(event) {
