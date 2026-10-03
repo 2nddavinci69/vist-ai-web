@@ -5,19 +5,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VIST-AI Global Forensic Test Viewer</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background: #0f172a; color: #e2e8f0; }
-        .container { max-width: 900px; margin: auto; background: #1e293b; padding: 30px; border-radius: 10px; box-shadow: 0 8px 20px rgba(0,0,0,0.5); border: 1px solid #334155; }
-        h1 { color: #38bdf8; text-align: center; }
-        p { color: #94a3b8; }
-        .ad-container { margin: 20px 0; padding: 15px; background: #0f172a; text-align: center; border-radius: 6px; border: 2px dashed #475569; }
-        .result-box { background: #0f172a; padding: 20px; border-left: 4px solid #38bdf8; margin-top: 20px; border-radius: 6px; display: none; border: 1px solid #334155; }
-        select, input[type="file"], button { padding: 10px; font-size: 15px; margin-top: 10px; border-radius: 6px; border: 1px solid #475569; background: #334155; color: #f8fafc; width: 100%; box-sizing: border-box; }
-        input[type="file"] { padding: 8px; background: #1e293b; }
-        button { background: #0284c7; color: white; border: none; cursor: pointer; font-weight: bold; }
-        button:hover { background: #0369a1; }
-        .section { background: #334155; padding: 20px; border-radius: 8px; margin-top: 20px; border: 1px solid #475569; }
-        .evidence-image { max-width: 100%; height: auto; border: 1px solid #475569; border-radius: 6px; margin-top: 15px; display: block; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
-        label { color: #cbd5e1; }
+        body { 
+            font-family: Arial, sans-serif !important; 
+            margin: 0 !important; 
+            padding: 20px !important; 
+            background: #0f172a !important; 
+            color: #e2e8f0 !important; 
+        }
+        .container { 
+            max-width: 900px !important; 
+            margin: auto !important; 
+            background: #1e293b !important; 
+            padding: 30px !important; 
+            border-radius: 10px !important; 
+            box-shadow: 0 8px 20px rgba(0,0,0,0.8) !important; 
+            border: 1px solid #334155 !important; 
+        }
+        h1 { color: #38bdf8 !important; text-align: center !important; }
+        p { color: #94a3b8 !important; }
+        .ad-container { 
+            margin: 20px 0 !important; 
+            padding: 15px !important; 
+            background: #0f172a !important; 
+            text-align: center !important; 
+            border-radius: 6px !important; 
+            border: 2px dashed #475569 !important; 
+        }
+        .result-box { 
+            background: #0f172a !important; 
+            padding: 20px !important; 
+            border-left: 4px solid #38bdf8 !important; 
+            margin-top: 20px !important; 
+            border-radius: 6px !important; 
+            display: none; 
+            border: 1px solid #334155 !important; 
+        }
+        select, input[type="file"], button { 
+            padding: 10px !important; 
+            font-size: 15px !important; 
+            margin-top: 10px !important; 
+            border-radius: 6px !important; 
+            border: 1px solid #475569 !important; 
+            background: #334155 !important; 
+            color: #f8fafc !important; 
+            width: 100% !important; 
+            box-sizing: border-box !important; 
+        }
+        input[type="file"] { padding: 8px !important; background: #1e293b !important; }
+        button { 
+            background: #0284c7 !important; 
+            color: white !important; 
+            border: none !important; 
+            cursor: pointer !important; 
+            font-weight: bold !important; 
+        }
+        button:hover { background: #0369a1 !important; }
+        .section { 
+            background: #334155 !important; 
+            padding: 20px !important; 
+            border-radius: 8px !important; 
+            margin-top: 20px !important; 
+            border: 1px solid #475569 !important; 
+        }
+        .evidence-image { 
+            max-width: 100% !important; 
+            height: auto !important; 
+            border: 1px solid #475569 !important; 
+            border-radius: 6px !important; 
+            margin-top: 15px !important; 
+            display: block !important; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5) !important; 
+        }
+        label { color: #cbd5e1 !important; }
     </style>
 </head>
 <body>
