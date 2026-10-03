@@ -40,10 +40,34 @@
             border-radius: 12px;
             border: 1px solid #1f2937;
             box-shadow: 0 12px 35px rgba(0, 0, 0, 0.75);
+            position: relative;
+            overflow: hidden;
         }
 
         /* =========================
-            HEADER
+            DIGITAL AI BLUR GLOW BACKGROUND EFFECT
+        ========================== */
+        .container::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 400px;
+            height: 150px;
+            background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, rgba(9, 13, 22, 0) 70%);
+            filter: blur(40px);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        header, .research-badge, .nav-bar, .ad-container, .section, .footer-box {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* =========================
+            HEADER & BRAND LOGO WITH VIST-AI NAME
         ========================== */
 
         header {
@@ -51,31 +75,65 @@
             padding-bottom: 10px;
         }
 
-        h1 {
+        .brand-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 10px;
+        }
+
+        .brand-logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(30, 41, 59, 0.6);
+            padding: 8px 18px;
+            border-radius: 50px;
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            box-shadow: 0 0 15px rgba(56, 189, 248, 0.15);
+        }
+
+        .brand-name {
+            font-size: 26px;
+            font-weight: 900;
             color: #38bdf8;
-            font-size: 34px;
-            margin: 0 0 8px;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+        }
+
+        .brand-title-area {
+            text-align: left;
+        }
+
+        h1 {
+            color: #f8fafc;
+            font-size: 28px;
+            margin: 0 0 5px;
             line-height: 1.2;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
         }
 
         .subtitle {
             color: #cbd5e1;
-            font-size: 17px;
-            margin: 8px 0;
+            font-size: 15px;
+            margin: 6px 0;
         }
 
         .founder-title {
-            color: #ffffff;
-            font-size: 17px;
+            color: #38bdf8;
+            font-size: 15px;
             font-weight: bold;
-            margin-top: 12px;
+            margin-top: 8px;
         }
 
         .header-description {
-            max-width: 780px;
-            margin: 12px auto 0;
+            max-width: 800px;
+            margin: 15px auto 0;
             color: #94a3b8;
             font-size: 15px;
+            text-align: center;
         }
 
         /* =========================
@@ -112,6 +170,7 @@
             background: #0284c7;
             color: #ffffff;
             transform: translateY(-1px);
+            box-shadow: 0 0 10px rgba(2, 132, 199, 0.5);
         }
 
         /* =========================
@@ -132,6 +191,7 @@
             background: #0c1b2a;
             font-size: 13px;
             font-weight: bold;
+            box-shadow: 0 0 10px rgba(3, 105, 161, 0.3);
         }
 
         /* =========================
@@ -165,7 +225,8 @@
 
         .section.highlight {
             background: #0c1725;
-            border: 1px solid #38bdf8;
+            border: 1px solid rgba(56, 189, 248, 0.5);
+            box-shadow: inset 0 0 15px rgba(56, 189, 248, 0.05);
         }
 
         h2,
@@ -236,19 +297,12 @@
             border: none;
             cursor: pointer;
             font-weight: bold;
-            transition: background 0.25s ease;
+            transition: all 0.25s ease;
         }
 
         button:hover {
             background: #0369a1;
-        }
-
-        button.secondary {
-            background: #334155;
-        }
-
-        button.secondary:hover {
-            background: #475569;
+            box-shadow: 0 0 12px rgba(2, 132, 199, 0.6);
         }
 
         /* =========================
@@ -303,6 +357,7 @@
 
         .download-button:hover {
             background: #15803d;
+            box-shadow: 0 0 10px rgba(22, 163, 74, 0.5);
         }
 
         /* =========================
@@ -321,6 +376,7 @@
             border: 1px solid #334155;
             word-break: break-word;
             transform: scaleX(-1);
+            text-shadow: 0 0 8px rgba(56, 189, 248, 0.4);
         }
 
         .mirror-note {
@@ -436,11 +492,10 @@
         }
 
         /* =========================
-            MOBILE
+            MOBILE RESPONSIVE
         ========================== */
 
         @media (max-width: 700px) {
-
             body {
                 padding: 10px;
             }
@@ -449,12 +504,17 @@
                 padding: 18px;
             }
 
-            h1 {
-                font-size: 27px;
+            .brand-header {
+                flex-direction: column;
+                text-align: center;
             }
 
-            .subtitle {
-                font-size: 15px;
+            .brand-title-area {
+                text-align: center;
+            }
+
+            h1 {
+                font-size: 22px;
             }
 
             .nav-bar {
@@ -469,10 +529,6 @@
             .record-grid {
                 grid-template-columns: 1fr;
             }
-
-            .section {
-                padding: 17px;
-            }
         }
     </style>
 </head>
@@ -482,42 +538,40 @@
 <div class="container">
 
     <!-- =========================
-         HEADER
+         HEADER WITH BRAND LOGO & VIST-AI NAME
     ========================== -->
 
     <header>
+        <div class="brand-header">
+            <!-- Left Side Logo + VIST-AI Name -->
+            <div class="brand-logo-container">
+                <svg width="45" height="45" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.6));">
+                    <polygon points="60,5 110,32.5 110,87.5 60,115 10,87.5 10,32.5" stroke="#38bdf8" stroke-width="4" fill="#111827"/>
+                    <line x1="35" y1="60" x2="85" y2="60" stroke="#0284c7" stroke-width="2" stroke-dasharray="4 2"/>
+                    <line x1="60" y1="35" x2="60" y2="85" stroke="#0284c7" stroke-width="2" stroke-dasharray="4 2"/>
+                    <circle cx="60" cy="60" r="18" fill="#090d16" stroke="#38bdf8" stroke-width="3"/>
+                    <circle cx="60" cy="60" r="8" fill="#38bdf8"/>
+                </svg>
+                <span class="brand-name">VIST-AI</span>
+            </div>
 
-        <!-- Futuristic VIST-AI Logo -->
-        <div style="text-align: center; margin-bottom: 15px;">
-            <svg width="100" height="100" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(0 0 10px rgba(56, 189, 248, 0.4));">
-                <polygon points="60,5 110,32.5 110,87.5 60,115 10,87.5 10,32.5" stroke="#38bdf8" stroke-width="3" fill="#111827"/>
-                <line x1="35" y1="60" x2="85" y2="60" stroke="#0284c7" stroke-width="2" stroke-dasharray="4 2"/>
-                <line x1="60" y1="35" x2="60" y2="85" stroke="#0284c7" stroke-width="2" stroke-dasharray="4 2"/>
-                <circle cx="60" cy="60" r="18" fill="#090d16" stroke="#38bdf8" stroke-width="3"/>
-                <circle cx="60" cy="60" r="8" fill="#38bdf8"/>
-                <circle cx="60" cy="20" r="3" fill="#38bdf8"/>
-                <circle cx="60" cy="100" r="3" fill="#38bdf8"/>
-                <circle cx="25" cy="40" r="3" fill="#38bdf8"/>
-                <circle cx="95" cy="80" r="3" fill="#38bdf8"/>
-            </svg>
+            <!-- Right Side Title & Founder -->
+            <div class="brand-title-area">
+                <h1>Global Forensic AI Tester</h1>
+                <div class="founder-title">
+                    Founded by Mushtaque Ahmed Rajput
+                </div>
+                <p class="subtitle" style="margin: 4px 0 0 0;">
+                    Visual Grounding, Geometric Robustness & Multilingual AI Evaluation
+                </p>
+            </div>
         </div>
-
-        <h1>VIST-AI Global Forensic AI Tester</h1>
-
-        <div class="founder-title">
-            Founded by Mushtaque Ahmed Rajput
-        </div>
-
-        <p class="subtitle">
-            Visual Grounding, Geometric Robustness & Multilingual AI Evaluation
-        </p>
 
         <p class="header-description">
             An open research framework and live utility for investigating how
             multimodal AI systems interpret controlled visual, geometric,
             mirrored, and multilingual test specimens.
         </p>
-
     </header>
 
     <div class="research-badge">
@@ -530,19 +584,12 @@
     ========================== -->
 
     <div class="nav-bar">
-
         <a href="#tool-img">Image Mirror</a>
-
         <a href="#tool-text">Text Mirror</a>
-
         <a href="#tool-methodology">Methodology</a>
-
         <a href="#tool-guide">Testing Guide</a>
-
         <a href="#tool-record">Observation Record</a>
-
         <a href="#tool-contact">Contact</a>
-
     </div>
 
 
@@ -551,11 +598,7 @@
     ========================== -->
 
     <div class="ad-container">
-
-        <small>
-            Advertisement Space (Google AdSense Ready)
-        </small>
-
+        <small>Advertisement Space (Google AdSense Ready)</small>
     </div>
 
 
@@ -564,59 +607,20 @@
     ========================== -->
 
     <div id="tool-img" class="section">
+        <h3>1. Live Image Mirror Tool</h3>
+        <p>Upload a normal writing image to generate a horizontally mirrored test specimen for controlled visual evaluation.</p>
 
-        <h3>
-            1. Live Image Mirror Tool
-        </h3>
-
-        <p>
-            Upload a normal writing image to generate a horizontally mirrored
-            test specimen for controlled visual evaluation.
-        </p>
-
-        <label for="imageNormalInput">
-            Upload Normal Writing Image
-        </label>
-
-        <input
-            type="file"
-            id="imageNormalInput"
-            accept="image/*"
-        >
-
-        <button id="processImageButton">
-            Generate Mirrored Test Specimen
-        </button>
-
+        <label for="imageNormalInput">Upload Normal Writing Image</label>
+        <input type="file" id="imageNormalInput" accept="image/*">
+        <button id="processImageButton">Generate Mirrored Test Specimen</button>
 
         <div id="output" class="result-box">
-
-            <div class="result-title">
-                Mirrored Test Specimen
-            </div>
-
+            <div class="result-title">Mirrored Test Specimen</div>
             <div id="imageContainer">
-
-                <img
-                    id="evidenceImg"
-                    class="evidence-image"
-                    src=""
-                    alt="Generated mirrored test specimen"
-                >
-
-                <a
-                    id="downloadLink"
-                    href="#"
-                    download="vist-ai-mirrored-test-specimen.jpg"
-                    class="download-button"
-                >
-                    Download Test Specimen
-                </a>
-
+                <img id="evidenceImg" class="evidence-image" src="" alt="Generated mirrored test specimen">
+                <a id="downloadLink" href="#" download="vist-ai-mirrored-test-specimen.jpg" class="download-button">Download Test Specimen</a>
             </div>
-
         </div>
-
     </div>
 
 
@@ -625,48 +629,18 @@
     ========================== -->
 
     <div id="tool-text" class="section highlight">
+        <h3>2. Live Multilingual Text Mirror Tool</h3>
+        <p>Enter text in any supported writing system to generate a visually mirrored preview for controlled testing.</p>
 
-        <h3>
-            2. Live Multilingual Text Mirror Tool
-        </h3>
-
-        <p>
-            Enter text in any supported writing system to generate a
-            visually mirrored preview for controlled testing.
-        </p>
-
-        <label for="userInputText">
-            Enter Test Text
-        </label>
-
-        <textarea
-            id="userInputText"
-            placeholder="Type or paste text here..."
-        ></textarea>
-
-        <button id="generateTextButton">
-            Generate Mirrored Preview
-        </button>
-
+        <label for="userInputText">Enter Test Text</label>
+        <textarea id="userInputText" placeholder="Type or paste text here..."></textarea>
+        <button id="generateTextButton">Generate Mirrored Preview</button>
 
         <div id="mirrorResultBox" style="display:none; margin-top:18px;">
-
-            <label>
-                Visual Mirrored Preview
-            </label>
-
-            <div
-                id="mirroredDisplay"
-                class="mirror-output"
-            ></div>
-
-            <div class="mirror-note">
-                Note: this is a visual horizontal transformation.
-                The underlying Unicode text is not reversed or translated.
-            </div>
-
+            <label>Visual Mirrored Preview</label>
+            <div id="mirroredDisplay" class="mirror-output"></div>
+            <div class="mirror-note">Note: this is a visual horizontal transformation. The underlying Unicode text is not reversed or translated.</div>
         </div>
-
     </div>
 
 
@@ -675,84 +649,29 @@
     ========================== -->
 
     <div id="tool-methodology" class="section">
-
-        <h3>
-            3. VIST-AI Research Methodology
-        </h3>
-
-        <p>
-            VIST-AI uses controlled visual specimens to investigate
-            multimodal AI interpretation under geometric and multilingual
-            conditions.
-        </p>
+        <h3>3. VIST-AI Research Methodology</h3>
+        <p>VIST-AI uses controlled visual specimens to investigate multimodal AI interpretation under geometric and multilingual conditions.</p>
 
         <div class="step">
-
-            <span class="step-number">
-                Test Condition
-            </span>
-
-            <p>
-                A known specimen is transformed using a defined visual
-                operation such as horizontal mirroring.
-            </p>
-
+            <span class="step-number">Test Condition</span>
+            <p>A known specimen is transformed using a defined visual operation such as horizontal mirroring.</p>
         </div>
-
         <div class="step">
-
-            <span class="step-number">
-                Model Observation
-            </span>
-
-            <p>
-                The same specimen and standardized prompt can be presented
-                to one or more multimodal AI systems.
-            </p>
-
+            <span class="step-number">Model Observation</span>
+            <p>The same specimen and standardized prompt can be presented to one or more multimodal AI systems.</p>
         </div>
-
         <div class="step">
-
-            <span class="step-number">
-                Ground-Truth Comparison
-            </span>
-
-            <p>
-                Model output is compared with the known source specimen,
-                transformation condition, and expected interpretation.
-            </p>
-
+            <span class="step-number">Ground-Truth Comparison</span>
+            <p>Model output is compared with the known source specimen, transformation condition, and expected interpretation.</p>
         </div>
-
         <div class="step">
-
-            <span class="step-number">
-                Error Analysis
-            </span>
-
-            <p>
-                Researchers can record observable discrepancies such as
-                character confusion, spatial interpretation errors,
-                ligature-related errors, tokenization-related observations,
-                or unsupported claims.
-            </p>
-
+            <span class="step-number">Error Analysis</span>
+            <p>Researchers can record observable discrepancies such as character confusion, spatial interpretation errors, ligature-related errors, tokenization-related observations, or unsupported claims.</p>
         </div>
-
 
         <div class="research-notice">
-
-            <p>
-                <strong>Research principle:</strong>
-                VIST-AI does not assume that an AI system will fail a test.
-                The purpose is to create controlled conditions in which
-                model behavior can be observed, recorded, compared, and
-                independently reproduced.
-            </p>
-
+            <p><strong>Research principle:</strong> VIST-AI does not assume that an AI system will fail a test. The purpose is to create controlled conditions in which model behavior can be observed, recorded, compared, and independently reproduced.</p>
         </div>
-
     </div>
 
 
@@ -761,56 +680,20 @@
     ========================== -->
 
     <div id="tool-guide" class="section highlight">
-
-        <h3 style="text-align:center;">
-            4. How to Test Multimodal AI Systems
-        </h3>
-
-        <p style="text-align:center;">
-            Use the following procedure to conduct a controlled VIST-AI
-            visual-grounding and geometric-robustness test.
-        </p>
-
+        <h3 style="text-align:center;">4. How to Test Multimodal AI Systems</h3>
+        <p style="text-align:center;">Use the following procedure to conduct a controlled VIST-AI visual-grounding and geometric-robustness test.</p>
 
         <div class="step">
-
-            <span class="step-number">
-                Step 1 — Generate a Test Specimen
-            </span>
-
-            <p>
-                Use the Image Mirror Tool or Text Mirror Tool above to
-                create a controlled visual specimen.
-            </p>
-
+            <span class="step-number">Step 1 — Generate a Test Specimen</span>
+            <p>Use the Image Mirror Tool or Text Mirror Tool above to create a controlled visual specimen.</p>
         </div>
-
-
         <div class="step">
-
-            <span class="step-number">
-                Step 2 — Select a Multimodal AI System
-            </span>
-
-            <p>
-                Open a multimodal AI system capable of receiving image
-                input.
-            </p>
-
+            <span class="step-number">Step 2 — Select a Multimodal AI System</span>
+            <p>Open a multimodal AI system capable of receiving image input.</p>
         </div>
-
-
         <div class="step">
-
-            <span class="step-number">
-                Step 3 — Upload and Use a Standardized Prompt
-            </span>
-
-            <p>
-                Upload the mirrored specimen and use a neutral prompt such
-                as the following:
-            </p>
-
+            <span class="step-number">Step 3 — Upload and Use a Standardized Prompt</span>
+            <p>Upload the mirrored specimen and use a neutral prompt such as the following:</p>
             <code class="prompt-box">Analyze this image as a visual specimen.
 
 Describe exactly what you can determine from the image.
@@ -818,38 +701,15 @@ Describe exactly what you can determine from the image.
 If the writing appears mirrored, inverted, transformed, or otherwise unusual, identify that condition.
 
 Do not guess missing characters. Clearly distinguish direct visual observations from interpretation or uncertainty.</code>
-
         </div>
-
-
         <div class="step">
-
-            <span class="step-number">
-                Step 4 — Record the Output
-            </span>
-
-            <p>
-                Preserve the model response, test specimen, prompt,
-                model/version information, and test date.
-            </p>
-
+            <span class="step-number">Step 4 — Record the Output</span>
+            <p>Preserve the model response, test specimen, prompt, model/version information, and test date.</p>
         </div>
-
-
         <div class="step">
-
-            <span class="step-number">
-                Step 5 — Analyze the Result
-            </span>
-
-            <p>
-                Compare the model output with the known specimen and
-                transformation condition. Record observable discrepancies
-                without assuming a failure in advance.
-            </p>
-
+            <span class="step-number">Step 5 — Analyze the Result</span>
+            <p>Compare the model output with the known specimen and transformation condition. Record observable discrepancies without assuming a failure in advance.</p>
         </div>
-
     </div>
 
 
@@ -858,106 +718,23 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
     ========================== -->
 
     <div id="tool-record" class="section">
-
-        <h3>
-            5. VIST-AI Observation Record
-        </h3>
-
-        <p>
-            For reproducible research, record the same basic information
-            for every test.
-        </p>
-
+        <h3>5. VIST-AI Observation Record</h3>
+        <p>For reproducible research, record the same basic information for every test.</p>
 
         <div class="record-grid">
-
-            <div class="record-item">
-
-                <strong>Test ID</strong>
-
-                Example:
-                VIST-2026-001
-
-            </div>
-
-
-            <div class="record-item">
-
-                <strong>Test Date</strong>
-
-                Record the date of the experiment.
-
-            </div>
-
-
-            <div class="record-item">
-
-                <strong>AI System / Model</strong>
-
-                Record the exact model name/version when available.
-
-            </div>
-
-
-            <div class="record-item">
-
-                <strong>Input Type</strong>
-
-                Image / Mirrored Script / Multilingual Specimen
-
-            </div>
-
-
-            <div class="record-item">
-
-                <strong>Transformation</strong>
-
-                Horizontal Mirror / Other Controlled Transformation
-
-            </div>
-
-
-            <div class="record-item">
-
-                <strong>Prompt</strong>
-
-                Record the exact prompt used.
-
-            </div>
-
-
-            <div class="record-item">
-
-                <strong>Observed Output</strong>
-
-                Preserve the original model response.
-
-            </div>
-
-
-            <div class="record-item">
-
-                <strong>Ground-Truth Comparison</strong>
-
-                Compare output against the known specimen.
-
-            </div>
-
+            <div class="record-item"><strong>Test ID</strong> Example: VIST-2026-001</div>
+            <div class="record-item"><strong>Test Date</strong> Record the date of the experiment.</div>
+            <div class="record-item"><strong>AI System / Model</strong> Record the exact model name/version when available.</div>
+            <div class="record-item"><strong>Input Type</strong> Image / Mirrored Script / Multilingual Specimen</div>
+            <div class="record-item"><strong>Transformation</strong> Horizontal Mirror / Other Controlled Transformation</div>
+            <div class="record-item"><strong>Prompt</strong> Record the exact prompt used.</div>
+            <div class="record-item"><strong>Observed Output</strong> Preserve the original model response.</div>
+            <div class="record-item"><strong>Ground-Truth Comparison</strong> Compare output against the known specimen.</div>
         </div>
-
 
         <div class="research-notice">
-
-            <p>
-                <strong>Important:</strong>
-                A single test result should be treated as an observation,
-                not automatically as a general conclusion about an AI
-                system. Repeated trials and controlled comparisons can
-                provide stronger evidence.
-            </p>
-
+            <p><strong>Important:</strong> A single test result should be treated as an observation, not automatically as a general conclusion about an AI system. Repeated trials and controlled comparisons can provide stronger evidence.</p>
         </div>
-
     </div>
 
 
@@ -966,21 +743,9 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
     ========================== -->
 
     <div id="tool-contact" class="section">
-
-        <h3>
-            6. Contact VIST-AI
-        </h3>
-
-        <p>
-            For research collaboration, custom mirror-writing specimens,
-            multilingual test material, or VIST-AI framework discussion,
-            contact:
-        </p>
-
-        <p class="email">
-            2nddavinci69@gmail.com
-        </p>
-
+        <h3>6. Contact VIST-AI</h3>
+        <p>For research collaboration, custom mirror-writing specimens, multilingual test material, or VIST-AI framework discussion, contact:</p>
+        <p class="email">2nddavinci69@gmail.com</p>
     </div>
 
 
@@ -989,34 +754,13 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
     ========================== -->
 
     <div class="section">
-
-        <h3>
-            About VIST-AI
-        </h3>
-
-        <p>
-            VIST-AI is an open research and evaluation framework focused on
-            visual grounding, geometric transformations, multilingual writing
-            systems, and observable multimodal AI behavior.
-        </p>
-
-        <p>
-            The framework is intended to support controlled experiments,
-            reproducibility, comparative testing, and forensic-style analysis
-            of model outputs.
-        </p>
+        <h3>About VIST-AI</h3>
+        <p>VIST-AI is an open research and evaluation framework focused on visual grounding, geometric transformations, multilingual writing systems, and observable multimodal AI behavior.</p>
+        <p>The framework is intended to support controlled experiments, reproducibility, comparative testing, and forensic-style analysis of model outputs.</p>
 
         <div class="research-notice">
-
-            <p>
-                <strong>Scope:</strong>
-                VIST-AI is a research and evaluation framework. Results may
-                vary by model, version, prompt, image quality, language,
-                script, and test conditions.
-            </p>
-
+            <p><strong>Scope:</strong> VIST-AI is a research and evaluation framework. Results may vary by model, version, prompt, image quality, language, script, and test conditions.</p>
         </div>
-
     </div>
 
 
@@ -1025,35 +769,13 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
     ========================== -->
 
     <div class="footer-box">
-
-        <p>
-            &copy; 2026 VIST-AI Framework. All Rights Reserved.
-        </p>
-
-        <p>
-            <strong>Founder:</strong>
-            Mushtaque Ahmed Rajput
-        </p>
-
-        <p>
-            Open Framework for Visual Grounding &
-            Geometric Robustness Evaluation
-        </p>
-
+        <p>&copy; 2026 VIST-AI Framework. All Rights Reserved.</p>
+        <p><strong>Founder:</strong> Mushtaque Ahmed Rajput</p>
+        <p>Open Framework for Visual Grounding & Geometric Robustness Evaluation</p>
         <p style="margin-top:12px;">
-
-            <a href="privacy.html">
-                Privacy Policy
-            </a>
-
-            &nbsp; | &nbsp;
-
-            <a href="terms.html">
-                Terms & Conditions
-            </a>
-
+            <a href="privacy.html">Privacy Policy</a> &nbsp; | &nbsp;
+            <a href="terms.html">Terms & Conditions</a>
         </p>
-
     </div>
 
 </div>
@@ -1064,214 +786,67 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
 ========================== -->
 
 <script>
+    const imageInput = document.getElementById("imageNormalInput");
+    const processImageButton = document.getElementById("processImageButton");
+    const output = document.getElementById("output");
+    const evidenceImg = document.getElementById("evidenceImg");
+    const downloadLink = document.getElementById("downloadLink");
 
-    /*
-     * ==========================================
-     * VIST-AI IMAGE MIRROR
-     * ==========================================
-     */
+    processImageButton.addEventListener("click", function () {
+        const file = imageInput.files[0];
+        if (!file) {
+            alert("Please select a writing image first.");
+            return;
+        }
+        if (!file.type.startsWith("image/")) {
+            alert("Please select a valid image file.");
+            return;
+        }
 
-    const imageInput =
-        document.getElementById("imageNormalInput");
+        const reader = new FileReader();
+        reader.onload = function (event) {
+            const img = new Image();
+            img.onload = function () {
+                const canvas = document.createElement("canvas");
+                const ctx = canvas.getContext("2d");
+                canvas.width = img.width;
+                canvas.height = img.height;
 
-    const processImageButton =
-        document.getElementById("processImageButton");
+                ctx.translate(canvas.width, 0);
+                ctx.scale(-1, 1);
+                ctx.drawImage(img, 0, 0);
 
-    const output =
-        document.getElementById("output");
-
-    const evidenceImg =
-        document.getElementById("evidenceImg");
-
-    const downloadLink =
-        document.getElementById("downloadLink");
-
-
-    processImageButton.addEventListener(
-        "click",
-        function () {
-
-            const file = imageInput.files[0];
-
-            if (!file) {
-
-                alert(
-                    "Please select a writing image first."
-                );
-
-                return;
-            }
-
-
-            if (!file.type.startsWith("image/")) {
-
-                alert(
-                    "Please select a valid image file."
-                );
-
-                return;
-            }
-
-
-            const reader =
-                new FileReader();
-
-
-            reader.onload = function (event) {
-
-                const img =
-                    new Image();
-
-
-                img.onload = function () {
-
-                    const canvas =
-                        document.createElement("canvas");
-
-                    const ctx =
-                        canvas.getContext("2d");
-
-
-                    canvas.width =
-                        img.width;
-
-                    canvas.height =
-                        img.height;
-
-
-                    /*
-                     * Horizontal mirror transformation
-                     */
-
-                    ctx.translate(
-                        canvas.width,
-                        0
-                    );
-
-                    ctx.scale(
-                        -1,
-                        1
-                    );
-
-
-                    ctx.drawImage(
-                        img,
-                        0,
-                        0
-                    );
-
-
-                    const mirroredDataUrl =
-                        canvas.toDataURL(
-                            "image/jpeg",
-                            0.95
-                        );
-
-
-                    evidenceImg.src =
-                        mirroredDataUrl;
-
-
-                    downloadLink.href =
-                        mirroredDataUrl;
-
-
-                    downloadLink.download =
-                        "vist-ai-mirrored-test-specimen.jpg";
-
-
-                    output.style.display =
-                        "block";
-
-
-                    output.scrollIntoView({
-                        behavior: "smooth",
-                        block: "center"
-                    });
-
-                };
-
-
-                img.onerror = function () {
-
-                    alert(
-                        "The selected image could not be processed."
-                    );
-
-                };
-
-
-                img.src =
-                    event.target.result;
-
+                const mirroredDataUrl = canvas.toDataURL("image/jpeg", 0.95);
+                evidenceImg.src = mirroredDataUrl;
+                downloadLink.href = mirroredDataUrl;
+                downloadLink.download = "vist-ai-mirrored-test-specimen.jpg";
+                output.style.display = "block";
+                output.scrollIntoView({ behavior: "smooth", block: "center" });
             };
+            img.onerror = function () {
+                alert("The selected image could not be processed.");
+            };
+            img.src = event.target.result;
+        };
+        reader.readAsDataURL(file);
+    });
 
+    const textInput = document.getElementById("userInputText");
+    const generateTextButton = document.getElementById("generateTextButton");
+    const mirrorResultBox = document.getElementById("mirrorResultBox");
+    const mirroredDisplay = document.getElementById("mirroredDisplay");
 
-            reader.readAsDataURL(file);
-
+    generateTextButton.addEventListener("click", function () {
+        const text = textInput.value;
+        if (!text.trim()) {
+            alert("Please enter text first.");
+            return;
         }
-    );
 
-
-    /*
-     * ==========================================
-     * VIST-AI TEXT MIRROR
-     * ==========================================
-     */
-
-    const textInput =
-        document.getElementById("userInputText");
-
-    const generateTextButton =
-        document.getElementById("generateTextButton");
-
-    const mirrorResultBox =
-        document.getElementById("mirrorResultBox");
-
-    const mirroredDisplay =
-        document.getElementById("mirroredDisplay");
-
-
-    generateTextButton.addEventListener(
-        "click",
-        function () {
-
-            const text =
-                textInput.value;
-
-
-            | if (!text.trim()) {
-
-                alert(
-                    "Please enter text first."
-                );
-
-                return;
-            }
-
-
-            /*
-             * The original Unicode string is preserved.
-             * CSS creates a visual horizontal mirror.
-             */
-
-            mirroredDisplay.textContent =
-                text;
-
-
-            mirrorResultBox.style.display =
-                "block";
-
-
-            mirrorResultBox.scrollIntoView({
-                behavior: "smooth",
-                block: "center"
-            });
-
-        }
-    );
-
-
+        mirroredDisplay.textContent = text;
+        mirrorResultBox.style.display = "block";
+        mirrorResultBox.scrollIntoView({ behavior: "smooth", block: "center" });
+    });
 </script>
 
 </body>
