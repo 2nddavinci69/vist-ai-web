@@ -24,7 +24,7 @@
         }
 
         /* =========================
-            HIGH-TECH ANIMATED AI DIGITAL WALLPAPER (Black, Blue, Grey)
+            HIGH-TECH ANIMATED AI DIGITAL WALLPAPER
         ========================== */
         body {
             margin: 0;
@@ -73,12 +73,30 @@
         }
 
         /* =========================
-            HEADER - LOGO ON TOP & COMPACT SPACING
+            HEADER & LANGUAGE SELECTOR
         ========================== */
 
         header {
             text-align: center;
             padding-bottom: 5px;
+            position: relative;
+        }
+
+        .top-bar-lang {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 10px;
+        }
+
+        .lang-select {
+            background: #1e293b;
+            color: #38bdf8;
+            border: 1px solid #334155;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: bold;
+            cursor: pointer;
         }
 
         .top-logo-container {
@@ -350,12 +368,10 @@
             border-radius: 6px;
             font-weight: bold;
             font-size: 14px;
-            transition: all 0.2s ease;
         }
 
         .download-button:hover {
             background: #15803d;
-            box-shadow: 0 0 10px rgba(22, 163, 74, 0.6);
         }
 
         /* =========================
@@ -530,11 +546,23 @@
 <div class="container">
 
     <!-- =========================
-         HEADER - LOGO ON TOP
+         HEADER - LANGUAGE SELECTOR & LOGO
     ========================== -->
 
     <header>
-        <!-- Top Centered Logo with VIST-AI Name -->
+        <!-- Language Selector Dropdown -->
+        <div class="top-bar-lang">
+            <select id="languageSelect" class="lang-select" onchange="changeLanguage(this.value)">
+                <option value="en">🌐 English</option>
+                <option value="ja">🇯🇵 Japanese (日本語)</option>
+                <option value="ru">🇷🇺 Russian (Русский)</option>
+                <option value="ar">🇸🇦 Arabic (العربية)</option>
+                <option value="ko">🇰🇷 Korean (한국어)</option>
+                <option value="zh">🇨🇳 Chinese (中文)</option>
+                <option value="ur">🇵🇰 Urdu (اردو)</option>
+            </select>
+        </div>
+
         <div class="top-logo-container">
             <svg width="35" height="35" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(0 0 6px rgba(56, 189, 248, 0.6));">
                 <polygon points="60,5 110,32.5 110,87.5 60,115 10,87.5 10,32.5" stroke="#38bdf8" stroke-width="4" fill="#111827"/>
@@ -619,7 +647,7 @@
 
     <div id="tool-text" class="section highlight">
         <h3>2. Live Multilingual Text Mirror Tool</h3>
-        <p>Enter text in any supported writing system to generate a visually mirrored preview for controlled testing.</p>
+        <p>Enter text in any supported writing system to generate a visually mirrored preview for controlled testing (Supports Urdu, Arabic, Japanese, Chinese, Russian, Korean, English, etc.).</p>
 
         <label for="userInputText">Enter Test Text</label>
         <textarea id="userInputText" placeholder="Type or paste text here..."></textarea>
@@ -771,10 +799,36 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
 
 
 <!-- =========================
-     JAVASCRIPT
+     JAVASCRIPT (Image Mirror, Text Mirror & Google Translate Integration)
 ========================== -->
 
 <script>
+    // Google Translate Integration Script
+    function changeLanguage(langCode) {
+        let translateSelect = document.querySelector('.goog-te-combo');
+        if (!translateSelect) {
+            // Inject Google Translate script dynamically if not present
+            let gtScript = document.createElement('script');
+            gtScript.src = "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+            document.body.appendChild(gtScript);
+
+            window.googleTranslateElementInit = function() {
+                new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'en,ja,ru,ar,ko,zh,ur', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                setTimeout(() => {
+                    let selectBox = document.querySelector('.goog-te-combo');
+                    if(selectBox) {
+                        selectBox.value = langCode;
+                        selectBox.dispatchEvent(new Event('change'));
+                    }
+                }, 1000);
+            };
+        } else {
+            translateSelect.value = langCode;
+            translateSelect.dispatchEvent(new Event('change'));
+        }
+    }
+
+    // Image Mirror Logic
     const imageInput = document.getElementById("imageNormalInput");
     const processImageButton = document.getElementById("processImageButton");
     const output = document.getElementById("output");
@@ -820,6 +874,7 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
         reader.readAsDataURL(file);
     });
 
+    // Text Mirror Logic
     const textInput = document.getElementById("userInputText");
     const generateTextButton = document.getElementById("generateTextButton");
     const mirrorResultBox = document.getElementById("mirrorResultBox");
@@ -837,6 +892,9 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
         mirrorResultBox.scrollIntoView({ behavior: "smooth", block: "center" });
     });
 </script>
+
+<!-- Hidden Google Translate Element -->
+<div id="google_translate_element" style="display:none;"></div>
 
 </body>
 </html>
