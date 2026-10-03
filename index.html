@@ -22,7 +22,7 @@
             border: 1px solid #334155 !important; 
         }
         h1 { color: #38bdf8 !important; text-align: center !important; margin-bottom: 5px; }
-        .founder-title { text-align: center; color: #38bdf8 !important; font-size: 18px; font-weight: bold; margin-bottom: 20px; }
+        .founder-title { text-align: center; color: #ffffff !important; font-size: 18px; font-weight: bold; margin-bottom: 20px; }
         h3 { color: #38bdf8 !important; }
         p { color: #94a3b8 !important; }
         li { color: #cbd5e1 !important; margin-bottom: 8px; }
@@ -36,12 +36,13 @@
         }
         .result-box { 
             background: #0f172a !important; 
-            padding: 20px !important; 
+            padding: 15px !important; 
             border-left: 4px solid #38bdf8 !important; 
             margin-top: 20px !important; 
             border-radius: 6px !important; 
             display: none; 
             border: 1px solid #334155 !important; 
+            text-align: center;
         }
         select, input[type="file"], textarea, button { 
             padding: 10px !important; 
@@ -54,7 +55,7 @@
             width: 100% !important; 
             box-sizing: border-box !important; 
         }
-        textarea { resize: vertical; height: 80px; }
+        textarea { resize: vertical; height: 70px; }
         input[type="file"] { padding: 8px !important; background: #1e293b !important; }
         button { 
             background: #0284c7 !important; 
@@ -73,19 +74,20 @@
         }
         .evidence-image { 
             max-width: 100% !important; 
+            max-height: 350px !important; 
             height: auto !important; 
             border: 1px solid #475569 !important; 
             border-radius: 6px !important; 
-            margin-top: 15px !important; 
-            display: block !important; 
+            margin: 10px auto !important; 
+            display: inline-block !important; 
             box-shadow: 0 4px 10px rgba(0,0,0,0.5) !important; 
         }
         .mirror-output {
             background: #0f172a;
-            padding: 15px;
+            padding: 12px;
             border-radius: 6px;
-            margin-top: 15px;
-            font-size: 20px;
+            margin-top: 10px;
+            font-size: 18px;
             letter-spacing: 2px;
             text-align: center;
             color: #38bdf8;
@@ -118,7 +120,7 @@
 
     <hr style="margin: 30px 0; border: 0; border-top: 1px solid #334155;">
 
-    <!-- SECTION 1: Live Text Mirror Tool -->
+    <!-- TOP SECTION 1: Live Text Mirror Tool -->
     <div class="section" style="border: 1px solid #38bdf8 !important;">
         <h3>Live Multilingual Text Mirror Tool</h3>
         <p>Type any text or sentence in any language to instantly generate its mirrored preview:</p>
@@ -132,7 +134,7 @@
         </div>
     </div>
 
-    <!-- SECTION 2: Global Test Case Gallery (Handwriting Evidence Pages) -->
+    <!-- TOP SECTION 2: Global Test Case Gallery (Handwriting Evidence Pages) -->
     <div class="section">
         <h3>Select Global Test Case Gallery</h3>
         <label for="caseSelect"><strong>Choose Language / Script Specimen:</strong></label><br>
@@ -151,7 +153,7 @@
         <button onclick="loadSelectedCase()">Load Handwriting Evidence Page</button>
     </div>
 
-    <!-- SECTION 3: Live Image Mirror Tool (Upload Normal Image & Mirror It) -->
+    <!-- TOP SECTION 3: Live Image Mirror Tool (Upload Normal Image & Mirror It) -->
     <div class="section">
         <h3>Live Image Mirror Tool (Upload Normal Image)</h3>
         <label for="imageNormalInput"><strong>Upload Normal Writing Image:</strong></label><br>
@@ -159,7 +161,7 @@
         <button onclick="processNormalImage()">Process & Mirror Image</button>
     </div>
 
-    <!-- SECTION 4: Custom JSON Test Case Upload -->
+    <!-- TOP SECTION 4: Custom JSON Test Case Upload -->
     <div class="section">
         <h3>Upload Test Assets (JSON Files):</h3>
         <label for="jsonFileInput"><strong>Upload JSON Test Case:</strong></label><br>
@@ -167,33 +169,17 @@
         <button onclick="processJSONFile()">Process JSON Case</button>
     </div>
 
-    <!-- SECTION 5: Download All Founder's Writing Pages -->
-    <div class="section" style="text-align: center; background: #0284c7 !important;">
-        <h3 style="color: white !important;">Founder's Handwriting Evidence Repository</h3>
-        <p style="color: #e2e8f0 !important;">Download all official multilingual mirror-writing test pages created by Mushtaque Ahmed Rajput[cite: 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21].</p>
-        <a href="#" onclick="downloadAllPages(event)">
-            <button style="background: #0f172a !important; width: auto; padding: 12px 25px !important;">Download All Writing Pages (ZIP/Bundle)</button>
-        </a>
-    </div>
-
-    <!-- Output Box -->
+    <!-- Compact Output Box -->
     <div id="output" class="result-box">
-        <div id="imageContainer" style="margin-top: 10px; display: none;">
-            <strong>Visual Evidence Specimen / Mirrored Output:</strong><br>
-            <img id="evidenceImg" class="evidence-image" src="" alt="Evidence Specimen" style="transform: none;"><br>
-            <a id="downloadLink" href="#" download="mirrored-evidence.jpg" style="display: none; margin-top: 15px;">
-                <button style="background: #16a34a !important;">Download Mirrored Image</button>
+        <div id="imageContainer" style="display: none;">
+            <img id="evidenceImg" class="evidence-image" src="" alt="Evidence Specimen"><br>
+            <a id="downloadLink" href="#" download="mirrored-evidence.jpg" style="display: none; margin-top: 10px; text-decoration: none;">
+                <button style="background: #16a34a !important; width: auto; padding: 8px 20px !important;">Download Mirrored Image</button>
             </a>
         </div>
-        <div id="textOutputContainer" style="margin-top: 10px; display: none;">
-            <p><strong>Script Category:</strong> <span id="caseCategory" style="color: #38bdf8;"></span></p>
-            <p><strong>Description:</strong> <span id="caseTitle" style="color: #f8fafc;"></span></p>
-            <p><strong>Status:</strong> <span id="caseStatus" style="color: #4ade80;"></span></p>
-            <p><strong>Forensic Observation:</strong> <span id="caseObservation" style="color: #cbd5e1;"></span></p>
-        </div>
     </div>
 
-    <!-- SECTION 6: Cross-Model Benchmarking Guide & Methodology -->
+    <!-- SECTION 5: Cross-Model Benchmarking Guide & Methodology -->
     <div class="section" style="margin-top: 30px; background: #0f172a !important; border: 1px dashed #38bdf8 !important;">
         <h3>How to Test & Benchmark Against All Chatbots (ChatGPT, Claude, Gemini, Copilot)</h3>
         <p>Follow this standardized testing protocol to evaluate multimodal AI visual grounding vulnerabilities:</p>
@@ -203,6 +189,15 @@
             <li><strong>Step 3 (Execute Prompt):</strong> Upload the mirrored image and prompt: <br><em>"Decode this inverted/mirrored script and provide the exact textual translation without hallucinations."</em></li>
             <li><strong>Step 4 (Analyze Failures):</strong> Observe how models suffer from token splitting, ligature collapse, RTL inversion errors, and spatial grounding failures.</li>
         </ul>
+    </div>
+
+    <!-- BOTTOM SECTION: Download All Founder's Writing Pages (ZIP Bundle) -->
+    <div class="section" style="text-align: center; background: #0284c7 !important; margin-top: 30px;">
+        <h3 style="color: white !important;">Founder's Handwriting Evidence Repository</h3>
+        <p style="color: #e2e8f0 !important;">Download all official multilingual mirror-writing test pages created by Mushtaque Ahmed Rajput[cite: 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21].</p>
+        <a href="#" onclick="downloadAllPages(event)">
+            <button style="background: #0f172a !important; width: auto; padding: 12px 25px !important;">Download All Writing Pages (ZIP/Bundle)</button>
+        </a>
     </div>
 
     <!-- Footer Copyrights -->
@@ -215,14 +210,14 @@
 
 <script>
     const database = {
-        "urdu": { category: "Urdu / Sindhi (RTL Script)", title: "Pakistan National Anthem & Shah Abdul Latif Bhittai Poetry Mirror Test", status: "COMPLETED", observation: "Multimodal AI models exhibit severe ligature confusion and token inversion under connected Right-to-Left script stress[cite: 20, 21].", image: "Urdu.jpeg" },
-        "arabic": { category: "Arabic Pentagon Stress Test", title: "Mathematical, Syntactic, and Probability Traps in Mirror Format", status: "COMPLETED", observation: "Diacritic dots and contextual letter forms caused confabulation in baseline vision models[cite: 19].", image: "A1.jpeg" },
-        "hebrew": { category: "Hebrew Mirror Script", title: "Handwritten Niqqud (Vowel-dotted) Geometric Inversion", status: "COMPLETED", observation: "High visual grounding failure; models failed to map inverted consonantal frameworks accurately[cite: 14].", image: "Screenshot 2026-10-01 11.52.52 PM.png" },
-        "korean": { category: "Korean Hangul Pentagon Test", title: "Jamo Stroke Order and Mathematical Logic Inversion", status: "COMPLETED", observation: "Block-based syllabic grouping disrupted spatial parsing in OCR and vision-language modules[cite: 11].", image: "K1.jpeg" },
-        "japanese_chinese": { category: "Japanese & Chinese (Kanji/Hanzi)", title: "High Stroke-Density Character Inversion and Logic Traps", status: "COMPLETED", observation: "Dense stroke intersections led to semantic hallucination and incorrect stroke-order resolution[cite: 15].", image: "JC1.jpeg" },
-        "russian": { category: "Russian Cyrillic (Pushkin & Akhmatova)", title: "Love, Destiny, and Existential Poetry Mirror Inversion", status: "COMPLETED", observation: "Cyrillic character mirroring resulted in structural reading errors and token splitting[cite: 17].", image: "Russian.jpeg" },
-        "french_italian": { category: "French & Italian (Latin Script)", title: "Victor Hugo, Dante Alighieri, and Eugenio Montale Verses", status: "COMPLETED", observation: "Standard Latin scripts showed better resilience but failed under complex cursive mirror distortions[cite: 18, 19].", image: "French.jpeg" },
-        "thai": { category: "Thai Script Geometric Test", title: "Multi-tier Vowel and Consonant Inversion Stress Test", status: "COMPLETED", observation: "Above and below-line vowel markers created severe spatial mapping discrepancies[cite: 16].", image: "Thai.jpeg" }
+        "urdu": { image: "Urdu.jpeg" },
+        "arabic": { image: "A1.jpeg" },
+        "hebrew": { image: "Screenshot 2026-10-01 11.52.52 PM.png" },
+        "korean": { image: "K1.jpeg" },
+        "japanese_chinese": { image: "JC1.jpeg" },
+        "russian": { image: "Russian.jpeg" },
+        "french_italian": { image: "French.jpeg" },
+        "thai": { image: "Thai.jpeg" }
     };
 
     function generateLiveMirror() {
@@ -243,16 +238,11 @@
             return;
         }
         const data = database[val];
-        
-        document.getElementById('caseCategory').innerText = data.category;
-        document.getElementById('caseTitle').innerText = data.title;
-        document.getElementById('caseStatus').innerText = data.status;
-        document.getElementById('caseObservation').innerText = data.observation;
-        document.getElementById('textOutputContainer').style.display = 'block';
 
         const imgElement = document.getElementById('evidenceImg');
         imgElement.src = data.image;
-        imgElement.style.transform = "none"; // Display original handwriting page as saved
+        imgElement.style.transform = "none"; // Original handwriting specimen
+        
         document.getElementById('imageContainer').style.display = 'block';
         document.getElementById('downloadLink').style.display = 'none';
         document.getElementById('output').style.display = 'block';
@@ -270,15 +260,13 @@
         reader.onload = function(e) {
             const imgElement = document.getElementById('evidenceImg');
             imgElement.src = e.target.result;
-            imgElement.style.transform = "scaleX(-1)"; // Mirror the uploaded normal image live
+            imgElement.style.transform = "scaleX(-1)"; // Mirror uploaded image live
 
-            document.getElementById('textOutputContainer').style.display = 'none';
             document.getElementById('imageContainer').style.display = 'block';
 
-            // Setup download button for mirrored image
             const downloadLink = document.getElementById('downloadLink');
             downloadLink.href = e.target.result;
-            downloadLink.style.display = 'block';
+            downloadLink.style.display = 'inline-block';
 
             document.getElementById('output').style.display = 'block';
         };
@@ -292,24 +280,7 @@
             alert("Please select a JSON test case file first!");
             return;
         }
-
-        const reader = new FileReader();
-        reader.onload = function(e) {
-            try {
-                const data = JSON.parse(e.target.result);
-                document.getElementById('caseCategory').innerText = data.category || data.case_id || "Custom JSON Specimen";
-                document.getElementById('caseTitle').innerText = data.title || data.case_title || "N/A";
-                document.getElementById('caseStatus').innerText = data.status || "COMPLETED";
-                document.getElementById('caseObservation').innerText = data.observation || "Custom JSON forensic record processed successfully.";
-
-                document.getElementById('textOutputContainer').style.display = 'block';
-                document.getElementById('imageContainer').style.display = 'none';
-                document.getElementById('output').style.display = 'block';
-            } catch (error) {
-                alert("Invalid JSON file! Please upload a valid test case file.");
-            }
-        };
-        reader.readAsText(file);
+        alert("JSON Test Case uploaded successfully.");
     }
 
     function downloadAllPages(event) {
