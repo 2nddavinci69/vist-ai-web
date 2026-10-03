@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VIST-AI Global Forensic Test Viewer</title>
+    <title>VIST-AI Global Forensic Test Viewer & Live Mirror Tool</title>
     <style>
         body { 
             font-family: Arial, sans-serif !important; 
@@ -13,7 +13,7 @@
             color: #e2e8f0 !important; 
         }
         .container { 
-            max-width: 900px !important; 
+            max-width: 950px !important; 
             margin: auto !important; 
             background: #1e293b !important; 
             padding: 30px !important; 
@@ -21,7 +21,8 @@
             box-shadow: 0 8px 20px rgba(0,0,0,0.8) !important; 
             border: 1px solid #334155 !important; 
         }
-        h1 { color: #38bdf8 !important; text-align: center !important; }
+        h1 { color: #38bdf8 !important; text-align: center !important; margin-bottom: 5px; }
+        .founder-title { text-align: center; color: #38bdf8 !important; font-size: 18px; font-weight: bold; margin-bottom: 20px; }
         h3 { color: #38bdf8 !important; }
         p { color: #94a3b8 !important; }
         li { color: #cbd5e1 !important; margin-bottom: 8px; }
@@ -42,7 +43,7 @@
             display: none; 
             border: 1px solid #334155 !important; 
         }
-        select, input[type="file"], button { 
+        select, input[type="file"], textarea, button { 
             padding: 10px !important; 
             font-size: 15px !important; 
             margin-top: 10px !important; 
@@ -53,6 +54,7 @@
             width: 100% !important; 
             box-sizing: border-box !important; 
         }
+        textarea { resize: vertical; height: 80px; }
         input[type="file"] { padding: 8px !important; background: #1e293b !important; }
         button { 
             background: #0284c7 !important; 
@@ -78,6 +80,27 @@
             display: block !important; 
             box-shadow: 0 4px 10px rgba(0,0,0,0.5) !important; 
         }
+        .mirror-output {
+            background: #0f172a;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 15px;
+            font-size: 20px;
+            letter-spacing: 2px;
+            text-align: center;
+            color: #38bdf8;
+            border: 1px solid #475569;
+            word-break: break-all;
+            transform: scaleX(-1);
+        }
+        .footer-box {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #334155;
+            color: #94a3b8;
+            font-size: 14px;
+        }
         label { color: #cbd5e1 !important; }
     </style>
 </head>
@@ -85,7 +108,8 @@
 
 <div class="container">
     <h1>VIST-AI Global Forensic Test Viewer</h1>
-    <p style="text-align: center;">Multilingual Geometric Robustness & Visual Grounding Benchmark</p>
+    <div class="founder-title">Created & Founded by Mushtaque Ahmed Rajput (Founder VIST-AI)</div>
+    <p style="text-align: center;">Multilingual Geometric Robustness, Live Mirror Tool & AI Benchmarking Hub</p>
 
     <!-- Google AdSense Ad Slot Integration -->
     <div class="ad-container">
@@ -94,9 +118,24 @@
 
     <hr style="margin: 30px 0; border: 0; border-top: 1px solid #334155;">
 
+    <!-- SECTION 1: Live Mirror Tool for Any Language -->
+    <div class="section" style="border: 1px solid #38bdf8 !important;">
+        <h3>Live Multilingual Mirror Tool</h3>
+        <p>Type any text, sentence, or code in any language to instantly generate its mirrored preview for AI stress testing:</p>
+        <label for="userInputText"><strong>Enter Text to Mirror:</strong></label>
+        <textarea id="userInputText" placeholder="Type or paste text here..."></textarea>
+        <button onclick="generateLiveMirror()">Generate Mirrored Text</button>
+        
+        <div id="mirrorResultBox" style="display: none; margin-top: 15px;">
+            <label><strong>Live Mirrored Output:</strong></label>
+            <div id="mirroredDisplay" class="mirror-output"></div>
+        </div>
+    </div>
+
+    <!-- SECTION 2: Global Test Case Viewer -->
     <div class="section">
-        <h3>Select Global Test Case</h3>
-        <label for="caseSelect"><strong>Choose Language / Script:</strong></label><br>
+        <h3>Select Global Test Case Gallery</h3>
+        <label for="caseSelect"><strong>Choose Language / Script Specimen:</strong></label><br>
         <select id="caseSelect">
             <option value="">-- Select Multilingual Specimen --</option>
             <option value="urdu">Urdu / Sindhi (Pakistan National Anthem & Poetry)</option>
@@ -109,9 +148,10 @@
             <option value="thai">Thai Script (Complex Geometric Inversion)</option>
         </select>
         <br><br>
-        <button onclick="loadSelectedCase()">Load Forensic Case</button>
+        <button onclick="loadSelectedCase()">Load Forensic Case Details</button>
     </div>
 
+    <!-- SECTION 3: Custom File Uploads -->
     <div class="section">
         <h3>Upload Test Assets (Custom Files):</h3>
         <label for="jsonFileInput"><strong>Upload JSON Test Case:</strong></label><br>
@@ -121,6 +161,7 @@
         <input type="file" id="imageFileInput" accept="image/*" onchange="loadCustomImage(event)">
     </div>
 
+    <!-- Output Box -->
     <div id="output" class="result-box">
         <h3>Forensic Evaluation & Evidence Viewer</h3>
         <p><strong>Script Category:</strong> <span id="caseCategory" style="color: #38bdf8;"></span></p>
@@ -134,15 +175,23 @@
         </div>
     </div>
 
-    <!-- Cross-Model Benchmarking Guide Section -->
+    <!-- SECTION 4: Cross-Model Benchmarking Guide & Methodology -->
     <div class="section" style="margin-top: 30px; background: #0f172a !important; border: 1px dashed #38bdf8 !important;">
-        <h3>How to Benchmark Against All Chatbots (ChatGPT, Claude, Gemini, Copilot)</h3>
-        <p>This utility serves as a standard stress-testing framework to expose spatial grounding and geometric vulnerabilities in multimodal AI models:</p>
+        <h3>How to Test & Benchmark Against All Chatbots (ChatGPT, Claude, Gemini, Copilot)</h3>
+        <p>Follow this standardized testing protocol to evaluate multimodal AI visual grounding vulnerabilities:</p>
         <ul>
-            <li><strong>OpenAI ChatGPT (GPT-4o / o1 / o3):</strong> Upload any mirror-writing specimen image here. Observe how complex ligatures, RTL scripts, and inverted characters cause token splitting or hallucinations.</li>
-            <li><strong>Anthropic Claude (Sonnet / Opus):</strong> Test high-stroke-density scripts (like Kanji/Hanzi or Arabic diacritics) to evaluate spatial parsing disruptions.</li>
-            <li><strong>Google Gemini & Microsoft Copilot:</strong> Challenge these vision models with multi-tier vowel markers (Thai/Hebrew) to measure visual grounding failures.</li>
+            <li><strong>Step 1 (Generate or Select):</strong> Use the Live Mirror Tool above to type text, or pick a handwriting specimen from our global gallery.</li>
+            <li><strong>Step 2 (Target Chatbots):</strong> Open OpenAI ChatGPT, Anthropic Claude, Google Gemini, or Microsoft Copilot.</li>
+            <li><strong>Step 3 (Execute Prompt):</strong> Upload the mirrored image or text and prompt: <br><em>"Decode this inverted/mirrored script and provide the exact textual translation without hallucinations."</em></li>
+            <li><strong>Step 4 (Analyze Failures):</strong> Observe how models suffer from token splitting, ligature collapse, RTL inversion errors, and spatial grounding failures.</li>
         </ul>
+    </div>
+
+    <!-- Footer Copyrights -->
+    <div class="footer-box">
+        <p>&copy; 2026 VIST-AI Framework. All Rights Reserved.</p>
+        <p><strong>Founder & Lead Architect:</strong> Mushtaque Ahmed Rajput</p>
+        <p>Global Multilingual Geometric Robustness & Visual Grounding Security Standard</p>
     </div>
 </div>
 
@@ -198,6 +247,16 @@
         }
     };
 
+    function generateLiveMirror() {
+        const text = document.getElementById('userInputText').value;
+        if (!text.trim()) {
+            alert("Please enter some text to mirror!");
+            return;
+        }
+        document.getElementById('mirroredDisplay').innerText = text;
+        document.getElementById('mirrorResultBox').style.display = 'block';
+    }
+
     function displayData(data) {
         document.getElementById('caseCategory').innerText = data.category || data.case_id || "N/A";
         document.getElementById('caseTitle').innerText = data.title || data.case_title || "N/A";
@@ -237,7 +296,7 @@
 
     function loadCustomImage(event) {
         const file = event.target.files[0];
-        if !file) return;
+        if (!file) return;
 
         const reader = new FileReader();
         reader.onload = function(e) {
