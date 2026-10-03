@@ -3,283 +3,1265 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VIST-AI Global Forensic AI Tester & Live Mirror Tool</title>
+
+    <meta name="description"
+        content="VIST-AI is an open research framework and live utility for evaluating multilingual visual grounding and geometric robustness in multimodal AI systems.">
+
+    <meta name="keywords"
+        content="VIST-AI, AI forensics, visual grounding, multimodal AI, geometric robustness, AI evaluation, mirror script, AI safety, AI research">
+
+    <meta name="author" content="Mushtaque Ahmed Rajput">
+
+    <title>VIST-AI | Visual Grounding & Geometric Robustness Testing</title>
+
     <style>
-        body { 
-            font-family: Arial, sans-serif !important; 
-            margin: 0 !important; 
-            padding: 20px !important; 
-            background: #090d16 !important; 
-            color: #e2e8f0 !important; 
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
             scroll-behavior: smooth;
         }
-        .container { 
-            max-width: 950px !important; 
-            margin: auto !important; 
-            background: #111827 !important; 
-            padding: 30px !important; 
-            border-radius: 10px !important; 
-            box-shadow: 0 10px 25px rgba(0,0,0,0.9) !important; 
-            border: 1px solid #1f2937 !important; 
+
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #090d16;
+            color: #e2e8f0;
+            line-height: 1.6;
         }
-        h1 { color: #38bdf8 !important; text-align: center !important; margin-bottom: 5px; }
-        .founder-title { text-align: center; color: #ffffff !important; font-size: 18px; font-weight: bold; margin-bottom: 20px; }
-        h3 { color: #38bdf8 !important; }
-        p { color: #94a3b8 !important; }
-        li { color: #cbd5e1 !important; margin-bottom: 10px; }
-        
-        /* Top Clickable Navigation Bar */
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            background: #111827;
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid #1f2937;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.75);
+        }
+
+        /* =========================
+           HEADER
+        ========================== */
+
+        header {
+            text-align: center;
+            padding-bottom: 10px;
+        }
+
+        h1 {
+            color: #38bdf8;
+            font-size: 34px;
+            margin: 0 0 8px;
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            color: #cbd5e1;
+            font-size: 17px;
+            margin: 8px 0;
+        }
+
+        .founder-title {
+            color: #ffffff;
+            font-size: 17px;
+            font-weight: bold;
+            margin-top: 12px;
+        }
+
+        .header-description {
+            max-width: 780px;
+            margin: 12px auto 0;
+            color: #94a3b8;
+            font-size: 15px;
+        }
+
+        /* =========================
+           NAVIGATION
+        ========================== */
+
         .nav-bar {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 10px;
-            margin: 20px 0;
+            gap: 9px;
+            margin: 25px 0;
             padding: 12px;
             background: #090d16;
-            border-radius: 6px;
+            border-radius: 8px;
             border: 1px solid #1f2937;
+            position: sticky;
+            top: 10px;
+            z-index: 10;
         }
+
         .nav-bar a {
             color: #38bdf8;
             text-decoration: none;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: bold;
-            padding: 8px 14px;
+            padding: 8px 13px;
             background: #1e293b;
-            border-radius: 4px;
-            transition: background 0.3s;
-        }
-        .nav-bar a:hover {
-            background: #0284c7;
-            color: white;
+            border-radius: 5px;
+            transition: all 0.25s ease;
         }
 
-        .ad-container { 
-            margin: 20px 0 !important; 
-            padding: 15px !important; 
-            background: #090d16 !important; 
-            text-align: center !important; 
-            border-radius: 6px !important; 
-            border: 2px dashed #334155 !important; 
+        .nav-bar a:hover {
+            background: #0284c7;
+            color: #ffffff;
+            transform: translateY(-1px);
         }
-        .result-box { 
-            background: #090d16 !important; 
-            padding: 15px !important; 
-            border-left: 4px solid #38bdf8 !important; 
-            margin-top: 15px !important; 
-            border-radius: 6px !important; 
-            display: none; 
-            border: 1px solid #1f2937 !important; 
+
+        /* =========================
+           RESEARCH BADGE
+        ========================== */
+
+        .research-badge {
+            text-align: center;
+            margin: 15px auto 25px;
+        }
+
+        .research-badge span {
+            display: inline-block;
+            padding: 7px 14px;
+            border: 1px solid #0369a1;
+            border-radius: 20px;
+            color: #7dd3fc;
+            background: #0c1b2a;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        /* =========================
+           ADVERTISEMENT AREA
+        ========================== */
+
+        .ad-container {
+            margin: 20px 0 30px;
+            padding: 12px;
+            background: #090d16;
+            text-align: center;
+            border-radius: 6px;
+            border: 1px dashed #334155;
+        }
+
+        .ad-container small {
+            color: #64748b;
+        }
+
+        /* =========================
+           SECTIONS
+        ========================== */
+
+        .section {
+            background: #1e293b;
+            padding: 22px;
+            border-radius: 9px;
+            margin-top: 22px;
+            border: 1px solid #334155;
+        }
+
+        .section.highlight {
+            background: #0c1725;
+            border: 1px solid #38bdf8;
+        }
+
+        h2,
+        h3 {
+            color: #38bdf8;
+        }
+
+        h2 {
+            font-size: 23px;
+            margin-top: 0;
+        }
+
+        h3 {
+            font-size: 19px;
+            margin-top: 0;
+        }
+
+        p {
+            color: #94a3b8;
+        }
+
+        li {
+            color: #cbd5e1;
+            margin-bottom: 10px;
+        }
+
+        strong {
+            color: #f8fafc;
+        }
+
+        /* =========================
+           FORM ELEMENTS
+        ========================== */
+
+        label {
+            display: block;
+            color: #cbd5e1;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        input[type="file"],
+        textarea,
+        button {
+            width: 100%;
+            padding: 11px;
+            font-size: 15px;
+            margin-top: 8px;
+            border-radius: 6px;
+            border: 1px solid #334155;
+            background: #111827;
+            color: #f8fafc;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        input[type="file"] {
+            padding: 9px;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 90px;
+        }
+
+        button {
+            background: #0284c7;
+            color: #ffffff;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.25s ease;
+        }
+
+        button:hover {
+            background: #0369a1;
+        }
+
+        button.secondary {
+            background: #334155;
+        }
+
+        button.secondary:hover {
+            background: #475569;
+        }
+
+        /* =========================
+           RESULT BOX
+        ========================== */
+
+        .result-box {
+            background: #090d16;
+            padding: 18px;
+            border-left: 4px solid #38bdf8;
+            margin-top: 18px;
+            border-radius: 7px;
+            display: none;
+            border-top: 1px solid #1f2937;
+            border-right: 1px solid #1f2937;
+            border-bottom: 1px solid #1f2937;
             text-align: center;
         }
-        select, input[type="file"], textarea, button { 
-            padding: 10px !important; 
-            font-size: 15px !important; 
-            margin-top: 10px !important; 
-            border-radius: 6px !important; 
-            border: 1px solid #334155 !important; 
-            background: #1e293b !important; 
-            color: #f8fafc !important; 
-            width: 100% !important; 
-            box-sizing: border-box !important; 
+
+        .result-title {
+            color: #38bdf8;
+            font-weight: bold;
+            margin-bottom: 10px;
         }
-        textarea { resize: vertical; height: 70px; }
-        input[type="file"] { padding: 8px !important; background: #111827 !important; }
-        button { 
-            background: #0284c7 !important; 
-            color: white !important; 
-            border: none !important; 
-            cursor: pointer !important; 
-            font-weight: bold !important; 
+
+        /* =========================
+           IMAGE PREVIEW
+        ========================== */
+
+        .evidence-image {
+            max-width: 100%;
+            max-height: 500px;
+            height: auto;
+            border: 1px solid #334155;
+            border-radius: 6px;
+            margin: 12px auto;
+            display: block;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
         }
-        button:hover { background: #0369a1 !important; }
-        .section { 
-            background: #1e293b !important; 
-            padding: 20px !important; 
-            border-radius: 8px !important; 
-            margin-top: 20px !important; 
-            border: 1px solid #334155 !important; 
+
+        .download-button {
+            display: inline-block;
+            width: auto;
+            margin-top: 8px;
+            padding: 9px 20px;
+            background: #16a34a;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
         }
-        .evidence-image { 
-            max-width: 100% !important; 
-            max-height: 400px !important; 
-            height: auto !important; 
-            border: 1px solid #334155 !important; 
-            border-radius: 6px !important; 
-            margin: 10px auto !important; 
-            display: inline-block !important; 
-            box-shadow: 0 4px 10px rgba(0,0,0,0.6) !important; 
+
+        .download-button:hover {
+            background: #15803d;
         }
+
+        /* =========================
+           TEXT MIRROR
+        ========================== */
+
         .mirror-output {
             background: #090d16;
-            padding: 12px;
-            border-radius: 6px;
+            padding: 18px;
+            border-radius: 7px;
             margin-top: 10px;
-            font-size: 18px;
-            letter-spacing: 2px;
+            font-size: 20px;
+            letter-spacing: 1px;
             text-align: center;
             color: #38bdf8;
             border: 1px solid #334155;
-            word-break: break-all;
+            word-break: break-word;
+
+            /*
+             * Visual horizontal mirror.
+             * The underlying Unicode string remains unchanged.
+             */
             transform: scaleX(-1);
         }
-        
-        /* Standardized Compact Footer Styling */
-        .footer-box {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid #1f2937;
-            color: #ffffff;
-            font-size: 14px;
-        }
-        .footer-box p {
-            margin: 4px 0 !important;
-            color: #ffffff !important;
+
+        .mirror-note {
+            color: #64748b;
+            font-size: 12px;
+            margin-top: 8px;
         }
 
-        label { color: #cbd5e1 !important; }
+        /* =========================
+           TESTING STEPS
+        ========================== */
+
+        .step {
+            background: #111827;
+            border: 1px solid #263449;
+            border-radius: 7px;
+            padding: 15px;
+            margin: 12px 0;
+        }
+
+        .step-number {
+            color: #38bdf8;
+            font-weight: bold;
+        }
+
+        code.prompt-box {
+            display: block;
+            margin-top: 8px;
+            padding: 12px;
+            background: #090d16;
+            border: 1px solid #334155;
+            border-radius: 6px;
+            color: #7dd3fc;
+            white-space: pre-wrap;
+            word-break: break-word;
+            font-family: Consolas, Monaco, monospace;
+        }
+
+        /* =========================
+           OBSERVATION RECORD
+        ========================== */
+
+        .record-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .record-item {
+            background: #111827;
+            border: 1px solid #263449;
+            border-radius: 6px;
+            padding: 13px;
+        }
+
+        .record-item strong {
+            display: block;
+            color: #38bdf8;
+            margin-bottom: 4px;
+        }
+
+        /* =========================
+           NOTICE
+        ========================== */
+
+        .research-notice {
+            background: #0b1624;
+            border-left: 4px solid #38bdf8;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 15px;
+        }
+
+        .research-notice p {
+            margin: 0;
+        }
+
+        /* =========================
+           CONTACT
+        ========================== */
+
+        .email {
+            color: #38bdf8;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        .footer-box {
+            text-align: center;
+            margin-top: 45px;
+            padding-top: 22px;
+            border-top: 1px solid #1f2937;
+            color: #ffffff;
+            font-size: 13px;
+        }
+
+        .footer-box p {
+            margin: 5px 0;
+            color: #cbd5e1;
+        }
+
+        .footer-box a {
+            color: #38bdf8;
+            text-decoration: none;
+        }
+
+        .footer-box a:hover {
+            text-decoration: underline;
+        }
+
+        /* =========================
+           MOBILE
+        ========================== */
+
+        @media (max-width: 700px) {
+
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                padding: 18px;
+            }
+
+            h1 {
+                font-size: 27px;
+            }
+
+            .subtitle {
+                font-size: 15px;
+            }
+
+            .nav-bar {
+                position: static;
+            }
+
+            .nav-bar a {
+                flex: 1 1 40%;
+                text-align: center;
+            }
+
+            .record-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                padding: 17px;
+            }
+        }
     </style>
 </head>
+
 <body>
 
 <div class="container">
-    <h1>VIST-AI Global Forensic AI Tester</h1>
-    <div class="founder-title">Created & Founded by Mushtaque Ahmed Rajput (Founder VIST-AI)</div>
-    <p style="text-align: center;">Multilingual Geometric Robustness, Live Mirror Tools & AI Benchmarking Hub</p>
 
-    <!-- Top Clickable Quick Navigation Bar -->
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header>
+
+        <h1>VIST-AI Global Forensic AI Tester</h1>
+
+        <div class="founder-title">
+            Founded by Mushtaque Ahmed Rajput
+        </div>
+
+        <p class="subtitle">
+            Visual Grounding, Geometric Robustness & Multilingual AI Evaluation
+        </p>
+
+        <p class="header-description">
+            An open research framework and live utility for investigating how
+            multimodal AI systems interpret controlled visual, geometric,
+            mirrored, and multilingual test specimens.
+        </p>
+
+    </header>
+
+    <div class="research-badge">
+        <span>OPEN RESEARCH & AI EVALUATION FRAMEWORK</span>
+    </div>
+
+
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
+
     <div class="nav-bar">
+
         <a href="#tool-img">Image Mirror</a>
+
         <a href="#tool-text">Text Mirror</a>
-        <a href="#tool-contact">Contact Us</a>
+
+        <a href="#tool-methodology">Methodology</a>
+
         <a href="#tool-guide">Testing Guide</a>
+
+        <a href="#tool-record">Observation Record</a>
+
+        <a href="#tool-contact">Contact</a>
+
     </div>
 
-    <!-- Google AdSense Ad Slot Integration -->
+
+    <!-- =========================
+         AD SPACE
+    ========================== -->
+
     <div class="ad-container">
-        <small style="color: #64748b;">Advertisement Space (Google AdSense Ready)</small>
+
+        <small>
+            Advertisement Space
+        </small>
+
     </div>
 
-    <hr style="margin: 30px 0; border: 0; border-top: 1px solid #1f2937;">
 
-    <!-- 1. Live Image Mirror Tool -->
+    <!-- =========================
+         1. IMAGE MIRROR TOOL
+    ========================== -->
+
     <div id="tool-img" class="section">
-        <h3>1. Live Image Mirror Tool (Normal Page to Mirror Page)</h3>
-        <p>Upload any normal writing image here to instantly generate and download its mirrored version:</p>
-        <label for="imageNormalInput"><strong>Upload Normal Writing Image:</strong></label><br>
-        <input type="file" id="imageNormalInput" accept="image/*">
-        <button onclick="processNormalImage()">Process & Mirror Image</button>
+
+        <h3>
+            1. Live Image Mirror Tool
+        </h3>
+
+        <p>
+            Upload a normal writing image to generate a horizontally mirrored
+            test specimen for controlled visual evaluation.
+        </p>
+
+        <label for="imageNormalInput">
+            Upload Normal Writing Image
+        </label>
+
+        <input
+            type="file"
+            id="imageNormalInput"
+            accept="image/*"
+        >
+
+        <button id="processImageButton">
+            Generate Mirrored Test Specimen
+        </button>
+
 
         <div id="output" class="result-box">
-            <div id="imageContainer" style="display: none;">
-                <canvas id="mirrorCanvas" style="display:none;"></canvas>
-                <img id="evidenceImg" class="evidence-image" src="" alt="Evidence Specimen"><br>
-                <a id="downloadLink" href="#" download="mirrored-evidence.jpg" style="display: none; margin-top: 10px; text-decoration: none;">
-                    <button style="background: #16a34a !important; width: auto; padding: 8px 20px !important;">Download Mirrored Image</button>
-                </a>
+
+            <div class="result-title">
+                Mirrored Test Specimen
             </div>
+
+            <div id="imageContainer">
+
+                <img
+                    id="evidenceImg"
+                    class="evidence-image"
+                    src=""
+                    alt="Generated mirrored test specimen"
+                >
+
+                <a
+                    id="downloadLink"
+                    href="#"
+                    download="vist-ai-mirrored-test-specimen.jpg"
+                    class="download-button"
+                >
+                    Download Test Specimen
+                </a>
+
+            </div>
+
         </div>
+
     </div>
 
-    <!-- 2. Live Multilingual Text Mirror Tool -->
-    <div id="tool-text" class="section" style="border: 1px solid #38bdf8 !important;">
-        <h3>2. Live Multilingual Text Mirror Tool</h3>
-        <p>Type any text or sentence in any language to instantly generate its mirrored preview:</p>
-        <label for="userInputText"><strong>Enter Text to Mirror:</strong></label>
-        <textarea id="userInputText" placeholder="Type or paste your text here..."></textarea>
-        <button onclick="generateLiveMirror()">Generate Mirrored Text</button>
-        
-        <div id="mirrorResultBox" style="display: none; margin-top: 15px;">
-            <label><strong>Live Mirrored Output:</strong></label>
-            <div id="mirroredDisplay" class="mirror-output"></div>
-        </div>
-    </div>
 
-    <!-- 3. Contact Us Section for Real Mirror Writing -->
-    <div id="tool-contact" class="section">
-        <h3>3. Contact Us for Real Mirror Writing</h3>
-        <p>If you need real, professional mirror writing specimens for any language, please contact us:</p>
-        <p style="color: #38bdf8; font-size: 16px; font-weight: bold; margin-top: 10px;">Email: 2nddavinci69@gmail.com</p>
-    </div>
+    <!-- =========================
+         2. TEXT MIRROR TOOL
+    ========================== -->
 
-    <!-- 4. AI Chatbots Testing Guide -->
-    <div id="tool-guide" class="section" style="margin-top: 30px; background: #090d16 !important; border: 1px solid #38bdf8 !important;">
-        <h3 style="color: #38bdf8 !important; text-align: center;">How to Test & Benchmark AI Chatbots (ChatGPT, Claude, Gemini, Copilot, Qwen, etc.)</h3>
-        <p style="text-align: center; color: #94a3b8;">Follow these 4 simple steps to evaluate the visual grounding and geometric robustness of ChatGPT, Claude, Gemini, Copilot, Qwen, etc.:</p>
-        <ul style="line-height: 1.6; padding-left: 20px;">
-            <li><strong>Step 1 (Generate Specimen):</strong> Use the live image or text mirror tools above to create your test specimen.</li>
-            <li><strong>Step 2 (Open an AI Chatbot):</strong> Launch OpenAI ChatGPT, Anthropic Claude, Google Gemini, Microsoft Copilot, Qwen, etc.</li>
-            <li><strong>Step 3 (Upload and Prompt):</strong> Upload the mirrored image to the chatbot along with this prompt:<br>
-                <code style="color: #38bdf8; background: #111827; padding: 6px 10px; display: inline-block; margin-top: 5px; border-radius: 4px;">"Decode this mirrored/inverted script and provide the exact textual translation accurately without hallucinations."</code>
-            </li>
-            <li><strong>Step 4 (Analyze Failures):</strong> Observe how models suffer from token splitting, ligature collapse, or geometric inversion confusion.</li>
-        </ul>
-    </div>
+    <div id="tool-text" class="section highlight">
 
-    <!-- Footer Copyrights & Policy Links -->
-    <div class="footer-box">
-        <p>&copy; 2026 VIST-AI Framework. All Rights Reserved.</p>
-        <p><strong>Founder & Lead Architect:</strong> Mushtaque Ahmed Rajput</p>
-        <p>Global Multilingual Geometric Robustness & Visual Grounding Security Standard</p>
-        <p style="margin-top: 10px;">
-            <a href="privacy.html" style="color: #38bdf8; text-decoration: none; margin-right: 15px;">Privacy Policy</a> | 
-            <a href="terms.html" style="color: #38bdf8; text-decoration: none; margin-left: 15px;">Terms & Conditions</a>
+        <h3>
+            2. Live Multilingual Text Mirror Tool
+        </h3>
+
+        <p>
+            Enter text in any supported writing system to generate a
+            visually mirrored preview for controlled testing.
         </p>
+
+        <label for="userInputText">
+            Enter Test Text
+        </label>
+
+        <textarea
+            id="userInputText"
+            placeholder="Type or paste text here..."
+        ></textarea>
+
+        <button id="generateTextButton">
+            Generate Mirrored Preview
+        </button>
+
+
+        <div id="mirrorResultBox" style="display:none; margin-top:18px;">
+
+            <label>
+                Visual Mirrored Preview
+            </label>
+
+            <div
+                id="mirroredDisplay"
+                class="mirror-output"
+            ></div>
+
+            <div class="mirror-note">
+                Note: this is a visual horizontal transformation.
+                The underlying Unicode text is not reversed or translated.
+            </div>
+
+        </div>
+
     </div>
+
+
+    <!-- =========================
+         3. METHODOLOGY
+    ========================== -->
+
+    <div id="tool-methodology" class="section">
+
+        <h3>
+            3. VIST-AI Research Methodology
+        </h3>
+
+        <p>
+            VIST-AI uses controlled visual specimens to investigate
+            multimodal AI interpretation under geometric and multilingual
+            conditions.
+        </p>
+
+        <div class="step">
+
+            <span class="step-number">
+                Test Condition
+            </span>
+
+            <p>
+                A known specimen is transformed using a defined visual
+                operation such as horizontal mirroring.
+            </p>
+
+        </div>
+
+        <div class="step">
+
+            <span class="step-number">
+                Model Observation
+            </span>
+
+            <p>
+                The same specimen and standardized prompt can be presented
+                to one or more multimodal AI systems.
+            </p>
+
+        </div>
+
+        <div class="step">
+
+            <span class="step-number">
+                Ground-Truth Comparison
+            </span>
+
+            <p>
+                Model output is compared with the known source specimen,
+                transformation condition, and expected interpretation.
+            </p>
+
+        </div>
+
+        <div class="step">
+
+            <span class="step-number">
+                Error Analysis
+            </span>
+
+            <p>
+                Researchers can record observable discrepancies such as
+                character confusion, spatial interpretation errors,
+                ligature-related errors, tokenization-related observations,
+                or unsupported claims.
+            </p>
+
+        </div>
+
+
+        <div class="research-notice">
+
+            <p>
+                <strong>Research principle:</strong>
+                VIST-AI does not assume that an AI system will fail a test.
+                The purpose is to create controlled conditions in which
+                model behavior can be observed, recorded, compared, and
+                independently reproduced.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         4. AI TESTING GUIDE
+    ========================== -->
+
+    <div id="tool-guide" class="section highlight">
+
+        <h3 style="text-align:center;">
+            4. How to Test Multimodal AI Systems
+        </h3>
+
+        <p style="text-align:center;">
+            Use the following procedure to conduct a controlled VIST-AI
+            visual-grounding and geometric-robustness test.
+        </p>
+
+
+        <div class="step">
+
+            <span class="step-number">
+                Step 1 — Generate a Test Specimen
+            </span>
+
+            <p>
+                Use the Image Mirror Tool or Text Mirror Tool above to
+                create a controlled visual specimen.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <span class="step-number">
+                Step 2 — Select a Multimodal AI System
+            </span>
+
+            <p>
+                Open a multimodal AI system capable of receiving image
+                input.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <span class="step-number">
+                Step 3 — Upload and Use a Standardized Prompt
+            </span>
+
+            <p>
+                Upload the mirrored specimen and use a neutral prompt such
+                as the following:
+            </p>
+
+            <code class="prompt-box">Analyze this image as a visual specimen.
+
+Describe exactly what you can determine from the image.
+
+If the writing appears mirrored, inverted, transformed, or otherwise unusual, identify that condition.
+
+Do not guess missing characters. Clearly distinguish direct visual observations from interpretation or uncertainty.</code>
+
+        </div>
+
+
+        <div class="step">
+
+            <span class="step-number">
+                Step 4 — Record the Output
+            </span>
+
+            <p>
+                Preserve the model response, test specimen, prompt,
+                model/version information, and test date.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <span class="step-number">
+                Step 5 — Analyze the Result
+            </span>
+
+            <p>
+                Compare the model output with the known specimen and
+                transformation condition. Record observable discrepancies
+                without assuming a failure in advance.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         5. OBSERVATION RECORD
+    ========================== -->
+
+    <div id="tool-record" class="section">
+
+        <h3>
+            5. VIST-AI Observation Record
+        </h3>
+
+        <p>
+            For reproducible research, record the same basic information
+            for every test.
+        </p>
+
+
+        <div class="record-grid">
+
+            <div class="record-item">
+
+                <strong>Test ID</strong>
+
+                Example:
+                VIST-2026-001
+
+            </div>
+
+
+            <div class="record-item">
+
+                <strong>Test Date</strong>
+
+                Record the date of the experiment.
+
+            </div>
+
+
+            <div class="record-item">
+
+                <strong>AI System / Model</strong>
+
+                Record the exact model name/version when available.
+
+            </div>
+
+
+            <div class="record-item">
+
+                <strong>Input Type</strong>
+
+                Image / Mirrored Script / Multilingual Specimen
+
+            </div>
+
+
+            <div class="record-item">
+
+                <strong>Transformation</strong>
+
+                Horizontal Mirror / Other Controlled Transformation
+
+            </div>
+
+
+            <div class="record-item">
+
+                <strong>Prompt</strong>
+
+                Record the exact prompt used.
+
+            </div>
+
+
+            <div class="record-item">
+
+                <strong>Observed Output</strong>
+
+                Preserve the original model response.
+
+            </div>
+
+
+            <div class="record-item">
+
+                <strong>Ground-Truth Comparison</strong>
+
+                Compare output against the known specimen.
+
+            </div>
+
+        </div>
+
+
+        <div class="research-notice">
+
+            <p>
+                <strong>Important:</strong>
+                A single test result should be treated as an observation,
+                not automatically as a general conclusion about an AI
+                system. Repeated trials and controlled comparisons can
+                provide stronger evidence.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         6. CONTACT
+    ========================== -->
+
+    <div id="tool-contact" class="section">
+
+        <h3>
+            6. Contact VIST-AI
+        </h3>
+
+        <p>
+            For research collaboration, custom mirror-writing specimens,
+            multilingual test material, or VIST-AI framework discussion,
+            contact:
+        </p>
+
+        <p class="email">
+            2nddavinci69@gmail.com
+        </p>
+
+    </div>
+
+
+    <!-- =========================
+         RESEARCH POSITIONING
+    ========================== -->
+
+    <div class="section">
+
+        <h3>
+            About VIST-AI
+        </h3>
+
+        <p>
+            VIST-AI is an open research and evaluation framework focused on
+            visual grounding, geometric transformations, multilingual writing
+            systems, and observable multimodal AI behavior.
+        </p>
+
+        <p>
+            The framework is intended to support controlled experiments,
+            reproducibility, comparative testing, and forensic-style analysis
+            of model outputs.
+        </p>
+
+        <div class="research-notice">
+
+            <p>
+                <strong>Scope:</strong>
+                VIST-AI is a research and evaluation framework. Results may
+                vary by model, version, prompt, image quality, language,
+                script, and test conditions.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <div class="footer-box">
+
+        <p>
+            &copy; 2026 VIST-AI Framework. All Rights Reserved.
+        </p>
+
+        <p>
+            <strong>Founder:</strong>
+            Mushtaque Ahmed Rajput
+        </p>
+
+        <p>
+            Open Framework for Visual Grounding &
+            Geometric Robustness Evaluation
+        </p>
+
+        <p style="margin-top:12px;">
+
+            <a href="privacy.html">
+                Privacy Policy
+            </a>
+
+            &nbsp; | &nbsp;
+
+            <a href="terms.html">
+                Terms & Conditions
+            </a>
+
+        </p>
+
+    </div>
+
 </div>
 
+
+<!-- =========================
+     JAVASCRIPT
+========================== -->
+
 <script>
-    function generateLiveMirror() {
-        const text = document.getElementById('userInputText').value;
-        if (!text.trim()) {
-            alert("Please enter some text to mirror!");
-            return;
-        }
-        document.getElementById('mirroredDisplay').innerText = text;
-        document.getElementById('mirrorResultBox').style.display = 'block';
-    }
 
-    function processNormalImage() {
-        const fileInput = document.getElementById('imageNormalInput');
-        const file = fileInput.files[0];
-        if (!file) {
-            alert("Please select a normal writing image first!");
-            return;
-        }
+    /*
+     * ==========================================
+     * VIST-AI IMAGE MIRROR
+     * ==========================================
+     */
 
-        const reader = new FileReader();
-        reader.onload = function(e) {
-            const img = new Image();
-            img.onload = function() {
-                const canvas = document.getElementById('mirrorCanvas');
-                const ctx = canvas.getContext('2d');
-                canvas.width = img.width;
-                canvas.height = img.height;
-                
-                ctx.translate(canvas.width, 0);
-                ctx.scale(-1, 1);
-                ctx.drawImage(img, 0, 0);
+    const imageInput =
+        document.getElementById("imageNormalInput");
 
-                const mirroredDataUrl = canvas.toDataURL('image/jpeg');
+    const processImageButton =
+        document.getElementById("processImageButton");
 
-                const imgElement = document.getElementById('evidenceImg');
-                imgElement.src = mirroredDataUrl;
+    const output =
+        document.getElementById("output");
 
-                document.getElementById('imageContainer').style.display = 'block';
+    const evidenceImg =
+        document.getElementById("evidenceImg");
 
-                const downloadLink = document.getElementById('downloadLink');
-                downloadLink.href = mirroredDataUrl;
-                downloadLink.download = "mirrored-evidence.jpg";
-                downloadLink.style.display = 'inline-block';
+    const downloadLink =
+        document.getElementById("downloadLink");
 
-                document.getElementById('output').style.display = 'block';
+
+    processImageButton.addEventListener(
+        "click",
+        function () {
+
+            const file = imageInput.files[0];
+
+            if (!file) {
+
+                alert(
+                    "Please select a writing image first."
+                );
+
+                return;
+            }
+
+
+            if (!file.type.startsWith("image/")) {
+
+                alert(
+                    "Please select a valid image file."
+                );
+
+                return;
+            }
+
+
+            const reader =
+                new FileReader();
+
+
+            reader.onload = function (event) {
+
+                const img =
+                    new Image();
+
+
+                img.onload = function () {
+
+                    const canvas =
+                        document.createElement("canvas");
+
+                    const ctx =
+                        canvas.getContext("2d");
+
+
+                    canvas.width =
+                        img.width;
+
+                    canvas.height =
+                        img.height;
+
+
+                    /*
+                     * Horizontal mirror transformation
+                     */
+
+                    ctx.translate(
+                        canvas.width,
+                        0
+                    );
+
+                    ctx.scale(
+                        -1,
+                        1
+                    );
+
+
+                    ctx.drawImage(
+                        img,
+                        0,
+                        0
+                    );
+
+
+                    const mirroredDataUrl =
+                        canvas.toDataURL(
+                            "image/jpeg",
+                            0.95
+                        );
+
+
+                    evidenceImg.src =
+                        mirroredDataUrl;
+
+
+                    downloadLink.href =
+                        mirroredDataUrl;
+
+
+                    downloadLink.download =
+                        "vist-ai-mirrored-test-specimen.jpg";
+
+
+                    output.style.display =
+                        "block";
+
+
+                    output.scrollIntoView({
+                        behavior: "smooth",
+                        block: "center"
+                    });
+
+                };
+
+
+                img.onerror = function () {
+
+                    alert(
+                        "The selected image could not be processed."
+                    );
+
+                };
+
+
+                img.src =
+                    event.target.result;
+
             };
-            img.src = e.target.result;
-        };
-        reader.readAsDataURL(file);
-    }
+
+
+            reader.readAsDataURL(file);
+
+        }
+    );
+
+
+    /*
+     * ==========================================
+     * VIST-AI TEXT MIRROR
+     * ==========================================
+     */
+
+    const textInput =
+        document.getElementById("userInputText");
+
+    const generateTextButton =
+        document.getElementById("generateTextButton");
+
+    const mirrorResultBox =
+        document.getElementById("mirrorResultBox");
+
+    const mirroredDisplay =
+        document.getElementById("mirroredDisplay");
+
+
+    generateTextButton.addEventListener(
+        "click",
+        function () {
+
+            const text =
+                textInput.value;
+
+
+            if (!text.trim()) {
+
+                alert(
+                    "Please enter text first."
+                );
+
+                return;
+            }
+
+
+            /*
+             * The original Unicode string is preserved.
+             * CSS creates a visual horizontal mirror.
+             */
+
+            mirroredDisplay.textContent =
+                text;
+
+
+            mirrorResultBox.style.display =
+                "block";
+
+
+            mirrorResultBox.scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
+
+        }
+    );
+
+
 </script>
 
 </body>
