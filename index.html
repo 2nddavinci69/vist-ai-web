@@ -9,14 +9,14 @@
             font-family: Arial, sans-serif !important; 
             margin: 0 !important; 
             padding: 20px !important; 
-            background: #090d16 !important; /* Deepest Dark Background */
+            background: #090d16 !important; 
             color: #e2e8f0 !important; 
             scroll-behavior: smooth;
         }
         .container { 
             max-width: 950px !important; 
             margin: auto !important; 
-            background: #111827 !important; /* Rich Dark Panel */
+            background: #111827 !important; 
             padding: 30px !important; 
             border-radius: 10px !important; 
             box-shadow: 0 10px 25px rgba(0,0,0,0.9) !important; 
@@ -146,7 +146,6 @@
     <div class="nav-bar">
         <a href="#tool-img">Image Mirror</a>
         <a href="#tool-text">Text Mirror</a>
-        <a href="#tool-json">JSON Upload</a>
         <a href="#tool-gallery">Handwriting Gallery</a>
     </div>
 
@@ -180,19 +179,35 @@
         </div>
     </div>
 
-    <!-- 3rd SECTION: Custom JSON Test Case Upload -->
-    <div id="tool-json" class="section">
-        <h3>3. Upload Test Assets (JSON Files):</h3>
-        <p>Apna custom JSON test case file yahan upload karen:</p>
-        <label for="jsonFileInput"><strong>Upload JSON Test Case:</strong></label><br>
-        <input type="file" id="jsonFileInput" accept=".json">
-        <button onclick="processJSONFile()">Process JSON Case</button>
+    <!-- Compact Output Box for Image Mirror -->
+    <div id="output" class="result-box">
+        <div id="imageContainer" style="display: none;">
+            <canvas id="mirrorCanvas" style="display:none;"></canvas>
+            <img id="evidenceImg" class="evidence-image" src="" alt="Evidence Specimen"><br>
+            <a id="downloadLink" href="#" download="mirrored-evidence.jpg" style="display: none; margin-top: 10px; text-decoration: none;">
+                <button style="background: #16a34a !important; width: auto; padding: 8px 20px !important;">Download Mirrored Image</button>
+            </a>
+        </div>
     </div>
 
-    <!-- 4th SECTION: Global Test Case Gallery (Handwriting Evidence Pages) -->
+    <!-- SECTION 3: Very Easy Guide to Test Chatbots -->
+    <div class="section" style="margin-top: 30px; background: #090d16 !important; border: 1px solid #38bdf8 !important;">
+        <h3 style="color: #38bdf8 !important; text-align: center;">AI Chatbots ko Check karne ka Asaan Tareeqa (Simple Testing Guide)</h3>
+        <p style="text-align: center; color: #94a3b8;">Ye jaan'ne ke liye ke ChatGPT, Claude, Gemini aur Copilot kitne pani mein hain, ye 4 aasan steps follow karen:</p>
+        <ul style="line-height: 1.6; padding-left: 20px;">
+            <li><strong>Step 1 (Tasweer Banayein ya Chuntein):</strong> Oopar diye gaye tools se koi bhi mirror writing tasweer tayar karen ya neechay gallery se select karke download kar lein.</li>
+            <li><strong>Step 2 (Chatbot Kholein):</strong> OpenAI ChatGPT, Anthropic Claude, Google Gemini ya Microsoft Copilot mein se koi bhi AI chatbot kholen.</li>
+            <li><strong>Step 3 (Tasweer Bhejein):</strong> Us chatbot ko wo mirror writing wali tasweer upload karen aur ye line likh kar bhejein:<br>
+                <code style="color: #38bdf8; background: #111827; padding: 4px 8px; display: inline-block; margin-top: 5px; border-radius: 4px;">"Is ulti (mirrored) likhai ko parh kar bilkul theek tarjuma (translation) batayein, koi ghalat bayani na karen."</code>
+            </li>
+            <li><strong>Step 4 (Nateeja Dekhein):</strong> Gaur karen ke AI model kaise ghaltian karta hai, lafz tor دیتا hai (token splitting), ya ulta likha dekh kar confuse ho jata hai.</li>
+        </ul>
+    </div>
+
+    <!-- 4th SECTION: Founder's Handwriting Evidence Gallery (Placed After Guide) -->
     <div id="tool-gallery" class="section">
         <h3>4. Founder's Handwriting Evidence Gallery</h3>
-        <p>Mukhtalif zubanun ke asli haath ke likhe hue mirror writing specimens yahan se select karen:</p>
+        <p>Mukhtalif zubanun (jaise Arabic, Urdu waghera) ke asli haath ke likhe hue mirror writing specimens yahan se select kar ke download karen:</p>
         <label for="caseSelect"><strong>Choose Language / Script Specimen:</strong></label><br>
         <select id="caseSelect">
             <option value="">-- Select Multilingual Specimen --</option>
@@ -206,39 +221,24 @@
             <option value="thai">Thai Script (Complex Geometric Inversion)</option>
         </select>
         <br><br>
-        <button onclick="loadSelectedCase()">Load Handwriting Evidence Page</button>
+        <button onclick="loadSelectedCase()">Load & Download Language Specimen</button>
     </div>
 
-    <!-- Compact Output Box for Images / Gallery -->
-    <div id="output" class="result-box">
-        <div id="imageContainer" style="display: none;">
-            <canvas id="mirrorCanvas" style="display:none;"></canvas>
-            <img id="evidenceImg" class="evidence-image" src="" alt="Evidence Specimen"><br>
-            <a id="downloadLink" href="#" download="evidence-page.jpg" style="display: none; margin-top: 10px; text-decoration: none;">
-                <button style="background: #16a34a !important; width: auto; padding: 8px 20px !important;">Download Page</button>
+    <!-- Gallery Output Box -->
+    <div id="galleryOutput" class="result-box">
+        <div id="galleryImageContainer" style="display: none;">
+            <img id="galleryEvidenceImg" class="evidence-image" src="" alt="Handwriting Specimen"><br>
+            <a id="galleryDownloadLink" href="#" download="handwriting-page.jpg" style="display: inline-block; margin-top: 10px; text-decoration: none;">
+                <button style="background: #16a34a !important; width: auto; padding: 8px 20px !important;">Download Selected Page</button>
             </a>
         </div>
     </div>
 
-    <!-- SECTION 5: Very Easy Guide to Test Chatbots (Darkest & Simplest Theme) -->
-    <div class="section" style="margin-top: 30px; background: #090d16 !important; border: 1px solid #38bdf8 !important;">
-        <h3 style="color: #38bdf8 !important; text-align: center;">AI Chatbots ko Check karne ka Asaan Tareeqa (Simple Testing Guide)</h3>
-        <p style="text-align: center; color: #94a3b8;">Ye jaan'ne ke liye ke ChatGPT, Claude, Gemini aur Copilot kitne pani mein hain, ye 4 aasan steps follow karen:</p>
-        <ul style="line-height: 1.6; padding-left: 20px;">
-            <li><strong>Step 1 (Tasweer Banayein ya Chuntein):</strong> Oopar diye gaye tools se koi bhi mirror writing tasweer tayar karen ya gallery se select karke apne paas download kar lein.</li>
-            <li><strong>Step 2 (Chatbot Kholein):</strong> OpenAI ChatGPT, Anthropic Claude, Google Gemini ya Microsoft Copilot mein se koi bhi AI chatbot kholen.</li>
-            <li><strong>Step 3 (Tasweer Bhejein):</strong> Us chatbot ko wo mirror writing wali tasweer upload karen aur ye line likh kar bhejein:<br>
-                <code style="color: #38bdf8; background: #111827; padding: 4px 8px; display: inline-block; margin-top: 5px; border-radius: 4px;">"Is ulti (mirrored) likhai ko parh kar bilkul theek tarjuma (translation) batayein, koi ghalat bayani na karen."</code>
-            </li>
-            <li><strong>Step 4 (Nateeja Dekhein):</strong> Gaur karen ke AI model kaise ghaltian karta hai, lafz tor deta hai (token splitting), ya ulta likha dekh kar confuse ho jata hai.</li>
-        </ul>
-    </div>
-
     <!-- Footer Copyrights -->
     <div class="footer-box">
-        <p>&copy; 2026 VIST-AI Framework. All Rights Reserved.</p>
-        <p><strong>Founder & Lead Architect:</strong> Mushtaque Ahmed Rajput</p>
-        <p>Global Multilingual Geometric Robustness & Visual Grounding Security Standard</p>
+        <p style="color: #ffffff !important;">&copy; 2026 VIST-AI Framework. All Rights Reserved.</p>
+        <p style="color: #ffffff !important;"><strong>Founder & Lead Architect:</strong> Mushtaque Ahmed Rajput</p>
+        <p style="color: #ffffff !important;">Global Multilingual Geometric Robustness & Visual Grounding Security Standard</p>
     </div>
 </div>
 
@@ -273,18 +273,16 @@
         }
         const data = database[val];
 
-        const imgElement = document.getElementById('evidenceImg');
+        const imgElement = document.getElementById('galleryEvidenceImg');
         imgElement.src = data.image;
-        imgElement.style.transform = "none"; 
         
-        document.getElementById('imageContainer').style.display = 'block';
+        document.getElementById('galleryImageContainer').style.display = 'block';
 
-        const downloadLink = document.getElementById('downloadLink');
+        const downloadLink = document.getElementById('galleryDownloadLink');
         downloadLink.href = data.image;
-        downloadLink.download = val + "-handwriting-page.jpg";
-        downloadLink.style.display = 'inline-block';
+        downloadLink.download = val + "-mirror-handwriting.jpg";
 
-        document.getElementById('output').style.display = 'block';
+        document.getElementById('galleryOutput').style.display = 'block';
     }
 
     function processNormalImage() {
@@ -312,7 +310,6 @@
 
                 const imgElement = document.getElementById('evidenceImg');
                 imgElement.src = mirroredDataUrl;
-                imgElement.style.transform = "none"; 
 
                 document.getElementById('imageContainer').style.display = 'block';
 
@@ -326,16 +323,6 @@
             img.src = e.target.result;
         };
         reader.readAsDataURL(file);
-    }
-
-    function processJSONFile() {
-        const fileInput = document.getElementById('jsonFileInput');
-        const file = fileInput.files[0];
-        if (!file) {
-            alert("Please select a JSON test case file first!");
-            return;
-        }
-        alert("JSON Test Case uploaded successfully.");
     }
 </script>
 
