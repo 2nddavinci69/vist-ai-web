@@ -1,16 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="description" content="VIST-AI is an open research framework and live utility for evaluating multilingual visual grounding and geometric robustness in multimodal AI systems.">
-    <meta name="keywords" content="VIST-AI, AI forensics, visual grounding, multimodal AI, geometric robustness, AI evaluation, mirror script, AI safety, AI research">
-    <meta name="author" content="Mushtaque Ahmed Rajput">
+    <meta
+        name="description"
+        content="VIST-AI is an open research framework and live utility for evaluating multilingual visual grounding and geometric robustness in multimodal AI systems."
+    >
 
-    <title>VIST-AI | Visual Grounding & Geometric Robustness Testing</title>
+    <meta
+        name="keywords"
+        content="VIST-AI, AI forensics, visual grounding, multimodal AI, geometric robustness, AI evaluation, mirror script, AI safety, AI research"
+    >
+
+    <meta
+        name="author"
+        content="Mushtaque Ahmed Rajput"
+    >
+
+    <title>
+        VIST-AI | Visual Grounding & Geometric Robustness Testing
+    </title>
+
 
     <style>
+
         * {
             box-sizing: border-box;
         }
@@ -31,15 +47,21 @@
             transition: background 0.5s ease;
         }
 
+
         body::before {
+
             content: '';
+
             position: fixed;
+
             top: 0;
             left: 0;
+
             width: 100vw;
             height: 100vh;
 
             background-image:
+
                 var(
                     --bg-glow,
                     radial-gradient(
@@ -48,15 +70,18 @@
                         transparent 45%
                     )
                 ),
+
                 radial-gradient(
                     circle at 85% 80%,
                     rgba(2, 132, 199, 0.12) 0%,
                     transparent 45%
                 ),
+
                 linear-gradient(
                     rgba(30, 41, 59, 0.15) 1px,
                     transparent 1px
                 ),
+
                 linear-gradient(
                     90deg,
                     rgba(30, 41, 59, 0.15) 1px,
@@ -69,470 +94,822 @@
                 50px 50px,
                 50px 50px;
 
-            animation: digitalGridMove 15s linear infinite;
+            animation:
+                digitalGridMove 15s linear infinite;
+
             z-index: -1;
+
             pointer-events: none;
-            transition: background-image 0.5s ease;
+
+            transition:
+                background-image 0.5s ease;
         }
 
+
         @keyframes digitalGridMove {
+
             0% {
+
                 background-position:
                     0 0,
                     0 0,
                     0 0,
                     0 0;
+
             }
 
             100% {
+
                 background-position:
                     0 0,
                     0 0,
                     50px 50px,
                     50px 50px;
+
             }
+
         }
+
 
         .container {
+
             max-width: 1000px;
+
             margin: auto;
-            background: rgba(13, 18, 30, 0.95);
+
+            background:
+                rgba(13, 18, 30, 0.95);
+
             backdrop-filter: blur(12px);
+
             padding: 25px;
+
             border-radius: 12px;
-            border: 1px solid rgba(56, 189, 248, 0.3);
+
+            border:
+                1px solid rgba(56, 189, 248, 0.3);
+
             box-shadow:
+
                 0 15px 40px rgba(0, 0, 0, 0.9),
+
                 0 0 20px rgba(56, 189, 248, 0.1);
+
             position: relative;
         }
+
+
+        /* =====================================================
+           HEADER
+        ====================================================== */
 
         header {
+
             text-align: center;
+
             padding-bottom: 5px;
+
             position: relative;
         }
 
+
         .top-bar-lang {
+
             display: flex;
+
             justify-content: flex-end;
+
             margin-bottom: 10px;
         }
 
+
         .lang-select {
+
             background: #1e293b;
+
             color: #38bdf8;
-            border: 1px solid #334155;
-            padding: 6px 12px;
+
+            border:
+                1px solid #334155;
+
+            padding:
+                6px 12px;
+
             border-radius: 6px;
+
             font-size: 13px;
+
             font-weight: bold;
+
             cursor: pointer;
         }
 
+
         .top-logo-container {
+
             display: inline-flex;
+
             align-items: center;
+
             gap: 10px;
-            background: rgba(30, 41, 59, 0.85);
-            padding: 6px 16px;
+
+            background:
+                rgba(30, 41, 59, 0.85);
+
+            padding:
+                6px 16px;
+
             border-radius: 50px;
-            border: 1px solid rgba(56, 189, 248, 0.5);
-            box-shadow: 0 0 15px rgba(56, 189, 248, 0.3);
+
+            border:
+                1px solid rgba(56, 189, 248, 0.5);
+
+            box-shadow:
+                0 0 15px rgba(56, 189, 248, 0.3);
+
             margin-bottom: 12px;
         }
 
+
         .brand-name {
+
             font-size: 22px;
+
             font-weight: 900;
+
             color: #38bdf8;
+
             letter-spacing: 1.5px;
-            text-shadow: 0 0 8px rgba(56, 189, 248, 0.6);
+
+            text-shadow:
+                0 0 8px rgba(56, 189, 248, 0.6);
         }
+
 
         h1 {
+
             color: #38bdf8;
+
             font-size: 28px;
-            margin: 0 0 4px;
+
+            margin:
+                0 0 4px;
+
             line-height: 1.2;
-            text-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
+
+            text-shadow:
+                0 0 10px rgba(56, 189, 248, 0.3);
         }
 
+
         .founder-title {
+
             color: #ffffff;
+
             font-size: 15px;
+
             font-weight: bold;
+
             margin: 4px 0;
         }
 
+
         .subtitle {
+
             color: #cbd5e1;
+
             font-size: 14px;
-            margin: 3px 0 8px;
+
+            margin:
+                3px 0 8px;
         }
+
 
         .header-description {
+
             max-width: 780px;
-            margin: 6px auto 0;
+
+            margin:
+                6px auto 0;
+
             color: #94a3b8;
+
             font-size: 14px;
         }
 
-        /* =========================
+
+        /* =====================================================
            NAVIGATION
-        ========================== */
+        ====================================================== */
 
         .nav-bar {
+
             display: flex;
+
             justify-content: center;
+
             flex-wrap: wrap;
+
             gap: 8px;
-            margin: 18px 0;
+
+            margin:
+                18px 0;
+
             padding: 10px;
+
             background: #060913;
+
             border-radius: 8px;
-            border: 1px solid #1e293b;
+
+            border:
+                1px solid #1e293b;
+
             position: sticky;
+
             top: 10px;
+
             z-index: 10;
         }
 
+
         .nav-bar a {
+
             color: #38bdf8;
+
             text-decoration: none;
+
             font-size: 13px;
+
             font-weight: bold;
-            padding: 7px 12px;
+
+            padding:
+                7px 12px;
+
             background: #1e293b;
+
             border-radius: 5px;
-            border: 1px solid #334155;
-            transition: all 0.25s ease;
+
+            border:
+                1px solid #334155;
+
+            transition:
+                all 0.25s ease;
         }
+
 
         .nav-bar a:hover {
+
             background: #0284c7;
+
             color: #ffffff;
-            box-shadow: 0 0 12px rgba(2, 132, 199, 0.6);
+
+            box-shadow:
+                0 0 12px rgba(2, 132, 199, 0.6);
         }
 
-        /* =========================
+
+        /* =====================================================
            RESEARCH BADGE
-        ========================== */
+        ====================================================== */
 
         .research-badge {
+
             text-align: center;
-            margin: 10px auto 18px;
+
+            margin:
+                10px auto 18px;
         }
+
 
         .research-badge span {
+
             display: inline-block;
-            padding: 5px 12px;
-            border: 1px solid #0369a1;
+
+            padding:
+                5px 12px;
+
+            border:
+                1px solid #0369a1;
+
             border-radius: 20px;
+
             color: #7dd3fc;
+
             background: #0c1b2a;
+
             font-size: 12px;
+
             font-weight: bold;
-            box-shadow: 0 0 8px rgba(3, 105, 161, 0.4);
+
+            box-shadow:
+                0 0 8px rgba(3, 105, 161, 0.4);
         }
 
-        /* =========================
+
+        /* =====================================================
            GENERAL SECTIONS
-        ========================== */
+        ====================================================== */
 
         .section {
+
             background: #1e293b;
+
             padding: 18px;
+
             border-radius: 8px;
+
             margin-top: 16px;
-            border: 1px solid #334155;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+
+            border:
+                1px solid #334155;
+
+            box-shadow:
+                0 4px 15px rgba(0, 0, 0, 0.4);
         }
 
+
         .section.highlight {
+
             background: #0b1728;
-            border: 1px solid rgba(56, 189, 248, 0.5);
+
+            border:
+                1px solid rgba(56, 189, 248, 0.5);
         }
+
 
         h2,
         h3 {
+
             color: #38bdf8;
         }
 
+
         h3 {
+
             font-size: 17px;
+
             margin-top: 0;
+
             margin-bottom: 8px;
         }
 
+
         p {
+
             color: #94a3b8;
-            margin: 6px 0;
+
+            margin:
+                6px 0;
         }
 
+
         strong {
+
             color: #f8fafc;
         }
 
+
         label {
+
             display: block;
+
             color: #cbd5e1;
+
             margin-top: 8px;
+
             font-weight: bold;
+
             font-size: 14px;
         }
+
 
         input[type="file"],
         textarea,
         button {
+
             width: 100%;
+
             padding: 10px;
+
             font-size: 14px;
+
             margin-top: 6px;
+
             border-radius: 6px;
-            border: 1px solid #334155;
+
+            border:
+                1px solid #334155;
+
             background: #0d121e;
+
             color: #f8fafc;
-            font-family: Arial, Helvetica, sans-serif;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
         }
 
+
         textarea {
+
             resize: vertical;
+
             min-height: 80px;
         }
 
+
         button {
+
             background: #0284c7;
+
             color: #ffffff;
+
             border: none;
+
             cursor: pointer;
+
             font-weight: bold;
-            transition: all 0.25s ease;
+
+            transition:
+                all 0.25s ease;
         }
+
 
         button:hover {
+
             background: #0369a1;
-            box-shadow: 0 0 12px rgba(2, 132, 199, 0.7);
+
+            box-shadow:
+                0 0 12px rgba(2, 132, 199, 0.7);
         }
 
-        /* =========================
+
+        /* =====================================================
            RESULT BOX
-        ========================== */
+        ====================================================== */
 
         .result-box {
+
             background: #060913;
+
             padding: 15px;
-            border-left: 4px solid #38bdf8;
+
+            border-left:
+                4px solid #38bdf8;
+
             margin-top: 14px;
+
             border-radius: 6px;
+
             display: none;
+
             text-align: center;
         }
 
+
         .result-title {
+
             color: #38bdf8;
+
             font-weight: bold;
+
             margin-bottom: 8px;
         }
 
+
         .evidence-image {
+
             max-width: 100%;
+
             max-height: 450px;
+
             height: auto;
-            border: 1px solid #334155;
+
+            border:
+                1px solid #334155;
+
             border-radius: 6px;
-            margin: 10px auto;
+
+            margin:
+                10px auto;
+
             display: block;
         }
 
+
         .download-button {
+
             display: inline-block;
+
             width: auto;
+
             margin-top: 6px;
-            padding: 8px 18px;
+
+            padding:
+                8px 18px;
+
             background: #16a34a;
+
             color: #ffffff;
+
             text-decoration: none;
+
             border-radius: 6px;
+
             font-weight: bold;
+
             font-size: 14px;
         }
 
+
         .download-button:hover {
+
             background: #15803d;
         }
 
-        /* =========================
+
+        /* =====================================================
            MIRROR OUTPUT
-        ========================== */
+        ====================================================== */
 
         .mirror-output {
+
             background: #060913;
+
             padding: 15px;
+
             border-radius: 6px;
+
             margin-top: 8px;
+
             font-size: 18px;
+
             text-align: center;
+
             color: #38bdf8;
-            border: 1px solid #334155;
-            transform: scaleX(-1);
+
+            border:
+                1px solid #334155;
+
+            transform:
+                scaleX(-1);
+
+            min-height: 45px;
         }
 
+
         .mirror-note {
+
             color: #64748b;
+
             font-size: 11px;
+
             margin-top: 6px;
         }
 
-        /* =========================
+
+        /* =====================================================
            RESEARCH STEPS
-        ========================== */
+        ====================================================== */
 
         .step {
+
             background: #111827;
-            border: 1px solid #263449;
+
+            border:
+                1px solid #263449;
+
             border-radius: 6px;
+
             padding: 12px;
-            margin: 10px 0;
+
+            margin:
+                10px 0;
         }
 
+
         .step-number {
+
             color: #38bdf8;
+
             font-weight: bold;
         }
 
+
         code.prompt-box {
+
             display: block;
+
             margin-top: 6px;
+
             padding: 10px;
+
             background: #060913;
-            border: 1px solid #334155;
+
+            border:
+                1px solid #334155;
+
             border-radius: 6px;
+
             color: #7dd3fc;
+
             white-space: pre-wrap;
+
             font-family: monospace;
+
             font-size: 13px;
         }
 
-        /* =========================
+
+        /* =====================================================
            OBSERVATION RECORD
-        ========================== */
+        ====================================================== */
 
         .record-grid {
+
             display: grid;
-            grid-template-columns: 1fr 1fr;
+
+            grid-template-columns:
+                1fr 1fr;
+
             gap: 10px;
         }
 
+
         .record-item {
+
             background: #111827;
-            border: 1px solid #263449;
+
+            border:
+                1px solid #263449;
+
             border-radius: 6px;
+
             padding: 10px;
+
             font-size: 14px;
         }
 
+
         .record-item strong {
+
             display: block;
+
             color: #38bdf8;
+
             margin-bottom: 2px;
         }
 
-        .research-notice {
-            background: #0a1422;
-            border-left: 4px solid #38bdf8;
-            padding: 12px;
-            border-radius: 6px;
-            margin-top: 12px;
-            font-size: 14px;
-        }
 
-        .email {
-            color: #38bdf8;
-            font-size: 15px;
-            font-weight: bold;
-        }
-
-        /* =========================================================
-           VIST-AI COMMERCIAL SERVICES
-        ========================================================== */
+        /* =====================================================
+           COMMERCIAL SERVICES
+        ====================================================== */
 
         .commercial-section {
-            padding: 45px 25px;
+
+            padding:
+                45px 25px;
+
             background:
+
                 linear-gradient(
                     180deg,
                     rgba(5, 15, 30, 0.98),
                     rgba(8, 20, 40, 1)
                 );
-            border: 1px solid rgba(80, 210, 255, 0.25);
+
+            border:
+                1px solid rgba(80, 210, 255, 0.25);
         }
 
+
         .commercial-heading {
+
             max-width: 850px;
-            margin: 0 auto 35px;
+
+            margin:
+                0 auto 35px;
+
             text-align: center;
         }
 
+
         .commercial-label {
+
             display: inline-block;
+
             margin-bottom: 12px;
+
             font-size: 11px;
+
             letter-spacing: 2px;
+
             font-weight: 700;
+
             color: #55d9ff;
-            border: 1px solid rgba(85, 217, 255, 0.3);
-            padding: 6px 12px;
+
+            border:
+                1px solid rgba(85, 217, 255, 0.3);
+
+            padding:
+                6px 12px;
+
             border-radius: 20px;
-            background: rgba(70, 210, 255, 0.06);
+
+            background:
+                rgba(70, 210, 255, 0.06);
         }
 
+
         .commercial-heading h2 {
-            margin: 0 0 15px;
+
+            margin:
+                0 0 15px;
+
             color: #38bdf8;
-            font-size: clamp(27px, 5vw, 42px);
+
+            font-size:
+                clamp(27px, 5vw, 42px);
+
             line-height: 1.2;
         }
 
+
         .commercial-heading p {
+
             color: #aebfd1;
+
             line-height: 1.8;
+
             max-width: 750px;
+
             margin: auto;
         }
 
+
         .service-grid {
+
             max-width: 900px;
+
             margin: 0 auto;
+
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
             gap: 20px;
         }
 
+
         .service-card {
+
             position: relative;
+
             padding: 28px;
-            border: 1px solid rgba(100, 190, 255, 0.18);
+
+            border:
+                1px solid rgba(100, 190, 255, 0.18);
+
             border-radius: 18px;
-            background: rgba(255, 255, 255, 0.035);
-            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.25);
+
+            background:
+                rgba(255, 255, 255, 0.035);
+
+            box-shadow:
+                0 15px 50px rgba(0, 0, 0, 0.25);
+
             transition:
                 transform 0.25s ease,
                 border-color 0.25s ease,
                 box-shadow 0.25s ease;
         }
 
+
         .service-card:hover {
-            transform: translateY(-4px);
-            border-color: rgba(80, 220, 255, 0.5);
+
+            transform:
+                translateY(-4px);
+
+            border-color:
+                rgba(80, 220, 255, 0.5);
+
             box-shadow:
+
                 0 18px 55px rgba(0, 0, 0, 0.35),
+
                 0 0 25px rgba(56, 189, 248, 0.08);
         }
 
+
         .service-card.featured {
-            border-color: rgba(80, 220, 255, 0.55);
+
+            border-color:
+                rgba(80, 220, 255, 0.55);
+
             background:
+
                 linear-gradient(
                     145deg,
                     rgba(30, 100, 150, 0.12),
@@ -540,246 +917,779 @@
                 );
         }
 
+
         .featured-label {
+
             position: absolute;
+
             top: 16px;
+
             right: 16px;
-            padding: 5px 9px;
+
+            padding:
+                5px 9px;
+
             border-radius: 999px;
+
             font-size: 9px;
+
             font-weight: 800;
+
             letter-spacing: 1px;
-            background: rgba(70, 210, 255, 0.14);
+
+            background:
+                rgba(70, 210, 255, 0.14);
+
             color: #64ddff;
-            border: 1px solid rgba(100, 220, 255, 0.25);
+
+            border:
+                1px solid rgba(100, 220, 255, 0.25);
         }
 
+
         .service-number {
+
             font-size: 12px;
+
             letter-spacing: 2px;
+
             color: #6adfff;
+
             margin-bottom: 15px;
         }
 
+
         .service-card h3 {
+
             font-size: 23px;
-            margin: 0 0 10px;
+
+            margin:
+                0 0 10px;
+
             color: #38bdf8;
         }
 
+
         .service-price {
+
             margin-bottom: 16px;
+
             color: #b8c7d8;
         }
 
+
         .service-price strong {
+
             color: #ffffff;
+
             font-size: 21px;
         }
 
+
         .service-card p {
+
             color: #aebfd1;
+
             line-height: 1.7;
         }
 
+
         .service-card ul {
-            margin: 18px 0;
+
+            margin:
+                18px 0;
+
             padding-left: 20px;
+
             color: #c6d4e2;
+
             line-height: 1.85;
         }
 
+
         .service-card li::marker {
+
             color: #38bdf8;
         }
 
+
         .service-button {
+
             display: inline-block;
-            padding: 12px 18px;
+
+            padding:
+                12px 18px;
+
             border-radius: 9px;
+
             text-decoration: none;
+
             font-weight: 700;
+
             font-size: 12px;
+
             letter-spacing: 0.4px;
+
             background: #46d7ff;
+
             color: #06111f;
+
             transition:
                 transform 0.2s ease,
                 opacity 0.2s ease;
         }
 
+
         .service-button:hover {
-            transform: translateY(-2px);
+
+            transform:
+                translateY(-2px);
+
             opacity: 0.9;
         }
 
+
         .service-button.secondary {
+
             background: #1e293b;
+
             color: #7dd3fc;
-            border: 1px solid #334155;
+
+            border:
+                1px solid #334155;
         }
+
 
         .commercial-cta {
+
             max-width: 800px;
-            margin: 40px auto 0;
-            padding: 35px 25px;
+
+            margin:
+                40px auto 0;
+
+            padding:
+                35px 25px;
+
             text-align: center;
+
             border-radius: 20px;
-            border: 1px solid rgba(80, 210, 255, 0.25);
-            background: rgba(30, 100, 150, 0.08);
+
+            border:
+                1px solid rgba(80, 210, 255, 0.25);
+
+            background:
+                rgba(30, 100, 150, 0.08);
         }
 
+
         .commercial-cta h3 {
+
             font-size: 27px;
+
             margin-bottom: 12px;
+
             color: #38bdf8;
         }
 
+
         .commercial-cta p {
+
             max-width: 680px;
-            margin: 0 auto 22px;
+
+            margin:
+                0 auto 22px;
+
             color: #b5c7d8;
+
             line-height: 1.8;
         }
 
+
         .primary-cta {
+
             display: inline-block;
-            padding: 13px 21px;
+
+            padding:
+                13px 21px;
+
             border-radius: 10px;
+
             text-decoration: none;
+
             font-weight: 700;
+
             font-size: 13px;
+
             letter-spacing: 0.4px;
+
             background: #46d7ff;
+
             color: #06111f;
+
             transition:
                 transform 0.2s ease,
                 opacity 0.2s ease;
         }
 
+
         .primary-cta:hover {
-            transform: translateY(-2px);
+
+            transform:
+                translateY(-2px);
+
             opacity: 0.9;
         }
 
+
         .commercial-disclaimer {
+
             max-width: 800px;
-            margin: 22px auto 0;
-            padding: 13px 16px;
-            border-left: 3px solid #38bdf8;
-            background: rgba(6, 9, 19, 0.7);
+
+            margin:
+                22px auto 0;
+
+            padding:
+                13px 16px;
+
+            border-left:
+                3px solid #38bdf8;
+
+            background:
+                rgba(6, 9, 19, 0.7);
+
             color: #8295aa;
+
             font-size: 11px;
+
             line-height: 1.7;
+
             border-radius: 4px;
         }
 
-        /* =========================
+
+        /* =====================================================
+           CLIENT ASSESSMENT FORM
+        ====================================================== */
+
+        .assessment-section {
+
+            background:
+                linear-gradient(
+                    180deg,
+                    #081426,
+                    #050c18
+                );
+
+            border:
+                1px solid rgba(56, 189, 248, 0.45);
+
+            padding:
+                45px 25px;
+        }
+
+
+        .assessment-heading {
+
+            max-width: 800px;
+
+            margin:
+                0 auto 35px;
+
+            text-align: center;
+        }
+
+
+        .assessment-heading span {
+
+            display: inline-block;
+
+            padding:
+                6px 12px;
+
+            border:
+                1px solid rgba(56, 189, 248, 0.35);
+
+            border-radius: 20px;
+
+            color: #7dd3fc;
+
+            font-size: 11px;
+
+            font-weight: bold;
+
+            letter-spacing: 1.5px;
+
+            margin-bottom: 12px;
+        }
+
+
+        .assessment-heading h2 {
+
+            color: #38bdf8;
+
+            font-size:
+                clamp(28px, 5vw, 40px);
+
+            margin:
+                0 0 14px;
+        }
+
+
+        .assessment-heading p {
+
+            color: #aebfd1;
+
+            line-height: 1.8;
+        }
+
+
+        .assessment-form-wrapper {
+
+            max-width: 900px;
+
+            margin: 0 auto;
+
+            padding: 32px;
+
+            border-radius: 20px;
+
+            border:
+                1px solid rgba(100, 190, 255, 0.2);
+
+            background:
+                rgba(255, 255, 255, 0.035);
+
+            box-shadow:
+                0 20px 60px rgba(0, 0, 0, 0.28);
+        }
+
+
+        .assessment-form {
+
+            width: 100%;
+        }
+
+
+        .form-row {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 20px;
+        }
+
+
+        .form-group {
+
+            margin-bottom: 20px;
+        }
+
+
+        .form-group label {
+
+            display: block;
+
+            margin-bottom: 8px;
+
+            color: #d7e5f2;
+
+            font-size: 13px;
+
+            font-weight: 700;
+        }
+
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+
+            width: 100%;
+
+            box-sizing: border-box;
+
+            padding:
+                13px 14px;
+
+            border:
+                1px solid rgba(120, 190, 230, 0.22);
+
+            border-radius: 9px;
+
+            outline: none;
+
+            background:
+                rgba(0, 0, 0, 0.25);
+
+            color: #ffffff;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            font-size: 14px;
+        }
+
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+
+            border-color:
+                #55d9ff;
+
+            box-shadow:
+                0 0 0 2px rgba(85, 217, 255, 0.08);
+        }
+
+
+        .form-group select option {
+
+            background: #08172a;
+
+            color: #ffffff;
+        }
+
+
+        .form-group textarea {
+
+            resize: vertical;
+
+            min-height: 150px;
+        }
+
+
+        .form-consent {
+
+            margin:
+                5px 0 22px;
+
+            color: #9fb2c5;
+
+            font-size: 12px;
+
+            line-height: 1.7;
+        }
+
+
+        .form-consent label {
+
+            display: flex;
+
+            align-items:
+                flex-start;
+
+            gap: 8px;
+
+            cursor: pointer;
+        }
+
+
+        .form-consent input {
+
+            margin-top: 4px;
+
+            accent-color: #38bdf8;
+        }
+
+
+        .assessment-submit {
+
+            width: 100%;
+
+            padding:
+                15px 20px;
+
+            border: none;
+
+            border-radius: 10px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #0284c7,
+                    #38bdf8
+                );
+
+            color: #ffffff;
+
+            font-size: 14px;
+
+            font-weight: 800;
+
+            cursor: pointer;
+
+            transition:
+                transform 0.2s ease,
+                opacity 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+
+        .assessment-submit:hover {
+
+            transform:
+                translateY(-2px);
+
+            opacity: 0.95;
+
+            box-shadow:
+                0 8px 25px rgba(56, 189, 248, 0.25);
+        }
+
+
+        .form-note {
+
+            margin-top: 15px;
+
+            text-align: center;
+
+            color: #64748b;
+
+            font-size: 11px;
+
+            line-height: 1.6;
+        }
+
+
+        /* =====================================================
+           CONTACT
+        ====================================================== */
+
+        .research-notice {
+
+            background: #0a1422;
+
+            border-left:
+                4px solid #38bdf8;
+
+            padding: 12px;
+
+            border-radius: 6px;
+
+            margin-top: 12px;
+
+            font-size: 14px;
+        }
+
+
+        .email {
+
+            color: #38bdf8;
+
+            font-size: 15px;
+
+            font-weight: bold;
+        }
+
+
+        /* =====================================================
            FOOTER
-        ========================== */
+        ====================================================== */
 
         .footer-box {
+
             text-align: center;
+
             margin-top: 35px;
+
             padding-top: 18px;
-            border-top: 1px solid #1f2937;
+
+            border-top:
+                1px solid #1f2937;
+
             color: #ffffff;
+
             font-size: 12px;
         }
 
+
         .footer-box a {
+
             color: #38bdf8;
+
             text-decoration: none;
         }
 
-        /* =========================
+
+        /* =====================================================
            RESPONSIVE
-        ========================== */
+        ====================================================== */
 
         @media (max-width: 800px) {
+
             .service-grid {
+
                 grid-template-columns: 1fr;
             }
 
-            .commercial-section {
-                padding: 35px 18px;
+
+            .form-row {
+
+                grid-template-columns: 1fr;
+
+                gap: 0;
             }
+
+
+            .commercial-section,
+            .assessment-section {
+
+                padding:
+                    35px 18px;
+            }
+
 
             .service-card {
+
                 padding: 24px;
             }
+
+
+            .assessment-form-wrapper {
+
+                padding: 24px;
+            }
+
         }
 
+
         @media (max-width: 700px) {
+
             body {
+
                 padding: 10px;
             }
 
+
             .container {
+
                 padding: 15px;
             }
 
+
             .record-grid {
+
                 grid-template-columns: 1fr;
             }
 
+
             .nav-bar {
+
                 position: relative;
+
                 top: 0;
             }
 
+
             .nav-bar a {
+
                 font-size: 12px;
-                padding: 6px 9px;
+
+                padding:
+                    6px 9px;
             }
 
+
             h1 {
+
                 font-size: 24px;
             }
 
+
             .brand-name {
+
                 font-size: 19px;
             }
 
+
             .commercial-heading h2 {
+
                 font-size: 29px;
             }
 
+
             .commercial-cta h3 {
+
                 font-size: 23px;
             }
+
+
+            .assessment-heading h2 {
+
+                font-size: 29px;
+            }
+
         }
+
     </style>
+
 </head>
+
 
 <body>
 
+
 <div class="container">
 
-    <!-- =========================
+
+    <!-- =====================================================
          HEADER
-    ========================== -->
+    ====================================================== -->
 
     <header>
 
         <div class="top-bar-lang">
+
             <select
                 id="languageSelect"
                 class="lang-select"
                 onchange="changeLanguage(this.value)"
                 aria-label="Language selector"
             >
-                <option value="en">🌐 English</option>
-                <option value="ja">🇯🇵 Japanese (日本語)</option>
-                <option value="ru">🇷🇺 Russian (Русский)</option>
-                <option value="ar">🇸🇦 Arabic (العربية)</option>
-                <option value="he">🇮🇱 Hebrew (עברית)</option>
-                <option value="hi">🇮🇳 Hindi (हिन्दी)</option>
-                <option value="ko">🇰🇷 Korean (한국어)</option>
-                <option value="zh">🇨🇳 Chinese (中文)</option>
-                <option value="ur">🇵🇰 Urdu (اردو)</option>
+
+                <option value="en">
+                    🌐 English
+                </option>
+
+                <option value="ja">
+                    🇯🇵 Japanese (日本語)
+                </option>
+
+                <option value="ru">
+                    🇷🇺 Russian (Русский)
+                </option>
+
+                <option value="ar">
+                    🇸🇦 Arabic (العربية)
+                </option>
+
+                <option value="he">
+                    🇮🇱 Hebrew (עברית)
+                </option>
+
+                <option value="hi">
+                    🇮🇳 Hindi (हिन्दी)
+                </option>
+
+                <option value="ko">
+                    🇰🇷 Korean (한국어)
+                </option>
+
+                <option value="zh">
+                    🇨🇳 Chinese (中文)
+                </option>
+
+                <option value="ur">
+                    🇵🇰 Urdu (اردو)
+                </option>
+
             </select>
+
         </div>
+
 
         <div class="top-logo-container">
 
@@ -791,6 +1701,7 @@
                 xmlns="http://www.w3.org/2000/svg"
                 aria-label="VIST-AI logo"
             >
+
                 <polygon
                     points="60,5 110,32.5 110,87.5 60,115 10,87.5 10,32.5"
                     stroke="#38bdf8"
@@ -833,24 +1744,38 @@
                     r="8"
                     fill="#38bdf8"
                 />
+
             </svg>
 
-            <span class="brand-name">VIST-AI</span>
+            <span class="brand-name">
+                VIST-AI
+            </span>
+
         </div>
+
 
         <h1 data-key="title">
             Global Forensic AI Tester
         </h1>
 
+
         <div class="founder-title">
             Founded by Mushtaque Ahmed Rajput
         </div>
 
-        <p class="subtitle" data-key="subtitle">
+
+        <p
+            class="subtitle"
+            data-key="subtitle"
+        >
             Visual Grounding, Geometric Robustness & Multilingual AI Evaluation
         </p>
 
-        <p class="header-description" data-key="headerDesc">
+
+        <p
+            class="header-description"
+            data-key="headerDesc"
+        >
             An open research framework and live utility for investigating how
             multimodal AI systems interpret controlled visual, geometric,
             mirrored, and multilingual test specimens.
@@ -859,68 +1784,104 @@
     </header>
 
 
-    <!-- =========================
+    <!-- =====================================================
          RESEARCH BADGE
-    ========================== -->
+    ====================================================== -->
 
     <div class="research-badge">
+
         <span data-key="badge">
             OPEN RESEARCH & AI EVALUATION FRAMEWORK
         </span>
+
     </div>
 
 
-    <!-- =========================
+    <!-- =====================================================
          NAVIGATION
-    ========================== -->
+    ====================================================== -->
 
     <div class="nav-bar">
 
-        <a href="#tool-img" data-key="navImg">
+        <a
+            href="#tool-img"
+            data-key="navImg"
+        >
             Image Mirror
         </a>
 
-        <a href="#tool-text" data-key="navText">
+
+        <a
+            href="#tool-text"
+            data-key="navText"
+        >
             Text Mirror
         </a>
 
-        <a href="#tool-methodology" data-key="navMethod">
+
+        <a
+            href="#tool-methodology"
+            data-key="navMethod"
+        >
             Methodology
         </a>
 
-        <a href="#tool-guide" data-key="navGuide">
+
+        <a
+            href="#tool-guide"
+            data-key="navGuide"
+        >
             Testing Guide
         </a>
 
-        <a href="#tool-record" data-key="navRecord">
+
+        <a
+            href="#tool-record"
+            data-key="navRecord"
+        >
             Observation Record
         </a>
+
 
         <a href="#commercial-services">
             Services
         </a>
 
-        <a href="#tool-contact" data-key="navContact">
+
+        <a href="#assessment-request">
+            Request Assessment
+        </a>
+
+
+        <a
+            href="#tool-contact"
+            data-key="navContact"
+        >
             Contact
         </a>
 
     </div>
 
 
-    <!-- =========================
+    <!-- =====================================================
          1. IMAGE MIRROR TOOL
-    ========================== -->
+    ====================================================== -->
 
-    <div id="tool-img" class="section">
+    <div
+        id="tool-img"
+        class="section"
+    >
 
         <h3 data-key="sec1Title">
             1. Live Image Mirror Tool
         </h3>
 
+
         <p data-key="sec1Desc">
             Upload a normal writing image to generate a horizontally mirrored
             test specimen for controlled visual evaluation.
         </p>
+
 
         <label
             for="imageNormalInput"
@@ -929,11 +1890,13 @@
             Upload Normal Writing Image
         </label>
 
+
         <input
             type="file"
             id="imageNormalInput"
             accept="image/*"
         >
+
 
         <button
             id="processImageButton"
@@ -943,11 +1906,18 @@
         </button>
 
 
-        <div id="output" class="result-box">
+        <div
+            id="output"
+            class="result-box"
+        >
 
-            <div class="result-title" data-key="resTitle">
+            <div
+                class="result-title"
+                data-key="resTitle"
+            >
                 Mirrored Test Specimen
             </div>
+
 
             <div id="imageContainer">
 
@@ -957,6 +1927,7 @@
                     src=""
                     alt="Generated mirrored test specimen"
                 >
+
 
                 <a
                     id="downloadLink"
@@ -975,20 +1946,25 @@
     </div>
 
 
-    <!-- =========================
+    <!-- =====================================================
          2. TEXT MIRROR TOOL
-    ========================== -->
+    ====================================================== -->
 
-    <div id="tool-text" class="section highlight">
+    <div
+        id="tool-text"
+        class="section highlight"
+    >
 
         <h3 data-key="sec2Title">
             2. Live Multilingual Text Mirror Tool
         </h3>
 
+
         <p data-key="sec2Desc">
             Enter text in any supported writing system to generate a visually
             mirrored preview for controlled testing.
         </p>
+
 
         <label
             for="userInputText"
@@ -997,10 +1973,12 @@
             Enter Test Text
         </label>
 
+
         <textarea
             id="userInputText"
             placeholder="Type or paste text here..."
         ></textarea>
+
 
         <button
             id="generateTextButton"
@@ -1019,10 +1997,12 @@
                 Visual Mirrored Preview
             </label>
 
+
             <div
                 id="mirroredDisplay"
                 class="mirror-output"
             ></div>
+
 
             <div
                 class="mirror-note"
@@ -1037,15 +2017,19 @@
     </div>
 
 
-    <!-- =========================
+    <!-- =====================================================
          3. METHODOLOGY
-    ========================== -->
+    ====================================================== -->
 
-    <div id="tool-methodology" class="section">
+    <div
+        id="tool-methodology"
+        class="section"
+    >
 
         <h3 data-key="methTitle">
             3. VIST-AI Research Methodology
         </h3>
+
 
         <p data-key="methDesc">
             VIST-AI uses controlled visual specimens to investigate
@@ -1056,9 +2040,13 @@
 
         <div class="step">
 
-            <span class="step-number" data-key="stepCond">
+            <span
+                class="step-number"
+                data-key="stepCond"
+            >
                 Test Condition
             </span>
+
 
             <p data-key="stepCondDesc">
                 A known specimen is transformed using a defined visual
@@ -1070,9 +2058,13 @@
 
         <div class="step">
 
-            <span class="step-number" data-key="stepObs">
+            <span
+                class="step-number"
+                data-key="stepObs"
+            >
                 Model Observation
             </span>
+
 
             <p data-key="stepObsDesc">
                 The same specimen and standardized prompt can be presented
@@ -1084,9 +2076,13 @@
 
         <div class="step">
 
-            <span class="step-number" data-key="stepComp">
+            <span
+                class="step-number"
+                data-key="stepComp"
+            >
                 Ground-Truth Comparison
             </span>
+
 
             <p data-key="stepCompDesc">
                 Model output is compared with the known source specimen,
@@ -1098,9 +2094,13 @@
 
         <div class="step">
 
-            <span class="step-number" data-key="stepErr">
+            <span
+                class="step-number"
+                data-key="stepErr"
+            >
                 Error Analysis
             </span>
+
 
             <p data-key="stepErrDesc">
                 Researchers can record observable discrepancies such as
@@ -1114,11 +2114,14 @@
     </div>
 
 
-    <!-- =========================
+    <!-- =====================================================
          4. TESTING GUIDE
-    ========================== -->
+    ====================================================== -->
 
-    <div id="tool-guide" class="section highlight">
+    <div
+        id="tool-guide"
+        class="section highlight"
+    >
 
         <h3
             style="text-align:center;"
@@ -1126,6 +2129,7 @@
         >
             4. How to Test Multimodal AI Systems
         </h3>
+
 
         <p
             style="text-align:center;"
@@ -1138,9 +2142,13 @@
 
         <div class="step">
 
-            <span class="step-number" data-key="gStep1">
+            <span
+                class="step-number"
+                data-key="gStep1"
+            >
                 Step 1 — Generate a Test Specimen
             </span>
+
 
             <p data-key="gStep1Desc">
                 Use the Image Mirror Tool or Text Mirror Tool above to create
@@ -1152,9 +2160,13 @@
 
         <div class="step">
 
-            <span class="step-number" data-key="gStep2">
+            <span
+                class="step-number"
+                data-key="gStep2"
+            >
                 Step 2 — Select a Multimodal AI System
             </span>
+
 
             <p data-key="gStep2Desc">
                 Open a multimodal AI system capable of receiving image input.
@@ -1165,9 +2177,13 @@
 
         <div class="step">
 
-            <span class="step-number" data-key="gStep3">
+            <span
+                class="step-number"
+                data-key="gStep3"
+            >
                 Step 3 — Upload and Use a Standardized Prompt
             </span>
+
 
             <p data-key="gStep3Desc">
                 Upload the mirrored specimen and use a neutral prompt such as
@@ -1176,6 +2192,7 @@
 
 
             <code class="prompt-box">
+
 Analyze this image as a visual specimen.
 
 Describe exactly what you can determine from the image.
@@ -1183,6 +2200,7 @@ Describe exactly what you can determine from the image.
 If the writing appears mirrored, inverted, transformed, or otherwise unusual, identify that condition.
 
 Do not guess missing characters. Clearly distinguish direct visual observations from interpretation or uncertainty.
+
             </code>
 
         </div>
@@ -1190,9 +2208,13 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
 
         <div class="step">
 
-            <span class="step-number" data-key="gStep4">
+            <span
+                class="step-number"
+                data-key="gStep4"
+            >
                 Step 4 — Record the Output
             </span>
+
 
             <p data-key="gStep4Desc">
                 Preserve the model response, test specimen, prompt,
@@ -1204,9 +2226,13 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
 
         <div class="step">
 
-            <span class="step-number" data-key="gStep5">
+            <span
+                class="step-number"
+                data-key="gStep5"
+            >
                 Step 5 — Analyze the Result
             </span>
+
 
             <p data-key="gStep5Desc">
                 Compare the model output with the known specimen and
@@ -1219,15 +2245,19 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
     </div>
 
 
-    <!-- =========================
+    <!-- =====================================================
          5. OBSERVATION RECORD
-    ========================== -->
+    ====================================================== -->
 
-    <div id="tool-record" class="section">
+    <div
+        id="tool-record"
+        class="section"
+    >
 
         <h3 data-key="recTitle">
             5. VIST-AI Observation Record
         </h3>
+
 
         <p data-key="recDesc">
             For reproducible research, record the same basic information
@@ -1238,66 +2268,90 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
         <div class="record-grid">
 
             <div class="record-item">
+
                 <strong data-key="rec1">
                     Test ID
                 </strong>
+
                 Example: VIST-2026-001
+
             </div>
 
 
             <div class="record-item">
+
                 <strong data-key="rec2">
                     Test Date
                 </strong>
+
                 Record the date of the experiment.
+
             </div>
 
 
             <div class="record-item">
+
                 <strong data-key="rec3">
                     AI System / Model
                 </strong>
+
                 Record the exact model name/version when available.
+
             </div>
 
 
             <div class="record-item">
+
                 <strong data-key="rec4">
                     Input Type
                 </strong>
+
                 Image / Mirrored Script / Multilingual Specimen
+
             </div>
 
 
             <div class="record-item">
+
                 <strong data-key="rec5">
                     Transformation
                 </strong>
+
                 Horizontal Mirror / Other Controlled Transformation
+
             </div>
 
 
             <div class="record-item">
+
                 <strong data-key="rec6">
                     Prompt
                 </strong>
+
                 Record the exact prompt used.
+
             </div>
 
 
             <div class="record-item">
+
                 <strong data-key="rec7">
                     Observed Output
                 </strong>
+
                 Preserve the original model response.
+
             </div>
 
 
             <div class="record-item">
+
                 <strong data-key="rec8">
                     Ground-Truth Comparison
                 </strong>
+
                 Compare output against the known specimen.
+
             </div>
 
         </div>
@@ -1305,9 +2359,9 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
     </div>
 
 
-    <!-- =========================================================
+    <!-- =====================================================
          6. COMMERCIAL SERVICES
-    ========================================================== -->
+    ====================================================== -->
 
     <section
         id="commercial-services"
@@ -1320,9 +2374,11 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
                 PROFESSIONAL AI EVALUATION SERVICES
             </span>
 
+
             <h2>
                 VIST-AI Professional AI Evaluation
             </h2>
+
 
             <p>
                 Independent, structured, and evidence-oriented evaluation
@@ -1337,7 +2393,7 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
         <div class="service-grid">
 
 
-            <!-- BASIC -->
+            <!-- SERVICE 01 -->
 
             <div class="service-card">
 
@@ -1345,28 +2401,57 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
                     SERVICE 01
                 </div>
 
+
                 <h3>
                     Basic Evaluation
                 </h3>
 
+
                 <div class="service-price">
+
                     Starting from
-                    <strong>$75</strong>
+
+                    <strong>
+                        $75
+                    </strong>
+
                 </div>
+
 
                 <p>
                     A focused evaluation for clients who need an initial
                     assessment of a multimodal AI system.
                 </p>
 
+
                 <ul>
-                    <li>Up to 10 controlled test cases</li>
-                    <li>Visual and geometric testing</li>
-                    <li>Mirrored or transformed specimens</li>
-                    <li>Ground-truth comparison</li>
-                    <li>Basic findings</li>
-                    <li>Short evaluation summary</li>
+
+                    <li>
+                        Up to 10 controlled test cases
+                    </li>
+
+                    <li>
+                        Visual and geometric testing
+                    </li>
+
+                    <li>
+                        Mirrored or transformed specimens
+                    </li>
+
+                    <li>
+                        Ground-truth comparison
+                    </li>
+
+                    <li>
+                        Basic findings
+                    </li>
+
+                    <li>
+                        Short evaluation summary
+                    </li>
+
                 </ul>
+
 
                 <a
                     class="service-button"
@@ -1378,7 +2463,7 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
             </div>
 
 
-            <!-- PROFESSIONAL -->
+            <!-- SERVICE 02 -->
 
             <div class="service-card featured">
 
@@ -1386,35 +2471,74 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
                     RECOMMENDED
                 </span>
 
+
                 <div class="service-number">
                     SERVICE 02
                 </div>
+
 
                 <h3>
                     Professional Forensic Assessment
                 </h3>
 
+
                 <div class="service-price">
+
                     Starting from
-                    <strong>$250</strong>
+
+                    <strong>
+                        $250
+                    </strong>
+
                 </div>
+
 
                 <p>
                     A structured VIST-AI assessment designed for deeper
                     research, documentation, and professional reporting.
                 </p>
 
+
                 <ul>
-                    <li>30–50 controlled test cases</li>
-                    <li>Multiple visual conditions</li>
-                    <li>Multilingual / multi-script specimens</li>
-                    <li>Multiple prompts</li>
-                    <li>Repeated trials</li>
-                    <li>Ground-truth comparison</li>
-                    <li>Evidence screenshots</li>
-                    <li>Reproducibility analysis</li>
-                    <li>Professional PDF report</li>
+
+                    <li>
+                        30–50 controlled test cases
+                    </li>
+
+                    <li>
+                        Multiple visual conditions
+                    </li>
+
+                    <li>
+                        Multilingual / multi-script specimens
+                    </li>
+
+                    <li>
+                        Multiple prompts
+                    </li>
+
+                    <li>
+                        Repeated trials
+                    </li>
+
+                    <li>
+                        Ground-truth comparison
+                    </li>
+
+                    <li>
+                        Evidence screenshots
+                    </li>
+
+                    <li>
+                        Reproducibility analysis
+                    </li>
+
+                    <li>
+                        Professional PDF report
+                    </li>
+
                 </ul>
+
 
                 <a
                     class="service-button"
@@ -1426,7 +2550,7 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
             </div>
 
 
-            <!-- CUSTOM -->
+            <!-- SERVICE 03 -->
 
             <div class="service-card">
 
@@ -1434,13 +2558,20 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
                     SERVICE 03
                 </div>
 
+
                 <h3>
                     Custom AI Stress Testing
                 </h3>
 
+
                 <div class="service-price">
-                    <strong>Custom Quote</strong>
+
+                    <strong>
+                        Custom Quote
+                    </strong>
+
                 </div>
+
 
                 <p>
                     Custom evaluation designed around a client's own
@@ -1448,15 +2579,39 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
                     objectives.
                 </p>
 
+
                 <ul>
-                    <li>Custom test specimens</li>
-                    <li>Custom transformations</li>
-                    <li>Custom prompt design</li>
-                    <li>Multiple AI models</li>
-                    <li>Comparative testing</li>
-                    <li>Specialized analysis</li>
-                    <li>Custom reporting</li>
+
+                    <li>
+                        Custom test specimens
+                    </li>
+
+                    <li>
+                        Custom transformations
+                    </li>
+
+                    <li>
+                        Custom prompt design
+                    </li>
+
+                    <li>
+                        Multiple AI models
+                    </li>
+
+                    <li>
+                        Comparative testing
+                    </li>
+
+                    <li>
+                        Specialized analysis
+                    </li>
+
+                    <li>
+                        Custom reporting
+                    </li>
+
                 </ul>
+
 
                 <a
                     class="service-button secondary"
@@ -1468,7 +2623,7 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
             </div>
 
 
-            <!-- ENTERPRISE -->
+            <!-- SERVICE 04 -->
 
             <div class="service-card">
 
@@ -1476,13 +2631,20 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
                     SERVICE 04
                 </div>
 
+
                 <h3>
                     Enterprise & Research Evaluation
                 </h3>
 
+
                 <div class="service-price">
-                    <strong>Custom Quote</strong>
+
+                    <strong>
+                        Custom Quote
+                    </strong>
+
                 </div>
+
 
                 <p>
                     Larger evaluation programs for AI companies,
@@ -1490,16 +2652,43 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
                     and enterprise teams.
                 </p>
 
+
                 <ul>
-                    <li>Large-scale test programs</li>
-                    <li>Custom benchmark development</li>
-                    <li>Multi-model evaluation</li>
-                    <li>Multilingual testing</li>
-                    <li>Repeated controlled trials</li>
-                    <li>Technical reporting</li>
-                    <li>Executive summary</li>
-                    <li>Research documentation</li>
+
+                    <li>
+                        Large-scale test programs
+                    </li>
+
+                    <li>
+                        Custom benchmark development
+                    </li>
+
+                    <li>
+                        Multi-model evaluation
+                    </li>
+
+                    <li>
+                        Multilingual testing
+                    </li>
+
+                    <li>
+                        Repeated controlled trials
+                    </li>
+
+                    <li>
+                        Technical reporting
+                    </li>
+
+                    <li>
+                        Executive summary
+                    </li>
+
+                    <li>
+                        Research documentation
+                    </li>
+
                 </ul>
+
 
                 <a
                     class="service-button secondary"
@@ -1513,7 +2702,7 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
         </div>
 
 
-        <!-- COMMERCIAL CTA -->
+        <!-- CTA -->
 
         <div class="commercial-cta">
 
@@ -1521,15 +2710,17 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
                 Need a Deeper AI Evaluation?
             </h3>
 
+
             <p>
                 Request a VIST-AI assessment for your AI system,
                 multimodal model, research project, or custom visual
                 evaluation requirement.
             </p>
 
+
             <a
                 class="primary-cta"
-                href="mailto:2nddavinci69@gmail.com?subject=VIST-AI%20Professional%20Evaluation%20Request"
+                href="#assessment-request"
             >
                 Request a VIST-AI Assessment
             </a>
@@ -1537,11 +2728,13 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
         </div>
 
 
-        <!-- COMMERCIAL DISCLAIMER -->
+        <!-- DISCLAIMER -->
 
         <div class="commercial-disclaimer">
 
-            <strong>Commercial Evaluation Note:</strong>
+            <strong>
+                Commercial Evaluation Note:
+            </strong>
 
             VIST-AI assessments are evidence-oriented evaluations.
             The evaluation process does not assume that an AI system
@@ -1558,32 +2751,484 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
     </section>
 
 
-    <!-- =========================
-         7. CONTACT
-    ========================== -->
+    <!-- =====================================================
+         7. CLIENT ASSESSMENT REQUEST
+    ====================================================== -->
 
-    <div id="tool-contact" class="section">
+    <section
+        id="assessment-request"
+        class="section assessment-section"
+    >
+
+        <div class="assessment-heading">
+
+            <span>
+                PROFESSIONAL EVALUATION REQUEST
+            </span>
+
+
+            <h2>
+                Request a VIST-AI Assessment
+            </h2>
+
+
+            <p>
+                Tell us about your AI system and evaluation requirements.
+                We will review your request and propose an appropriate
+                VIST-AI evaluation scope.
+            </p>
+
+        </div>
+
+
+        <div class="assessment-form-wrapper">
+
+            <form
+                class="assessment-form"
+                action="mailto:2nddavinci69@gmail.com"
+                method="post"
+                enctype="text/plain"
+            >
+
+
+                <!-- NAME / ORGANIZATION -->
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="full-name">
+                            Full Name *
+                        </label>
+
+
+                        <input
+                            type="text"
+                            id="full-name"
+                            name="Full Name"
+                            required
+                            placeholder="Your full name"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="organization">
+                            Organization / Company
+                        </label>
+
+
+                        <input
+                            type="text"
+                            id="organization"
+                            name="Organization"
+                            placeholder="Company or research organization"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- EMAIL / MODEL -->
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="client-email">
+                            Work Email *
+                        </label>
+
+
+                        <input
+                            type="email"
+                            id="client-email"
+                            name="Email"
+                            required
+                            placeholder="name@company.com"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="ai-model">
+                            AI System / Model *
+                        </label>
+
+
+                        <input
+                            type="text"
+                            id="ai-model"
+                            name="AI System / Model"
+                            required
+                            placeholder="Example: Vision-Language Model"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- EVALUATION / TEST CASES -->
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="evaluation-type">
+                            Evaluation Type *
+                        </label>
+
+
+                        <select
+                            id="evaluation-type"
+                            name="Evaluation Type"
+                            required
+                        >
+
+                            <option value="">
+                                Select evaluation area
+                            </option>
+
+                            <option value="Visual Grounding">
+                                Visual Grounding
+                            </option>
+
+                            <option value="Geometric Robustness">
+                                Geometric Robustness
+                            </option>
+
+                            <option value="Multilingual / OCR">
+                                Multilingual / OCR
+                            </option>
+
+                            <option value="Image Understanding">
+                                Image Understanding
+                            </option>
+
+                            <option value="Model Comparison">
+                                Model Comparison
+                            </option>
+
+                            <option value="Custom AI Stress Testing">
+                                Custom AI Stress Testing
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="test-cases">
+                            Approximate Test Cases
+                        </label>
+
+
+                        <select
+                            id="test-cases"
+                            name="Approximate Test Cases"
+                        >
+
+                            <option value="">
+                                Select quantity
+                            </option>
+
+                            <option value="Up to 10">
+                                Up to 10
+                            </option>
+
+                            <option value="10-30">
+                                10–30
+                            </option>
+
+                            <option value="30-50">
+                                30–50
+                            </option>
+
+                            <option value="50-100">
+                                50–100
+                            </option>
+
+                            <option value="100+">
+                                100+
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <!-- MODELS / TRIALS -->
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="models">
+                            Number of AI Models
+                        </label>
+
+
+                        <select
+                            id="models"
+                            name="Number of AI Models"
+                        >
+
+                            <option value="1">
+                                1 Model
+                            </option>
+
+                            <option value="2">
+                                2 Models
+                            </option>
+
+                            <option value="3-5">
+                                3–5 Models
+                            </option>
+
+                            <option value="5+">
+                                5+ Models
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="trials">
+                            Repeated Trials
+                        </label>
+
+
+                        <select
+                            id="trials"
+                            name="Repeated Trials"
+                        >
+
+                            <option value="Single Trial">
+                                Single Trial
+                            </option>
+
+                            <option value="3 Trials">
+                                3 Trials
+                            </option>
+
+                            <option value="5 Trials">
+                                5 Trials
+                            </option>
+
+                            <option value="10+ Trials">
+                                10+ Trials
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <!-- REPORT -->
+
+                <div class="form-group">
+
+                    <label for="report">
+                        Professional PDF Report Required?
+                    </label>
+
+
+                    <select
+                        id="report"
+                        name="Professional PDF Report"
+                    >
+
+                        <option value="Yes">
+                            Yes
+                        </option>
+
+                        <option value="No">
+                            No
+                        </option>
+
+                        <option value="Not Sure">
+                            Not Sure
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- TIMELINE -->
+
+                <div class="form-group">
+
+                    <label for="timeline">
+                        Desired Timeline
+                    </label>
+
+
+                    <select
+                        id="timeline"
+                        name="Desired Timeline"
+                    >
+
+                        <option value="">
+                            Select timeline
+                        </option>
+
+                        <option value="As soon as possible">
+                            As soon as possible
+                        </option>
+
+                        <option value="1-2 weeks">
+                            1–2 weeks
+                        </option>
+
+                        <option value="2-4 weeks">
+                            2–4 weeks
+                        </option>
+
+                        <option value="Flexible">
+                            Flexible
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- DESCRIPTION -->
+
+                <div class="form-group">
+
+                    <label for="description">
+                        Project Description *
+                    </label>
+
+
+                    <textarea
+                        id="description"
+                        name="Project Description"
+                        rows="7"
+                        required
+                        placeholder="Briefly describe what you would like VIST-AI to evaluate."
+                    ></textarea>
+
+                </div>
+
+
+                <!-- CONSENT -->
+
+                <div class="form-consent">
+
+                    <label>
+
+                        <input
+                            type="checkbox"
+                            name="Consent"
+                            value="Client understands VIST-AI provides independent evaluation and does not guarantee a predetermined result."
+                            required
+                        >
+
+
+                        <span>
+                            I understand that VIST-AI provides an
+                            independent evaluation and does not guarantee
+                            a predetermined result.
+                        </span>
+
+                    </label>
+
+                </div>
+
+
+                <!-- SUBMIT -->
+
+                <button
+                    type="submit"
+                    class="assessment-submit"
+                >
+                    Request VIST-AI Assessment
+                </button>
+
+
+                <div class="form-note">
+
+                    Your request will open your email application with
+                    the assessment information prepared for submission.
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         8. CONTACT
+    ====================================================== -->
+
+    <div
+        id="tool-contact"
+        class="section"
+    >
 
         <h3 data-key="contactTitle">
-            7. Contact VIST-AI
+            8. Contact VIST-AI
         </h3>
 
+
         <p data-key="contactDesc">
+
             For research collaboration, custom mirror-writing specimens,
             multilingual test material, professional AI evaluation,
             or VIST-AI framework discussion, contact:
+
         </p>
 
+
         <p class="email">
+
             2nddavinci69@gmail.com
+
         </p>
+
+
+        <div class="research-notice">
+
+            <strong>
+                Professional Evaluation:
+            </strong>
+
+            For commercial AI evaluation requests, please use the
+            <strong>
+                Request a VIST-AI Assessment
+            </strong>
+            form above so that the evaluation scope can be reviewed
+            before quotation.
+
+        </div>
 
     </div>
 
 
-    <!-- =========================
+    <!-- =====================================================
          ABOUT VIST-AI
-    ========================== -->
+    ====================================================== -->
 
     <div class="section">
 
@@ -1591,24 +3236,30 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
             About VIST-AI
         </h3>
 
+
         <p data-key="aboutDesc1">
+
             VIST-AI is an open research and evaluation framework focused
             on visual grounding, geometric transformations, multilingual
             writing systems, and observable multimodal AI behavior.
+
         </p>
 
+
         <p data-key="aboutDesc2">
+
             The framework is intended to support controlled experiments,
             reproducibility, comparative testing, and forensic-style
             analysis of model outputs.
+
         </p>
 
     </div>
 
 
-    <!-- =========================
+    <!-- =====================================================
          FOOTER
-    ========================== -->
+    ====================================================== -->
 
     <div class="footer-box">
 
@@ -1616,31 +3267,44 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
             &copy; 2026 VIST-AI Framework. All Rights Reserved.
         </p>
 
-        <p>
-            <strong>Founder:</strong>
-            Mushtaque Ahmed Rajput
-        </p>
 
         <p>
-            Open Framework for Visual Grounding & Geometric Robustness Evaluation
+
+            <strong>
+                Founder:
+            </strong>
+
+            Mushtaque Ahmed Rajput
+
+        </p>
+
+
+        <p>
+
+            Open Framework for Visual Grounding &
+            Geometric Robustness Evaluation
+
         </p>
 
     </div>
+
 
 </div>
 
 
 <script>
 
-    /* =========================================================
+
+    /* =====================================================
        MULTILINGUAL TRANSLATIONS
-    ========================================================== */
+    ====================================================== */
 
     const translations = {
 
         en: {
 
-            title: "Global Forensic AI Tester",
+            title:
+                "Global Forensic AI Tester",
 
             subtitle:
                 "Visual Grounding, Geometric Robustness & Multilingual AI Evaluation",
@@ -1651,12 +3315,23 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
             badge:
                 "OPEN RESEARCH & AI EVALUATION FRAMEWORK",
 
-            navImg: "Image Mirror",
-            navText: "Text Mirror",
-            navMethod: "Methodology",
-            navGuide: "Testing Guide",
-            navRecord: "Observation Record",
-            navContact: "Contact",
+            navImg:
+                "Image Mirror",
+
+            navText:
+                "Text Mirror",
+
+            navMethod:
+                "Methodology",
+
+            navGuide:
+                "Testing Guide",
+
+            navRecord:
+                "Observation Record",
+
+            navContact:
+                "Contact",
 
             sec1Title:
                 "1. Live Image Mirror Tool",
@@ -1766,17 +3441,32 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
             recDesc:
                 "For reproducible research, record the same basic information for every test.",
 
-            rec1: "Test ID",
-            rec2: "Test Date",
-            rec3: "AI System / Model",
-            rec4: "Input Type",
-            rec5: "Transformation",
-            rec6: "Prompt",
-            rec7: "Observed Output",
-            rec8: "Ground-Truth Comparison",
+            rec1:
+                "Test ID",
+
+            rec2:
+                "Test Date",
+
+            rec3:
+                "AI System / Model",
+
+            rec4:
+                "Input Type",
+
+            rec5:
+                "Transformation",
+
+            rec6:
+                "Prompt",
+
+            rec7:
+                "Observed Output",
+
+            rec8:
+                "Ground-Truth Comparison",
 
             contactTitle:
-                "7. Contact VIST-AI",
+                "8. Contact VIST-AI",
 
             contactDesc:
                 "For research collaboration, custom mirror-writing specimens, multilingual test material, professional AI evaluation, or VIST-AI framework discussion, contact:",
@@ -1789,6 +3479,7 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
 
             aboutDesc2:
                 "The framework is intended to support controlled experiments, reproducibility, comparative testing, and forensic-style analysis of model outputs."
+
         },
 
 
@@ -1806,12 +3497,23 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
             badge:
                 "オープンリサーチおよびAI評価フレームワーク",
 
-            navImg: "画像ミラー",
-            navText: "テキストミラー",
-            navMethod: "方法論",
-            navGuide: "テストガイド",
-            navRecord: "観察記録",
-            navContact: "お問い合わせ",
+            navImg:
+                "画像ミラー",
+
+            navText:
+                "テキストミラー",
+
+            navMethod:
+                "方法論",
+
+            navGuide:
+                "テストガイド",
+
+            navRecord:
+                "観察記録",
+
+            navContact:
+                "お問い合わせ",
 
             sec1Title:
                 "1. ライブ画像ミラーツール",
@@ -1901,7 +3603,7 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
                 "ステップ3 — 標準化されたプロンプトの使用",
 
             gStep3Desc:
-                "ミラーリングされた標本をアップロードし、次のようなニュートラルなプロンプトを使用します。",
+                "ミラーリングされた標本をアップロードし、ニュートラルなプロンプトを使用します。",
 
             gStep4:
                 "ステップ4 — 出力の記録",
@@ -1921,20 +3623,35 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
             recDesc:
                 "再現可能な研究のために、すべてのテストで同じ基本情報を記録します。",
 
-            rec1: "テストID",
-            rec2: "テスト日",
-            rec3: "AIシステム/モデル",
-            rec4: "入力タイプ",
-            rec5: "変換",
-            rec6: "プロンプト",
-            rec7: "観察された出力",
-            rec8: "グラウンド真実比較",
+            rec1:
+                "テストID",
+
+            rec2:
+                "テスト日",
+
+            rec3:
+                "AIシステム/モデル",
+
+            rec4:
+                "入力タイプ",
+
+            rec5:
+                "変換",
+
+            rec6:
+                "プロンプト",
+
+            rec7:
+                "観察された出力",
+
+            rec8:
+                "グラウンド真実比較",
 
             contactTitle:
-                "7. VIST-AIへのお問い合わせ",
+                "8. VIST-AIへのお問い合わせ",
 
             contactDesc:
-                "研究協力、カスタムミラーライティング標本については、以下にお問い合わせください：",
+                "研究協力やVIST-AIフレームワークについては、以下にお問い合わせください：",
 
             aboutTitle:
                 "VIST-AIについて",
@@ -1944,6 +3661,7 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
 
             aboutDesc2:
                 "このフレームワークは、制御された実験と再現性をサポートすることを目的としています。"
+
         },
 
 
@@ -2087,17 +3805,32 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
             recDesc:
                 "Для воспроизводимых исследований записывайте базовую информацию для каждого теста.",
 
-            rec1: "ID теста",
-            rec2: "Дата теста",
-            rec3: "Система / Модель",
-            rec4: "Тип ввода",
-            rec5: "Трансформация",
-            rec6: "Промпт",
-            rec7: "Вывод",
-            rec8: "Сравнение с эталоном",
+            rec1:
+                "ID теста",
+
+            rec2:
+                "Дата теста",
+
+            rec3:
+                "Система / Модель",
+
+            rec4:
+                "Тип ввода",
+
+            rec5:
+                "Трансформация",
+
+            rec6:
+                "Промпт",
+
+            rec7:
+                "Вывод",
+
+            rec8:
+                "Сравнение с эталоном",
 
             contactTitle:
-                "7. Контакты VIST-AI",
+                "8. Контакты VIST-AI",
 
             contactDesc:
                 "Для сотрудничества и вопросов обращайтесь:",
@@ -2110,6 +3843,7 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
 
             aboutDesc2:
                 "Платформа предназначена для поддержки контролируемых экспериментов."
+
         },
 
 
@@ -2122,7 +3856,7 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
                 "الأساس البصري، المتانة الهندسية، وتقييم الذكاء الاصطناعي متعدد اللغات",
 
             headerDesc:
-                "إطار بحثي مفتوح وأداة حية لتحقيق كيفية تفسير أنظمة الذكاء الاصطناعي العينات المرئية والهندسية والمرايا.",
+                "إطار بحثي مفتوح وأداة حية للتحقيق في كيفية تفسير أنظمة الذكاء الاصطناعي متعددة الوسائط للعينات البصرية والهندسية والمرايا.",
 
             badge:
                 "إطار بحثي وتقييم مفتوح",
@@ -2251,19 +3985,34 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
                 "5. سجل ملاحظات VIST-AI",
 
             recDesc:
-                "للبحوث القابلة للاستنسخ، سجل المعلومات الأساسية لكل اختبار.",
+                "للبحوث القابلة للاستنساخ، سجل المعلومات الأساسية لكل اختبار.",
 
-            rec1: "معرف الاختبار",
-            rec2: "تاريخ الاختبار",
-            rec3: "النظام / النموذج",
-            rec4: "نوع الإدخال",
-            rec5: "التحويل",
-            rec6: "الموجه",
-            rec7: "الناتج الملاحظ",
-            rec8: "مقارنة الحقيقة الأساسية",
+            rec1:
+                "معرف الاختبار",
+
+            rec2:
+                "تاريخ الاختبار",
+
+            rec3:
+                "النظام / النموذج",
+
+            rec4:
+                "نوع الإدخال",
+
+            rec5:
+                "التحويل",
+
+            rec6:
+                "الموجه",
+
+            rec7:
+                "الناتج الملاحظ",
+
+            rec8:
+                "مقارنة الحقيقة الأساسية",
 
             contactTitle:
-                "7. اتصل بـ VIST-AI",
+                "8. اتصل بـ VIST-AI",
 
             contactDesc:
                 "للتعاون البحثي أو الاستفسارات، اتصل بـ:",
@@ -2276,6 +4025,7 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
 
             aboutDesc2:
                 "يهدف الإطار إلى دعم التجارب الخاضعة للرقابة وإمكانية التكرار."
+
         },
 
 
@@ -2419,17 +4169,32 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
             recDesc:
                 "למחקר ניתן לשחזור, רשום את אותו מידע בסיסי לכל בדיקה.",
 
-            rec1: "מזהה בדיקה",
-            rec2: "תאריך בדיקה",
-            rec3: "מערכת / מודל",
-            rec4: "סוג קלט",
-            rec5: "טרנספורמציה",
-            rec6: "הנחיה",
-            rec7: "פלט שנצפה",
-            rec8: "השוואת אמת-יסוד",
+            rec1:
+                "מזהה בדיקה",
+
+            rec2:
+                "תאריך בדיקה",
+
+            rec3:
+                "מערכת / מודל",
+
+            rec4:
+                "סוג קלט",
+
+            rec5:
+                "טרנספורמציה",
+
+            rec6:
+                "הנחיה",
+
+            rec7:
+                "פלט שנצפה",
+
+            rec8:
+                "השוואת אמת-יסוד",
 
             contactTitle:
-                "7. צור קשר עם VIST-AI",
+                "8. צור קשר עם VIST-AI",
 
             contactDesc:
                 "לשיתוף פעולה מחקרי, צור קשר:",
@@ -2442,6 +4207,7 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
 
             aboutDesc2:
                 "המסגרת נועדה לתמוך בניסויים מבוקרים."
+
         },
 
 
@@ -2585,17 +4351,32 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
             recDesc:
                 "पुनः पेश करने योग्य अनुसंधान के लिए, प्रत्येक परीक्षण के लिए समान बुनियादी जानकारी रिकॉर्ड करें।",
 
-            rec1: "टेस्ट आईडी",
-            rec2: "परीक्षण तिथि",
-            rec3: "एआई सिस्टम / मॉडल",
-            rec4: "इनपुट प्रकार",
-            rec5: "परिवर्तन",
-            rec6: "प्रॉम्प्ट",
-            rec7: "देखा गया आउटपुट",
-            rec8: "ग्राउंड-ट्रूथ तुलना",
+            rec1:
+                "टेस्ट आईडी",
+
+            rec2:
+                "परीक्षण तिथि",
+
+            rec3:
+                "एआई सिस्टम / मॉडल",
+
+            rec4:
+                "इनपुट प्रकार",
+
+            rec5:
+                "परिवर्तन",
+
+            rec6:
+                "प्रॉम्प्ट",
+
+            rec7:
+                "देखा गया आउटपुट",
+
+            rec8:
+                "ग्राउंड-ट्रूथ तुलना",
 
             contactTitle:
-                "7. VIST-AI से संपर्क करें",
+                "8. VIST-AI से संपर्क करें",
 
             contactDesc:
                 "शोध सहयोग या चर्चा के लिए संपर्क करें:",
@@ -2608,6 +4389,7 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
 
             aboutDesc2:
                 "यह फ्रेमवर्क नियंत्रित प्रयोगों का समर्थन करने के लिए है।"
+
         },
 
 
@@ -2751,17 +4533,32 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
             recDesc:
                 "재현 가능한 연구를 위해 모든 테스트에 대해 동일한 기본 정보를 기록하십시오.",
 
-            rec1: "테스트 ID",
-            rec2: "테스트 날짜",
-            rec3: "AI 시스템 / 모델",
-            rec4: "입력 유형",
-            rec5: "변환",
-            rec6: "프롬프트",
-            rec7: "관찰된 출력",
-            rec8: "정답 비교",
+            rec1:
+                "테스트 ID",
+
+            rec2:
+                "테스트 날짜",
+
+            rec3:
+                "AI 시스템 / 모델",
+
+            rec4:
+                "입력 유형",
+
+            rec5:
+                "변환",
+
+            rec6:
+                "프롬프트",
+
+            rec7:
+                "관찰된 출력",
+
+            rec8:
+                "정답 비교",
 
             contactTitle:
-                "7. VIST-AI 연락처",
+                "8. VIST-AI 연락처",
 
             contactDesc:
                 "연구 협력 또는 프레임워크 토론을 위해 다음으로 연락하십시오:",
@@ -2774,6 +4571,7 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
 
             aboutDesc2:
                 "이 프레임워크는 제어된 실험과 재현성을 지원하기 위한 것입니다."
+
         },
 
 
@@ -2917,17 +4715,32 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
             recDesc:
                 "为了进行可重复的研究，请记录每次测试的基本信息。",
 
-            rec1: "测试 ID",
-            rec2: "测试日期",
-            rec3: "AI 系统 / 模型",
-            rec4: "输入类型",
-            rec5: "转换",
-            rec6: "提示",
-            rec7: "观察到的输出",
-            rec8: "真值比较",
+            rec1:
+                "测试 ID",
+
+            rec2:
+                "测试日期",
+
+            rec3:
+                "AI 系统 / 模型",
+
+            rec4:
+                "输入类型",
+
+            rec5:
+                "转换",
+
+            rec6:
+                "提示",
+
+            rec7:
+                "观察到的输出",
+
+            rec8:
+                "真值比较",
 
             contactTitle:
-                "7. 联系 VIST-AI",
+                "8. 联系 VIST-AI",
 
             contactDesc:
                 "如需研究合作或框架讨论，请联系：",
@@ -2940,6 +4753,7 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
 
             aboutDesc2:
                 "该框架旨在支持受控实验和可重复性。"
+
         },
 
 
@@ -3108,7 +4922,7 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
                 "گراؤنڈ ٹروتھ موازنہ",
 
             contactTitle:
-                "7. رابطہ VIST-AI",
+                "8. رابطہ VIST-AI",
 
             contactDesc:
                 "تحقیقی تعاون، کسٹم مرر رائٹنگ سیمپلز، ملٹی لنگول ٹیسٹ میٹریل، پروفیشنل AI ایویلیوایشن یا VIST-AI فریم ورک کے بارے میں بات چیت کے لیے رابطہ کریں:",
@@ -3121,14 +4935,15 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
 
             aboutDesc2:
                 "یہ فریم ورک کنٹرول شدہ تجربات، قابل تکرار تحقیق، تقابلی ٹیسٹنگ اور فارنزک طرز کے تجزیے کی حمایت کے لیے بنایا گیا ہے۔"
+
         }
 
     };
 
 
-    /* =========================================================
+    /* =====================================================
        BACKGROUND THEMES
-    ========================================================== */
+    ====================================================== */
 
     const bgThemes = {
 
@@ -3158,29 +4973,38 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
 
         ur:
             "radial-gradient(circle at 20% 20%, rgba(16, 185, 129, 0.18) 0%, rgba(255, 255, 255, 0.08) 60%, transparent 80%)"
+
     };
 
 
-    /* =========================================================
+    /* =====================================================
        LANGUAGE FUNCTION
-    ========================================================== */
+    ====================================================== */
 
     function changeLanguage(lang) {
 
-        const t = translations[lang];
+        const t =
+            translations[lang];
+
 
         if (!t) {
             return;
         }
 
+
         document
             .querySelectorAll("[data-key]")
             .forEach(el => {
 
-                const key = el.getAttribute("data-key");
+                const key =
+                    el.getAttribute("data-key");
+
 
                 if (t[key]) {
-                    el.textContent = t[key];
+
+                    el.textContent =
+                        t[key];
+
                 }
 
             });
@@ -3196,46 +5020,64 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
         }
 
 
-        /* RTL support for Arabic and Urdu */
+        if (
+            lang === "ar" ||
+            lang === "ur"
+        ) {
 
-        if (lang === "ar" || lang === "ur") {
-
-            document.documentElement.dir = "rtl";
+            document.documentElement.dir =
+                "rtl";
 
         } else {
 
-            document.documentElement.dir = "ltr";
+            document.documentElement.dir =
+                "ltr";
 
         }
 
     }
 
 
-    /* =========================================================
+    /* =====================================================
        IMAGE MIRROR TOOL
-    ========================================================== */
+    ====================================================== */
 
     const imageInput =
-        document.getElementById("imageNormalInput");
+        document.getElementById(
+            "imageNormalInput"
+        );
+
 
     const processImageButton =
-        document.getElementById("processImageButton");
+        document.getElementById(
+            "processImageButton"
+        );
+
 
     const output =
-        document.getElementById("output");
+        document.getElementById(
+            "output"
+        );
+
 
     const evidenceImg =
-        document.getElementById("evidenceImg");
+        document.getElementById(
+            "evidenceImg"
+        );
+
 
     const downloadLink =
-        document.getElementById("downloadLink");
+        document.getElementById(
+            "downloadLink"
+        );
 
 
     processImageButton.addEventListener(
         "click",
         function () {
 
-            const file = imageInput.files[0];
+            const file =
+                imageInput.files[0];
 
 
             if (!file) {
@@ -3248,7 +5090,9 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
             }
 
 
-            if (!file.type.startsWith("image/")) {
+            if (
+                !file.type.startsWith("image/")
+            ) {
 
                 alert(
                     "Please select a valid image file."
@@ -3258,77 +5102,99 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
             }
 
 
-            const reader = new FileReader();
+            const reader =
+                new FileReader();
 
 
-            reader.onload = function (event) {
+            reader.onload =
+                function (event) {
 
-                const img = new Image();
-
-
-                img.onload = function () {
-
-                    const canvas =
-                        document.createElement("canvas");
-
-                    const ctx =
-                        canvas.getContext("2d");
+                    const img =
+                        new Image();
 
 
-                    canvas.width =
-                        img.width;
+                    img.onload =
+                        function () {
 
-                    canvas.height =
-                        img.height;
-
-
-                    ctx.translate(
-                        canvas.width,
-                        0
-                    );
-
-                    ctx.scale(-1, 1);
-
-                    ctx.drawImage(
-                        img,
-                        0,
-                        0
-                    );
+                            const canvas =
+                                document.createElement(
+                                    "canvas"
+                                );
 
 
-                    const mirroredDataUrl =
-                        canvas.toDataURL(
-                            "image/jpeg",
-                            0.95
-                        );
+                            const ctx =
+                                canvas.getContext(
+                                    "2d"
+                                );
 
 
-                    evidenceImg.src =
-                        mirroredDataUrl;
-
-                    downloadLink.href =
-                        mirroredDataUrl;
-
-                    downloadLink.download =
-                        "vist-ai-mirrored-test-specimen.jpg";
+                            canvas.width =
+                                img.width;
 
 
-                    output.style.display =
-                        "block";
+                            canvas.height =
+                                img.height;
 
 
-                    output.scrollIntoView({
-                        behavior: "smooth",
-                        block: "center"
-                    });
+                            ctx.translate(
+                                canvas.width,
+                                0
+                            );
+
+
+                            ctx.scale(
+                                -1,
+                                1
+                            );
+
+
+                            ctx.drawImage(
+                                img,
+                                0,
+                                0
+                            );
+
+
+                            const mirroredDataUrl =
+                                canvas.toDataURL(
+                                    "image/jpeg",
+                                    0.95
+                                );
+
+
+                            evidenceImg.src =
+                                mirroredDataUrl;
+
+
+                            downloadLink.href =
+                                mirroredDataUrl;
+
+
+                            downloadLink.download =
+                                "vist-ai-mirrored-test-specimen.jpg";
+
+
+                            output.style.display =
+                                "block";
+
+
+                            output.scrollIntoView({
+
+                                behavior:
+                                    "smooth",
+
+                                block:
+                                    "center"
+
+                            });
+
+                        };
+
+
+                    img.src =
+                        event.target.result;
 
                 };
-
-
-                img.src =
-                    event.target.result;
-
-            };
 
 
             reader.readAsDataURL(file);
@@ -3337,21 +5203,32 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
     );
 
 
-    /* =========================================================
+    /* =====================================================
        TEXT MIRROR TOOL
-    ========================================================== */
+    ====================================================== */
 
     const textInput =
-        document.getElementById("userInputText");
+        document.getElementById(
+            "userInputText"
+        );
+
 
     const generateTextButton =
-        document.getElementById("generateTextButton");
+        document.getElementById(
+            "generateTextButton"
+        );
+
 
     const mirrorResultBox =
-        document.getElementById("mirrorResultBox");
+        document.getElementById(
+            "mirrorResultBox"
+        );
+
 
     const mirroredDisplay =
-        document.getElementById("mirroredDisplay");
+        document.getElementById(
+            "mirroredDisplay"
+        );
 
 
     generateTextButton.addEventListener(
@@ -3381,14 +5258,21 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
 
 
             mirrorResultBox.scrollIntoView({
-                behavior: "smooth",
-                block: "center"
+
+                behavior:
+                    "smooth",
+
+                block:
+                    "center"
+
             });
 
         }
     );
 
+
 </script>
+
 
 </body>
 </html>
