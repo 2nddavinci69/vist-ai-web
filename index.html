@@ -3,18 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <meta name="description" content="VIST-AI is an open research framework and live utility for evaluating multilingual visual grounding and geometric robustness in multimodal AI systems.">
     <meta name="keywords" content="VIST-AI, AI forensics, visual grounding, multimodal AI, geometric robustness, AI evaluation, mirror script, AI safety, AI research">
     <meta name="author" content="Mushtaque Ahmed Rajput">
+
     <title>VIST-AI | Visual Grounding & Geometric Robustness Testing</title>
 
     <style>
-        * { box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        
-        /* =========================
-            DYNAMIC FLAG THEME BACKGROUND
-        ========================== */
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             margin: 0;
             padding: 20px;
@@ -30,13 +34,41 @@
         body::before {
             content: '';
             position: fixed;
-            top: 0; left: 0; width: 100vw; height: 100vh;
-            background-image: 
-                var(--bg-glow, radial-gradient(circle at 15% 20%, rgba(56, 189, 248, 0.15) 0%, transparent 45%)),
-                radial-gradient(circle at 85% 80%, rgba(2, 132, 199, 0.12) 0%, transparent 45%),
-                linear-gradient(rgba(30, 41, 59, 0.15) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(30, 41, 59, 0.15) 1px, transparent 1px);
-            background-size: 100% 100%, 100% 100%, 50px 50px, 50px 50px;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+
+            background-image:
+                var(
+                    --bg-glow,
+                    radial-gradient(
+                        circle at 15% 20%,
+                        rgba(56, 189, 248, 0.15) 0%,
+                        transparent 45%
+                    )
+                ),
+                radial-gradient(
+                    circle at 85% 80%,
+                    rgba(2, 132, 199, 0.12) 0%,
+                    transparent 45%
+                ),
+                linear-gradient(
+                    rgba(30, 41, 59, 0.15) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(30, 41, 59, 0.15) 1px,
+                    transparent 1px
+                );
+
+            background-size:
+                100% 100%,
+                100% 100%,
+                50px 50px,
+                50px 50px;
+
             animation: digitalGridMove 15s linear infinite;
             z-index: -1;
             pointer-events: none;
@@ -44,8 +76,21 @@
         }
 
         @keyframes digitalGridMove {
-            0% { background-position: 0 0, 0 0, 0 0, 0 0; }
-            100% { background-position: 0 0, 0 0, 50px 50px, 50px 50px; }
+            0% {
+                background-position:
+                    0 0,
+                    0 0,
+                    0 0,
+                    0 0;
+            }
+
+            100% {
+                background-position:
+                    0 0,
+                    0 0,
+                    50px 50px,
+                    50px 50px;
+            }
         }
 
         .container {
@@ -56,18 +101,24 @@
             padding: 25px;
             border-radius: 12px;
             border: 1px solid rgba(56, 189, 248, 0.3);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.9), 0 0 20px rgba(56, 189, 248, 0.1);
+            box-shadow:
+                0 15px 40px rgba(0, 0, 0, 0.9),
+                0 0 20px rgba(56, 189, 248, 0.1);
             position: relative;
         }
 
-        header { text-align: center; padding-bottom: 5px; position: relative; }
-        
-        .top-bar-lang { 
-            display: flex; 
-            justify-content: flex-end; 
-            margin-bottom: 10px; 
+        header {
+            text-align: center;
+            padding-bottom: 5px;
+            position: relative;
         }
-        
+
+        .top-bar-lang {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 10px;
+        }
+
         .lang-select {
             background: #1e293b;
             color: #38bdf8;
@@ -91,271 +142,612 @@
             margin-bottom: 12px;
         }
 
-        .brand-name { 
-            font-size: 22px; 
-            font-weight: 900; 
-            color: #38bdf8; 
-            letter-spacing: 1.5px; 
-            text-shadow: 0 0 8px rgba(56, 189, 248, 0.6); 
+        .brand-name {
+            font-size: 22px;
+            font-weight: 900;
+            color: #38bdf8;
+            letter-spacing: 1.5px;
+            text-shadow: 0 0 8px rgba(56, 189, 248, 0.6);
         }
 
-        h1 { 
-            color: #38bdf8; 
-            font-size: 28px; 
-            margin: 0 0 4px; 
-            line-height: 1.2; 
-            text-shadow: 0 0 10px rgba(56, 189, 248, 0.3); 
+        h1 {
+            color: #38bdf8;
+            font-size: 28px;
+            margin: 0 0 4px;
+            line-height: 1.2;
+            text-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
         }
 
-        .founder-title { 
-            color: #ffffff; 
-            font-size: 15px; 
-            font-weight: bold; 
-            margin: 4px 0; 
+        .founder-title {
+            color: #ffffff;
+            font-size: 15px;
+            font-weight: bold;
+            margin: 4px 0;
         }
 
-        .subtitle { 
-            color: #cbd5e1; 
-            font-size: 14px; 
-            margin: 3px 0 8px; 
+        .subtitle {
+            color: #cbd5e1;
+            font-size: 14px;
+            margin: 3px 0 8px;
         }
 
-        .header-description { 
-            max-width: 780px; 
-            margin: 6px auto 0; 
-            color: #94a3b8; 
-            font-size: 14px; 
+        .header-description {
+            max-width: 780px;
+            margin: 6px auto 0;
+            color: #94a3b8;
+            font-size: 14px;
         }
+
+        /* =========================
+           NAVIGATION
+        ========================== */
 
         .nav-bar {
-            display: flex; 
-            justify-content: center; 
-            flex-wrap: wrap; 
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
             gap: 8px;
-            margin: 18px 0; 
-            padding: 10px; 
-            background: #060913; 
-            border-radius: 8px; 
+            margin: 18px 0;
+            padding: 10px;
+            background: #060913;
+            border-radius: 8px;
             border: 1px solid #1e293b;
-            position: sticky; 
-            top: 10px; 
+            position: sticky;
+            top: 10px;
             z-index: 10;
         }
 
         .nav-bar a {
-            color: #38bdf8; 
-            text-decoration: none; 
-            font-size: 13px; 
+            color: #38bdf8;
+            text-decoration: none;
+            font-size: 13px;
             font-weight: bold;
-            padding: 7px 12px; 
-            background: #1e293b; 
-            border-radius: 5px; 
-            border: 1px solid #334155; 
+            padding: 7px 12px;
+            background: #1e293b;
+            border-radius: 5px;
+            border: 1px solid #334155;
             transition: all 0.25s ease;
         }
 
-        .nav-bar a:hover { 
-            background: #0284c7; 
-            color: #ffffff; 
-            box-shadow: 0 0 12px rgba(2, 132, 199, 0.6); 
+        .nav-bar a:hover {
+            background: #0284c7;
+            color: #ffffff;
+            box-shadow: 0 0 12px rgba(2, 132, 199, 0.6);
         }
 
-        .research-badge { 
-            text-align: center; 
-            margin: 10px auto 18px; 
+        /* =========================
+           RESEARCH BADGE
+        ========================== */
+
+        .research-badge {
+            text-align: center;
+            margin: 10px auto 18px;
         }
 
         .research-badge span {
-            display: inline-block; 
-            padding: 5px 12px; 
-            border: 1px solid #0369a1; 
+            display: inline-block;
+            padding: 5px 12px;
+            border: 1px solid #0369a1;
             border-radius: 20px;
-            color: #7dd3fc; 
-            background: #0c1b2a; 
-            font-size: 12px; 
-            font-weight: bold; 
+            color: #7dd3fc;
+            background: #0c1b2a;
+            font-size: 12px;
+            font-weight: bold;
             box-shadow: 0 0 8px rgba(3, 105, 161, 0.4);
         }
 
-        .section { 
-            background: #1e293b; 
-            padding: 18px; 
-            border-radius: 8px; 
-            margin-top: 16px; 
-            border: 1px solid #334155; 
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); 
+        /* =========================
+           GENERAL SECTIONS
+        ========================== */
+
+        .section {
+            background: #1e293b;
+            padding: 18px;
+            border-radius: 8px;
+            margin-top: 16px;
+            border: 1px solid #334155;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
         }
 
-        .section.highlight { 
-            background: #0b1728; 
-            border: 1px solid rgba(56, 189, 248, 0.5); 
+        .section.highlight {
+            background: #0b1728;
+            border: 1px solid rgba(56, 189, 248, 0.5);
         }
 
-        h2, h3 { color: #38bdf8; }
-        h3 { font-size: 17px; margin-top: 0; margin-bottom: 8px; }
-        p { color: #94a3b8; margin: 6px 0; }
-        strong { color: #f8fafc; }
-        
-        label { 
-            display: block; 
-            color: #cbd5e1; 
-            margin-top: 8px; 
-            font-weight: bold; 
-            font-size: 14px; 
+        h2,
+        h3 {
+            color: #38bdf8;
         }
 
-        input[type="file"], textarea, button {
-            width: 100%; 
-            padding: 10px; 
-            font-size: 14px; 
-            margin-top: 6px; 
+        h3 {
+            font-size: 17px;
+            margin-top: 0;
+            margin-bottom: 8px;
+        }
+
+        p {
+            color: #94a3b8;
+            margin: 6px 0;
+        }
+
+        strong {
+            color: #f8fafc;
+        }
+
+        label {
+            display: block;
+            color: #cbd5e1;
+            margin-top: 8px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        input[type="file"],
+        textarea,
+        button {
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            margin-top: 6px;
             border-radius: 6px;
-            border: 1px solid #334155; 
-            background: #0d121e; 
-            color: #f8fafc; 
+            border: 1px solid #334155;
+            background: #0d121e;
+            color: #f8fafc;
             font-family: Arial, Helvetica, sans-serif;
         }
 
-        textarea { resize: vertical; min-height: 80px; }
-        
-        button { 
-            background: #0284c7; 
-            color: #ffffff; 
-            border: none; 
-            cursor: pointer; 
-            font-weight: bold; 
-            transition: all 0.25s ease; 
+        textarea {
+            resize: vertical;
+            min-height: 80px;
         }
 
-        button:hover { 
-            background: #0369a1; 
-            box-shadow: 0 0 12px rgba(2, 132, 199, 0.7); 
+        button {
+            background: #0284c7;
+            color: #ffffff;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.25s ease;
         }
 
-        .result-box { 
-            background: #060913; 
-            padding: 15px; 
-            border-left: 4px solid #38bdf8; 
-            margin-top: 14px; 
-            border-radius: 6px; 
-            display: none; 
-            text-align: center; 
+        button:hover {
+            background: #0369a1;
+            box-shadow: 0 0 12px rgba(2, 132, 199, 0.7);
         }
 
-        .result-title { 
-            color: #38bdf8; 
-            font-weight: bold; 
-            margin-bottom: 8px; 
+        /* =========================
+           RESULT BOX
+        ========================== */
+
+        .result-box {
+            background: #060913;
+            padding: 15px;
+            border-left: 4px solid #38bdf8;
+            margin-top: 14px;
+            border-radius: 6px;
+            display: none;
+            text-align: center;
         }
 
-        .evidence-image { 
-            max-width: 100%; 
-            max-height: 450px; 
-            height: auto; 
-            border: 1px solid #334155; 
-            border-radius: 6px; 
-            margin: 10px auto; 
-            display: block; 
+        .result-title {
+            color: #38bdf8;
+            font-weight: bold;
+            margin-bottom: 8px;
         }
 
-        .download-button { 
-            display: inline-block; 
-            width: auto; 
-            margin-top: 6px; 
-            padding: 8px 18px; 
-            background: #16a34a; 
-            color: #ffffff; 
-            text-decoration: none; 
-            border-radius: 6px; 
-            font-weight: bold; 
-            font-size: 14px; 
+        .evidence-image {
+            max-width: 100%;
+            max-height: 450px;
+            height: auto;
+            border: 1px solid #334155;
+            border-radius: 6px;
+            margin: 10px auto;
+            display: block;
         }
 
-        .mirror-output { 
-            background: #060913; 
-            padding: 15px; 
-            border-radius: 6px; 
-            margin-top: 8px; 
-            font-size: 18px; 
-            text-align: center; 
-            color: #38bdf8; 
-            border: 1px solid #334155; 
-            transform: scaleX(-1); 
+        .download-button {
+            display: inline-block;
+            width: auto;
+            margin-top: 6px;
+            padding: 8px 18px;
+            background: #16a34a;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 14px;
         }
 
-        .mirror-note { 
-            color: #64748b; 
-            font-size: 11px; 
-            margin-top: 6px; 
+        .download-button:hover {
+            background: #15803d;
         }
 
-        .step { 
-            background: #111827; 
-            border: 1px solid #263449; 
-            border-radius: 6px; 
-            padding: 12px; 
-            margin: 10px 0; 
+        /* =========================
+           MIRROR OUTPUT
+        ========================== */
+
+        .mirror-output {
+            background: #060913;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 8px;
+            font-size: 18px;
+            text-align: center;
+            color: #38bdf8;
+            border: 1px solid #334155;
+            transform: scaleX(-1);
         }
 
-        .step-number { color: #38bdf8; font-weight: bold; }
-
-        code.prompt-box { 
-            display: block; 
-            margin-top: 6px; 
-            padding: 10px; 
-            background: #060913; 
-            border: 1px solid #334155; 
-            border-radius: 6px; 
-            color: #7dd3fc; 
-            white-space: pre-wrap; 
-            font-family: monospace; 
-            font-size: 13px; 
+        .mirror-note {
+            color: #64748b;
+            font-size: 11px;
+            margin-top: 6px;
         }
 
-        .record-grid { 
-            display: grid; 
-            grid-template-columns: 1fr 1fr; 
-            gap: 10px; 
+        /* =========================
+           RESEARCH STEPS
+        ========================== */
+
+        .step {
+            background: #111827;
+            border: 1px solid #263449;
+            border-radius: 6px;
+            padding: 12px;
+            margin: 10px 0;
         }
 
-        .record-item { 
-            background: #111827; 
-            border: 1px solid #263449; 
-            border-radius: 6px; 
-            padding: 10px; 
-            font-size: 14px; 
+        .step-number {
+            color: #38bdf8;
+            font-weight: bold;
         }
 
-        .record-item strong { 
-            display: block; 
-            color: #38bdf8; 
-            margin-bottom: 2px; 
+        code.prompt-box {
+            display: block;
+            margin-top: 6px;
+            padding: 10px;
+            background: #060913;
+            border: 1px solid #334155;
+            border-radius: 6px;
+            color: #7dd3fc;
+            white-space: pre-wrap;
+            font-family: monospace;
+            font-size: 13px;
         }
 
-        .research-notice { 
-            background: #0a1422; 
-            border-left: 4px solid #38bdf8; 
-            padding: 12px; 
-            border-radius: 6px; 
-            margin-top: 12px; 
-            font-size: 14px; 
+        /* =========================
+           OBSERVATION RECORD
+        ========================== */
+
+        .record-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
         }
 
-        .email { color: #38bdf8; font-size: 15px; font-weight: bold; }
-
-        .footer-box { 
-            text-align: center; 
-            margin-top: 35px; 
-            padding-top: 18px; 
-            border-top: 1px solid #1f2937; 
-            color: #ffffff; 
-            font-size: 12px; 
+        .record-item {
+            background: #111827;
+            border: 1px solid #263449;
+            border-radius: 6px;
+            padding: 10px;
+            font-size: 14px;
         }
 
-        .footer-box a { color: #38bdf8; text-decoration: none; }
+        .record-item strong {
+            display: block;
+            color: #38bdf8;
+            margin-bottom: 2px;
+        }
 
-        @media (max-width: 700px) { 
-            .record-grid { grid-template-columns: 1fr; } 
+        .research-notice {
+            background: #0a1422;
+            border-left: 4px solid #38bdf8;
+            padding: 12px;
+            border-radius: 6px;
+            margin-top: 12px;
+            font-size: 14px;
+        }
+
+        .email {
+            color: #38bdf8;
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        /* =========================================================
+           VIST-AI COMMERCIAL SERVICES
+        ========================================================== */
+
+        .commercial-section {
+            padding: 45px 25px;
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(5, 15, 30, 0.98),
+                    rgba(8, 20, 40, 1)
+                );
+            border: 1px solid rgba(80, 210, 255, 0.25);
+        }
+
+        .commercial-heading {
+            max-width: 850px;
+            margin: 0 auto 35px;
+            text-align: center;
+        }
+
+        .commercial-label {
+            display: inline-block;
+            margin-bottom: 12px;
+            font-size: 11px;
+            letter-spacing: 2px;
+            font-weight: 700;
+            color: #55d9ff;
+            border: 1px solid rgba(85, 217, 255, 0.3);
+            padding: 6px 12px;
+            border-radius: 20px;
+            background: rgba(70, 210, 255, 0.06);
+        }
+
+        .commercial-heading h2 {
+            margin: 0 0 15px;
+            color: #38bdf8;
+            font-size: clamp(27px, 5vw, 42px);
+            line-height: 1.2;
+        }
+
+        .commercial-heading p {
+            color: #aebfd1;
+            line-height: 1.8;
+            max-width: 750px;
+            margin: auto;
+        }
+
+        .service-grid {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .service-card {
+            position: relative;
+            padding: 28px;
+            border: 1px solid rgba(100, 190, 255, 0.18);
+            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.035);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.25);
+            transition:
+                transform 0.25s ease,
+                border-color 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(80, 220, 255, 0.5);
+            box-shadow:
+                0 18px 55px rgba(0, 0, 0, 0.35),
+                0 0 25px rgba(56, 189, 248, 0.08);
+        }
+
+        .service-card.featured {
+            border-color: rgba(80, 220, 255, 0.55);
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(30, 100, 150, 0.12),
+                    rgba(255, 255, 255, 0.035)
+                );
+        }
+
+        .featured-label {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            padding: 5px 9px;
+            border-radius: 999px;
+            font-size: 9px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            background: rgba(70, 210, 255, 0.14);
+            color: #64ddff;
+            border: 1px solid rgba(100, 220, 255, 0.25);
+        }
+
+        .service-number {
+            font-size: 12px;
+            letter-spacing: 2px;
+            color: #6adfff;
+            margin-bottom: 15px;
+        }
+
+        .service-card h3 {
+            font-size: 23px;
+            margin: 0 0 10px;
+            color: #38bdf8;
+        }
+
+        .service-price {
+            margin-bottom: 16px;
+            color: #b8c7d8;
+        }
+
+        .service-price strong {
+            color: #ffffff;
+            font-size: 21px;
+        }
+
+        .service-card p {
+            color: #aebfd1;
+            line-height: 1.7;
+        }
+
+        .service-card ul {
+            margin: 18px 0;
+            padding-left: 20px;
+            color: #c6d4e2;
+            line-height: 1.85;
+        }
+
+        .service-card li::marker {
+            color: #38bdf8;
+        }
+
+        .service-button {
+            display: inline-block;
+            padding: 12px 18px;
+            border-radius: 9px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 12px;
+            letter-spacing: 0.4px;
+            background: #46d7ff;
+            color: #06111f;
+            transition:
+                transform 0.2s ease,
+                opacity 0.2s ease;
+        }
+
+        .service-button:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
+
+        .service-button.secondary {
+            background: #1e293b;
+            color: #7dd3fc;
+            border: 1px solid #334155;
+        }
+
+        .commercial-cta {
+            max-width: 800px;
+            margin: 40px auto 0;
+            padding: 35px 25px;
+            text-align: center;
+            border-radius: 20px;
+            border: 1px solid rgba(80, 210, 255, 0.25);
+            background: rgba(30, 100, 150, 0.08);
+        }
+
+        .commercial-cta h3 {
+            font-size: 27px;
+            margin-bottom: 12px;
+            color: #38bdf8;
+        }
+
+        .commercial-cta p {
+            max-width: 680px;
+            margin: 0 auto 22px;
+            color: #b5c7d8;
+            line-height: 1.8;
+        }
+
+        .primary-cta {
+            display: inline-block;
+            padding: 13px 21px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 13px;
+            letter-spacing: 0.4px;
+            background: #46d7ff;
+            color: #06111f;
+            transition:
+                transform 0.2s ease,
+                opacity 0.2s ease;
+        }
+
+        .primary-cta:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
+
+        .commercial-disclaimer {
+            max-width: 800px;
+            margin: 22px auto 0;
+            padding: 13px 16px;
+            border-left: 3px solid #38bdf8;
+            background: rgba(6, 9, 19, 0.7);
+            color: #8295aa;
+            font-size: 11px;
+            line-height: 1.7;
+            border-radius: 4px;
+        }
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        .footer-box {
+            text-align: center;
+            margin-top: 35px;
+            padding-top: 18px;
+            border-top: 1px solid #1f2937;
+            color: #ffffff;
+            font-size: 12px;
+        }
+
+        .footer-box a {
+            color: #38bdf8;
+            text-decoration: none;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================== */
+
+        @media (max-width: 800px) {
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .commercial-section {
+                padding: 35px 18px;
+            }
+
+            .service-card {
+                padding: 24px;
+            }
+        }
+
+        @media (max-width: 700px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                padding: 15px;
+            }
+
+            .record-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-bar {
+                position: relative;
+                top: 0;
+            }
+
+            .nav-bar a {
+                font-size: 12px;
+                padding: 6px 9px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            .brand-name {
+                font-size: 19px;
+            }
+
+            .commercial-heading h2 {
+                font-size: 29px;
+            }
+
+            .commercial-cta h3 {
+                font-size: 23px;
+            }
         }
     </style>
 </head>
@@ -364,9 +756,19 @@
 
 <div class="container">
 
+    <!-- =========================
+         HEADER
+    ========================== -->
+
     <header>
+
         <div class="top-bar-lang">
-            <select id="languageSelect" class="lang-select" onchange="changeLanguage(this.value)">
+            <select
+                id="languageSelect"
+                class="lang-select"
+                onchange="changeLanguage(this.value)"
+                aria-label="Language selector"
+            >
                 <option value="en">🌐 English</option>
                 <option value="ja">🇯🇵 Japanese (日本語)</option>
                 <option value="ru">🇷🇺 Russian (Русский)</option>
@@ -380,600 +782,2612 @@
         </div>
 
         <div class="top-logo-container">
-            <svg width="35" height="35" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <polygon points="60,5 110,32.5 110,87.5 60,115 10,87.5 10,32.5" stroke="#38bdf8" stroke-width="4" fill="#111827"/>
-                <line x1="35" y1="60" x2="85" y2="60" stroke="#0284c7" stroke-width="2" stroke-dasharray="4 2"/>
-                <line x1="60" y1="35" x2="60" y2="85" stroke="#0284c7" stroke-width="2" stroke-dasharray="4 2"/>
-                <circle cx="60" cy="60" r="18" fill="#090d16" stroke="#38bdf8" stroke-width="3"/>
-                <circle cx="60" cy="60" r="8" fill="#38bdf8"/>
+
+            <svg
+                width="35"
+                height="35"
+                viewBox="0 0 120 120"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-label="VIST-AI logo"
+            >
+                <polygon
+                    points="60,5 110,32.5 110,87.5 60,115 10,87.5 10,32.5"
+                    stroke="#38bdf8"
+                    stroke-width="4"
+                    fill="#111827"
+                />
+
+                <line
+                    x1="35"
+                    y1="60"
+                    x2="85"
+                    y2="60"
+                    stroke="#0284c7"
+                    stroke-width="2"
+                    stroke-dasharray="4 2"
+                />
+
+                <line
+                    x1="60"
+                    y1="35"
+                    x2="60"
+                    y2="85"
+                    stroke="#0284c7"
+                    stroke-width="2"
+                    stroke-dasharray="4 2"
+                />
+
+                <circle
+                    cx="60"
+                    cy="60"
+                    r="18"
+                    fill="#090d16"
+                    stroke="#38bdf8"
+                    stroke-width="3"
+                />
+
+                <circle
+                    cx="60"
+                    cy="60"
+                    r="8"
+                    fill="#38bdf8"
+                />
             </svg>
+
             <span class="brand-name">VIST-AI</span>
         </div>
 
-        <h1 data-key="title">Global Forensic AI Tester</h1>
-        <div class="founder-title">Founded by Mushtaque Ahmed Rajput</div>
-        <p class="subtitle" data-key="subtitle">Visual Grounding, Geometric Robustness & Multilingual AI Evaluation</p>
-        <p class="header-description" data-key="headerDesc">An open research framework and live utility for investigating how multimodal AI systems interpret controlled visual, geometric, mirrored, and multilingual test specimens.</p>
+        <h1 data-key="title">
+            Global Forensic AI Tester
+        </h1>
+
+        <div class="founder-title">
+            Founded by Mushtaque Ahmed Rajput
+        </div>
+
+        <p class="subtitle" data-key="subtitle">
+            Visual Grounding, Geometric Robustness & Multilingual AI Evaluation
+        </p>
+
+        <p class="header-description" data-key="headerDesc">
+            An open research framework and live utility for investigating how
+            multimodal AI systems interpret controlled visual, geometric,
+            mirrored, and multilingual test specimens.
+        </p>
+
     </header>
 
+
+    <!-- =========================
+         RESEARCH BADGE
+    ========================== -->
+
     <div class="research-badge">
-        <span data-key="badge">OPEN RESEARCH & AI EVALUATION FRAMEWORK</span>
+        <span data-key="badge">
+            OPEN RESEARCH & AI EVALUATION FRAMEWORK
+        </span>
     </div>
+
+
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
 
     <div class="nav-bar">
-        <a href="#tool-img" data-key="navImg">Image Mirror</a>
-        <a href="#tool-text" data-key="navText">Text Mirror</a>
-        <a href="#tool-methodology" data-key="navMethod">Methodology</a>
-        <a href="#tool-guide" data-key="navGuide">Testing Guide</a>
-        <a href="#tool-record" data-key="navRecord">Observation Record</a>
-        <a href="#tool-contact" data-key="navContact">Contact</a>
+
+        <a href="#tool-img" data-key="navImg">
+            Image Mirror
+        </a>
+
+        <a href="#tool-text" data-key="navText">
+            Text Mirror
+        </a>
+
+        <a href="#tool-methodology" data-key="navMethod">
+            Methodology
+        </a>
+
+        <a href="#tool-guide" data-key="navGuide">
+            Testing Guide
+        </a>
+
+        <a href="#tool-record" data-key="navRecord">
+            Observation Record
+        </a>
+
+        <a href="#commercial-services">
+            Services
+        </a>
+
+        <a href="#tool-contact" data-key="navContact">
+            Contact
+        </a>
+
     </div>
 
-    <!-- 1. IMAGE MIRROR TOOL -->
+
+    <!-- =========================
+         1. IMAGE MIRROR TOOL
+    ========================== -->
+
     <div id="tool-img" class="section">
-        <h3 data-key="sec1Title">1. Live Image Mirror Tool</h3>
-        <p data-key="sec1Desc">Upload a normal writing image to generate a horizontally mirrored test specimen for controlled visual evaluation.</p>
-        <label for="imageNormalInput" data-key="uploadLabel">Upload Normal Writing Image</label>
-        <input type="file" id="imageNormalInput" accept="image/*">
-        <button id="processImageButton" data-key="genImgBtn">Generate Mirrored Test Specimen</button>
+
+        <h3 data-key="sec1Title">
+            1. Live Image Mirror Tool
+        </h3>
+
+        <p data-key="sec1Desc">
+            Upload a normal writing image to generate a horizontally mirrored
+            test specimen for controlled visual evaluation.
+        </p>
+
+        <label
+            for="imageNormalInput"
+            data-key="uploadLabel"
+        >
+            Upload Normal Writing Image
+        </label>
+
+        <input
+            type="file"
+            id="imageNormalInput"
+            accept="image/*"
+        >
+
+        <button
+            id="processImageButton"
+            data-key="genImgBtn"
+        >
+            Generate Mirrored Test Specimen
+        </button>
+
 
         <div id="output" class="result-box">
-            <div class="result-title" data-key="resTitle">Mirrored Test Specimen</div>
-            <div id="imageContainer">
-                <img id="evidenceImg" class="evidence-image" src="" alt="Generated mirrored test specimen">
-                <a id="downloadLink" href="#" download="vist-ai-mirrored-test-specimen.jpg" class="download-button" data-key="dlBtn">Download Test Specimen</a>
+
+            <div class="result-title" data-key="resTitle">
+                Mirrored Test Specimen
             </div>
+
+            <div id="imageContainer">
+
+                <img
+                    id="evidenceImg"
+                    class="evidence-image"
+                    src=""
+                    alt="Generated mirrored test specimen"
+                >
+
+                <a
+                    id="downloadLink"
+                    href="#"
+                    download="vist-ai-mirrored-test-specimen.jpg"
+                    class="download-button"
+                    data-key="dlBtn"
+                >
+                    Download Test Specimen
+                </a>
+
+            </div>
+
         </div>
+
     </div>
 
-    <!-- 2. TEXT MIRROR TOOL -->
+
+    <!-- =========================
+         2. TEXT MIRROR TOOL
+    ========================== -->
+
     <div id="tool-text" class="section highlight">
-        <h3 data-key="sec2Title">2. Live Multilingual Text Mirror Tool</h3>
-        <p data-key="sec2Desc">Enter text in any supported writing system to generate a visually mirrored preview for controlled testing.</p>
-        <label for="userInputText" data-key="enterTextLabel">Enter Test Text</label>
-        <textarea id="userInputText" placeholder="Type or paste text here..."></textarea>
-        <button id="generateTextButton" data-key="genTextBtn">Generate Mirrored Preview</button>
 
-        <div id="mirrorResultBox" style="display:none; margin-top:14px;">
-            <label data-key="previewLabel">Visual Mirrored Preview</label>
-            <div id="mirroredDisplay" class="mirror-output"></div>
-            <div class="mirror-note" data-key="mirrorNote">Note: this is a visual horizontal transformation. The underlying Unicode text is not reversed or translated.</div>
+        <h3 data-key="sec2Title">
+            2. Live Multilingual Text Mirror Tool
+        </h3>
+
+        <p data-key="sec2Desc">
+            Enter text in any supported writing system to generate a visually
+            mirrored preview for controlled testing.
+        </p>
+
+        <label
+            for="userInputText"
+            data-key="enterTextLabel"
+        >
+            Enter Test Text
+        </label>
+
+        <textarea
+            id="userInputText"
+            placeholder="Type or paste text here..."
+        ></textarea>
+
+        <button
+            id="generateTextButton"
+            data-key="genTextBtn"
+        >
+            Generate Mirrored Preview
+        </button>
+
+
+        <div
+            id="mirrorResultBox"
+            style="display:none; margin-top:14px;"
+        >
+
+            <label data-key="previewLabel">
+                Visual Mirrored Preview
+            </label>
+
+            <div
+                id="mirroredDisplay"
+                class="mirror-output"
+            ></div>
+
+            <div
+                class="mirror-note"
+                data-key="mirrorNote"
+            >
+                Note: this is a visual horizontal transformation.
+                The underlying Unicode text is not reversed or translated.
+            </div>
+
         </div>
+
     </div>
 
-    <!-- 3. METHODOLOGY -->
+
+    <!-- =========================
+         3. METHODOLOGY
+    ========================== -->
+
     <div id="tool-methodology" class="section">
-        <h3 data-key="methTitle">3. VIST-AI Research Methodology</h3>
-        <p data-key="methDesc">VIST-AI uses controlled visual specimens to investigate multimodal AI interpretation under geometric and multilingual conditions.</p>
+
+        <h3 data-key="methTitle">
+            3. VIST-AI Research Methodology
+        </h3>
+
+        <p data-key="methDesc">
+            VIST-AI uses controlled visual specimens to investigate
+            multimodal AI interpretation under geometric and multilingual
+            conditions.
+        </p>
+
 
         <div class="step">
-            <span class="step-number" data-key="stepCond">Test Condition</span>
-            <p data-key="stepCondDesc">A known specimen is transformed using a defined visual operation such as horizontal mirroring.</p>
+
+            <span class="step-number" data-key="stepCond">
+                Test Condition
+            </span>
+
+            <p data-key="stepCondDesc">
+                A known specimen is transformed using a defined visual
+                operation such as horizontal mirroring.
+            </p>
+
         </div>
+
+
         <div class="step">
-            <span class="step-number" data-key="stepObs">Model Observation</span>
-            <p data-key="stepObsDesc">The same specimen and standardized prompt can be presented to one or more multimodal AI systems.</p>
+
+            <span class="step-number" data-key="stepObs">
+                Model Observation
+            </span>
+
+            <p data-key="stepObsDesc">
+                The same specimen and standardized prompt can be presented
+                to one or more multimodal AI systems.
+            </p>
+
         </div>
+
+
         <div class="step">
-            <span class="step-number" data-key="stepComp">Ground-Truth Comparison</span>
-            <p data-key="stepCompDesc">Model output is compared with the known source specimen, transformation condition, and expected interpretation.</p>
+
+            <span class="step-number" data-key="stepComp">
+                Ground-Truth Comparison
+            </span>
+
+            <p data-key="stepCompDesc">
+                Model output is compared with the known source specimen,
+                transformation condition, and expected interpretation.
+            </p>
+
         </div>
+
+
         <div class="step">
-            <span class="step-number" data-key="stepErr">Error Analysis</span>
-            <p data-key="stepErrDesc">Researchers can record observable discrepancies such as character confusion, spatial interpretation errors, ligature-related errors, tokenization-related observations, or unsupported claims.</p>
+
+            <span class="step-number" data-key="stepErr">
+                Error Analysis
+            </span>
+
+            <p data-key="stepErrDesc">
+                Researchers can record observable discrepancies such as
+                character confusion, spatial interpretation errors,
+                ligature-related errors, tokenization-related observations,
+                or unsupported claims.
+            </p>
+
         </div>
+
     </div>
 
-    <!-- 4. TESTING GUIDE -->
+
+    <!-- =========================
+         4. TESTING GUIDE
+    ========================== -->
+
     <div id="tool-guide" class="section highlight">
-        <h3 style="text-align:center;" data-key="guideTitle">4. How to Test Multimodal AI Systems</h3>
-        <p style="text-align:center;" data-key="guideDesc">Use the following procedure to conduct a controlled VIST-AI visual-grounding and geometric-robustness test.</p>
+
+        <h3
+            style="text-align:center;"
+            data-key="guideTitle"
+        >
+            4. How to Test Multimodal AI Systems
+        </h3>
+
+        <p
+            style="text-align:center;"
+            data-key="guideDesc"
+        >
+            Use the following procedure to conduct a controlled VIST-AI
+            visual-grounding and geometric-robustness test.
+        </p>
+
 
         <div class="step">
-            <span class="step-number" data-key="gStep1">Step 1 — Generate a Test Specimen</span>
-            <p data-key="gStep1Desc">Use the Image Mirror Tool or Text Mirror Tool above to create a controlled visual specimen.</p>
+
+            <span class="step-number" data-key="gStep1">
+                Step 1 — Generate a Test Specimen
+            </span>
+
+            <p data-key="gStep1Desc">
+                Use the Image Mirror Tool or Text Mirror Tool above to create
+                a controlled visual specimen.
+            </p>
+
         </div>
+
+
         <div class="step">
-            <span class="step-number" data-key="gStep2">Step 2 — Select a Multimodal AI System</span>
-            <p data-key="gStep2Desc">Open a multimodal AI system capable of receiving image input.</p>
+
+            <span class="step-number" data-key="gStep2">
+                Step 2 — Select a Multimodal AI System
+            </span>
+
+            <p data-key="gStep2Desc">
+                Open a multimodal AI system capable of receiving image input.
+            </p>
+
         </div>
+
+
         <div class="step">
-            <span class="step-number" data-key="gStep3">Step 3 — Upload and Use a Standardized Prompt</span>
-            <p data-key="gStep3Desc">Upload the mirrored specimen and use a neutral prompt such as the following:</p>
-            <code class="prompt-box">Analyze this image as a visual specimen.
+
+            <span class="step-number" data-key="gStep3">
+                Step 3 — Upload and Use a Standardized Prompt
+            </span>
+
+            <p data-key="gStep3Desc">
+                Upload the mirrored specimen and use a neutral prompt such as
+                the following:
+            </p>
+
+
+            <code class="prompt-box">
+Analyze this image as a visual specimen.
 
 Describe exactly what you can determine from the image.
 
 If the writing appears mirrored, inverted, transformed, or otherwise unusual, identify that condition.
 
-Do not guess missing characters. Clearly distinguish direct visual observations from interpretation or uncertainty.</code>
+Do not guess missing characters. Clearly distinguish direct visual observations from interpretation or uncertainty.
+            </code>
+
         </div>
+
+
         <div class="step">
-            <span class="step-number" data-key="gStep4">Step 4 — Record the Output</span>
-            <p data-key="gStep4Desc">Preserve the model response, test specimen, prompt, model/version information, and test date.</p>
+
+            <span class="step-number" data-key="gStep4">
+                Step 4 — Record the Output
+            </span>
+
+            <p data-key="gStep4Desc">
+                Preserve the model response, test specimen, prompt,
+                model/version information, and test date.
+            </p>
+
         </div>
+
+
         <div class="step">
-            <span class="step-number" data-key="gStep5">Step 5 — Analyze the Result</span>
-            <p data-key="gStep5Desc">Compare the model output with the known specimen and transformation condition. Record observable discrepancies without assuming a failure in advance.</p>
+
+            <span class="step-number" data-key="gStep5">
+                Step 5 — Analyze the Result
+            </span>
+
+            <p data-key="gStep5Desc">
+                Compare the model output with the known specimen and
+                transformation condition. Record observable discrepancies
+                without assuming a failure in advance.
+            </p>
+
         </div>
+
     </div>
 
-    <!-- 5. OBSERVATION RECORD -->
+
+    <!-- =========================
+         5. OBSERVATION RECORD
+    ========================== -->
+
     <div id="tool-record" class="section">
-        <h3 data-key="recTitle">5. VIST-AI Observation Record</h3>
-        <p data-key="recDesc">For reproducible research, record the same basic information for every test.</p>
+
+        <h3 data-key="recTitle">
+            5. VIST-AI Observation Record
+        </h3>
+
+        <p data-key="recDesc">
+            For reproducible research, record the same basic information
+            for every test.
+        </p>
+
 
         <div class="record-grid">
-            <div class="record-item"><strong data-key="rec1">Test ID</strong> Example: VIST-2026-001</div>
-            <div class="record-item"><strong data-key="rec2">Test Date</strong> Record the date of the experiment.</div>
-            <div class="record-item"><strong data-key="rec3">AI System / Model</strong> Record the exact model name/version when available.</div>
-            <div class="record-item"><strong data-key="rec4">Input Type</strong> Image / Mirrored Script / Multilingual Specimen</div>
-            <div class="record-item"><strong data-key="rec5">Transformation</strong> Horizontal Mirror / Other Controlled Transformation</div>
-            <div class="record-item"><strong data-key="rec6">Prompt</strong> Record the exact prompt used.</div>
-            <div class="record-item"><strong data-key="rec7">Observed Output</strong> Preserve the original model response.</div>
-            <div class="record-item"><strong data-key="rec8">Ground-Truth Comparison</strong> Compare output against the known specimen.</div>
+
+            <div class="record-item">
+                <strong data-key="rec1">
+                    Test ID
+                </strong>
+                Example: VIST-2026-001
+            </div>
+
+
+            <div class="record-item">
+                <strong data-key="rec2">
+                    Test Date
+                </strong>
+                Record the date of the experiment.
+            </div>
+
+
+            <div class="record-item">
+                <strong data-key="rec3">
+                    AI System / Model
+                </strong>
+                Record the exact model name/version when available.
+            </div>
+
+
+            <div class="record-item">
+                <strong data-key="rec4">
+                    Input Type
+                </strong>
+                Image / Mirrored Script / Multilingual Specimen
+            </div>
+
+
+            <div class="record-item">
+                <strong data-key="rec5">
+                    Transformation
+                </strong>
+                Horizontal Mirror / Other Controlled Transformation
+            </div>
+
+
+            <div class="record-item">
+                <strong data-key="rec6">
+                    Prompt
+                </strong>
+                Record the exact prompt used.
+            </div>
+
+
+            <div class="record-item">
+                <strong data-key="rec7">
+                    Observed Output
+                </strong>
+                Preserve the original model response.
+            </div>
+
+
+            <div class="record-item">
+                <strong data-key="rec8">
+                    Ground-Truth Comparison
+                </strong>
+                Compare output against the known specimen.
+            </div>
+
         </div>
+
     </div>
 
-    <!-- 6. CONTACT -->
+
+    <!-- =========================================================
+         6. COMMERCIAL SERVICES
+    ========================================================== -->
+
+    <section
+        id="commercial-services"
+        class="section commercial-section"
+    >
+
+        <div class="commercial-heading">
+
+            <span class="commercial-label">
+                PROFESSIONAL AI EVALUATION SERVICES
+            </span>
+
+            <h2>
+                VIST-AI Professional AI Evaluation
+            </h2>
+
+            <p>
+                Independent, structured, and evidence-oriented evaluation
+                of multimodal AI behavior under controlled visual,
+                geometric, mirrored, transformed, and multilingual
+                conditions.
+            </p>
+
+        </div>
+
+
+        <div class="service-grid">
+
+
+            <!-- BASIC -->
+
+            <div class="service-card">
+
+                <div class="service-number">
+                    SERVICE 01
+                </div>
+
+                <h3>
+                    Basic Evaluation
+                </h3>
+
+                <div class="service-price">
+                    Starting from
+                    <strong>$75</strong>
+                </div>
+
+                <p>
+                    A focused evaluation for clients who need an initial
+                    assessment of a multimodal AI system.
+                </p>
+
+                <ul>
+                    <li>Up to 10 controlled test cases</li>
+                    <li>Visual and geometric testing</li>
+                    <li>Mirrored or transformed specimens</li>
+                    <li>Ground-truth comparison</li>
+                    <li>Basic findings</li>
+                    <li>Short evaluation summary</li>
+                </ul>
+
+                <a
+                    class="service-button"
+                    href="mailto:2nddavinci69@gmail.com?subject=VIST-AI%20Basic%20Evaluation"
+                >
+                    Request Basic Evaluation
+                </a>
+
+            </div>
+
+
+            <!-- PROFESSIONAL -->
+
+            <div class="service-card featured">
+
+                <span class="featured-label">
+                    RECOMMENDED
+                </span>
+
+                <div class="service-number">
+                    SERVICE 02
+                </div>
+
+                <h3>
+                    Professional Forensic Assessment
+                </h3>
+
+                <div class="service-price">
+                    Starting from
+                    <strong>$250</strong>
+                </div>
+
+                <p>
+                    A structured VIST-AI assessment designed for deeper
+                    research, documentation, and professional reporting.
+                </p>
+
+                <ul>
+                    <li>30–50 controlled test cases</li>
+                    <li>Multiple visual conditions</li>
+                    <li>Multilingual / multi-script specimens</li>
+                    <li>Multiple prompts</li>
+                    <li>Repeated trials</li>
+                    <li>Ground-truth comparison</li>
+                    <li>Evidence screenshots</li>
+                    <li>Reproducibility analysis</li>
+                    <li>Professional PDF report</li>
+                </ul>
+
+                <a
+                    class="service-button"
+                    href="mailto:2nddavinci69@gmail.com?subject=VIST-AI%20Professional%20Assessment"
+                >
+                    Request Professional Assessment
+                </a>
+
+            </div>
+
+
+            <!-- CUSTOM -->
+
+            <div class="service-card">
+
+                <div class="service-number">
+                    SERVICE 03
+                </div>
+
+                <h3>
+                    Custom AI Stress Testing
+                </h3>
+
+                <div class="service-price">
+                    <strong>Custom Quote</strong>
+                </div>
+
+                <p>
+                    Custom evaluation designed around a client's own
+                    AI system, specimens, models, prompts, or research
+                    objectives.
+                </p>
+
+                <ul>
+                    <li>Custom test specimens</li>
+                    <li>Custom transformations</li>
+                    <li>Custom prompt design</li>
+                    <li>Multiple AI models</li>
+                    <li>Comparative testing</li>
+                    <li>Specialized analysis</li>
+                    <li>Custom reporting</li>
+                </ul>
+
+                <a
+                    class="service-button secondary"
+                    href="mailto:2nddavinci69@gmail.com?subject=VIST-AI%20Custom%20Stress%20Testing"
+                >
+                    Request Custom Quote
+                </a>
+
+            </div>
+
+
+            <!-- ENTERPRISE -->
+
+            <div class="service-card">
+
+                <div class="service-number">
+                    SERVICE 04
+                </div>
+
+                <h3>
+                    Enterprise & Research Evaluation
+                </h3>
+
+                <div class="service-price">
+                    <strong>Custom Quote</strong>
+                </div>
+
+                <p>
+                    Larger evaluation programs for AI companies,
+                    research organizations, universities, laboratories,
+                    and enterprise teams.
+                </p>
+
+                <ul>
+                    <li>Large-scale test programs</li>
+                    <li>Custom benchmark development</li>
+                    <li>Multi-model evaluation</li>
+                    <li>Multilingual testing</li>
+                    <li>Repeated controlled trials</li>
+                    <li>Technical reporting</li>
+                    <li>Executive summary</li>
+                    <li>Research documentation</li>
+                </ul>
+
+                <a
+                    class="service-button secondary"
+                    href="mailto:2nddavinci69@gmail.com?subject=VIST-AI%20Enterprise%20Evaluation"
+                >
+                    Contact for Enterprise Quote
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- COMMERCIAL CTA -->
+
+        <div class="commercial-cta">
+
+            <h3>
+                Need a Deeper AI Evaluation?
+            </h3>
+
+            <p>
+                Request a VIST-AI assessment for your AI system,
+                multimodal model, research project, or custom visual
+                evaluation requirement.
+            </p>
+
+            <a
+                class="primary-cta"
+                href="mailto:2nddavinci69@gmail.com?subject=VIST-AI%20Professional%20Evaluation%20Request"
+            >
+                Request a VIST-AI Assessment
+            </a>
+
+        </div>
+
+
+        <!-- COMMERCIAL DISCLAIMER -->
+
+        <div class="commercial-disclaimer">
+
+            <strong>Commercial Evaluation Note:</strong>
+
+            VIST-AI assessments are evidence-oriented evaluations.
+            The evaluation process does not assume that an AI system
+            will fail. Findings are based on the defined test scope,
+            observed model outputs, ground-truth comparison, repeated
+            trials where applicable, and documented limitations.
+
+            Prices shown are indicative starting prices and may vary
+            according to project scope, number of specimens, models,
+            repetitions, reporting requirements, and delivery timeline.
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         7. CONTACT
+    ========================== -->
+
     <div id="tool-contact" class="section">
-        <h3 data-key="contactTitle">6. Contact VIST-AI</h3>
-        <p data-key="contactDesc">For research collaboration, custom mirror-writing specimens, multilingual test material, or VIST-AI framework discussion, contact:</p>
-        <p class="email">2nddavinci69@gmail.com</p>
+
+        <h3 data-key="contactTitle">
+            7. Contact VIST-AI
+        </h3>
+
+        <p data-key="contactDesc">
+            For research collaboration, custom mirror-writing specimens,
+            multilingual test material, professional AI evaluation,
+            or VIST-AI framework discussion, contact:
+        </p>
+
+        <p class="email">
+            2nddavinci69@gmail.com
+        </p>
+
     </div>
 
-    <!-- ABOUT VIST-AI -->
+
+    <!-- =========================
+         ABOUT VIST-AI
+    ========================== -->
+
     <div class="section">
-        <h3 data-key="aboutTitle">About VIST-AI</h3>
-        <p data-key="aboutDesc1">VIST-AI is an open research and evaluation framework focused on visual grounding, geometric transformations, multilingual writing systems, and observable multimodal AI behavior.</p>
-        <p data-key="aboutDesc2">The framework is intended to support controlled experiments, reproducibility, comparative testing, and forensic-style analysis of model outputs.</p>
+
+        <h3 data-key="aboutTitle">
+            About VIST-AI
+        </h3>
+
+        <p data-key="aboutDesc1">
+            VIST-AI is an open research and evaluation framework focused
+            on visual grounding, geometric transformations, multilingual
+            writing systems, and observable multimodal AI behavior.
+        </p>
+
+        <p data-key="aboutDesc2">
+            The framework is intended to support controlled experiments,
+            reproducibility, comparative testing, and forensic-style
+            analysis of model outputs.
+        </p>
+
     </div>
 
-    <!-- FOOTER -->
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
     <div class="footer-box">
-        <p>&copy; 2026 VIST-AI Framework. All Rights Reserved.</p>
-        <p><strong>Founder:</strong> Mushtaque Ahmed Rajput</p>
-        <p>Open Framework for Visual Grounding & Geometric Robustness Evaluation</p>
+
+        <p>
+            &copy; 2026 VIST-AI Framework. All Rights Reserved.
+        </p>
+
+        <p>
+            <strong>Founder:</strong>
+            Mushtaque Ahmed Rajput
+        </p>
+
+        <p>
+            Open Framework for Visual Grounding & Geometric Robustness Evaluation
+        </p>
+
     </div>
+
 </div>
 
+
 <script>
+
+    /* =========================================================
+       MULTILINGUAL TRANSLATIONS
+    ========================================================== */
+
     const translations = {
+
         en: {
+
             title: "Global Forensic AI Tester",
-            subtitle: "Visual Grounding, Geometric Robustness & Multilingual AI Evaluation",
-            headerDesc: "An open research framework and live utility for investigating how multimodal AI systems interpret controlled visual, geometric, mirrored, and multilingual test specimens.",
-            badge: "OPEN RESEARCH & AI EVALUATION FRAMEWORK",
-            navImg: "Image Mirror", navText: "Text Mirror", navMethod: "Methodology", navGuide: "Testing Guide", navRecord: "Observation Record", navContact: "Contact",
-            sec1Title: "1. Live Image Mirror Tool",
-            sec1Desc: "Upload a normal writing image to generate a horizontally mirrored test specimen for controlled visual evaluation.",
-            uploadLabel: "Upload Normal Writing Image",
-            genImgBtn: "Generate Mirrored Test Specimen",
-            resTitle: "Mirrored Test Specimen",
-            dlBtn: "Download Test Specimen",
-            sec2Title: "2. Live Multilingual Text Mirror Tool",
-            sec2Desc: "Enter text in any supported writing system to generate a visually mirrored preview for controlled testing.",
-            enterTextLabel: "Enter Test Text",
-            genTextBtn: "Generate Mirrored Preview",
-            previewLabel: "Visual Mirrored Preview",
-            mirrorNote: "Note: this is a visual horizontal transformation. The underlying Unicode text is not reversed or translated.",
-            methTitle: "3. VIST-AI Research Methodology",
-            methDesc: "VIST-AI uses controlled visual specimens to investigate multimodal AI interpretation under geometric and multilingual conditions.",
-            stepCond: "Test Condition", stepCondDesc: "A known specimen is transformed using a defined visual operation such as horizontal mirroring.",
-            stepObs: "Model Observation", stepObsDesc: "The same specimen and standardized prompt can be presented to one or more multimodal AI systems.",
-            stepComp: "Ground-Truth Comparison", stepCompDesc: "Model output is compared with the known source specimen, transformation condition, and expected interpretation.",
-            stepErr: "Error Analysis", stepErrDesc: "Researchers can record observable discrepancies such as character confusion, spatial interpretation errors, ligature-related errors, tokenization-related observations, or unsupported claims.",
-            guideTitle: "4. How to Test Multimodal AI Systems",
-            guideDesc: "Use the following procedure to conduct a controlled VIST-AI visual-grounding and geometric-robustness test.",
-            gStep1: "Step 1 — Generate a Test Specimen", gStep1Desc: "Use the Image Mirror Tool or Text Mirror Tool above to create a controlled visual specimen.",
-            gStep2: "Step 2 — Select a Multimodal AI System", gStep2Desc: "Open a multimodal AI system capable of receiving image input.",
-            gStep3: "Step 3 — Upload and Use a Standardized Prompt", gStep3Desc: "Upload the mirrored specimen and use a neutral prompt such as the following:",
-            gStep4: "Step 4 — Record the Output", gStep4Desc: "Preserve the model response, test specimen, prompt, model/version information, and test date.",
-            gStep5: "Step 5 — Analyze the Result", gStep5Desc: "Compare the model output with the known specimen and transformation condition. Record observable discrepancies without assuming a failure in advance.",
-            recTitle: "5. VIST-AI Observation Record",
-            recDesc: "For reproducible research, record the same basic information for every test.",
-            rec1: "Test ID", rec2: "Test Date", rec3: "AI System / Model", rec4: "Input Type", rec5: "Transformation", rec6: "Prompt", rec7: "Observed Output", rec8: "Ground-Truth Comparison",
-            contactTitle: "6. Contact VIST-AI",
-            contactDesc: "For research collaboration, custom mirror-writing specimens, multilingual test material, or VIST-AI framework discussion, contact:",
-            aboutTitle: "About VIST-AI",
-            aboutDesc1: "VIST-AI is an open research and evaluation framework focused on visual grounding, geometric transformations, multilingual writing systems, and observable multimodal AI behavior.",
-            aboutDesc2: "The framework is intended to support controlled experiments, reproducibility, comparative testing, and forensic-style analysis of model outputs."
+
+            subtitle:
+                "Visual Grounding, Geometric Robustness & Multilingual AI Evaluation",
+
+            headerDesc:
+                "An open research framework and live utility for investigating how multimodal AI systems interpret controlled visual, geometric, mirrored, and multilingual test specimens.",
+
+            badge:
+                "OPEN RESEARCH & AI EVALUATION FRAMEWORK",
+
+            navImg: "Image Mirror",
+            navText: "Text Mirror",
+            navMethod: "Methodology",
+            navGuide: "Testing Guide",
+            navRecord: "Observation Record",
+            navContact: "Contact",
+
+            sec1Title:
+                "1. Live Image Mirror Tool",
+
+            sec1Desc:
+                "Upload a normal writing image to generate a horizontally mirrored test specimen for controlled visual evaluation.",
+
+            uploadLabel:
+                "Upload Normal Writing Image",
+
+            genImgBtn:
+                "Generate Mirrored Test Specimen",
+
+            resTitle:
+                "Mirrored Test Specimen",
+
+            dlBtn:
+                "Download Test Specimen",
+
+            sec2Title:
+                "2. Live Multilingual Text Mirror Tool",
+
+            sec2Desc:
+                "Enter text in any supported writing system to generate a visually mirrored preview for controlled testing.",
+
+            enterTextLabel:
+                "Enter Test Text",
+
+            genTextBtn:
+                "Generate Mirrored Preview",
+
+            previewLabel:
+                "Visual Mirrored Preview",
+
+            mirrorNote:
+                "Note: this is a visual horizontal transformation. The underlying Unicode text is not reversed or translated.",
+
+            methTitle:
+                "3. VIST-AI Research Methodology",
+
+            methDesc:
+                "VIST-AI uses controlled visual specimens to investigate multimodal AI interpretation under geometric and multilingual conditions.",
+
+            stepCond:
+                "Test Condition",
+
+            stepCondDesc:
+                "A known specimen is transformed using a defined visual operation such as horizontal mirroring.",
+
+            stepObs:
+                "Model Observation",
+
+            stepObsDesc:
+                "The same specimen and standardized prompt can be presented to one or more multimodal AI systems.",
+
+            stepComp:
+                "Ground-Truth Comparison",
+
+            stepCompDesc:
+                "Model output is compared with the known source specimen, transformation condition, and expected interpretation.",
+
+            stepErr:
+                "Error Analysis",
+
+            stepErrDesc:
+                "Researchers can record observable discrepancies such as character confusion, spatial interpretation errors, ligature-related errors, tokenization-related observations, or unsupported claims.",
+
+            guideTitle:
+                "4. How to Test Multimodal AI Systems",
+
+            guideDesc:
+                "Use the following procedure to conduct a controlled VIST-AI visual-grounding and geometric-robustness test.",
+
+            gStep1:
+                "Step 1 — Generate a Test Specimen",
+
+            gStep1Desc:
+                "Use the Image Mirror Tool or Text Mirror Tool above to create a controlled visual specimen.",
+
+            gStep2:
+                "Step 2 — Select a Multimodal AI System",
+
+            gStep2Desc:
+                "Open a multimodal AI system capable of receiving image input.",
+
+            gStep3:
+                "Step 3 — Upload and Use a Standardized Prompt",
+
+            gStep3Desc:
+                "Upload the mirrored specimen and use a neutral prompt such as the following:",
+
+            gStep4:
+                "Step 4 — Record the Output",
+
+            gStep4Desc:
+                "Preserve the model response, test specimen, prompt, model/version information, and test date.",
+
+            gStep5:
+                "Step 5 — Analyze the Result",
+
+            gStep5Desc:
+                "Compare the model output with the known specimen and transformation condition. Record observable discrepancies without assuming a failure in advance.",
+
+            recTitle:
+                "5. VIST-AI Observation Record",
+
+            recDesc:
+                "For reproducible research, record the same basic information for every test.",
+
+            rec1: "Test ID",
+            rec2: "Test Date",
+            rec3: "AI System / Model",
+            rec4: "Input Type",
+            rec5: "Transformation",
+            rec6: "Prompt",
+            rec7: "Observed Output",
+            rec8: "Ground-Truth Comparison",
+
+            contactTitle:
+                "7. Contact VIST-AI",
+
+            contactDesc:
+                "For research collaboration, custom mirror-writing specimens, multilingual test material, professional AI evaluation, or VIST-AI framework discussion, contact:",
+
+            aboutTitle:
+                "About VIST-AI",
+
+            aboutDesc1:
+                "VIST-AI is an open research and evaluation framework focused on visual grounding, geometric transformations, multilingual writing systems, and observable multimodal AI behavior.",
+
+            aboutDesc2:
+                "The framework is intended to support controlled experiments, reproducibility, comparative testing, and forensic-style analysis of model outputs."
         },
+
+
         ja: {
-            title: "グローバルフォレンジックAIテスター",
-            subtitle: "視覚的グラウンディング、幾何学的堅牢性、および多言語AI評価",
-            headerDesc: "マルチモーダルAIシステムが制御された視覚的、幾何学的、ミラー化された、および多言語のテスト標本をどのように解釈するかを調査するためのオープンリサーチフレームワーク。",
-            badge: "オープンリサーチおよびAI評価フレームワーク",
-            navImg: "画像ミラー", navText: "テキストミラー", navMethod: "方法論", navGuide: "テストガイド", navRecord: "観察記録", navContact: "お問い合わせ",
-            sec1Title: "1. ライブ画像ミラーツール",
-            sec1Desc: "通常の文字画像をアップロードして、制御された視覚評価用の水平反転テスト標本を生成します。",
-            uploadLabel: "通常の文字画像をアップロード",
-            genImgBtn: "反転テスト標本を生成",
-            resTitle: "ミラー化されたテスト標本",
-            dlBtn: "テスト標本をダウンロード",
-            sec2Title: "2. ライブ多言語テキストミラーツール",
-            sec2Desc: "任意の記述システムのテキストを入力して、制御テスト用の視覚的にミラー化されたプレビューを生成します。",
-            enterTextLabel: "テストテキストを入力",
-            genTextBtn: "ミラープレビューを生成",
-            previewLabel: "視覚的ミラープレビュー",
-            mirrorNote: "注：これは視覚的な水平変換です。基盤となるUnicodeテキストは反転または翻訳されません。",
-            methTitle: "3. VIST-AI 研究方法論",
-            methDesc: "VIST-AIは、制御された視覚標本を使用して、幾何学的および多言語の条件下でのマルチモーダルAIの解釈を調査します。",
-            stepCond: "テスト条件", stepCondDesc: "既知の標本は、水平ミラーリングなどの定義された視覚的操作を使用して変換されます。",
-            stepObs: "モデルの観察", stepObsDesc: "同じ標本と標準化されたプロンプトを1つ以上のマルチモーダルAIシステムに提示できます。",
-            stepComp: "グラウンド真実比較", stepCompDesc: "モデルの出力を、既知のソース標本、変換条件、および期待される解釈と比較します。",
-            stepErr: "エラー分析", stepErrDesc: "研究者は、文字の混同、空間解釈エラー、リガチャー関連エラーなどの観察可能な不一致を記録できます。",
-            guideTitle: "4. マルチモーダルAIシステムのテスト方法",
-            guideDesc: "制御されたVIST-AI視覚グラウンディングおよび幾何学的堅牢性テストを実施するには、次の手順に従います。",
-            gStep1: "ステップ1 — テスト標本の生成", gStep1Desc: "上記の画像ミラーツールまたはテキストミラーツールを使用して、制御された視覚標本を作成します。",
-            gStep2: "ステップ2 — マルチモーダルAIシステムの選択", gStep2Desc: "画像入力を受け取る能力を持つマルチモーダルAIシステムを開きます。",
-            gStep3: "ステップ3 — 標準化されたプロンプトの使用", gStep3Desc: "ミラーリングされた標本をアップロードし、次のようなニュートラルなプロンプトを使用します。",
-            gStep4: "ステップ4 — 出力の記録", gStep4Desc: "モデルの応答、テスト標本、プロンプト、モデル/バージョン情報、テスト日を保存します。",
-            gStep5: "ステップ5 — 結果の分析", gStep5Desc: "モデル出力を既知の標本と比較します。",
-            recTitle: "5. VIST-AI 観察記録",
-            recDesc: "再現可能な研究のために、すべてのテストで同じ基本情報を記録します。",
-            rec1: "テストID", rec2: "テスト日", rec3: "AIシステム/モデル", rec4: "入力タイプ", rec5: "変換", rec6: "プロンプト", rec7: "観察された出力", rec8: "グラウンド真実比較",
-            contactTitle: "6. VIST-AIへのお問い合わせ",
-            contactDesc: "研究協力、カスタムミラーライティング標本については、以下にお問い合わせください：",
-            aboutTitle: "VIST-AIについて",
-            aboutDesc1: "VIST-AIは、視覚的グラウンディング、幾何学的変換に焦点を当てたオープンな研究および評価フレームワークです。",
-            aboutDesc2: "このフレームワークは、制御された実験と再現性をサポートすることを目的としています。"
+
+            title:
+                "グローバルフォレンジックAIテスター",
+
+            subtitle:
+                "視覚的グラウンディング、幾何学的堅牢性、および多言語AI評価",
+
+            headerDesc:
+                "マルチモーダルAIシステムが制御された視覚的、幾何学的、ミラー化された、および多言語のテスト標本をどのように解釈するかを調査するためのオープンリサーチフレームワーク。",
+
+            badge:
+                "オープンリサーチおよびAI評価フレームワーク",
+
+            navImg: "画像ミラー",
+            navText: "テキストミラー",
+            navMethod: "方法論",
+            navGuide: "テストガイド",
+            navRecord: "観察記録",
+            navContact: "お問い合わせ",
+
+            sec1Title:
+                "1. ライブ画像ミラーツール",
+
+            sec1Desc:
+                "通常の文字画像をアップロードして、制御された視覚評価用の水平反転テスト標本を生成します。",
+
+            uploadLabel:
+                "通常の文字画像をアップロード",
+
+            genImgBtn:
+                "反転テスト標本を生成",
+
+            resTitle:
+                "ミラー化されたテスト標本",
+
+            dlBtn:
+                "テスト標本をダウンロード",
+
+            sec2Title:
+                "2. ライブ多言語テキストミラーツール",
+
+            sec2Desc:
+                "任意の記述システムのテキストを入力して、制御テスト用の視覚的にミラー化されたプレビューを生成します。",
+
+            enterTextLabel:
+                "テストテキストを入力",
+
+            genTextBtn:
+                "ミラープレビューを生成",
+
+            previewLabel:
+                "視覚的ミラープレビュー",
+
+            mirrorNote:
+                "注：これは視覚的な水平変換です。基盤となるUnicodeテキストは反転または翻訳されません。",
+
+            methTitle:
+                "3. VIST-AI 研究方法論",
+
+            methDesc:
+                "VIST-AIは、制御された視覚標本を使用して、幾何学的および多言語の条件下でのマルチモーダルAIの解釈を調査します。",
+
+            stepCond:
+                "テスト条件",
+
+            stepCondDesc:
+                "既知の標本は、水平ミラーリングなどの定義された視覚的操作を使用して変換されます。",
+
+            stepObs:
+                "モデルの観察",
+
+            stepObsDesc:
+                "同じ標本と標準化されたプロンプトを1つ以上のマルチモーダルAIシステムに提示できます。",
+
+            stepComp:
+                "グラウンド真実比較",
+
+            stepCompDesc:
+                "モデルの出力を、既知のソース標本、変換条件、および期待される解釈と比較します。",
+
+            stepErr:
+                "エラー分析",
+
+            stepErrDesc:
+                "研究者は、文字の混同、空間解釈エラー、リガチャー関連エラーなどの観察可能な不一致を記録できます。",
+
+            guideTitle:
+                "4. マルチモーダルAIシステムのテスト方法",
+
+            guideDesc:
+                "制御されたVIST-AI視覚グラウンディングおよび幾何学的堅牢性テストを実施するには、次の手順に従います。",
+
+            gStep1:
+                "ステップ1 — テスト標本の生成",
+
+            gStep1Desc:
+                "上記の画像ミラーツールまたはテキストミラーツールを使用して、制御された視覚標本を作成します。",
+
+            gStep2:
+                "ステップ2 — マルチモーダルAIシステムの選択",
+
+            gStep2Desc:
+                "画像入力を受け取る能力を持つマルチモーダルAIシステムを開きます。",
+
+            gStep3:
+                "ステップ3 — 標準化されたプロンプトの使用",
+
+            gStep3Desc:
+                "ミラーリングされた標本をアップロードし、次のようなニュートラルなプロンプトを使用します。",
+
+            gStep4:
+                "ステップ4 — 出力の記録",
+
+            gStep4Desc:
+                "モデルの応答、テスト標本、プロンプト、モデル/バージョン情報、テスト日を保存します。",
+
+            gStep5:
+                "ステップ5 — 結果の分析",
+
+            gStep5Desc:
+                "モデル出力を既知の標本と比較します。",
+
+            recTitle:
+                "5. VIST-AI 観察記録",
+
+            recDesc:
+                "再現可能な研究のために、すべてのテストで同じ基本情報を記録します。",
+
+            rec1: "テストID",
+            rec2: "テスト日",
+            rec3: "AIシステム/モデル",
+            rec4: "入力タイプ",
+            rec5: "変換",
+            rec6: "プロンプト",
+            rec7: "観察された出力",
+            rec8: "グラウンド真実比較",
+
+            contactTitle:
+                "7. VIST-AIへのお問い合わせ",
+
+            contactDesc:
+                "研究協力、カスタムミラーライティング標本については、以下にお問い合わせください：",
+
+            aboutTitle:
+                "VIST-AIについて",
+
+            aboutDesc1:
+                "VIST-AIは、視覚的グラウンディング、幾何学的変換、多言語書記体系、および観察可能なマルチモーダルAI動作に焦点を当てたオープンな研究および評価フレームワークです。",
+
+            aboutDesc2:
+                "このフレームワークは、制御された実験と再現性をサポートすることを目的としています。"
         },
+
+
         ru: {
-            title: "Глобальный тестер судебной экспертизы ИИ",
-            subtitle: "Визуальное обоснование, геометрическая устойчивость и многоязычная оценка ИИ",
-            headerDesc: "Открытая исследовательская платформа и утилита для изучения того, как мультимодальные системы ИИ интерпретируют контролируемые визуальные, геометрические и зеркальные тестовые образцы.",
-            badge: "ОТКРЫТАЯ ИССЛЕДОВАТЕЛЬСКАЯ ПЛАТФОРМА",
-            navImg: "Зеркало картинок", navText: "Зеркало текста", navMethod: "Методология", navGuide: "Руководство", navRecord: "Запись наблюдений", navContact: "Контакты",
-            sec1Title: "1. Инструмент зеркального отражения изображений",
-            sec1Desc: "Загрузите обычное изображение для создания горизонтально зеркального тестового образца.",
-            uploadLabel: "Загрузить изображение",
-            genImgBtn: "Создать зеркальный образец",
-            resTitle: "Зеркальный образец",
-            dlBtn: "Скачать образец",
-            sec2Title: "2. Инструмент зеркального отражения текста",
-            sec2Desc: "Введите текст для создания визуально зеркального предварительного просмотра.",
-            enterTextLabel: "Введите текст",
-            genTextBtn: "Создать превью",
-            previewLabel: "Зеркальный предпросмотр",
-            mirrorNote: "Примечание: это визуальное горизонтальное преобразование. Исходный текст не переворачивается.",
-            methTitle: "3. Методология исследования VIST-AI",
-            methDesc: "VIST-AI использует контролируемые визуальные образцы для исследования интерпретации мультимодального ИИ.",
-            stepCond: "Условие теста", stepCondDesc: "Известный образец преобразуется с помощью определенной визуальной операции.",
-            stepObs: "Наблюдение за моделью", stepObsDesc: "Один и тот же образец может быть представлен одной или нескольким системам ИИ.",
-            stepComp: "Сравнение с эталоном", stepCompDesc: "Результат модели сравнивается с известным исходным образцом.",
-            stepErr: "Анализ ошибок", stepErrDesc: "Исследователи могут фиксировать наблюдаемые расхождения.",
-            guideTitle: "4. Как тестировать мультимодальные системы ИИ",
-            guideDesc: "Используйте следующую процедуру для проведения контролируемого теста VIST-AI.",
-            gStep1: "Шаг 1 — Создание образца", gStep1Desc: "Используйте инструмент зеркалирования изображений или текста.",
-            gStep2: "Шаг 2 — Выбор ИИ системы", gStep2Desc: "Откройте мультимодальную систему ИИ, способную принимать изображения.",
-            gStep3: "Шаг 3 — Использование стандартного промпта", gStep3Desc: "Загрузите зеркальный образец и используйте нейтральный промпт.",
-            gStep4: "Шаг 4 — Запись результата", gStep4Desc: "Сохраните ответ модели, образец, промпт и дату теста.",
-            gStep5: "Шаг 5 — Анализ результата", gStep5Desc: "Сравните результат модели с известным образцом.",
-            recTitle: "5. Запись наблюдений VIST-AI",
-            recDesc: "Для воспроизводимых исследований записывайте базовую информацию для каждого теста.",
-            rec1: "ID теста", rec2: "Дата теста", rec3: "Система / Модель", rec4: "Тип ввода", rec5: "Трансформация", rec6: "Промпт", rec7: "Вывод", rec8: "Сравнение с эталоном",
-            contactTitle: "6. Контакты VIST-AI",
-            contactDesc: "Для сотрудничества и вопросов обращайтесь:",
-            aboutTitle: "О VIST-AI",
-            aboutDesc1: "VIST-AI — это открытая исследовательская платформа, ориентированная на визуальное обоснование.",
-            aboutDesc2: "Платформа предназначена для поддержки контролируемых экспериментов."
+
+            title:
+                "Глобальный тестер судебной экспертизы ИИ",
+
+            subtitle:
+                "Визуальное обоснование, геометрическая устойчивость и многоязычная оценка ИИ",
+
+            headerDesc:
+                "Открытая исследовательская платформа и утилита для изучения того, как мультимодальные системы ИИ интерпретируют контролируемые визуальные, геометрические и зеркальные тестовые образцы.",
+
+            badge:
+                "ОТКРЫТАЯ ИССЛЕДОВАТЕЛЬСКАЯ ПЛАТФОРМА",
+
+            navImg:
+                "Зеркало картинок",
+
+            navText:
+                "Зеркало текста",
+
+            navMethod:
+                "Методология",
+
+            navGuide:
+                "Руководство",
+
+            navRecord:
+                "Запись наблюдений",
+
+            navContact:
+                "Контакты",
+
+            sec1Title:
+                "1. Инструмент зеркального отражения изображений",
+
+            sec1Desc:
+                "Загрузите обычное изображение для создания горизонтально зеркального тестового образца.",
+
+            uploadLabel:
+                "Загрузить изображение",
+
+            genImgBtn:
+                "Создать зеркальный образец",
+
+            resTitle:
+                "Зеркальный образец",
+
+            dlBtn:
+                "Скачать образец",
+
+            sec2Title:
+                "2. Инструмент зеркального отражения текста",
+
+            sec2Desc:
+                "Введите текст для создания визуально зеркального предварительного просмотра.",
+
+            enterTextLabel:
+                "Введите текст",
+
+            genTextBtn:
+                "Создать превью",
+
+            previewLabel:
+                "Зеркальный предпросмотр",
+
+            mirrorNote:
+                "Примечание: это визуальное горизонтальное преобразование. Исходный текст не переворачивается.",
+
+            methTitle:
+                "3. Методология исследования VIST-AI",
+
+            methDesc:
+                "VIST-AI использует контролируемые визуальные образцы для исследования интерпретации мультимодального ИИ.",
+
+            stepCond:
+                "Условие теста",
+
+            stepCondDesc:
+                "Известный образец преобразуется с помощью определенной визуальной операции.",
+
+            stepObs:
+                "Наблюдение за моделью",
+
+            stepObsDesc:
+                "Один и тот же образец может быть представлен одной или нескольким системам ИИ.",
+
+            stepComp:
+                "Сравнение с эталоном",
+
+            stepCompDesc:
+                "Результат модели сравнивается с известным исходным образцом.",
+
+            stepErr:
+                "Анализ ошибок",
+
+            stepErrDesc:
+                "Исследователи могут фиксировать наблюдаемые расхождения.",
+
+            guideTitle:
+                "4. Как тестировать мультимодальные системы ИИ",
+
+            guideDesc:
+                "Используйте следующую процедуру для проведения контролируемого теста VIST-AI.",
+
+            gStep1:
+                "Шаг 1 — Создание образца",
+
+            gStep1Desc:
+                "Используйте инструмент зеркалирования изображений или текста.",
+
+            gStep2:
+                "Шаг 2 — Выбор ИИ системы",
+
+            gStep2Desc:
+                "Откройте мультимодальную систему ИИ, способную принимать изображения.",
+
+            gStep3:
+                "Шаг 3 — Использование стандартного промпта",
+
+            gStep3Desc:
+                "Загрузите зеркальный образец и используйте нейтральный промпт.",
+
+            gStep4:
+                "Шаг 4 — Запись результата",
+
+            gStep4Desc:
+                "Сохраните ответ модели, образец, промпт и дату теста.",
+
+            gStep5:
+                "Шаг 5 — Анализ результата",
+
+            gStep5Desc:
+                "Сравните результат модели с известным образцом.",
+
+            recTitle:
+                "5. Запись наблюдений VIST-AI",
+
+            recDesc:
+                "Для воспроизводимых исследований записывайте базовую информацию для каждого теста.",
+
+            rec1: "ID теста",
+            rec2: "Дата теста",
+            rec3: "Система / Модель",
+            rec4: "Тип ввода",
+            rec5: "Трансформация",
+            rec6: "Промпт",
+            rec7: "Вывод",
+            rec8: "Сравнение с эталоном",
+
+            contactTitle:
+                "7. Контакты VIST-AI",
+
+            contactDesc:
+                "Для сотрудничества и вопросов обращайтесь:",
+
+            aboutTitle:
+                "О VIST-AI",
+
+            aboutDesc1:
+                "VIST-AI — это открытая исследовательская и оценочная платформа, ориентированная на визуальное обоснование, геометрические преобразования и наблюдаемое поведение мультимодального ИИ.",
+
+            aboutDesc2:
+                "Платформа предназначена для поддержки контролируемых экспериментов."
         },
+
+
         ar: {
-            title: "مختبر الذكاء الاصطناعي الجنائي العالمي",
-            subtitle: "الأساس البصري، المتانة الهندسية، وتقييم الذكاء الاصطناعي متعدد اللغات",
-            headerDesc: "إطار بحثي مفتوح وأداة حية لتحقيق كيفية تفسير أنظمة الذكاء الاصطناعي العينات المرئية والهندسية والمرايا.",
-            badge: "إطار بحثي وتقييم مفتوح",
-            navImg: "مرآة الصور", navText: "مرآة النص", navMethod: "المنهجية", navGuide: "دليل الاختبار", navRecord: "سجل الملاحظات", navContact: "اتصل بنا",
-            sec1Title: "1. أداة مرآة الصور الحية",
-            sec1Desc: "قم بتحميل صورة كتابة عادية لتوليد عينة اختبار معكوسة أفقياً للتقييم البصري.",
-            uploadLabel: "تحميل صورة الكتابة العادية",
-            genImgBtn: "توليد عينة الاختبار المعكوسة",
-            resTitle: "عينة الاختبار المعكوسة",
-            dlBtn: "تحميل عينة الاختبار",
-            sec2Title: "2. أداة مرآة النصوص متعددة اللغات الحية",
-            sec2Desc: "أدخل النص في أي نظام كتابة مدعوم لتوليد معاينة معكوسة بصرياً للاختبار.",
-            enterTextLabel: "أدخل نص الاختبار",
-            genTextBtn: "توليد معاينة معكوسة",
-            previewLabel: "معاينة مرئية معكوسة",
-            mirrorNote: "ملاحظة: هذا تحويل أفقي بصري. لا يتم عكس نص يونيكود الأساسي أو ترجمته.",
-            methTitle: "3. منهجية بحث VIST-AI",
-            methDesc: "يستخدم VIST-AI عينات مرئية خاضعة للرقابة للتحقيق في تفسير الذكاء الاصطناعي.",
-            stepCond: "شرط الاختبار", stepCondDesc: "يتم تحويل عينة معروفة باستخدام عملية مرئية محددة.",
-            stepObs: "مراقبة النموذج", stepObsDesc: "يمكن تقديم نفس العينة إلى نظام واحد أو أكثر.",
-            stepComp: "مقارنة الحقيقة الأساسية", stepCompDesc: "يتم مقارنة مخرجات النموذج مع العينة الأصلية.",
-            stepErr: "تحليل الأخطاء", stepErrDesc: "يمكن للباحثين تسجيل التناقضات الملحوظة.",
-            guideTitle: "4. كيفية اختبار أنظمة الذكاء الاصطناعي",
-            guideDesc: "استخدم الإجراء التالي لإجراء اختبار خاضع للرقابة.",
-            gStep1: "الخطوة 1 — توليد عينة اختبار", gStep1Desc: "استخدم أداة مرآة الصور أو النصوص لإنشاء عينة مرئية.",
-            gStep2: "الخطوة 2 — حدد نظام الذكاء الاصطناعي", gStep2Desc: "افتح نظام ذكاء اصطناعي قادر على استقبال الصور.",
-            gStep3: "الخطوة 3 — تحميل واستخدام موجه قياسي", gStep3Desc: "قم بتحميل العينة المعكوسة واستخدم موجه محايد.",
-            gStep4: "الخطوة 4 — تسجيل الإخراج", gStep4Desc: "حفظ استجابة النموذج وتاريخ الاختبار.",
-            gStep5: "الخطوة 5 — تحليل النتيجة", gStep5Desc: "مقارنة مخرجات النموذج مع العينة المعروفة.",
-            recTitle: "5. سجل ملاحظات VIST-AI",
-            recDesc: "للبحوث القابلة للاستنسخ، سجل المعلومات الأساسية لكل اختبار.",
-            rec1: "معرف الاختبار", rec2: "تاريخ الاختبار", rec3: "النظام / النموذج", rec4: "نوع الإدخال", rec5: "التحويل", rec6: "الموجه", rec7: "الناتج الملاحظ", rec8: "مقارنة الحقيقة الأساسية",
-            contactTitle: "6. اتصل بـ VIST-AI",
-            contactDesc: "للتعاون البحثي أو الاستفسارات، اتصل بـ:",
-            aboutTitle: "حول VIST-AI",
-            aboutDesc1: "VIST-AI هو إطار عمل بحثي وتقييمي مفتوح تركز على الأساس البصري.",
-            aboutDesc2: "يهدف الإطار إلى دعم التجارب الخاضعة للرقابة وإمكانية التكرار."
+
+            title:
+                "مختبر الذكاء الاصطناعي الجنائي العالمي",
+
+            subtitle:
+                "الأساس البصري، المتانة الهندسية، وتقييم الذكاء الاصطناعي متعدد اللغات",
+
+            headerDesc:
+                "إطار بحثي مفتوح وأداة حية لتحقيق كيفية تفسير أنظمة الذكاء الاصطناعي العينات المرئية والهندسية والمرايا.",
+
+            badge:
+                "إطار بحثي وتقييم مفتوح",
+
+            navImg:
+                "مرآة الصور",
+
+            navText:
+                "مرآة النص",
+
+            navMethod:
+                "المنهجية",
+
+            navGuide:
+                "دليل الاختبار",
+
+            navRecord:
+                "سجل الملاحظات",
+
+            navContact:
+                "اتصل بنا",
+
+            sec1Title:
+                "1. أداة مرآة الصور الحية",
+
+            sec1Desc:
+                "قم بتحميل صورة كتابة عادية لتوليد عينة اختبار معكوسة أفقياً للتقييم البصري.",
+
+            uploadLabel:
+                "تحميل صورة الكتابة العادية",
+
+            genImgBtn:
+                "توليد عينة الاختبار المعكوسة",
+
+            resTitle:
+                "عينة الاختبار المعكوسة",
+
+            dlBtn:
+                "تحميل عينة الاختبار",
+
+            sec2Title:
+                "2. أداة مرآة النصوص متعددة اللغات الحية",
+
+            sec2Desc:
+                "أدخل النص في أي نظام كتابة مدعوم لتوليد معاينة معكوسة بصرياً للاختبار.",
+
+            enterTextLabel:
+                "أدخل نص الاختبار",
+
+            genTextBtn:
+                "توليد معاينة معكوسة",
+
+            previewLabel:
+                "معاينة مرئية معكوسة",
+
+            mirrorNote:
+                "ملاحظة: هذا تحويل أفقي بصري. لا يتم عكس نص يونيكود الأساسي أو ترجمته.",
+
+            methTitle:
+                "3. منهجية بحث VIST-AI",
+
+            methDesc:
+                "يستخدم VIST-AI عينات مرئية خاضعة للرقابة للتحقيق في تفسير الذكاء الاصطناعي.",
+
+            stepCond:
+                "شرط الاختبار",
+
+            stepCondDesc:
+                "يتم تحويل عينة معروفة باستخدام عملية مرئية محددة.",
+
+            stepObs:
+                "مراقبة النموذج",
+
+            stepObsDesc:
+                "يمكن تقديم نفس العينة إلى نظام واحد أو أكثر.",
+
+            stepComp:
+                "مقارنة الحقيقة الأساسية",
+
+            stepCompDesc:
+                "يتم مقارنة مخرجات النموذج مع العينة الأصلية.",
+
+            stepErr:
+                "تحليل الأخطاء",
+
+            stepErrDesc:
+                "يمكن للباحثين تسجيل التناقضات الملحوظة.",
+
+            guideTitle:
+                "4. كيفية اختبار أنظمة الذكاء الاصطناعي",
+
+            guideDesc:
+                "استخدم الإجراء التالي لإجراء اختبار خاضع للرقابة.",
+
+            gStep1:
+                "الخطوة 1 — توليد عينة اختبار",
+
+            gStep1Desc:
+                "استخدم أداة مرآة الصور أو النصوص لإنشاء عينة مرئية.",
+
+            gStep2:
+                "الخطوة 2 — حدد نظام الذكاء الاصطناعي",
+
+            gStep2Desc:
+                "افتح نظام ذكاء اصطناعي قادر على استقبال الصور.",
+
+            gStep3:
+                "الخطوة 3 — تحميل واستخدام موجه قياسي",
+
+            gStep3Desc:
+                "قم بتحميل العينة المعكوسة واستخدم موجه محايد.",
+
+            gStep4:
+                "الخطوة 4 — تسجيل الإخراج",
+
+            gStep4Desc:
+                "حفظ استجابة النموذج وتاريخ الاختبار.",
+
+            gStep5:
+                "الخطوة 5 — تحليل النتيجة",
+
+            gStep5Desc:
+                "مقارنة مخرجات النموذج مع العينة المعروفة.",
+
+            recTitle:
+                "5. سجل ملاحظات VIST-AI",
+
+            recDesc:
+                "للبحوث القابلة للاستنسخ، سجل المعلومات الأساسية لكل اختبار.",
+
+            rec1: "معرف الاختبار",
+            rec2: "تاريخ الاختبار",
+            rec3: "النظام / النموذج",
+            rec4: "نوع الإدخال",
+            rec5: "التحويل",
+            rec6: "الموجه",
+            rec7: "الناتج الملاحظ",
+            rec8: "مقارنة الحقيقة الأساسية",
+
+            contactTitle:
+                "7. اتصل بـ VIST-AI",
+
+            contactDesc:
+                "للتعاون البحثي أو الاستفسارات، اتصل بـ:",
+
+            aboutTitle:
+                "حول VIST-AI",
+
+            aboutDesc1:
+                "VIST-AI هو إطار عمل بحثي وتقييمي مفتوح يركز على الأساس البصري والتحويلات الهندسية وسلوك الذكاء الاصطناعي متعدد الوسائط.",
+
+            aboutDesc2:
+                "يهدف الإطار إلى دعم التجارب الخاضعة للرقابة وإمكانية التكرار."
         },
+
+
         he: {
-            title: "בודق בינה מלאכותית פורנסית גלובלי",
-            subtitle: "עיגון חזותי, חוסן גיאומטרי והערכת בינה מלאכותית רב-לשונית",
-            headerDesc: "מסגרת מחקר פתוחה וכלי חי לקيמה כיצד מערכות בינה מלאכותית מפרשות דגימות בדיקה חזותיות, גיאומטריות ומראות.",
-            badge: "מסגרת מחקר והערכת בינה מלאכותית פתוחה",
-            navImg: "מראת תמונות", navText: "מראת טקסט", navMethod: "מתודולוגיה", navGuide: "מדריך בדיקה", navRecord: "רישום תצפית", navContact: "יצירת קשר",
-            sec1Title: "1. כלי מראת תמונות חי",
-            sec1Desc: "העלה תמונת כתיבה רגילה כדי ליצור דגימת בדיקה הפוכה אופקית.",
-            uploadLabel: "העלה תמונת כתיבה רגילה",
-            genImgBtn: "צור דגימת בדיקה הפוכה",
-            resTitle: "דגימת בדיקה הפוכה",
-            dlBtn: "הורד דגימת בדיקה",
-            sec2Title: "2. כלי מראת טקסט רב-לשוני חי",
-            sec2Desc: "הזן טקסט בכל מערכת כתיבה נתמכת כדי ליצור תצוגה מקדימה הפוכה חזותית.",
-            enterTextLabel: "הזן טקסט בדיקה",
-            genTextBtn: "צור תצוגה מקדימה הפוכה",
-            previewLabel: "תצוגה מקדימה הפוכה חזותית",
-            mirrorNote: "הערה: זוהי המרה אופقية חזותית. טקסט היוניקוד הבסיסי אינו מתהפך או מתורגם.",
-            methTitle: "3. מתודולוגיית המחקר של VIST-AI",
-            methDesc: "VIST-AI משתמשת בדגימות חזותיות מבוקרות לחקירת פרשנות בינה מלאכותית.",
-            stepCond: "תנאי בדיקה", stepCondDesc: "דגימה ידועה עוברת שינוי באמצעות פעולה חזותית מוגדרת.",
-            stepObs: "תצפית מודל", stepObsDesc: "ניתן להציג את אותה דגימה למערכת אחת או יותר.",
-            stepComp: "השוואת אמת-יסוד", stepCompDesc: "פלט המודל מ מול הדגימה המקורית.",
-            stepErr: "ניתוח שגיאות", stepErrDesc: "חוקרים יכולים לרשום אי-התאמות ניתנות לתצפית.",
-            guideTitle: "4. כיצד לבדוק מערכות בינה מלאכותית",
-            guideDesc: "השתמש בהליך הבא לביצוע בדיקה מבוקרת.",
-            gStep1: "שלב 1 — צור דגימת בדיקה", gStep1Desc: "השתמש בכלי מראת התמונות או הטקסט.",
-            gStep2: "שלב 2 — בחר מערכת בינה מלאכותית", gStep2Desc: "פתח מערכת המסוגלת לקבל קלט תמונה.",
-            gStep3: "שלב 3 — העלה והשתמש בהנחיה סטנדרטית", gStep3Desc: "העלה את הדגימה ההפוכה והשתמש בהנחיה ניטרלית.",
-            gStep4: "שלב 4 — רשום את הפלט", gStep4Desc: "שמור את תגובת המודל ותאריך הבדיקה.",
-            gStep5: "שלב 5 — נתח את התוצאה", gStep5Desc: "השווה את פלט המודל מול הדגימה הידועה.",
-            recTitle: "5. רישום תצפית VIST-AI",
-            recDesc: "למחקר ניתן לשחזור, רשום את אותו מידע בסיסי לכל בדיקה.",
-            rec1: "מזהה בדיקה", rec2: "תאריך בדיקה", rec3: "מערכת / מודל", rec4: "סוג קלט", rec5: "טרנספורמציה", rec6: "הנחיה", rec7: "פלט שנצפה", rec8: "השוואת אמת-יסוד",
-            contactTitle: "6. צור קשר עם VIST-AI",
-            contactDesc: "לשיתוף פעולה מחקרי, צור קשר:",
-            aboutTitle: "אודות VIST-AI",
-            aboutDesc1: "VIST-AI היא מסגרת מחקר והערכה פתוחה המתמקדת בעיגון חזותי.",
-            aboutDesc2: "המסגרת נועדה לתמוך בניסויים מבוקרים."
+
+            title:
+                "בודק בינה מלאכותית פורנסית גלובלי",
+
+            subtitle:
+                "עיגון חזותי, חוסן גיאומטרי והערכת בינה מלאכותית רב-לשונית",
+
+            headerDesc:
+                "מסגרת מחקר פתוחה וכלי חי לבחינת האופן שבו מערכות בינה מלאכותית מפרשות דגימות בדיקה חזותיות, גיאומטריות ומראות.",
+
+            badge:
+                "מסגרת מחקר והערכת בינה מלאכותית פתוחה",
+
+            navImg:
+                "מראת תמונות",
+
+            navText:
+                "מראת טקסט",
+
+            navMethod:
+                "מתודולוגיה",
+
+            navGuide:
+                "מדריך בדיקה",
+
+            navRecord:
+                "רישום תצפית",
+
+            navContact:
+                "יצירת קשר",
+
+            sec1Title:
+                "1. כלי מראת תמונות חי",
+
+            sec1Desc:
+                "העלה תמונת כתיבה רגילה כדי ליצור דגימת בדיקה הפוכה אופקית.",
+
+            uploadLabel:
+                "העלה תמונת כתיבה רגילה",
+
+            genImgBtn:
+                "צור דגימת בדיקה הפוכה",
+
+            resTitle:
+                "דגימת בדיקה הפוכה",
+
+            dlBtn:
+                "הורד דגימת בדיקה",
+
+            sec2Title:
+                "2. כלי מראת טקסט רב-לשוני חי",
+
+            sec2Desc:
+                "הזן טקסט בכל מערכת כתיבה נתמכת כדי ליצור תצוגה מקדימה הפוכה חזותית.",
+
+            enterTextLabel:
+                "הזן טקסט בדיקה",
+
+            genTextBtn:
+                "צור תצוגה מקדימה הפוכה",
+
+            previewLabel:
+                "תצוגה מקדימה הפוכה חזותית",
+
+            mirrorNote:
+                "הערה: זוהי המרה אופקית חזותית. טקסט היוניקוד הבסיסי אינו מתהפך או מתורגם.",
+
+            methTitle:
+                "3. מתודולוגיית המחקר של VIST-AI",
+
+            methDesc:
+                "VIST-AI משתמשת בדגימות חזותיות מבוקרות לחקירת פרשנות בינה מלאכותית.",
+
+            stepCond:
+                "תנאי בדיקה",
+
+            stepCondDesc:
+                "דגימה ידועה עוברת שינוי באמצעות פעולה חזותית מוגדרת.",
+
+            stepObs:
+                "תצפית מודל",
+
+            stepObsDesc:
+                "ניתן להציג את אותה דגימה למערכת אחת או יותר.",
+
+            stepComp:
+                "השוואת אמת-יסוד",
+
+            stepCompDesc:
+                "פלט המודל מושווה לדגימה המקורית.",
+
+            stepErr:
+                "ניתוח שגיאות",
+
+            stepErrDesc:
+                "חוקרים יכולים לרשום אי-התאמות ניתנות לתצפית.",
+
+            guideTitle:
+                "4. כיצד לבדוק מערכות בינה מלאכותית",
+
+            guideDesc:
+                "השתמש בהליך הבא לביצוע בדיקה מבוקרת.",
+
+            gStep1:
+                "שלב 1 — צור דגימת בדיקה",
+
+            gStep1Desc:
+                "השתמש בכלי מראת התמונות או הטקסט.",
+
+            gStep2:
+                "שלב 2 — בחר מערכת בינה מלאכותית",
+
+            gStep2Desc:
+                "פתח מערכת המסוגלת לקבל קלט תמונה.",
+
+            gStep3:
+                "שלב 3 — העלה והשתמש בהנחיה סטנדרטית",
+
+            gStep3Desc:
+                "העלה את הדגימה ההפוכה והשתמש בהנחיה ניטרלית.",
+
+            gStep4:
+                "שלב 4 — רשום את הפלט",
+
+            gStep4Desc:
+                "שמור את תגובת המודל ותאריך הבדיקה.",
+
+            gStep5:
+                "שלב 5 — נתח את התוצאה",
+
+            gStep5Desc:
+                "השווה את פלט המודל מול הדגימה הידועה.",
+
+            recTitle:
+                "5. רישום תצפית VIST-AI",
+
+            recDesc:
+                "למחקר ניתן לשחזור, רשום את אותו מידע בסיסי לכל בדיקה.",
+
+            rec1: "מזהה בדיקה",
+            rec2: "תאריך בדיקה",
+            rec3: "מערכת / מודל",
+            rec4: "סוג קלט",
+            rec5: "טרנספורמציה",
+            rec6: "הנחיה",
+            rec7: "פלט שנצפה",
+            rec8: "השוואת אמת-יסוד",
+
+            contactTitle:
+                "7. צור קשר עם VIST-AI",
+
+            contactDesc:
+                "לשיתוף פעולה מחקרי, צור קשר:",
+
+            aboutTitle:
+                "אודות VIST-AI",
+
+            aboutDesc1:
+                "VIST-AI היא מסגרת מחקר והערכה פתוחה המתמקדת בעיגון חזותי, טרנספורמציות גיאומטריות והתנהגות ניתנת לתצפית של מערכות AI רב-מודליות.",
+
+            aboutDesc2:
+                "המסגרת נועדה לתמוך בניסויים מבוקרים."
         },
+
+
         hi: {
-            title: "ग्लोबल फ़ोरेंसिक एआई टेस्टर",
-            subtitle: "विजुअल ग्राउंडिंग, ज्यामितीय मजबूती और बहुभाषी एआई मूल्यांकन",
-            headerDesc: "यह जांचने के लिए एक खुला शोध ढांचा कि कैसे मल्टीमोडल एआई सिस्टम नियंत्रित दृश्यों और दर्पण नमूनों की व्याख्या करते हैं।",
-            badge: "ओपन रिसर्च और एआई मूल्यांकन फ्रेमवर्क",
-            navImg: "इमेज मिरर", navText: "टेक्स्ट मिरर", navMethod: "कार्यप्रणाली", navGuide: "परीक्षण गाइड", navRecord: "अवलोकन रिकॉर्ड", navContact: "संपर्क करें",
-            sec1Title: "1. लाइव इमेज मिरर टूल",
-            sec1Desc: "नियंत्रित दृश्य मूल्यांकन के लिए क्षैतिज रूप से mirrored परीक्षण नमूना तैयार करने हेतु सामान्य लिखावट की छवि अपलोड करें।",
-            uploadLabel: "सामान्य लिखावट की छवि अपलोड करें",
-            genImgBtn: "Mirrored परीक्षण नमूना बनाएं",
-            resTitle: "Mirrored परीक्षण नमूना",
-            dlBtn: "परीक्षण नमूना डाउनलोड करें",
-            sec2Title: "2. लाइव बहुभाषी टेक्स्ट मिरर टूल",
-            sec2Desc: "नियंत्रित परीक्षण के लिए visually mirrored पूर्वावलोकन उत्पन्न करने हेतु किसी भी समर्थित लेखन प्रणाली में पाठ दर्ज करें।",
-            enterTextLabel: "परीक्षण पाठ दर्ज करें",
-            genTextBtn: "Mirrored पूर्वावलोकन बनाएं",
-            previewLabel: "विजुअल Mirrored पूर्वावलोकन",
-            mirrorNote: "नोट: यह एक दृश्य क्षैतिज परिवर्तन है। अंत Plying यूनिकोड पाठ उलटा या अनुवादित नहीं होता है।",
-            methTitle: "3. VIST-AI अनुसंधान कार्यप्रणाली",
-            methDesc: "VIST-AI ज्यामितीय और बहुभाषी परिस्थितियों में मल्टीमोडल एआई व्याख्या की जांच के लिए नियंत्रित दृश्य नमूनों का उपयोग करता है।",
-            stepCond: "परीक्षण की स्थिति", stepCondDesc: "एक ज्ञात नमूने को क्षैतिज मिररिंग जैसे परिभाषित दृश्य संचालन का उपयोग करके रूपांतरित किया जाता है।",
-            stepObs: "मॉडल अवलोकन", stepObsDesc: "समान नमूना और मानकीकृत प्रॉम्प्ट को एक या अधिक मल्टीमोडल एआई प्रणालियों के सामने प्रस्तुत किया जा सकता है।",
-            stepComp: "ग्राउंड-ट्रूथ तुलना", stepCompDesc: "मॉडल आउटपुट की तुलना ज्ञात स्रोत नमूने से की जाती है।",
-            stepErr: "त्रुटि विश्लेषण", stepErrDesc: "शोधकर्ता चरित्र भ्रम जैसी विसंगतियों को रिकॉर्ड कर सकते हैं।",
-            guideTitle: "4. मल्टीमोडल एआई सिस्टम का परीक्षण कैसे करें",
-            guideDesc: "नियंत्रित परीक्षण करने के लिए निम्नलिखित प्रक्रिया का उपयोग करें।",
-            gStep1: "चरण 1 — परीक्षण नमूना तैयार करें", gStep1Desc: "नियंत्रित दृश्य नमूना बनाने के लिए ऊपर दिए गए टूल का उपयोग करें।",
-            gStep2: "चरण 2 — एक मल्टीमोडल एआई सिस्टम चुनें", gStep2Desc: "छवि इनपुट प्राप्त करने में सक्षम एआई सिस्टम खोलें।",
-            gStep3: "चरण 3 — मानकीकृत प्रॉम्प्ट का उपयोग करें", gStep3Desc: "मिरर किए गए नमूने को अपलोड करें और एक तटस्थ प्रॉम्प्ट का उपयोग करें।",
-            gStep4: "चरण 4 — आउटपुट रिकॉर्ड करें", gStep4Desc: "मॉडल प्रतिक्रिया, परीक्षण नमूना और दिनांक को संरक्षित करें।",
-            gStep5: "चरण 5 — परिणाम का विश्लेषण करें", gStep5Desc: "ज्ञात नमूने के साथ मॉडल आउटपुट की तुलना करें।",
-            recTitle: "5. VIST-AI अवलोकन रिकॉर्ड",
-            recDesc: "पुनः पेश करने योग्य अनुसंधान के लिए, प्रत्येक परीक्षण के लिए समान बुनियादी जानकारी रिकॉर्ड करें।",
-            rec1: "टेस्ट आईडी", rec2: "परीक्षण तिथि", rec3: "एआई सिस्टम / मॉडल", rec4: "इनपुट प्रकार", rec5: "परिवर्तन", rec6: "प्रॉम्प्ट", rec7: "देखा गया आउटपुट", rec8: "ग्राउंड-ट्रूथ तुलना",
-            contactTitle: "6. VIST-AI से संपर्क करें",
-            contactDesc: "शोध सहयोग या चर्चा के लिए संपर्क करें:",
-            aboutTitle: "VIST-AI के बारे में",
-            aboutDesc1: "VIST-AI एक खुला अनुसंधान और मूल्यांकन ढांचा है जो विजुअल ग्राउंडिंग पर केंद्रित है।",
-            aboutDesc2: "यह फ्रेमवर्क नियंत्रित प्रयोगों का समर्थन करने के लिए है।"
+
+            title:
+                "ग्लोबल फ़ोरेंसिक एआई टेस्टर",
+
+            subtitle:
+                "विजुअल ग्राउंडिंग, ज्यामितीय मजबूती और बहुभाषी एआई मूल्यांकन",
+
+            headerDesc:
+                "यह जांचने के लिए एक खुला शोध ढांचा कि कैसे मल्टीमोडल एआई सिस्टम नियंत्रित दृश्यों और दर्पण नमूनों की व्याख्या करते हैं।",
+
+            badge:
+                "ओपन रिसर्च और एआई मूल्यांकन फ्रेमवर्क",
+
+            navImg:
+                "इमेज मिरर",
+
+            navText:
+                "टेक्स्ट मिरर",
+
+            navMethod:
+                "कार्यप्रणाली",
+
+            navGuide:
+                "परीक्षण गाइड",
+
+            navRecord:
+                "अवलोकन रिकॉर्ड",
+
+            navContact:
+                "संपर्क करें",
+
+            sec1Title:
+                "1. लाइव इमेज मिरर टूल",
+
+            sec1Desc:
+                "नियंत्रित दृश्य मूल्यांकन के लिए क्षैतिज रूप से mirrored परीक्षण नमूना तैयार करने हेतु सामान्य लिखावट की छवि अपलोड करें।",
+
+            uploadLabel:
+                "सामान्य लिखावट की छवि अपलोड करें",
+
+            genImgBtn:
+                "Mirrored परीक्षण नमूना बनाएं",
+
+            resTitle:
+                "Mirrored परीक्षण नमूना",
+
+            dlBtn:
+                "परीक्षण नमूना डाउनलोड करें",
+
+            sec2Title:
+                "2. लाइव बहुभाषी टेक्स्ट मिरर टूल",
+
+            sec2Desc:
+                "नियंत्रित परीक्षण के लिए visually mirrored पूर्वावलोकन उत्पन्न करने हेतु किसी भी समर्थित लेखन प्रणाली में पाठ दर्ज करें।",
+
+            enterTextLabel:
+                "परीक्षण पाठ दर्ज करें",
+
+            genTextBtn:
+                "Mirrored पूर्वावलोकन बनाएं",
+
+            previewLabel:
+                "विजुअल Mirrored पूर्वावलोकन",
+
+            mirrorNote:
+                "नोट: यह एक दृश्य क्षैतिज परिवर्तन है। अंतर्निहित यूनिकोड पाठ उलटा या अनुवादित नहीं होता है।",
+
+            methTitle:
+                "3. VIST-AI अनुसंधान कार्यप्रणाली",
+
+            methDesc:
+                "VIST-AI ज्यामितीय और बहुभाषी परिस्थितियों में मल्टीमोडल एआई व्याख्या की जांच के लिए नियंत्रित दृश्य नमूनों का उपयोग करता है।",
+
+            stepCond:
+                "परीक्षण की स्थिति",
+
+            stepCondDesc:
+                "एक ज्ञात नमूने को क्षैतिज मिररिंग जैसे परिभाषित दृश्य संचालन का उपयोग करके रूपांतरित किया जाता है।",
+
+            stepObs:
+                "मॉडल अवलोकन",
+
+            stepObsDesc:
+                "समान नमूना और मानकीकृत प्रॉम्प्ट को एक या अधिक मल्टीमोडल एआई प्रणालियों के सामने प्रस्तुत किया जा सकता है।",
+
+            stepComp:
+                "ग्राउंड-ट्रूथ तुलना",
+
+            stepCompDesc:
+                "मॉडल आउटपुट की तुलना ज्ञात स्रोत नमूने से की जाती है।",
+
+            stepErr:
+                "त्रुटि विश्लेषण",
+
+            stepErrDesc:
+                "शोधकर्ता चरित्र भ्रम जैसी विसंगतियों को रिकॉर्ड कर सकते हैं।",
+
+            guideTitle:
+                "4. मल्टीमोडल एआई सिस्टम का परीक्षण कैसे करें",
+
+            guideDesc:
+                "नियंत्रित परीक्षण करने के लिए निम्नलिखित प्रक्रिया का उपयोग करें।",
+
+            gStep1:
+                "चरण 1 — परीक्षण नमूना तैयार करें",
+
+            gStep1Desc:
+                "नियंत्रित दृश्य नमूना बनाने के लिए ऊपर दिए गए टूल का उपयोग करें।",
+
+            gStep2:
+                "चरण 2 — एक मल्टीमोडल एआई सिस्टम चुनें",
+
+            gStep2Desc:
+                "छवि इनपुट प्राप्त करने में सक्षम एआई सिस्टम खोलें।",
+
+            gStep3:
+                "चरण 3 — मानकीकृत प्रॉम्प्ट का उपयोग करें",
+
+            gStep3Desc:
+                "मिरर किए गए नमूने को अपलोड करें और एक तटस्थ प्रॉम्प्ट का उपयोग करें।",
+
+            gStep4:
+                "चरण 4 — आउटपुट रिकॉर्ड करें",
+
+            gStep4Desc:
+                "मॉडल प्रतिक्रिया, परीक्षण नमूना और दिनांक को संरक्षित करें।",
+
+            gStep5:
+                "चरण 5 — परिणाम का विश्लेषण करें",
+
+            gStep5Desc:
+                "ज्ञात नमूने के साथ मॉडल आउटपुट की तुलना करें।",
+
+            recTitle:
+                "5. VIST-AI अवलोकन रिकॉर्ड",
+
+            recDesc:
+                "पुनः पेश करने योग्य अनुसंधान के लिए, प्रत्येक परीक्षण के लिए समान बुनियादी जानकारी रिकॉर्ड करें।",
+
+            rec1: "टेस्ट आईडी",
+            rec2: "परीक्षण तिथि",
+            rec3: "एआई सिस्टम / मॉडल",
+            rec4: "इनपुट प्रकार",
+            rec5: "परिवर्तन",
+            rec6: "प्रॉम्प्ट",
+            rec7: "देखा गया आउटपुट",
+            rec8: "ग्राउंड-ट्रूथ तुलना",
+
+            contactTitle:
+                "7. VIST-AI से संपर्क करें",
+
+            contactDesc:
+                "शोध सहयोग या चर्चा के लिए संपर्क करें:",
+
+            aboutTitle:
+                "VIST-AI के बारे में",
+
+            aboutDesc1:
+                "VIST-AI एक खुला अनुसंधान और मूल्यांकन ढांचा है जो विजुअल ग्राउंडिंग, ज्यामितीय परिवर्तन और मल्टीमोडल AI व्यवहार पर केंद्रित है।",
+
+            aboutDesc2:
+                "यह फ्रेमवर्क नियंत्रित प्रयोगों का समर्थन करने के लिए है।"
         },
+
+
         ko: {
-            title: "글로벌 포렌식 AI 테스터",
-            subtitle: "시각적 접지, 기하학적 견고성 및 다국어 AI 평가",
-            headerDesc: "멀티모달 AI 시스템이 제어된 시각적, 기하학적, 미러링된 테스트 표본을 해석하는 방법을 조사하기 위한 오픈 연구 프레임워크입니다.",
-            badge: "오픈 연구 및 AI 평가 프레임워크",
-            navImg: "이미지 미러", navText: "텍스트 미러", navMethod: "방법론", navGuide: "테스트 가이드", navRecord: "관찰 기록", navContact: "연락처",
-            sec1Title: "1. 라이브 이미지 미러 툴",
-            sec1Desc: "일반 필기 이미지를 업로드하여 제어된 시각적 평가를 위한 수평 미러링된 테스트 표본을 생성합니다.",
-            uploadLabel: "일반 필기 이미지 업로드",
-            genImgBtn: "미러링된 테스트 표본 생성",
-            resTitle: "미러링된 테스트 표본",
-            dlBtn: "테스트 표본 다운로드",
-            sec2Title: "2. 라이브 다국어 텍스트 미러 툴",
-            sec2Desc: "지원되는 쓰기 시스템에 텍스트를 입력하여 시각적으로 미러링된 미리보기를 생성합니다.",
-            enterTextLabel: "테스트 텍스트 입력",
-            genTextBtn: "미러 미리보기 생성",
-            previewLabel: "시각적 미러 미리보기",
-            mirrorNote: "참고: 이것은 시각적 수평 변환입니다. 기본 유니코드 텍스트는 반전되거나 번역되지 않습니다.",
-            methTitle: "3. VIST-AI 연구 방법론",
-            methDesc: "VIST-AI는 제어된 시각적 표본을 사용하여 기하학적 및 다국어 조건에서 멀티모달 AI 해석을 조사합니다.",
-            stepCond: "테스트 조건", stepCondDesc: "알려진 표본은 수평 미러링과 같은 정의된 시각적 작업을 사용하여 변환됩니다.",
-            stepObs: "모델 관찰", stepObsDesc: "동일한 표본과 표준화된 프롬프트를 하나 이상의 멀티모달 AI 시스템에 제공할 수 있습니다.",
-            stepComp: "정답 비교", stepCompDesc: "모델 출력을 알려진 소스 표본과 비교합니다.",
-            stepErr: "오류 분석", stepErrDesc: "연구원은 관찰 가능한 불일치를 기록할 수 있습니다.",
-            guideTitle: "4. 멀티모달 AI 시스템 테스트 방법",
-            guideDesc: "제어된 테스트를 수행하려면 다음 절차를 따르십시오.",
-            gStep1: "단계 1 — 테스트 표본 생성", gStep1Desc: "위의 도구를 사용하여 제어된 시각적 표본을 만듭니다.",
-            gStep2: "단계 2 — 멀티모달 AI 시스템 선택", gStep2Desc: "이미지 입력을 받을 수 있는 시스템을 엽니다.",
-            gStep3: "단계 3 — 표준화된 프롬프트 사용", gStep3Desc: "미러링된 표본을 업로드하고 중립적인 프롬프트를 사용합니다.",
-            gStep4: "단계 4 — 출력 기록", gStep4Desc: "모델 응답, 테스트 표본 및 날짜를 보존합니다.",
-            gStep5: "단계 5 — 결과 분석", gStep5Desc: "모델 출력을 알려진 표본과 비교합니다.",
-            recTitle: "5. VIST-AI 관찰 기록",
-            recDesc: "재현 가능한 연구를 위해 모든 테스트에 대해 동일한 기본 정보를 기록하십시오.",
-            rec1: "테스트 ID", rec2: "테스트 날짜", rec3: "AI 시스템 / 모델", rec4: "입력 유형", rec5: "변환", rec6: "프롬프트", rec7: "관찰된 출력", rec8: "정답 비교",
-            contactTitle: "6. VIST-AI 연락처",
-            contactDesc: "연구 협력 또는 프레임워크 토론을 위해 다음으로 연락하십시오:",
-            aboutTitle: "VIST-AI 소개",
-            aboutDesc1: "VIST-AI는 시각적 접지에 초점을 맞춘 오픈 연구 및 평가 프레임워크입니다.",
-            aboutDesc2: "이 프레임워크는 제어된 실험과 재현성을 지원하기 위한 것입니다."
+
+            title:
+                "글로벌 포렌식 AI 테스터",
+
+            subtitle:
+                "시각적 접지, 기하학적 견고성 및 다국어 AI 평가",
+
+            headerDesc:
+                "멀티모달 AI 시스템이 제어된 시각적, 기하학적, 미러링된 테스트 표본을 해석하는 방법을 조사하기 위한 오픈 연구 프레임워크입니다.",
+
+            badge:
+                "오픈 연구 및 AI 평가 프레임워크",
+
+            navImg:
+                "이미지 미러",
+
+            navText:
+                "텍스트 미러",
+
+            navMethod:
+                "방법론",
+
+            navGuide:
+                "테스트 가이드",
+
+            navRecord:
+                "관찰 기록",
+
+            navContact:
+                "연락처",
+
+            sec1Title:
+                "1. 라이브 이미지 미러 툴",
+
+            sec1Desc:
+                "일반 필기 이미지를 업로드하여 제어된 시각적 평가를 위한 수평 미러링된 테스트 표본을 생성합니다.",
+
+            uploadLabel:
+                "일반 필기 이미지 업로드",
+
+            genImgBtn:
+                "미러링된 테스트 표본 생성",
+
+            resTitle:
+                "미러링된 테스트 표본",
+
+            dlBtn:
+                "테스트 표본 다운로드",
+
+            sec2Title:
+                "2. 라이브 다국어 텍스트 미러 툴",
+
+            sec2Desc:
+                "지원되는 쓰기 시스템에 텍스트를 입력하여 시각적으로 미러링된 미리보기를 생성합니다.",
+
+            enterTextLabel:
+                "테스트 텍스트 입력",
+
+            genTextBtn:
+                "미러 미리보기 생성",
+
+            previewLabel:
+                "시각적 미러 미리보기",
+
+            mirrorNote:
+                "참고: 이것은 시각적 수평 변환입니다. 기본 유니코드 텍스트는 반전되거나 번역되지 않습니다.",
+
+            methTitle:
+                "3. VIST-AI 연구 방법론",
+
+            methDesc:
+                "VIST-AI는 제어된 시각적 표본을 사용하여 기하학적 및 다국어 조건에서 멀티모달 AI 해석을 조사합니다.",
+
+            stepCond:
+                "테스트 조건",
+
+            stepCondDesc:
+                "알려진 표본은 수평 미러링과 같은 정의된 시각적 작업을 사용하여 변환됩니다.",
+
+            stepObs:
+                "모델 관찰",
+
+            stepObsDesc:
+                "동일한 표본과 표준화된 프롬프트를 하나 이상의 멀티모달 AI 시스템에 제공할 수 있습니다.",
+
+            stepComp:
+                "정답 비교",
+
+            stepCompDesc:
+                "모델 출력을 알려진 소스 표본과 비교합니다.",
+
+            stepErr:
+                "오류 분석",
+
+            stepErrDesc:
+                "연구원은 관찰 가능한 불일치를 기록할 수 있습니다.",
+
+            guideTitle:
+                "4. 멀티모달 AI 시스템 테스트 방법",
+
+            guideDesc:
+                "제어된 테스트를 수행하려면 다음 절차를 따르십시오.",
+
+            gStep1:
+                "단계 1 — 테스트 표본 생성",
+
+            gStep1Desc:
+                "위의 도구를 사용하여 제어된 시각적 표본을 만듭니다.",
+
+            gStep2:
+                "단계 2 — 멀티모달 AI 시스템 선택",
+
+            gStep2Desc:
+                "이미지 입력을 받을 수 있는 시스템을 엽니다.",
+
+            gStep3:
+                "단계 3 — 표준화된 프롬프트 사용",
+
+            gStep3Desc:
+                "미러링된 표본을 업로드하고 중립적인 프롬프트를 사용합니다.",
+
+            gStep4:
+                "단계 4 — 출력 기록",
+
+            gStep4Desc:
+                "모델 응답, 테스트 표본 및 날짜를 보존합니다.",
+
+            gStep5:
+                "단계 5 — 결과 분석",
+
+            gStep5Desc:
+                "모델 출력을 알려진 표본과 비교합니다.",
+
+            recTitle:
+                "5. VIST-AI 관찰 기록",
+
+            recDesc:
+                "재현 가능한 연구를 위해 모든 테스트에 대해 동일한 기본 정보를 기록하십시오.",
+
+            rec1: "테스트 ID",
+            rec2: "테스트 날짜",
+            rec3: "AI 시스템 / 모델",
+            rec4: "입력 유형",
+            rec5: "변환",
+            rec6: "프롬프트",
+            rec7: "관찰된 출력",
+            rec8: "정답 비교",
+
+            contactTitle:
+                "7. VIST-AI 연락처",
+
+            contactDesc:
+                "연구 협력 또는 프레임워크 토론을 위해 다음으로 연락하십시오:",
+
+            aboutTitle:
+                "VIST-AI 소개",
+
+            aboutDesc1:
+                "VIST-AI는 시각적 접지, 기하학적 변환 및 멀티모달 AI 행동에 초점을 맞춘 오픈 연구 및 평가 프레임워크입니다.",
+
+            aboutDesc2:
+                "이 프레임워크는 제어된 실험과 재현성을 지원하기 위한 것입니다."
         },
+
+
         zh: {
-            title: "全球法医人工智能测试仪",
-            subtitle: "视觉基础、几何鲁棒性与多语言AI评估",
-            headerDesc: "一个开放的研究框架和实时实用程序，用于研究多模态AI系统如何解释受控的视觉、几何、镜像和多语言测试样本。",
-            badge: "开放研究与AI评估框架",
-            navImg: "图像镜像", navText: "文本镜像", navMethod: "研究方法", navGuide: "测试指南", navRecord: "观察记录", navContact: "联系我们",
-            sec1Title: "1. 实时图像镜像工具",
-            sec1Desc: "上传普通书写图像以生成用于受控视觉评估的水平镜像测试样本。",
-            uploadLabel: "上传普通书写图像",
-            genImgBtn: "生成镜像测试样本",
-            resTitle: "镜像测试样本",
-            dlBtn: "下载测试样本",
-            sec2Title: "2. 实时多语言文本镜像工具",
-            sec2Desc: "在任何受支持的书写系统中输入文本，以生成用于受控测试的视觉镜像预览。",
-            enterTextLabel: "输入测试文本",
-            genTextBtn: "生成镜像预览",
-            previewLabel: "视觉镜像预览",
-            mirrorNote: "注意：这是视觉水平转换。底层 Unicode 文本不会被反转或翻译。",
-            methTitle: "3. VIST-AI 研究方法论",
-            methDesc: "VIST-AI 使用受控的视觉样本来研究多模态 AI 在几何和多语言条件下的解释。",
-            stepCond: "测试条件", stepCondDesc: "使用定义的视觉操作（如水平镜像）转换已知样本。",
-            stepObs: "模型观察", stepObsDesc: "可以将相同的样本和标准化提示提供给一个或多个多模态 AI 系统。",
-            stepComp: "真值比较", stepCompDesc: "将模型输出与已知源样本进行比较。",
-            stepErr: "错误分析", stepErrDesc: "研究人员可以记录可观察到的差异。",
-            guideTitle: "4. 如何测试多模态 AI 系统",
-            guideDesc: "使用以下程序进行受控测试。",
-            gStep1: "步骤 1 — 生成测试样本", gStep1Desc: "使用上面的工具创建受控的视觉样本。",
-            gStep2: "步骤 2 — 选择多模态 AI 系统", gStep2Desc: "打开能够接收图像输入的 AI 系统。",
-            gStep3: "步骤 3 — 上传并使用标准化提示", gStep3Desc: "上传镜像样本并使用中性提示。",
-            gStep4: "步骤 4 — 记录输出", gStep4Desc: "保存模型响应、测试样本和测试日期。",
-            gStep5: "步骤 5 — 分析结果", gStep5Desc: "将模型输出与已知样本进行比较。",
-            recTitle: "5. VIST-AI 观察记录",
-            recDesc: "为了进行可重复的研究，请记录每次测试的基本信息。",
-            rec1: "测试 ID", rec2: "测试日期", rec3: "AI 系统 / 模型", rec4: "输入类型", rec5: "转换", rec6: "提示", rec7: "观察到的输出", rec8: "真值比较",
-            contactTitle: "6. 联系 VIST-AI",
-            contactDesc: "如需研究合作或框架讨论，请联系：",
-            aboutTitle: "关于 VIST-AI",
-            aboutDesc1: "VIST-AI 是一个专注于视觉基础的开放研究和评估框架。",
-            aboutDesc2: "该框架旨在支持受控实验和可重复性。"
+
+            title:
+                "全球法医人工智能测试仪",
+
+            subtitle:
+                "视觉基础、几何鲁棒性与多语言AI评估",
+
+            headerDesc:
+                "一个开放的研究框架和实时实用程序，用于研究多模态AI系统如何解释受控的视觉、几何、镜像和多语言测试样本。",
+
+            badge:
+                "开放研究与AI评估框架",
+
+            navImg:
+                "图像镜像",
+
+            navText:
+                "文本镜像",
+
+            navMethod:
+                "研究方法",
+
+            navGuide:
+                "测试指南",
+
+            navRecord:
+                "观察记录",
+
+            navContact:
+                "联系我们",
+
+            sec1Title:
+                "1. 实时图像镜像工具",
+
+            sec1Desc:
+                "上传普通书写图像以生成用于受控视觉评估的水平镜像测试样本。",
+
+            uploadLabel:
+                "上传普通书写图像",
+
+            genImgBtn:
+                "生成镜像测试样本",
+
+            resTitle:
+                "镜像测试样本",
+
+            dlBtn:
+                "下载测试样本",
+
+            sec2Title:
+                "2. 实时多语言文本镜像工具",
+
+            sec2Desc:
+                "在任何受支持的书写系统中输入文本，以生成用于受控测试的视觉镜像预览。",
+
+            enterTextLabel:
+                "输入测试文本",
+
+            genTextBtn:
+                "生成镜像预览",
+
+            previewLabel:
+                "视觉镜像预览",
+
+            mirrorNote:
+                "注意：这是视觉水平转换。底层 Unicode 文本不会被反转或翻译。",
+
+            methTitle:
+                "3. VIST-AI 研究方法论",
+
+            methDesc:
+                "VIST-AI 使用受控的视觉样本来研究多模态 AI 在几何和多语言条件下的解释。",
+
+            stepCond:
+                "测试条件",
+
+            stepCondDesc:
+                "使用定义的视觉操作（如水平镜像）转换已知样本。",
+
+            stepObs:
+                "模型观察",
+
+            stepObsDesc:
+                "可以将相同的样本和标准化提示提供给一个或多个多模态 AI 系统。",
+
+            stepComp:
+                "真值比较",
+
+            stepCompDesc:
+                "将模型输出与已知源样本进行比较。",
+
+            stepErr:
+                "错误分析",
+
+            stepErrDesc:
+                "研究人员可以记录可观察到的差异。",
+
+            guideTitle:
+                "4. 如何测试多模态 AI 系统",
+
+            guideDesc:
+                "使用以下程序进行受控测试。",
+
+            gStep1:
+                "步骤 1 — 生成测试样本",
+
+            gStep1Desc:
+                "使用上面的工具创建受控的视觉样本。",
+
+            gStep2:
+                "步骤 2 — 选择多模态 AI 系统",
+
+            gStep2Desc:
+                "打开能够接收图像输入的 AI 系统。",
+
+            gStep3:
+                "步骤 3 — 上传并使用标准化提示",
+
+            gStep3Desc:
+                "上传镜像样本并使用中性提示。",
+
+            gStep4:
+                "步骤 4 — 记录输出",
+
+            gStep4Desc:
+                "保存模型响应、测试样本和测试日期。",
+
+            gStep5:
+                "步骤 5 — 分析结果",
+
+            gStep5Desc:
+                "将模型输出与已知样本进行比较。",
+
+            recTitle:
+                "5. VIST-AI 观察记录",
+
+            recDesc:
+                "为了进行可重复的研究，请记录每次测试的基本信息。",
+
+            rec1: "测试 ID",
+            rec2: "测试日期",
+            rec3: "AI 系统 / 模型",
+            rec4: "输入类型",
+            rec5: "转换",
+            rec6: "提示",
+            rec7: "观察到的输出",
+            rec8: "真值比较",
+
+            contactTitle:
+                "7. 联系 VIST-AI",
+
+            contactDesc:
+                "如需研究合作或框架讨论，请联系：",
+
+            aboutTitle:
+                "关于 VIST-AI",
+
+            aboutDesc1:
+                "VIST-AI 是一个专注于视觉基础、几何变换和多模态AI行为的开放研究和评估框架。",
+
+            aboutDesc2:
+                "该框架旨在支持受控实验和可重复性。"
         },
+
+
         ur: {
-            title: "گلوبل فارنزک اے آئی ٹیسٹر",
-            subtitle: "وزوئل گراؤنڈنگ، جومیٹرک روبسٹنس اور ملٹی لسنگ اے آئی ایویلویشن",
-            headerDesc: "ملٹی موڈل اے آئی سسٹمز کی بصری اور ہندسوں کی جانچ کے لیے ایک اوپن ریسرچ فریم ورک۔",
-            badge: "اوپن ریسرچ اینڈ اے آئی ایویلویشن فریم ورک",
-            navImg: "تصویر کا آئینہ", navText: "متن کا آئینہ", navMethod: "طریقہ کار", navGuide: "ٹیسٹنگ گائیڈ", navRecord: "مشاہداتی ریکارڈ", navContact: "رابطہ",
-            sec1Title: "1. لائیو امیج مرر ٹول",
-            sec1Desc: "بصری جانچ کے لیے عام لکھائی کی تصویر اپ لوڈ کریں تاکہ اس کا افقی عکس تیار کیا جا سکے۔",
-            uploadLabel: "عام لکھائی کی تصویر اپ لوڈ کریں",
-            genImgBtn: "عکس والا ٹیسٹ نمونہ تیار کریں",
-            resTitle: "عکس والا ٹیسٹ نمونہ",
-            dlBtn: "ٹیسٹ نمونہ ڈاؤن لوڈ کریں",
-            sec2Title: "2. لائیو کثیر لسانی ٹیکسٹ مرر ٹول",
-            sec2Desc: "جانچ کے لیے کسی بھی معاون نظام میں متن درج کریں۔",
-            enterTextLabel: "ٹیسٹ کا متن درج کریں",
-            genTextBtn: "عکس کا پیش نظارہ بنائیں",
-            previewLabel: "بصری عکس کا پیش نظارہ",
-            mirrorNote: "نوٹ: یہ ایک بصری افقی تبدیلی ہے۔ بنیادی یونیکوڈ ٹیکسٹ تبدیل یا ترجمہ نہیں ہوتا۔",
-            methTitle: "3. VIST-AI ریسرچ میتھڈالوجی",
-            methDesc: "VIST-AI جومیٹرک اور ملٹی لسنگ حالات میں ملٹی موڈل AI کی تشریح کا جائزہ لینے کے لیے کنٹرول شدہ بصری نمونے استعمال کرتا ہے۔",
-            stepCond: "ٹیسٹ کی حالت", stepCondDesc: "ایک معروف نمونے کو افقی مررنگ جیسے بصری عمل کے ذریعے تبدیل کیا جاتا ہے۔",
-            stepObs: "ماڈل کا مشاہدہ", stepObsDesc: "وہی نمونہ اور معیاری پرامپٹ ایک یا زیادہ ملٹی موڈل AI سسٹمز کو پیش کیا جا سکتا ہے۔",
-            stepComp: "گراؤنڈ ٹروتھ موازنہ", stepCompDesc: "ماڈل کے آؤٹ پٹ کا معروف سورس نمونے کے ساتھ موازنہ کیا جاتا ہے۔",
-            stepErr: "خرابی کا تجزیہ", stepErrDesc: "محققین قابل مشاہدہ تضادات کو ریکارڈ کر سکتے ہیں۔",
-            guideTitle: "4. ملٹی موڈل اے آئی سسٹمز کا ٹیسٹ کیسے کریں",
-            guideDesc: "کنٹرول شدہ ٹیسٹ کرنے کے لیے درج ذیل طریقہ کار استعمال کریں۔",
-            gStep1: "مرحلہ 1 — ٹیسٹ کا نمونہ بنائیں", gStep1Desc: "کنٹرول شدہ بصری نمونہ بنانے کے لیے اوپر دیے گئے ٹُل کا استعمال کریں۔",
-            gStep2: "مرحلہ 2 — ملٹی موڈل AI سسٹم منتخب کریں", gStep2Desc: "تصویر کا ان پٹ حاصل کرنے کی صلاحیت رکھنے والا AI سسٹم کھولیں۔",
-            gStep3: "مرحلہ 3 — معیاری پرامپٹ استعمال کریں", gStep3Desc: "مرر شدہ نمونہ اپ لوڈ کریں اور ایک غیر جانبدار پرامپٹ استعمال کریں۔",
-            gStep4: "مرحلہ 4 — آؤٹ پٹ ریکارڈ کریں", gStep4Desc: "ماڈل کا جواب، ٹیسٹ کا نمونہ اور تاریخ محفوظ کریں۔",
-            gStep5: "مرحلہ 5 — نتیجہ کا تجزیہ کریں", gStep5Desc: "معروف نمونے کے ساتھ ماڈل آؤٹ پٹ کا موازنہ کریں۔",
-            recTitle: "5. VIST-AI مشاہداتی ریکارڈ",
-            recDesc: "قابلِ تولید تحقیق کے لیے، ہر ٹیسٹ کے لیے ایک جیسی بنیادی معلومات ریکارڈ کریں۔",
-            rec1: "ٹیسٹ ID", rec2: "ٹیسٹ کی تاریخ", rec3: "AI سسٹم / ماڈل", rec4: "ان پٹ کی قسم", rec5: "تبدیلی", rec6: "پرامپٹ", rec7: "مشاہدہ شدہ آؤٹ پٹ", rec8: "گراؤنڈ ٹروتھ موازنہ",
-            contactTitle: "6. رابطہ VIST-AI",
-            contactDesc: "تحقیقی تعاون یا بات چیت کے لیے رابطہ کریں:",
-            aboutTitle: "VIST-AI کے بارے میں",
-            aboutDesc1: "VIST-AI ایک اوپن ریسرچ اور ایویلویشن فریم ورک ہے جو وزوئل گراؤنڈنگ پر مرکوز ہے۔",
-            aboutDesc2: "یہ فریم ورک کنٹرول تجربات کی حمایت کے لیے ہے۔"
+
+            title:
+                "گلوبل فارنزک اے آئی ٹیسٹر",
+
+            subtitle:
+                "وزوئل گراؤنڈنگ، جومیٹرک روبسٹنس اور ملٹی لسنگ اے آئی ایویلویشن",
+
+            headerDesc:
+                "ملٹی موڈل اے آئی سسٹمز کی بصری، جیومیٹرک، مررڈ اور ملٹی لنگول ٹیسٹ سیمپلز کی تشریح کا جائزہ لینے کے لیے ایک اوپن ریسرچ فریم ورک۔",
+
+            badge:
+                "اوپن ریسرچ اینڈ اے آئی ایویلویشن فریم ورک",
+
+            navImg:
+                "تصویر کا آئینہ",
+
+            navText:
+                "متن کا آئینہ",
+
+            navMethod:
+                "طریقہ کار",
+
+            navGuide:
+                "ٹیسٹنگ گائیڈ",
+
+            navRecord:
+                "مشاہداتی ریکارڈ",
+
+            navContact:
+                "رابطہ",
+
+            sec1Title:
+                "1. لائیو امیج مرر ٹول",
+
+            sec1Desc:
+                "بصری جانچ کے لیے عام لکھائی کی تصویر اپ لوڈ کریں تاکہ اس کا افقی عکس تیار کیا جا سکے۔",
+
+            uploadLabel:
+                "عام لکھائی کی تصویر اپ لوڈ کریں",
+
+            genImgBtn:
+                "عکس والا ٹیسٹ نمونہ تیار کریں",
+
+            resTitle:
+                "عکس والا ٹیسٹ نمونہ",
+
+            dlBtn:
+                "ٹیسٹ نمونہ ڈاؤن لوڈ کریں",
+
+            sec2Title:
+                "2. لائیو کثیر لسانی ٹیکسٹ مرر ٹول",
+
+            sec2Desc:
+                "جانچ کے لیے کسی بھی معاون نظام میں متن درج کریں۔",
+
+            enterTextLabel:
+                "ٹیسٹ کا متن درج کریں",
+
+            genTextBtn:
+                "عکس کا پیش نظارہ بنائیں",
+
+            previewLabel:
+                "بصری عکس کا پیش نظارہ",
+
+            mirrorNote:
+                "نوٹ: یہ ایک بصری افقی تبدیلی ہے۔ بنیادی یونیکوڈ ٹیکسٹ تبدیل یا ترجمہ نہیں ہوتا۔",
+
+            methTitle:
+                "3. VIST-AI ریسرچ میتھڈالوجی",
+
+            methDesc:
+                "VIST-AI جومیٹرک اور ملٹی لسنگ حالات میں ملٹی موڈل AI کی تشریح کا جائزہ لینے کے لیے کنٹرول شدہ بصری نمونے استعمال کرتا ہے۔",
+
+            stepCond:
+                "ٹیسٹ کی حالت",
+
+            stepCondDesc:
+                "ایک معروف نمونے کو افقی مررنگ جیسے بصری عمل کے ذریعے تبدیل کیا جاتا ہے۔",
+
+            stepObs:
+                "ماڈل کا مشاہدہ",
+
+            stepObsDesc:
+                "وہی نمونہ اور معیاری پرامپٹ ایک یا زیادہ ملٹی موڈل AI سسٹمز کو پیش کیا جا سکتا ہے۔",
+
+            stepComp:
+                "گراؤنڈ ٹروتھ موازنہ",
+
+            stepCompDesc:
+                "ماڈل کے آؤٹ پٹ کا معروف سورس نمونے کے ساتھ موازنہ کیا جاتا ہے۔",
+
+            stepErr:
+                "خرابی کا تجزیہ",
+
+            stepErrDesc:
+                "محققین قابل مشاہدہ تضادات کو ریکارڈ کر سکتے ہیں۔",
+
+            guideTitle:
+                "4. ملٹی موڈل اے آئی سسٹمز کا ٹیسٹ کیسے کریں",
+
+            guideDesc:
+                "کنٹرول شدہ ٹیسٹ کرنے کے لیے درج ذیل طریقہ کار استعمال کریں۔",
+
+            gStep1:
+                "مرحلہ 1 — ٹیسٹ کا نمونہ بنائیں",
+
+            gStep1Desc:
+                "کنٹرول شدہ بصری نمونہ بنانے کے لیے اوپر دیے گئے ٹول کا استعمال کریں۔",
+
+            gStep2:
+                "مرحلہ 2 — ملٹی موڈل AI سسٹم منتخب کریں",
+
+            gStep2Desc:
+                "تصویر کا ان پٹ حاصل کرنے کی صلاحیت رکھنے والا AI سسٹم کھولیں۔",
+
+            gStep3:
+                "مرحلہ 3 — معیاری پرامپٹ استعمال کریں",
+
+            gStep3Desc:
+                "مرر شدہ نمونہ اپ لوڈ کریں اور ایک غیر جانبدار پرامپٹ استعمال کریں۔",
+
+            gStep4:
+                "مرحلہ 4 — آؤٹ پٹ ریکارڈ کریں",
+
+            gStep4Desc:
+                "ماڈل کا جواب، ٹیسٹ کا نمونہ اور تاریخ محفوظ کریں۔",
+
+            gStep5:
+                "مرحلہ 5 — نتیجہ کا تجزیہ کریں",
+
+            gStep5Desc:
+                "معروف نمونے کے ساتھ ماڈل آؤٹ پٹ کا موازنہ کریں۔",
+
+            recTitle:
+                "5. VIST-AI مشاہداتی ریکارڈ",
+
+            recDesc:
+                "قابلِ تولید تحقیق کے لیے، ہر ٹیسٹ کے لیے ایک جیسی بنیادی معلومات ریکارڈ کریں۔",
+
+            rec1:
+                "ٹیسٹ ID",
+
+            rec2:
+                "ٹیسٹ کی تاریخ",
+
+            rec3:
+                "AI سسٹم / ماڈل",
+
+            rec4:
+                "ان پٹ کی قسم",
+
+            rec5:
+                "تبدیلی",
+
+            rec6:
+                "پرامپٹ",
+
+            rec7:
+                "مشاہدہ شدہ آؤٹ پٹ",
+
+            rec8:
+                "گراؤنڈ ٹروتھ موازنہ",
+
+            contactTitle:
+                "7. رابطہ VIST-AI",
+
+            contactDesc:
+                "تحقیقی تعاون، کسٹم مرر رائٹنگ سیمپلز، ملٹی لنگول ٹیسٹ میٹریل، پروفیشنل AI ایویلیوایشن یا VIST-AI فریم ورک کے بارے میں بات چیت کے لیے رابطہ کریں:",
+
+            aboutTitle:
+                "VIST-AI کے بارے میں",
+
+            aboutDesc1:
+                "VIST-AI ایک اوپن ریسرچ اور ایویلویشن فریم ورک ہے جو وزوئل گراؤنڈنگ، جیومیٹرک تبدیلیوں، کثیر لسانی تحریری نظاموں اور قابل مشاہدہ ملٹی موڈل AI رویے پر مرکوز ہے۔",
+
+            aboutDesc2:
+                "یہ فریم ورک کنٹرول شدہ تجربات، قابل تکرار تحقیق، تقابلی ٹیسٹنگ اور فارنزک طرز کے تجزیے کی حمایت کے لیے بنایا گیا ہے۔"
         }
+
     };
+
+
+    /* =========================================================
+       BACKGROUND THEMES
+    ========================================================== */
 
     const bgThemes = {
-        en: "radial-gradient(circle at 15% 20%, rgba(56, 189, 248, 0.15) 0%, transparent 45%)",
-        ja: "radial-gradient(circle at 50% 50%, rgba(239, 68, 68, 0.2) 0%, rgba(255, 255, 255, 0.05) 50%, transparent 70%)",
-        ru: "radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.18) 0%, rgba(239, 68, 68, 0.12) 60%, transparent 80%)",
-        ar: "radial-gradient(circle at 20% 20%, rgba(16, 185, 129, 0.15) 0%, rgba(239, 68, 68, 0.12) 60%, transparent 80%)",
-        he: "radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.18) 0%, rgba(255, 255, 255, 0.08) 60%, transparent 80%)",
-        hi: "radial-gradient(circle at 50% 50%, rgba(249, 115, 22, 0.18) 0%, rgba(16, 185, 129, 0.15) 60%, transparent 80%)",
-        ko: "radial-gradient(circle at 30% 30%, rgba(239, 68, 68, 0.15) 0%, rgba(59, 130, 246, 0.15) 60%, transparent 80%)",
-        zh: "radial-gradient(circle at 20% 20%, rgba(239, 68, 68, 0.22) 0%, rgba(234, 179, 8, 0.15) 50%, transparent 80%)",
-        ur: "radial-gradient(circle at 20% 20%, rgba(16, 185, 129, 0.18) 0%, rgba(255, 255, 255, 0.08) 60%, transparent 80%)"
+
+        en:
+            "radial-gradient(circle at 15% 20%, rgba(56, 189, 248, 0.15) 0%, transparent 45%)",
+
+        ja:
+            "radial-gradient(circle at 50% 50%, rgba(239, 68, 68, 0.2) 0%, rgba(255, 255, 255, 0.05) 50%, transparent 70%)",
+
+        ru:
+            "radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.18) 0%, rgba(239, 68, 68, 0.12) 60%, transparent 80%)",
+
+        ar:
+            "radial-gradient(circle at 20% 20%, rgba(16, 185, 129, 0.15) 0%, rgba(239, 68, 68, 0.12) 60%, transparent 80%)",
+
+        he:
+            "radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.18) 0%, rgba(255, 255, 255, 0.08) 60%, transparent 80%)",
+
+        hi:
+            "radial-gradient(circle at 50% 50%, rgba(249, 115, 22, 0.18) 0%, rgba(16, 185, 129, 0.15) 60%, transparent 80%)",
+
+        ko:
+            "radial-gradient(circle at 30% 30%, rgba(239, 68, 68, 0.15) 0%, rgba(59, 130, 246, 0.15) 60%, transparent 80%)",
+
+        zh:
+            "radial-gradient(circle at 20% 20%, rgba(239, 68, 68, 0.22) 0%, rgba(234, 179, 8, 0.15) 50%, transparent 80%)",
+
+        ur:
+            "radial-gradient(circle at 20% 20%, rgba(16, 185, 129, 0.18) 0%, rgba(255, 255, 255, 0.08) 60%, transparent 80%)"
     };
 
+
+    /* =========================================================
+       LANGUAGE FUNCTION
+    ========================================================== */
+
     function changeLanguage(lang) {
+
         const t = translations[lang];
-        if (!t) return;
-        document.querySelectorAll("[data-key]").forEach(el => {
-            const key = el.getAttribute("data-key");
-            if (t[key]) {
-                el.textContent = t[key];
-            }
-        });
-        if (bgThemes[lang]) {
-            document.documentElement.style.setProperty('--bg-glow', bgThemes[lang]);
+
+        if (!t) {
+            return;
         }
+
+        document
+            .querySelectorAll("[data-key]")
+            .forEach(el => {
+
+                const key = el.getAttribute("data-key");
+
+                if (t[key]) {
+                    el.textContent = t[key];
+                }
+
+            });
+
+
+        if (bgThemes[lang]) {
+
+            document.documentElement.style.setProperty(
+                "--bg-glow",
+                bgThemes[lang]
+            );
+
+        }
+
+
+        /* RTL support for Arabic and Urdu */
+
+        if (lang === "ar" || lang === "ur") {
+
+            document.documentElement.dir = "rtl";
+
+        } else {
+
+            document.documentElement.dir = "ltr";
+
+        }
+
     }
 
-    const imageInput = document.getElementById("imageNormalInput");
-    const processImageButton = document.getElementById("processImageButton");
-    const output = document.getElementById("output");
-    const evidenceImg = document.getElementById("evidenceImg");
-    const downloadLink = document.getElementById("downloadLink");
 
-    processImageButton.addEventListener("click", function () {
-        const file = imageInput.files[0];
-        if (!file) { alert("Please select a writing image first."); return; }
-        if (!file.type.startsWith("image/")) { alert("Please select a valid image file."); return; }
+    /* =========================================================
+       IMAGE MIRROR TOOL
+    ========================================================== */
 
-        const reader = new FileReader();
-        reader.onload = function (event) {
-            const img = new Image();
-            img.onload = function () {
-                const canvas = document.createElement("canvas");
-                const ctx = canvas.getContext("2d");
-                canvas.width = img.width;
-                canvas.height = img.height;
-                ctx.translate(canvas.width, 0);
-                ctx.scale(-1, 1);
-                ctx.drawImage(img, 0, 0);
+    const imageInput =
+        document.getElementById("imageNormalInput");
 
-                const mirroredDataUrl = canvas.toDataURL("image/jpeg", 0.95);
-                evidenceImg.src = mirroredDataUrl;
-                downloadLink.href = mirroredDataUrl;
-                downloadLink.download = "vist-ai-mirrored-test-specimen.jpg";
-                output.style.display = "block";
-                output.scrollIntoView({ behavior: "smooth", block: "center" });
+    const processImageButton =
+        document.getElementById("processImageButton");
+
+    const output =
+        document.getElementById("output");
+
+    const evidenceImg =
+        document.getElementById("evidenceImg");
+
+    const downloadLink =
+        document.getElementById("downloadLink");
+
+
+    processImageButton.addEventListener(
+        "click",
+        function () {
+
+            const file = imageInput.files[0];
+
+
+            if (!file) {
+
+                alert(
+                    "Please select a writing image first."
+                );
+
+                return;
+            }
+
+
+            if (!file.type.startsWith("image/")) {
+
+                alert(
+                    "Please select a valid image file."
+                );
+
+                return;
+            }
+
+
+            const reader = new FileReader();
+
+
+            reader.onload = function (event) {
+
+                const img = new Image();
+
+
+                img.onload = function () {
+
+                    const canvas =
+                        document.createElement("canvas");
+
+                    const ctx =
+                        canvas.getContext("2d");
+
+
+                    canvas.width =
+                        img.width;
+
+                    canvas.height =
+                        img.height;
+
+
+                    ctx.translate(
+                        canvas.width,
+                        0
+                    );
+
+                    ctx.scale(-1, 1);
+
+                    ctx.drawImage(
+                        img,
+                        0,
+                        0
+                    );
+
+
+                    const mirroredDataUrl =
+                        canvas.toDataURL(
+                            "image/jpeg",
+                            0.95
+                        );
+
+
+                    evidenceImg.src =
+                        mirroredDataUrl;
+
+                    downloadLink.href =
+                        mirroredDataUrl;
+
+                    downloadLink.download =
+                        "vist-ai-mirrored-test-specimen.jpg";
+
+
+                    output.style.display =
+                        "block";
+
+
+                    output.scrollIntoView({
+                        behavior: "smooth",
+                        block: "center"
+                    });
+
+                };
+
+
+                img.src =
+                    event.target.result;
+
             };
-            img.src = event.target.result;
-        };
-        reader.readAsDataURL(file);
-    });
 
-    const textInput = document.getElementById("userInputText");
-    const generateTextButton = document.getElementById("generateTextButton");
-    const mirrorResultBox = document.getElementById("mirrorResultBox");
-    const mirroredDisplay = document.getElementById("mirroredDisplay");
 
-    generateTextButton.addEventListener("click", function () {
-        const text = textInput.value;
-        if (!text.trim()) { alert("Please enter text first."); return; }
-        mirroredDisplay.textContent = text;
-        mirrorResultBox.style.display = "block";
-        mirrorResultBox.scrollIntoView({ behavior: "smooth", block: "center" });
-    });
+            reader.readAsDataURL(file);
+
+        }
+    );
+
+
+    /* =========================================================
+       TEXT MIRROR TOOL
+    ========================================================== */
+
+    const textInput =
+        document.getElementById("userInputText");
+
+    const generateTextButton =
+        document.getElementById("generateTextButton");
+
+    const mirrorResultBox =
+        document.getElementById("mirrorResultBox");
+
+    const mirroredDisplay =
+        document.getElementById("mirroredDisplay");
+
+
+    generateTextButton.addEventListener(
+        "click",
+        function () {
+
+            const text =
+                textInput.value;
+
+
+            if (!text.trim()) {
+
+                alert(
+                    "Please enter text first."
+                );
+
+                return;
+            }
+
+
+            mirroredDisplay.textContent =
+                text;
+
+
+            mirrorResultBox.style.display =
+                "block";
+
+
+            mirrorResultBox.scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
+
+        }
+    );
+
 </script>
 
 </body>
