@@ -12,9 +12,6 @@
         * { box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         
-        /* =====================================================
-            DYNAMIC FLAG THEME BACKGROUND
-        ====================================================== */
         body {
             margin: 0;
             padding: 20px;
@@ -60,11 +57,7 @@
             position: relative;
         }
 
-        /* =====================================================
-            HEADER
-        ====================================================== */
         header { text-align: center; padding-bottom: 5px; position: relative; }
-
         .top-bar-lang { display: flex; justify-content: flex-end; margin-bottom: 10px; }
 
         .lang-select {
@@ -96,9 +89,6 @@
         .subtitle { color: #cbd5e1; font-size: 14px; margin: 3px 0 8px; }
         .header-description { max-width: 780px; margin: 6px auto 0; color: #94a3b8; font-size: 14px; }
 
-        /* =====================================================
-            NAVIGATION (Compact for Single Line Fit)
-        ====================================================== */
         .nav-bar {
             display: flex; justify-content: center; flex-wrap: wrap; gap: 5px;
             margin: 18px 0; padding: 8px; background: #060913; border-radius: 8px; border: 1px solid #1e293b;
@@ -111,9 +101,6 @@
         }
         .nav-bar a:hover { background: #0284c7; color: #ffffff; box-shadow: 0 0 12px rgba(2, 132, 199, 0.6); }
 
-        /* =====================================================
-            RESEARCH BADGE & GENERAL SECTIONS
-        ====================================================== */
         .research-badge { text-align: center; margin: 10px auto 18px; }
         .research-badge span {
             display: inline-block; padding: 5px 12px; border: 1px solid #0369a1; border-radius: 20px;
@@ -152,9 +139,7 @@
         .record-item { background: #111827; border: 1px solid #263449; border-radius: 6px; padding: 10px; font-size: 14px; }
         .record-item strong { display: block; color: #38bdf8; margin-bottom: 2px; }
 
-        /* =====================================================
-            COMMERCIAL SERVICES
-        ====================================================== */
+        /* Commercial Services */
         .commercial-section {
             padding: 45px 25px;
             background: linear-gradient(180deg, rgba(5, 15, 30, 0.98), rgba(8, 20, 40, 1));
@@ -215,9 +200,7 @@
             background: rgba(6, 9, 19, 0.7); color: #8295aa; font-size: 11px; line-height: 1.7; border-radius: 4px;
         }
 
-        /* =====================================================
-            CLIENT ASSESSMENT FORM
-        ====================================================== */
+        /* Assessment Form */
         .assessment-section {
             background: linear-gradient(180deg, #081426, #050c18);
             border: 1px solid rgba(56, 189, 248, 0.45);
@@ -283,7 +266,7 @@
                 <option value="hi">🇮🇳 Hindi (हिन्दी)</option>
                 <option value="ko">🇰🇷 Korean (한국어)</option>
                 <option value="zh">🇨🇳 Chinese (中文)</option>
-                <option value="ur">🇰🇷 Urdu (اردو)</option>
+                <option value="ur">🇵🇰 Urdu (اردو)</option>
             </select>
         </div>
 
@@ -314,8 +297,8 @@
         <a href="#tool-methodology" data-key="navMethod">Methodology</a>
         <a href="#tool-guide" data-key="navGuide">Testing Guide</a>
         <a href="#tool-record" data-key="navRecord">Observation Record</a>
-        <a href="#commercial-services">Services</a>
-        <a href="#assessment-request">Request Assessment</a>
+        <a href="#commercial-services" data-key="navServices">Services</a>
+        <a href="#assessment-request" data-key="navReq">Request Assessment</a>
         <a href="#tool-contact" data-key="navContact">Contact</a>
     </div>
 
@@ -428,149 +411,149 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
     <!-- 6. COMMERCIAL SERVICES -->
     <section id="commercial-services" class="section commercial-section">
         <div class="commercial-heading">
-            <span class="commercial-label">PROFESSIONAL AI EVALUATION SERVICES</span>
-            <h2>VIST-AI Professional AI Evaluation</h2>
-            <p>Independent, structured, and evidence-oriented evaluation of multimodal AI behavior under controlled visual, geometric, mirrored, transformed, and multilingual conditions.</p>
+            <span class="commercial-label" data-key="servBadge">PROFESSIONAL AI EVALUATION SERVICES</span>
+            <h2 data-key="servMainTitle">VIST-AI Professional AI Evaluation</h2>
+            <p data-key="servMainDesc">Independent, structured, and evidence-oriented evaluation of multimodal AI behavior under controlled visual, geometric, mirrored, transformed, and multilingual conditions.</p>
         </div>
 
         <div class="service-grid">
             <!-- SERVICE 01 -->
             <div class="service-card">
                 <div class="service-number">SERVICE 01</div>
-                <h3>Basic Evaluation</h3>
-                <div class="service-price">Starting from <strong>$75</strong></div>
-                <p>A focused evaluation for clients who need an initial assessment of a multimodal AI system.</p>
+                <h3 data-key="s1Title">Basic Evaluation</h3>
+                <div class="service-price"><span data-key="priceStart">Starting from</span> <strong>$75</strong></div>
+                <p data-key="s1Desc">A focused evaluation for clients who need an initial assessment of a multimodal AI system.</p>
                 <ul>
-                    <li>Up to 10 controlled test cases</li>
-                    <li>Visual and geometric testing</li>
-                    <li>Mirrored or transformed specimens</li>
-                    <li>Ground-truth comparison</li>
-                    <li>Basic findings</li>
-                    <li>Short evaluation summary</li>
+                    <li data-key="s1l1">Up to 10 controlled test cases</li>
+                    <li data-key="s1l2">Visual and geometric testing</li>
+                    <li data-key="s1l3">Mirrored or transformed specimens</li>
+                    <li data-key="s1l4">Ground-truth comparison</li>
+                    <li data-key="s1l5">Basic findings</li>
+                    <li data-key="s1l6">Short evaluation summary</li>
                 </ul>
-                <a class="service-button" href="mailto:2nddavinci69@gmail.com?subject=VIST-AI%20Basic%20Evaluation">Request Basic Evaluation</a>
+                <a class="service-button" href="mailto:2nddavinci69@gmail.com?subject=VIST-AI%20Basic%20Evaluation" data-key="s1Btn">Request Basic Evaluation</a>
             </div>
 
             <!-- SERVICE 02 -->
             <div class="service-card featured">
-                <span class="featured-label">RECOMMENDED</span>
+                <span class="featured-label" data-key="recLabel">RECOMMENDED</span>
                 <div class="service-number">SERVICE 02</div>
-                <h3>Professional Forensic Assessment</h3>
-                <div class="service-price">Starting from <strong>$250</strong></div>
-                <p>A structured VIST-AI assessment designed for deeper research, documentation, and professional reporting.</p>
+                <h3 data-key="s2Title">Professional Forensic Assessment</h3>
+                <div class="service-price"><span data-key="priceStart">Starting from</span> <strong>$250</strong></div>
+                <p data-key="s2Desc">A structured VIST-AI assessment designed for deeper research, documentation, and professional reporting.</p>
                 <ul>
-                    <li>30–50 controlled test cases</li>
-                    <li>Multiple visual conditions</li>
-                    <li>Multilingual / multi-script specimens</li>
-                    <li>Multiple prompts</li>
-                    <li>Repeated trials</li>
-                    <li>Ground-truth comparison</li>
-                    <li>Evidence screenshots</li>
-                    <li>Reproducibility analysis</li>
-                    <li>Professional PDF report</li>
+                    <li data-key="s2l1">30–50 controlled test cases</li>
+                    <li data-key="s2l2">Multiple visual conditions</li>
+                    <li data-key="s2l3">Multilingual / multi-script specimens</li>
+                    <li data-key="s2l4">Multiple prompts</li>
+                    <li data-key="s2l5">Repeated trials</li>
+                    <li data-key="s2l6">Ground-truth comparison</li>
+                    <li data-key="s2l7">Evidence screenshots</li>
+                    <li data-key="s2l8">Reproducibility analysis</li>
+                    <li data-key="s2l9">Professional PDF report</li>
                 </ul>
-                <a class="service-button" href="mailto:2nddavinci69@gmail.com?subject=VIST-AI%20Professional%20Assessment">Request Professional Assessment</a>
+                <a class="service-button" href="mailto:2nddavinci69@gmail.com?subject=VIST-AI%20Professional%20Assessment" data-key="s2Btn">Request Professional Assessment</a>
             </div>
 
             <!-- SERVICE 03 -->
             <div class="service-card">
                 <div class="service-number">SERVICE 03</div>
-                <h3>Custom AI Stress Testing</h3>
-                <div class="service-price"><strong>Custom Quote</strong></div>
-                <p>Custom evaluation designed around a client's own AI system, specimens, models, prompts, or research objectives.</p>
+                <h3 data-key="s3Title">Custom AI Stress Testing</h3>
+                <div class="service-price"><strong data-key="customQuote">Custom Quote</strong></div>
+                <p data-key="s3Desc">Custom evaluation designed around a client's own AI system, specimens, models, prompts, or research objectives.</p>
                 <ul>
-                    <li>Custom test specimens</li>
-                    <li>Custom transformations</li>
-                    <li>Custom prompt design</li>
-                    <li>Multiple AI models</li>
-                    <li>Comparative testing</li>
-                    <li>Specialized analysis</li>
-                    <li>Custom reporting</li>
+                    <li data-key="s3l1">Custom test specimens</li>
+                    <li data-key="s3l2">Custom transformations</li>
+                    <li data-key="s3l3">Custom prompt design</li>
+                    <li data-key="s3l4">Multiple AI models</li>
+                    <li data-key="s3l5">Comparative testing</li>
+                    <li data-key="s3l6">Specialized analysis</li>
+                    <li data-key="s3l7">Custom reporting</li>
                 </ul>
-                <a class="service-button secondary" href="mailto:2nddavinci69@gmail.com?subject=VIST-AI%20Custom%20Stress%20Testing">Request Custom Quote</a>
+                <a class="service-button secondary" href="mailto:2nddavinci69@gmail.com?subject=VIST-AI%20Custom%20Stress%20Testing" data-key="s3Btn">Request Custom Quote</a>
             </div>
 
             <!-- SERVICE 04 -->
             <div class="service-card">
                 <div class="service-number">SERVICE 04</div>
-                <h3>Enterprise & Research Evaluation</h3>
-                <div class="service-price"><strong>Custom Quote</strong></div>
-                <p>Larger evaluation programs for AI companies, research organizations, universities, laboratories, and enterprise teams.</p>
+                <h3 data-key="s4Title">Enterprise & Research Evaluation</h3>
+                <div class="service-price"><strong data-key="customQuote">Custom Quote</strong></div>
+                <p data-key="s4Desc">Larger evaluation programs for AI companies, research organizations, universities, laboratories, and enterprise teams.</p>
                 <ul>
-                    <li>Large-scale test programs</li>
-                    <li>Custom benchmark development</li>
-                    <li>Multi-model evaluation</li>
-                    <li>Multilingual testing</li>
-                    <li>Repeated controlled trials</li>
-                    <li>Technical reporting</li>
-                    <li>Executive summary</li>
-                    <li>Research documentation</li>
+                    <li data-key="s4l1">Large-scale test programs</li>
+                    <li data-key="s4l2">Custom benchmark development</li>
+                    <li data-key="s4l3">Multi-model evaluation</li>
+                    <li data-key="s4l4">Multilingual testing</li>
+                    <li data-key="s4l5">Repeated controlled trials</li>
+                    <li data-key="s4l6">Technical reporting</li>
+                    <li data-key="s4l7">Executive summary</li>
+                    <li data-key="s4l8">Research documentation</li>
                 </ul>
-                <a class="service-button secondary" href="mailto:2nddavinci69@gmail.com?subject=VIST-AI%20Enterprise%20Evaluation">Contact for Enterprise Quote</a>
+                <a class="service-button secondary" href="mailto:2nddavinci69@gmail.com?subject=VIST-AI%20Enterprise%20Evaluation" data-key="s4Btn">Contact for Enterprise Quote</a>
             </div>
         </div>
 
         <div class="commercial-cta">
-            <h3>Need a Deeper AI Evaluation?</h3>
-            <p>Request a VIST-AI assessment for your AI system, multimodal model, research project, or custom visual evaluation requirement.</p>
-            <a class="primary-cta" href="#assessment-request">Request a VIST-AI Assessment</a>
+            <h3 data-key="ctaTitle">Need a Deeper AI Evaluation?</h3>
+            <p data-key="ctaDesc">Request a VIST-AI assessment for your AI system, multimodal model, research project, or custom visual evaluation requirement.</p>
+            <a class="primary-cta" href="#assessment-request" data-key="ctaBtn">Request a VIST-AI Assessment</a>
         </div>
 
         <div class="commercial-disclaimer">
-            <strong>Commercial Evaluation Note:</strong>
-            VIST-AI assessments are evidence-oriented evaluations. The evaluation process does not assume that an AI system will fail. Findings are based on the defined test scope, observed model outputs, ground-truth comparison, repeated trials where applicable, and documented limitations. Prices shown are indicative starting prices and may vary according to project scope, number of specimens, models, repetitions, reporting requirements, and delivery timeline.
+            <strong data-key="discTitle">Commercial Evaluation Note:</strong>
+            <span data-key="discText">VIST-AI assessments are evidence-oriented evaluations. The evaluation process does not assume that an AI system will fail. Findings are based on the defined test scope, observed model outputs, ground-truth comparison, repeated trials where applicable, and documented limitations. Prices shown are indicative starting prices and may vary according to project scope, number of specimens, models, repetitions, reporting requirements, and delivery timeline.</span>
         </div>
     </section>
 
     <!-- 7. CLIENT ASSESSMENT REQUEST -->
     <section id="assessment-request" class="section assessment-section">
         <div class="assessment-heading">
-            <span>PROFESSIONAL EVALUATION REQUEST</span>
-            <h2>Request a VIST-AI Assessment</h2>
-            <p>Tell us about your AI system and evaluation requirements. We will review your request and propose an appropriate VIST-AI evaluation scope.</p>
+            <span data-key="formHeaderSpan">PROFESSIONAL EVALUATION REQUEST</span>
+            <h2 data-key="formMainTitle">Request a VIST-AI Assessment</h2>
+            <p data-key="formMainDesc">Tell us about your AI system and evaluation requirements. We will review your request and propose an appropriate VIST-AI evaluation scope.</p>
         </div>
 
         <div class="assessment-form-wrapper">
             <form id="assessmentForm" class="assessment-form">
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="full-name">Full Name *</label>
+                        <label for="full-name" data-key="lblFullName">Full Name *</label>
                         <input type="text" id="full-name" name="Full Name" required placeholder="Your full name">
                     </div>
                     <div class="form-group">
-                        <label for="organization">Organization / Company</label>
+                        <label for="organization" data-key="lblOrg">Organization / Company</label>
                         <input type="text" id="organization" name="Organization" placeholder="Company or research organization">
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="client-email">Work Email *</label>
+                        <label for="client-email" data-key="lblEmail">Work Email *</label>
                         <input type="email" id="client-email" name="Email" required placeholder="name@company.com">
                     </div>
                     <div class="form-group">
-                        <label for="ai-model">AI System / Model *</label>
+                        <label for="ai-model" data-key="lblModel">AI System / Model *</label>
                         <input type="text" id="ai-model" name="AI System / Model" required placeholder="Example: Vision-Language Model">
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="evaluation-type">Evaluation Type *</label>
+                        <label for="evaluation-type" data-key="lblEvalType">Evaluation Type *</label>
                         <select id="evaluation-type" name="Evaluation Type" required>
-                            <option value="">Select evaluation area</option>
-                            <option value="Visual Grounding">Visual Grounding</option>
-                            <option value="Geometric Robustness">Geometric Robustness</option>
-                            <option value="Multilingual / OCR">Multilingual / OCR</option>
-                            <option value="Image Understanding">Image Understanding</option>
-                            <option value="Model Comparison">Model Comparison</option>
-                            <option value="Custom AI Stress Testing">Custom AI Stress Testing</option>
+                            <option value="" data-key="optSelectArea">Select evaluation area</option>
+                            <option value="Visual Grounding" data-key="optVisual">Visual Grounding</option>
+                            <option value="Geometric Robustness" data-key="optGeo">Geometric Robustness</option>
+                            <option value="Multilingual / OCR" data-key="optMulti">Multilingual / OCR</option>
+                            <option value="Image Understanding" data-key="optImgUnd">Image Understanding</option>
+                            <option value="Model Comparison" data-key="optModelComp">Model Comparison</option>
+                            <option value="Custom AI Stress Testing" data-key="optStress">Custom AI Stress Testing</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="test-cases">Approximate Test Cases</label>
+                        <label for="test-cases" data-key="lblTestCases">Approximate Test Cases</label>
                         <select id="test-cases" name="Approximate Test Cases">
-                            <option value="">Select quantity</option>
+                            <option value="" data-key="optSelectQty">Select quantity</option>
                             <option value="Up to 10">Up to 10</option>
                             <option value="10-30">10–30</option>
                             <option value="30-50">30–50</option>
@@ -582,58 +565,58 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
 
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="models">Number of AI Models</label>
+                        <label for="models" data-key="lblNumModels">Number of AI Models</label>
                         <select id="models" name="Number of AI Models">
-                            <option value="1">1 Model</option>
-                            <option value="2">2 Models</option>
-                            <option value="3-5">3–5 Models</option>
-                            <option value="5+">5+ Models</option>
+                            <option value="1" data-key="opt1Model">1 Model</option>
+                            <option value="2" data-key="opt2Models">2 Models</option>
+                            <option value="3-5" data-key="opt35Models">3–5 Models</option>
+                            <option value="5+" data-key="opt5PlusModels">5+ Models</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="trials">Repeated Trials</label>
+                        <label for="trials" data-key="lblTrials">Repeated Trials</label>
                         <select id="trials" name="Repeated Trials">
-                            <option value="Single Trial">Single Trial</option>
-                            <option value="3 Trials">3 Trials</option>
-                            <option value="5 Trials">5 Trials</option>
-                            <option value="10+ Trials">10+ Trials</option>
+                            <option value="Single Trial" data-key="optSingleTrial">Single Trial</option>
+                            <option value="3 Trials" data-key="opt3Trials">3 Trials</option>
+                            <option value="5 Trials" data-key="opt5Trials">5 Trials</option>
+                            <option value="10+ Trials" data-key="opt10Trials">10+ Trials</option>
                         </select>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="report">Professional PDF Report Required?</label>
+                    <label for="report" data-key="lblPDF">Professional PDF Report Required?</label>
                     <select id="report" name="Professional PDF Report">
-                        <option value="Yes">Yes</option>
-                        <option value="No">No</option>
-                        <option value="Not Sure">Not Sure</option>
+                        <option value="Yes" data-key="optYes">Yes</option>
+                        <option value="No" data-key="optNo">No</option>
+                        <option value="Not Sure" data-key="optNotSure">Not Sure</option>
                     </select>
                 </div>
 
                 <div class="form-group">
-                    <label for="timeline">Desired Timeline</label>
+                    <label for="timeline" data-key="lblTimeline">Desired Timeline</label>
                     <select id="timeline" name="Desired Timeline">
-                        <option value="">Select timeline</option>
-                        <option value="As soon as possible">As soon as possible</option>
-                        <option value="1-2 weeks">1–2 weeks</option>
-                        <option value="2-4 weeks">2–4 weeks</option>
-                        <option value="Flexible">Flexible</option>
+                        <option value="" data-key="optSelectTimeline">Select timeline</option>
+                        <option value="As soon as possible" data-key="optASAP">As soon as possible</option>
+                        <option value="1-2 weeks" data-key="opt12Weeks">1–2 weeks</option>
+                        <option value="2-4 weeks" data-key="opt24Weeks">2–4 weeks</option>
+                        <option value="Flexible" data-key="optFlexible">Flexible</option>
                     </select>
                 </div>
 
                 <div class="form-group">
-                    <label for="description">Project Description *</label>
+                    <label for="description" data-key="lblProjDesc">Project Description *</label>
                     <textarea id="description" name="Project Description" rows="7" required placeholder="Briefly describe what you would like VIST-AI to evaluate."></textarea>
                 </div>
 
                 <div class="form-consent">
                     <label>
                         <input type="checkbox" name="Consent" value="Client understands VIST-AI provides independent evaluation and does not guarantee a predetermined result." required>
-                        <span>I understand that VIST-AI provides an independent evaluation and does not guarantee a predetermined result.</span>
+                        <span data-key="consentText">I understand that VIST-AI provides an independent evaluation and does not guarantee a predetermined result.</span>
                     </label>
                 </div>
 
-                <button type="submit" class="assessment-submit">Request VIST-AI Assessment</button>
+                <button type="submit" class="assessment-submit" data-key="formSubmitBtn">Request VIST-AI Assessment</button>
                 <div class="form-note" id="formSuccessMsg" style="display:none; color: #38bdf8; font-weight: bold; margin-top: 15px;"></div>
             </form>
         </div>
@@ -646,8 +629,8 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
         <p class="email">2nddavinci69@gmail.com</p>
 
         <div class="research-notice">
-            <strong>Professional Evaluation:</strong>
-            For commercial AI evaluation requests, please use the <strong>Request a VIST-AI Assessment</strong> form above so that the evaluation scope can be reviewed before quotation.
+            <strong data-key="noticeTitle">Professional Evaluation:</strong>
+            <span data-key="noticeText">For commercial AI evaluation requests, please use the <strong>Request a VIST-AI Assessment</strong> form above so that the evaluation scope can be reviewed before quotation.</span>
         </div>
     </div>
 
@@ -661,8 +644,8 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
     <!-- FOOTER -->
     <div class="footer-box">
         <p>&copy; 2026 VIST-AI Framework. All Rights Reserved.</p>
-        <p><strong>Founder:</strong> Mushtaque Ahmed Rajput</p>
-        <p>Open Framework for Visual Grounding & Geometric Robustness Evaluation</p>
+        <p><strong data-key="footerFounder">Founder:</strong> Mushtaque Ahmed Rajput</p>
+        <p data-key="footerSub">Open Framework for Visual Grounding & Geometric Robustness Evaluation</p>
     </div>
 
 </div>
@@ -674,7 +657,7 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
             subtitle: "Visual Grounding, Geometric Robustness & Multilingual AI Evaluation",
             headerDesc: "An open research framework and live utility for investigating how multimodal AI systems interpret controlled visual, geometric, mirrored, and multilingual test specimens.",
             badge: "OPEN RESEARCH & AI EVALUATION FRAMEWORK",
-            navImg: "Image Mirror", navText: "Text Mirror", navMethod: "Methodology", navGuide: "Testing Guide", navRecord: "Observation Record", navContact: "Contact",
+            navImg: "Image Mirror", navText: "Text Mirror", navMethod: "Methodology", navGuide: "Testing Guide", navRecord: "Observation Record", navServices: "Services", navReq: "Request Assessment", navContact: "Contact",
             sec1Title: "1. Live Image Mirror Tool",
             sec1Desc: "Upload a normal writing image to generate a horizontally mirrored test specimen for controlled visual evaluation.",
             uploadLabel: "Upload Normal Writing Image",
@@ -703,18 +686,47 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
             recTitle: "5. VIST-AI Observation Record",
             recDesc: "For reproducible research, record the same basic information for every test.",
             rec1: "Test ID", rec2: "Test Date", rec3: "AI System / Model", rec4: "Input Type", rec5: "Transformation", rec6: "Prompt", rec7: "Observed Output", rec8: "Ground-Truth Comparison",
+            servBadge: "PROFESSIONAL AI EVALUATION SERVICES",
+            servMainTitle: "VIST-AI Professional AI Evaluation",
+            servMainDesc: "Independent, structured, and evidence-oriented evaluation of multimodal AI behavior under controlled visual, geometric, mirrored, transformed, and multilingual conditions.",
+            s1Title: "Basic Evaluation", priceStart: "Starting from", s1Desc: "A focused evaluation for clients who need an initial assessment of a multimodal AI system.",
+            s1l1: "Up to 10 controlled test cases", s1l2: "Visual and geometric testing", s1l3: "Mirrored or transformed specimens", s1l4: "Ground-truth comparison", s1l5: "Basic findings", s1l6: "Short evaluation summary", s1Btn: "Request Basic Evaluation",
+            recLabel: "RECOMMENDED",
+            s2Title: "Professional Forensic Assessment", s2Desc: "A structured VIST-AI assessment designed for deeper research, documentation, and professional reporting.",
+            s2l1: "30–50 controlled test cases", s2l2: "Multiple visual conditions", s2l3: "Multilingual / multi-script specimens", s2l4: "Multiple prompts", s2l5: "Repeated trials", s2l6: "Ground-truth comparison", s2l7: "Evidence screenshots", s2l8: "Reproducibility analysis", s2l9: "Professional PDF report", s2Btn: "Request Professional Assessment",
+            s3Title: "Custom AI Stress Testing", customQuote: "Custom Quote", s3Desc: "Custom evaluation designed around a client's own AI system, specimens, models, prompts, or research objectives.",
+            s3l1: "Custom test specimens", s3l2: "Custom transformations", s3l3: "Custom prompt design", s3l4: "Multiple AI models", s3l5: "Comparative testing", s3l6: "Specialized analysis", s3l7: "Custom reporting", s3Btn: "Request Custom Quote",
+            s4Title: "Enterprise & Research Evaluation", s4Desc: "Larger evaluation programs for AI companies, research organizations, universities, laboratories, and enterprise teams.",
+            s4l1: "Large-scale test programs", s4l2: "Custom benchmark development", s4l3: "Multi-model evaluation", s4l4: "Multilingual testing", s4l5: "Repeated controlled trials", s4l6: "Technical reporting", s4l7: "Executive summary", s4l8: "Research documentation", s4Btn: "Contact for Enterprise Quote",
+            ctaTitle: "Need a Deeper AI Evaluation?", ctaDesc: "Request a VIST-AI assessment for your AI system, multimodal model, research project, or custom visual evaluation requirement.", ctaBtn: "Request a VIST-AI Assessment",
+            discTitle: "Commercial Evaluation Note:", discText: "VIST-AI assessments are evidence-oriented evaluations. The evaluation process does not assume that an AI system will fail. Findings are based on the defined test scope, observed model outputs, ground-truth comparison, repeated trials where applicable, and documented limitations. Prices shown are indicative starting prices and may vary according to project scope, number of specimens, models, repetitions, reporting requirements, and delivery timeline.",
+            formHeaderSpan: "PROFESSIONAL EVALUATION REQUEST",
+            formMainTitle: "Request a VIST-AI Assessment",
+            formMainDesc: "Tell us about your AI system and evaluation requirements. We will review your request and propose an appropriate VIST-AI evaluation scope.",
+            lblFullName: "Full Name *", lblOrg: "Organization / Company", lblEmail: "Work Email *", lblModel: "AI System / Model *",
+            lblEvalType: "Evaluation Type *", lblTestCases: "Approximate Test Cases", lblNumModels: "Number of AI Models", lblTrials: "Repeated Trials",
+            lblPDF: "Professional PDF Report Required?", lblTimeline: "Desired Timeline", lblProjDesc: "Project Description *",
+            optSelectArea: "Select evaluation area", optVisual: "Visual Grounding", optGeo: "Geometric Robustness", optMulti: "Multilingual / OCR", optImgUnd: "Image Understanding", optModelComp: "Model Comparison", optStress: "Custom AI Stress Testing",
+            optSelectQty: "Select quantity", opt1Model: "1 Model", opt2Models: "2 Models", opt35Models: "3–5 Models", opt5PlusModels: "5+ Models",
+            optSingleTrial: "Single Trial", opt3Trials: "3 Trials", opt5Trials: "5 Trials", opt10Trials: "10+ Trials",
+            optYes: "Yes", optNo: "No", optNotSure: "Not Sure",
+            optSelectTimeline: "Select timeline", optASAP: "As soon as possible", opt12Weeks: "1–2 weeks", opt24Weeks: "2–4 weeks", optFlexible: "Flexible",
+            consentText: "I understand that VIST-AI provides an independent evaluation and does not guarantee a predetermined result.",
+            formSubmitBtn: "Request VIST-AI Assessment",
             contactTitle: "8. Contact VIST-AI",
             contactDesc: "For research collaboration, custom mirror-writing specimens, multilingual test material, professional AI evaluation, or VIST-AI framework discussion, contact:",
+            noticeTitle: "Professional Evaluation:", noticeText: "For commercial AI evaluation requests, please use the Request a VIST-AI Assessment form above so that the evaluation scope can be reviewed before quotation.",
             aboutTitle: "About VIST-AI",
             aboutDesc1: "VIST-AI is an open research and evaluation framework focused on visual grounding, geometric transformations, multilingual writing systems, and observable multimodal AI behavior.",
-            aboutDesc2: "The framework is intended to support controlled experiments, reproducibility, comparative testing, and forensic-style analysis of model outputs."
+            aboutDesc2: "The framework is intended to support controlled experiments, reproducibility, comparative testing, and forensic-style analysis of model outputs.",
+            footerFounder: "Founder:", footerSub: "Open Framework for Visual Grounding & Geometric Robustness Evaluation"
         },
         ja: {
             title: "グローバルフォレンジックAIテスター",
             subtitle: "視覚的グラウンディング、幾何学的堅牢性、および多言語AI評価",
             headerDesc: "マルチモーダルAIシステムが制御された視覚的、幾何学的、ミラー化された、および多言語のテスト標本をどのように解釈するかを調査するためのオープンリサーチフレームワーク。",
             badge: "オープンリサーチおよびAI評価フレームワーク",
-            navImg: "画像ミラー", navText: "テキストミラー", navMethod: "方法論", navGuide: "テストガイド", navRecord: "観察記録", navContact: "お問い合わせ",
+            navImg: "画像ミラー", navText: "テキストミラー", navMethod: "方法論", navGuide: "テストガイド", navRecord: "観察記録", navServices: "サービス", navReq: "評価をリクエスト", navContact: "お問い合わせ",
             sec1Title: "1. ライブ画像ミラーツール",
             sec1Desc: "通常の文字画像をアップロードして、制御された視覚評価用の水平反転テスト標本を生成します。",
             uploadLabel: "通常の文字画像をアップロード",
@@ -743,18 +755,47 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
             recTitle: "5. VIST-AI 観察記録",
             recDesc: "再現可能な研究のために、すべてのテストで同じ基本情報を記録します。",
             rec1: "テストID", rec2: "テスト日", rec3: "AIシステム/モデル", rec4: "入力タイプ", rec5: "変換", rec6: "プロンプト", rec7: "観察された出力", rec8: "グラウンド真実比較",
+            servBadge: "プロフェッショナルAI評価サービス",
+            servMainTitle: "VIST-AI プロフェッショナルAI評価",
+            servMainDesc: "制御された視覚的、幾何学的、ミラー化された、変換された、および多言語の条件下でのマルチモーダルAI行動の独立した、構造化された、証拠指向の評価。",
+            s1Title: "基本評価", priceStart: "開始価格", s1Desc: "マルチモーダルAIシステムの初期評価を必要とするクライアント向けの集中的な評価。",
+            s1l1: "最大10個の制御されたテストケース", s1l2: "視覚および幾何学的テスト", s1l3: "ミラー化または変換された標本", s1l4: "グラウンド真実比較", s1l5: "基本的な所見", s1l6: "短い評価サマリー", s1Btn: "基本評価をリクエスト",
+            recLabel: "推奨",
+            s2Title: "プロフェッショナルフォレンジックアセスメント", s2Desc: "より深い研究、ドキュメント、プロフェッショナルな報告のために設計された構造化されたVIST-AI評価。",
+            s2l1: "30〜50個の制御されたテストケース", s2l2: "複数の視覚条件", s2l3: "多言語/マルチスクリプト標本", s2l4: "複数のプロンプト", s2l5: "繰り返しの試行", s2l6: "グラウンド真実比較", s2l7: "証拠のスクリーンショット", s2l8: "再現性の分析", s2l9: "プロフェッショナルPDFレポート", s2Btn: "プロフェッショナル評価をリクエスト",
+            s3Title: "カスタムAIストレステスト", customQuote: "カスタム見積もり", s3Desc: "クライアント自身のAIシステム、標本、モデル、プロンプト、または研究目的に合わせて設計されたカスタム評価。",
+            s3l1: "カスタムテスト標本", s3l2: "カスタム変換", s3l3: "カスタムプロンプト設計", s3l4: "複数のAIモデル", s3l5: "比較テスト", s3l6: "専門的な分析", s3l7: "カスタムレポート", s3Btn: "カスタム見積もりをリクエスト",
+            s4Title: "企業および研究評価", s4Desc: "AI企業、研究機関、大学、研究所、エンタープライズチーム向けのより大規模な評価プログラム。",
+            s4l1: "大規模なテストプログラム", s4l2: "カスタムベンチマーク開発", s4l3: "マルチモデル評価", s4l4: "多言語テスト", s4l5: "繰り返しの制御された試行", s4l6: "技術レポート", s4l7: "エグゼクティブサマリー", s4l8: "研究ドキュメント", s4Btn: "企業向け見積もりのお問い合わせ",
+            ctaTitle: "より深いAI評価が必要ですか？", ctaDesc: "AIシステム、マルチモーダルモデル、研究プロジェクト、またはカスタム視覚評価要件に対するVIST-AI評価をリクエストしてください。", ctaBtn: "VIST-AI評価をリクエスト",
+            discTitle: "商業的評価の注意点:", discText: "VIST-AI評価は証拠指向の評価です。評価プロセスは、AIシステムが失敗することを前提としていません。結果は、定義されたテスト範囲、観察されたモデル出力、グラウンド真実比較、適用可能な場合の繰り返しの試行、および文書化された制限に基づいています。表示されている価格は参考の開始価格であり、プロジェクトの範囲、標本の数、モデル、繰り返し、報告要件、および納品スケジュールによって異なる場合があります。",
+            formHeaderSpan: "プロフェッショナル評価リクエスト",
+            formMainTitle: "VIST-AI評価をリクエストする",
+            formMainDesc: "AIシステムと評価要件についてお知らせください。リクエストを確認し、適切なVIST-AI評価スコープを提案します。",
+            lblFullName: "フルネーム *", lblOrg: "組織 / 会社名", lblEmail: "仕事用メール *", lblModel: "AIシステム / モデル *",
+            lblEvalType: "評価タイプ *", lblTestCases: "おおよそのテストケース", lblNumModels: "AIモデルの数", lblTrials: "繰り返しの試行",
+            lblPDF: "プロフェッショナルPDFレポートが必要ですか？", lblTimeline: "希望するタイムライン", lblProjDesc: "プロジェクトの説明 *",
+            optSelectArea: "評価分野を選択", optVisual: "視覚的グラウンディング", optGeo: "幾何学的堅牢性", optMulti: "多言語 / OCR", optImgUnd: "画像理解", optModelComp: "モデル比較", optStress: "カスタムAIストレステスト",
+            optSelectQty: "数量を選択", opt1Model: "1モデル", opt2Models: "2モデル", opt35Models: "3〜5モデル", opt5PlusModels: "5+モデル",
+            optSingleTrial: "単一の試行", opt3Trials: "3回の試行", opt5Trials: "5回の試行", opt10Trials: "10+回の試行",
+            optYes: "はい", optNo: "いいえ", optNotSure: "わからない",
+            optSelectTimeline: "タイムラインを選択", optASAP: "できるだけ早く", opt12Weeks: "1〜2週間", opt24Weeks: "2〜4週間", optFlexible: "柔軟",
+            consentText: "VIST-AIが独立した評価を提供し、あらかじめ決定された結果を保証しないことを理解しています。",
+            formSubmitBtn: "VIST-AI評価をリクエスト",
             contactTitle: "8. VIST-AIへのお問い合わせ",
-            contactDesc: "研究協力やVIST-AIフレームワークについては、以下にお問い合わせください：",
+            contactDesc: "研究協力、カスタムミラーライティング標本、多言語テスト資料、プロフェッショナルAI評価、またはVIST-AIフレームワークの議論については、以下にお問い合わせください：",
+            noticeTitle: "プロフェッショナル評価:", noticeText: "商業的なAI評価リクエストについては、見積もり前に評価範囲を確認できるよう、上記の「VIST-AI評価をリクエスト」フォームを使用してください。",
             aboutTitle: "VIST-AIについて",
             aboutDesc1: "VIST-AIは、視覚的グラウンディング、幾何学的変換、多言語書記体系、および観察可能なマルチモーダルAI動作に焦点を当てたオープンな研究および評価フレームワークです。",
-            aboutDesc2: "このフレームワークは、制御された実験と再現性をサポートすることを目的としています。"
+            aboutDesc2: "このフレームワークは、制御された実験と再現性をサポートすることを目的としています。",
+            footerFounder: "創設者:", footerSub: "視覚的グラウンディングおよび幾何学的堅牢性評価のためのオープンフレームワーク"
         },
         ru: {
             title: "Глобальный тестер судебной экспертизы ИИ",
             subtitle: "Визуальное обоснование, геометрическая устойчивость и многоязычная оценка ИИ",
             headerDesc: "Открытая исследовательская платформа и утилита для изучения того, как мультимодальные системы ИИ интерпретируют контролируемые визуальные, геометрические и зеркальные тестовые образцы.",
             badge: "ОТКРЫТАЯ ИССЛЕДОВАТЕЛЬСКАЯ ПЛАТФОРМА",
-            navImg: "Зеркало картинок", navText: "Зеркало текста", navMethod: "Методология", navGuide: "Руководство", navRecord: "Запись наблюдений", navContact: "Контакты",
+            navImg: "Зеркало картинок", navText: "Зеркало текста", navMethod: "Методология", navGuide: "Руководство", navRecord: "Запись наблюдений", navServices: "Услуги", navReq: "Запросить оценку", navContact: "Контакты",
             sec1Title: "1. Инструмент зеркального отражения изображений",
             sec1Desc: "Загрузите обычное изображение для создания горизонтально зеркального тестового образца.",
             uploadLabel: "Загрузить изображение",
@@ -783,18 +824,47 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
             recTitle: "5. Запись наблюдений VIST-AI",
             recDesc: "Для воспроизводимых исследований записывайте базовую информацию для каждого теста.",
             rec1: "ID теста", rec2: "Дата теста", rec3: "Система / Модель", rec4: "Тип ввода", rec5: "Трансформация", rec6: "Промпт", rec7: "Вывод", rec8: "Сравнение с эталоном",
+            servBadge: "ПРОФЕССИОНАЛЬНЫЕ УСЛУГИ ОЦЕНКИ ИИ",
+            servMainTitle: "Профессиональная оценка ИИ VIST-AI",
+            servMainDesc: "Независимая, структурированная и ориентированная на доказательства оценка поведения мультимодального ИИ в контролируемых условиях.",
+            s1Title: "Базовая оценка", priceStart: "От", s1Desc: "Целевая оценка для клиентов, которым требуется первичная оценка системы мультимодального ИИ.",
+            s1l1: "До 10 контролируемых тестовых случаев", s1l2: "Визуальное и геометрическое тестирование", s1l3: "Зеркальные или преобразованные образцы", s1l4: "Сравнение с эталоном", s1l5: "Основные выводы", s1l6: "Краткое резюме оценки", s1Btn: "Запросить базовую оценку",
+            recLabel: "РЕКОМЕНДУЕТСЯ",
+            s2Title: "Профессиональная судебная экспертиза", s2Desc: "Структурированная оценка VIST-AI, разработанная для более глубоких исследований и профессиональной отчетности.",
+            s2l1: "30–50 контролируемых тестовых случаев", s2l2: "Множественные визуальные условия", s2l3: "Многоязычные образцы", s2l4: "Несколько промптов", s2l5: "Повторные испытания", s2l6: "Сравнение с эталоном", s2l7: "Скриншоты доказательств", s2l8: "Анализ воспроизводимости", s2l9: "Профессиональный PDF-отчет", s2Btn: "Запросить профессиональную оценку",
+            s3Title: "Пользовательское стресс-тестирование ИИ", customQuote: "Индивидуальная цена", s3Desc: "Индивидуальная оценка, разработанная вокруг собственной системы ИИ клиента, образцов, моделей и целей.",
+            s3l1: "Пользовательские тестовые образцы", s3l2: "Пользовательские трансформации", s3l3: "Разработка пользовательских промптов", s3l4: "Несколько моделей ИИ", s3l5: "Сравнительное тестирование", s3l6: "Специализированный анализ", s3l7: "Пользовательская отчетность", s3Btn: "Запросить индивидуальную цену",
+            s4Title: "Корпоративная и исследовательская оценка", s4Desc: "Крупные программы оценки для компаний, исследовательских организаций и корпоративных команд.",
+            s4l1: "Масштабные тестовые программы", s4l2: "Разработка пользовательских бенчмарков", s4l3: "Многомодельная оценка", s4l4: "Многоязычное тестирование", s4l5: "Повторные контролируемые испытания", s4l6: "Техническая отчетность", s4l7: "Исполнительное резюме", s4l8: "Исследовательская документация", s4Btn: "Связаться для корпоративного запроса",
+            ctaTitle: "Нужна более глубокая оценка ИИ?", ctaDesc: "Запросите оценку VIST-AI для вашей системы ИИ, мультимодальной модели или исследовательского проекта.", ctaBtn: "Запросить оценку VIST-AI",
+            discTitle: "Примечание к коммерческой оценке:", discText: "Оценки VIST-AI ориентированы на доказательства. Процесс оценки не предполагает сбой системы ИИ. Выводы основаны на определенном объеме тестов, наблюдаемых результатах модели, сравнении с эталоном и задокументированных ограничениях. Указанные цены являются ориентировочными и могут варьироваться.",
+            formHeaderSpan: "ЗАПРОС ПРОФЕССИОНАЛЬНОЙ ОЦЕНКИ",
+            formMainTitle: "Запросить оценку VIST-AI",
+            formMainDesc: "Расскажите нам о вашей системе ИИ и требованиях к оценке. Мы рассмотрим ваш запрос и предложим подходящий объем оценки VIST-AI.",
+            lblFullName: "Полное имя *", lblOrg: "Организация / Компания", lblEmail: "Рабочий email *", lblModel: "Система ИИ / Модель *",
+            lblEvalType: "Тип оценки *", lblTestCases: "Приблизительное количество тестов", lblNumModels: "Количество моделей ИИ", lblTrials: "Повторные испытания",
+            lblPDF: "Требуется профессиональный PDF-отчет?", lblTimeline: "Желаемые сроки", lblProjDesc: "Описание проекта *",
+            optSelectArea: "Выберите область оценки", optVisual: "Визуальное обоснование", optGeo: "Геометрическая устойчивость", optMulti: "Многоязычный / OCR", optImgUnd: "Понимание изображений", optModelComp: "Сравнение моделей", optStress: "Пользовательское стресс-тестирование",
+            optSelectQty: "Выберите количество", opt1Model: "1 модель", opt2Models: "2 модели", opt35Models: "3–5 моделей", opt5PlusModels: "5+ моделей",
+            optSingleTrial: "Один тест", opt3Trials: "3 теста", opt5Trials: "5 тестов", opt10Trials: "10+ тестов",
+            optYes: "Да", optNo: "Нет", optNotSure: "Не уверен",
+            optSelectTimeline: "Выберите сроки", optASAP: "Как можно скорее", opt12Weeks: "1–2 недели", opt24Weeks: "2–4 недели", optFlexible: "Гибко",
+            consentText: "Я понимаю, что VIST-AI предоставляет независимую оценку и не гарантирует заранее определенный результат.",
+            formSubmitBtn: "Запросить оценку VIST-AI",
             contactTitle: "8. Контакты VIST-AI",
-            contactDesc: "Для сотрудничества и вопросов обращайтесь:",
+            contactDesc: "Для исследовательского сотрудничества, индивидуальных образцов зеркального письма, многоязычных тестовых материалов или обсуждения платформы VIST-AI обращайтесь:",
+            noticeTitle: "Профессиональная оценка:", noticeText: "Для запросов коммерческой оценки используйте форму «Запросить оценку VIST-AI» выше, чтобы объем оценки можно было рассмотреть до выставления счета.",
             aboutTitle: "О VIST-AI",
             aboutDesc1: "VIST-AI — это открытая исследовательская и оценочная платформа, ориентированная на визуальное обоснование, геометрические преобразования и наблюдаемое поведение мультимодального ИИ.",
-            aboutDesc2: "Платформа предназначена для поддержки контролируемых экспериментов."
+            aboutDesc2: "Платформа предназначена для поддержки контролируемых экспериментов.",
+            footerFounder: "Основатель:", footerSub: "Открытая платформа для оценки визуального обоснования и геометрической устойчивости"
         },
         ar: {
             title: "مختبر الذكاء الاصطناعي الجنائي العالمي",
             subtitle: "الأساس البصري، المتانة الهندسية، وتقييم الذكاء الاصطناعي متعدد اللغات",
             headerDesc: "إطار بحثي مفتوح وأداة حية للتحقيق في كيفية تفسير أنظمة الذكاء الاصطناعي متعددة الوسائط للعينات البصرية والهندسية والمرايا.",
             badge: "إطار بحثي وتقييم مفتوح",
-            navImg: "مرآة الصور", navText: "مرآة النص", navMethod: "المنهجية", navGuide: "دليل الاختبار", navRecord: "سجل الملاحظات", navContact: "اتصل بنا",
+            navImg: "مرآة الصور", navText: "مرآة النص", navMethod: "المنهجية", navGuide: "دليل الاختبار", navRecord: "سجل الملاحظات", navServices: "الخدمات", navReq: "طلب التقييم", navContact: "اتصل بنا",
             sec1Title: "1. أداة مرآة الصور الحية",
             sec1Desc: "قم بتحميل صورة كتابة عادية لتوليد عينة اختبار معكوسة أفقياً للتقييم البصري.",
             uploadLabel: "تحميل صورة الكتابة العادية",
@@ -823,18 +893,47 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
             recTitle: "5. سجل ملاحظات VIST-AI",
             recDesc: "للبحوث القابلة للاستنسخ، سجل المعلومات الأساسية لكل اختبار.",
             rec1: "معرف الاختبار", rec2: "تاريخ الاختبار", rec3: "النظام / النموذج", rec4: "نوع الإدخال", rec5: "التحويل", rec6: "الموجه", rec7: "الناتج الملاحظ", rec8: "مقارنة الحقيقة الأساسية",
-            contactTitle: "8. اتصل بـ VIST-AI",
-            contactDesc: "للتعاون البحثي أو الاستفسارات، اتصل بـ:",
+            servBadge: "خدمات تقييم الذكاء الاصطناعي الاحترافية",
+            servMainTitle: "تقييم الذكاء الاصطناعي الاحترافي VIST-AI",
+            servMainDesc: "تقييم مستقل ومنظم وقائم على الأدلة لسلوك الذكاء الاصطناعي متعدد الوسائط في ظل ظروف بصرية وهندسية ومرايا.",
+            s1Title: "التقييم الأساسي", priceStart: "ابتداءً من", s1Desc: "تقييم مركز للعملاء الذين يحتاجون إلى تقييم أولي لنظام الذكاء الاصطناعي متعدد الوسائط.",
+            s1l1: "ما يصل إلى 10 حالات اختبار خاضعة للرقابة", s1l2: "الاختبار البصري والهندسي", s1l3: "عينات معكوسة أو محولة", s1l4: "مقارنة الحقيقة الأساسية", s1l5: "النتائج الأساسية", s1l6: "ملخص تقييم قصير", s1Btn: "طلب التقييم الأساسي",
+            recLabel: "موصى به",
+            s2Title: "التقييم الجنائي المهني", s2Desc: "تقييم منظم لـ VIST-AI مصمم للبحث العميق والتوتر والتقارير المهنية.",
+            s2l1: "30-50 حالة اختبار خاضعة للرقابة", s2l2: "ظروف بصرية متعددة", s2l3: "عينات متعددة اللغات", s2l4: "موجهين متعددين", s2l5: "محاولات متكررة", s2l6: "مقارنة الحقيقة الأساسية", s2l7: "لقطات الشاشة للأدلة", s2l8: "تحليل إمكانية التكرار", s2l9: "تقرير PDF احترافي", s2Btn: "طلب التقييم المهني",
+            s3Title: "اختبار إجهاد الذكاء الاصطناعي المخصص", customQuote: "عرض سعر مخصص", s3Desc: "تقييم مخصص مصمم حول نظام الذكاء الاصطناعي الخاص بالعميل والعينا والنموذج.",
+            s3l1: "عينات اختبار مخصصة", s3l2: "تحويلات مخصصة", s3l3: "تصميم موجه مخصص", s3l4: "نماذج ذكاء اصطناعي متعددة", s3l5: "الاختبار المقارن", s3l6: "تحليل متخصص", s3l7: "تقارير مخصصة", s3Btn: "طلب عرض سعر مخصص",
+            s4Title: "تقييم الشركات والأبحاث", s4Desc: "برامج تقييم أكبر لشركات الذكاء الاصطناعي والمنظمات البحثية والفرق المؤسسية.",
+            s4l1: "برامج اختبار واسعة النطاق", s4l2: "تطوير معايير مخصصة", s4l3: "تقييم نماذج متعددة", s4l4: "الاختبار متعدد اللغات", s4l5: "محاولات خاضعة للرقابة متكررة", s4l6: "التقارير الفنية", s4l7: "الملخص التنفيذي", s4l8: "التوثيق البحثي", s4Btn: "الاتصال لطلب عرض للشركات",
+            ctaTitle: "هل تحتاج إلى تقييم أعمق للذكاء الاصطناعي؟", ctaDesc: "اطلب تقييم VIST-AI لنظام الذكاء الاصطناعي أو النموذج المتعدد الوسائط أو مشروع البحث الخاص بك.", ctaBtn: "طلب تقييم VIST-AI",
+            discTitle: "ملاحظة التقييم التجاري:", discText: "تقييمات VIST-AI هي تقييمات موجهة نحو الأدلة. لا يفترض عملية التقييم أن نظام الذكاء الاصطناعي سيفشل. تستند النتائج إلى نطاق الاختبار المحدد ومخرجات النموذج الملاحظة ومقارنة الحقيقة الأساسية والمحاولات المتكررة والقيود الموثقة. الأسعار المعروضة هي أسعار بداية إرشادية وقد تختلف.",
+            formHeaderSpan: "طلب التقييم المهني",
+            formMainTitle: "طلب تقييم VIST-AI",
+            formMainDesc: "أخبرنا عن نظام الذكاء الاصطناعي الخاص بك ومتطلبات التقييم. سنراجع طلبك ونقترح نطاق تقييم VIST-AI المناسب.",
+            lblFullName: "الاسم الكامل *", lblOrg: "المؤسسة / الشركة", lblEmail: "البريد الإلكتروني للعمل *", lblModel: "نظام الذكاء الاصطناعي / النموذج *",
+            lblEvalType: "نوع التقييم *", lblTestCases: "حالات الاختبار التقريبية", lblNumModels: "عدد نماذج الذكاء الاصطناعي", lblTrials: "المحاولات المتكررة",
+            lblPDF: "هل يلزم تقرير PDF احترافي؟", lblTimeline: "الجدول الزمني المطلوب", lblProjDesc: "وصف المشروع *",
+            optSelectArea: "حدد مجال التقييم", optVisual: "الأساس البصري", optGeo: "المتانة الهندسية", optMulti: "متعدد اللغات / OCR", optImgUnd: "فهم الصور", optModelComp: "مقارنة النموذج", optStress: "اختبار إجهاد الذكاء الاصطناعي المخصص",
+            optSelectQty: "حدد الكمية", opt1Model: "نموذج واحد", opt2Models: "نموذجان", opt35Models: "3-5 نماذج", opt5PlusModels: "5+ نماذج",
+            optSingleTrial: "محاولة واحدة", opt3Trials: "3 محاولات", opt5Trials: "5 محاولات", opt10Trials: "10+ محاولات",
+            optYes: "نعم", optNo: "لا", optNotSure: "لست متأكداً",
+            optSelectTimeline: "حدد الجدول الزمني", optASAP: "في أقرب وقت ممكن", opt12Weeks: "1-2 أسابيع", opt24Weeks: "2-4 أسابيع", optFlexible: "مرن",
+            consentText: "أتفهم أن VIST-AI توفر تقييماً مستقلاً ولا تضمن نتيجة محددة سلفاً.",
+            formSubmitBtn: "طلب تقييم VIST-AI",
+            contactTitle: "8. الاتصال بـ VIST-AI",
+            contactDesc: "للتعاون البحثي أو عينات الكتابة بالمرايا المخصصة أو مواد الاختبار متعددة اللغات أو تقييم الذكاء الاصطناعي المهني، اتصل بـ:",
+            noticeTitle: "التقييم المهني:", noticeText: "لطلبات التقييم التجاري للذكاء الاصطناعي، يرجى استخدام نموذج «طلب تقييم VIST-AI» أعلاه حتى يمكن مراجعة نطاق التقييم قبل تقديم السعر.",
             aboutTitle: "حول VIST-AI",
             aboutDesc1: "VIST-AI هو إطار عمل بحثي وتقييمي مفتوح يركز على الأساس البصري والتحويلات الهندسية وسلوك الذكاء الاصطناعي متعدد الوسائط.",
-            aboutDesc2: "يهدف الإطار إلى دعم التجارب الخاضعة للرقابة وإمكانية التكرار."
+            aboutDesc2: "يهدف الإطار إلى دعم التجارب الخاضعة للرقابة وإمكانية التكرار.",
+            footerFounder: "المؤسس:", footerSub: "إطار عمل مفتوح لتقييم الأساس البصري والمتانة الهندسية"
         },
         he: {
             title: "בודק בינה מלאכותית פורנסית גלובלי",
             subtitle: "עיגון חזותי, חוסן גיאומטרי והערכת בינה מלאכותית רב-לשונית",
             headerDesc: "מסגרת מחקר פתוחה וכלי חי לבחינת האופן שבו מערכות בינה מלאכותית מפרשות דגימות בדיקה חזותיות, גיאומטריות ומראות.",
             badge: "מסגרת מחקר והערכת בינה מלאכותית פתוחה",
-            navImg: "מראת תמונות", navText: "מראת טקסט", navMethod: "מתודולוגיה", navGuide: "מדריך בדיקה", navRecord: "רישום תצפית", navContact: "יצירת קשר",
+            navImg: "מראת תמונות", navText: "מראת טקסט", navMethod: "מתודולוגיה", navGuide: "מדריך בדיקה", navRecord: "רישום תצפית", navServices: "שירותים", navReq: "בקש הערכה", navContact: "צור קשר",
             sec1Title: "1. כלי מראת תמונות חי",
             sec1Desc: "העלה תמונת כתיבה רגילה כדי ליצור דגימת בדיקה הפוכה אופקית.",
             uploadLabel: "העלה תמונת כתיבה רגילה",
@@ -863,18 +962,47 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
             recTitle: "5. רישום תצפית VIST-AI",
             recDesc: "למחקר ניתן לשחזור, רשום את אותו מידע בסיסי לכל בדיקה.",
             rec1: "מזהה בדיקה", rec2: "תאריך בדיקה", rec3: "מערכת / מודל", rec4: "סוג קלט", rec5: "טרנספורמציה", rec6: "הנחיה", rec7: "פלט שנצפה", rec8: "השוואת אמת-יסוד",
+            servBadge: "שירותי הערכת AI מקצועיים",
+            servMainTitle: "הערכת AI מקצועית VIST-AI",
+            servMainDesc: "הערכה עצמאית, מובנית ומבוססת ראיות של התנהגות AI רב-מודלית תחת תנאים מבוקרים.",
+            s1Title: "הערכה בסיסית", priceStart: "החל מ-", s1Desc: "הערכה ממוקדת ללקוחות הזקוקים להערכה ראשונית של מערכת AI רב-מודלית.",
+            s1l1: "עד 10 מקרי מבחן מבוקרים", s1l2: "בדיקות חזותיות וגיאומטריות", s1l3: "דגימות הפוכות או מותמרות", s1l4: "השוואת אמת-יסוד", s1l5: "ממצאים בסיסיים", s1l6: "סיכום הערכה קצר", s1Btn: "בקש הערכה בסיסית",
+            recLabel: "מומלץ",
+            s2Title: "הערכה פורנזית מקצועית", s2Desc: "הערכת VIST-AI מובנית המיועדת למחקר מעמיק, תיעוד ודיווח מקצועי.",
+            s2l1: "30–50 מקרי מבחן מבוקרים", s2l2: "תנאים חזותיים מרובים", s2l3: "דגימות רב-לשוניות", s2l4: "הנחיות מרובות", s2l5: "ניסיונות חוזרים", s2l6: "השוואת אמת-יסוד", s2l7: "צילומי מסך של ראיות", s2l8: "ניתוח יכולת שחזור", s2l9: "דוח PDF מקצועי", s2Btn: "בקש הערכה מקצועית",
+            s3Title: "בדיקת מאמץ AI מותאمة", customQuote: "הצעת מחיר מותאמת", s3Desc: "הערכה מותאמת אישית המתוכננת סביב מערכת ה-AI של הלקוח, הדגימות והמודלים.",
+            s3l1: "דגימות בדיקה מותאמות", s3l2: "המרות מותאמות", s3l3: "עיצוב הנחיות מותאם", s3l4: "מודלי AI מרובים", s3l5: "בדיקות השוואתיות", s3l6: "ניתוח מומחה", s3l7: "דיווח מותאם", s3Btn: "בקש הצעת מחיר מותאמת",
+            s4Title: "הערכת ארגונים ומחקר", s4Desc: "תוכניות הערכה גדולות יותר עבור חברות AI, ארגוני מחקר וצוותים ארגוניים.",
+            s4l1: "תוכניות בדיקה בקנה מידה גדול", s4l2: "פיתוח מדדי השוואה מותאמים", s4l3: "הערכת מודלים מרובים", s4l4: "בדיקות רב-לשוניות", s4l5: "ניסיונות מבוקרים חוזרים", s4l6: "דיווח טכני", s4l7: "סיכום מנהלים", s4l8: "תיעוד מחקר", s4Btn: "צור קשר להצעת מחיר ארגונית",
+            ctaTitle: "צריך הערכת AI מעמיקה יותר?", ctaDesc: "בקש הערכה של VIST-AI עבור מערכת ה-AI, המודל רב-המודלי או פרויקט המחקר שלך.", ctaBtn: "בקש הערכת VIST-AI",
+            discTitle: "הערת הערכה מסחרית:", discText: "הערכות VIST-AI הן הערכות מבוסسات ראיות. תהליך ההערכה אינו מניח שמערכת AI תיכשל. הממצאים מבוססים על היקף הבדיקה המוגדר, פלט המודל הנצפה, השוואת אמת-יסוד, ניסיונות חוזרים והגבלות מתועדות. המחירים המוצגים הם מחירי התחלה אינדיקטיביים ועשויים להשתנות.",
+            formHeaderSpan: "בקשת הערכה מקצועית",
+            formMainTitle: "בקש הערכת VIST-AI",
+            formMainDesc: "סپر לנו על מערכת ה-AI שלך ודרישות ההערכה. נבחן את בקשתך ונציע היקף הערכת VIST-AI מתאים.",
+            lblFullName: "שם מלא *", lblOrg: "ארגון / חברה", lblEmail: "אימייל בעבודה *", lblModel: "מערכת AI / מודל *",
+            lblEvalType: "סוג הערכה *", lblTestCases: "מקרי מבחן משוערים", lblNumModels: "מספר מודלי AI", lblTrials: "ניסיונות חוזרים",
+            lblPDF: "נדרש דוח PDF מקצועי?", lblTimeline: "לוח זמנים רצוי", lblProjDesc: "תיאור הפרויקט *",
+            optSelectArea: "בחר תחום הערכה", optVisual: "עיגון חזותי", optGeo: "חוסן גיאומטרי", optMulti: "רב-לשוני / OCR", optImgUnd: "הבנת תמונות", optModelComp: "השוואת מודלים", optStress: "בדיקת מאמץ AI מותאמת",
+            optSelectQty: "בחר כמות", opt1Model: "מודל 1", opt2Models: "2 מודלים", opt35Models: "3–5 מודלים", opt5PlusModels: "5+ מודלים",
+            optSingleTrial: "ניסוי יחיד", opt3Trials: "3 ניסויים", opt5Trials: "5 ניסויים", opt10Trials: "10+ ניסויים",
+            optYes: "כן", optNo: "לא", optNotSure: "לא בטוח",
+            optSelectTimeline: "בחר לוח זמנים", optASAP: "בהקדם האפשרי", opt12Weeks: "1–2 שבועות", opt24Weeks: "2–4 שבועות", optFlexible: "גמיש",
+            consentText: "אני מבין ש-VIST-AI מספקת הערכה עצמאית ואינה מתחייבת לתוצאה מוגדרת מראש.",
+            formSubmitBtn: "בקש הערכת VIST-AI",
             contactTitle: "8. צור קשר עם VIST-AI",
-            contactDesc: "לשיתוף פעולה מחקרי, צור קשר:",
+            contactDesc: "לשיתוף פעולה מחקרי, דגימות כתיבת מראה מותאמות, חומרי בדיקה רב-לשוניים, הערכת AI מקצועית או דיון במסגרת VIST-AI, צור קשר:",
+            noticeTitle: "הערכה מקצועית:", noticeText: "לבקשות הערכה מסחרית של AI, אנא השתמש בטופס «בקש הערכת VIST-AI» לעיל כדי שניתן יהיה לבחון את היקף ההערכה לפני מתן הצעת מחיר.",
             aboutTitle: "אודות VIST-AI",
             aboutDesc1: "VIST-AI היא מסגרת מחקר והערכה פתוחה המתמקדת בעיגון חזותי, טרנספורמציות גיאומטריות והתנהגות ניתנת לתצפית של מערכות AI רב-מודליות.",
-            aboutDesc2: "המסגרת נועדה לתמוך בניסויים מבוקרים."
+            aboutDesc2: "המסגרת נועדה לתמוך בניסויים מבוקרים.",
+            footerFounder: "מייסד:", footerSub: "מסגרת פתוחה להערכת עיגון חזותי וחוסן גיאומטרי"
         },
         hi: {
             title: "ग्लोबल फ़ोरेंसिक एआई टेस्टर",
             subtitle: "विजुअल ग्राउंडिंग, ज्यामितीय मजबूती और बहुभाषी एआई मूल्यांकन",
             headerDesc: "यह जांचने के लिए एक खुला शोध ढांचा कि कैसे मल्टीमोडल एआई सिस्टम नियंत्रित दृश्यों और दर्पण नमूनों की व्याख्या करते हैं।",
             badge: "ओपन रिसर्च और एआई मूल्यांकन फ्रेमवर्क",
-            navImg: "इमेज मिरर", navText: "टेक्स्ट मिरर", navMethod: "कार्यप्रणाली", navGuide: "परीक्षण गाइड", navRecord: "अवलोकन रिकॉर्ड", navContact: "संपर्क करें",
+            navImg: "इमेज मिरर", navText: "टेक्स्ट मिरर", navMethod: "कार्यप्रणाली", navGuide: "परीक्षण गाइड", navRecord: "अवलोकन रिकॉर्ड", navServices: "सेवाएं", navReq: "मूल्यांकन का अनुरोध करें", navContact: "संपर्क करें",
             sec1Title: "1. लाइव इमेज मिरर टूल",
             sec1Desc: "नियंत्रित दृश्य मूल्यांकन के लिए क्षैतिज रूप से mirrored परीक्षण नमूना तैयार करने हेतु सामान्य लिखावट की छवि अपलोड करें।",
             uploadLabel: "सामान्य लिखावट की छवि अपलोड करें",
@@ -903,18 +1031,47 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
             recTitle: "5. VIST-AI अवलोकन रिकॉर्ड",
             recDesc: "पुनः पेश करने योग्य अनुसंधान के लिए, प्रत्येक परीक्षण के लिए समान बुनियादी जानकारी रिकॉर्ड करें।",
             rec1: "टेस्ट आईडी", rec2: "परीक्षण तिथि", rec3: "एआई सिस्टम / मॉडल", rec4: "इनपुट प्रकार", rec5: "परिवर्तन", rec6: "प्रॉम्प्ट", rec7: "देखा गया आउटपुट", rec8: "ग्राउंड-ट्रूथ तुलना",
+            servBadge: "पेशेवर एआई मूल्यांकन सेवाएं",
+            servMainTitle: "VIST-AI पेशेवर एआई मूल्यांकन",
+            servMainDesc: "नियंत्रित दृश्य, ज्यामितीय और बहुभाषी स्थितियों के तहत मल्टीमोडल एआई व्यवहार का स्वतंत्र, संरचित और साक्ष्य-उन्मुख मूल्यांकन।",
+            s1Title: "बुनियादी मूल्यांकन", priceStart: "से शुरू", s1Desc: "उन ग्राहकों के लिए एक केंद्रित मूल्यांकन जिन्हें मल्टीमोडल एआई सिस्टम के शुरुआती आकलन की आवश्यकता है।",
+            s1l1: "10 नियंत्रित परीक्षण मामले तक", s1l2: "दृश्य और ज्यामितीय परीक्षण", s1l3: "मिरर किए गए या रूपांतरित नमूने", s1l4: "ग्राउंड-ट्रूथ तुलना", s1l5: "बुनियादी निष्कर्ष", s1l6: "संक्षिप्त मूल्यांकन सारांश", s1Btn: "बुनियादी मूल्यांकन का अनुरोध करें",
+            recLabel: "अनुशंसित",
+            s2Title: "पेशेवर फ़ोरेंसिक असेसमेंट", s2Desc: "गहरे शोध, दस्तावेज़ीकरण और पेशेवर रिपोर्टिंग के लिए डिज़ाइन किया गया संरचित VIST-AI मूल्यांकन।",
+            s2l1: "30–50 नियंत्रित परीक्षण मामले", s2l2: "एकाधिक दृश्य स्थितियां", s2l3: "बहुभाषी नमूने", s2l4: "एकाधिक प्रॉम्प्ट", s2l5: "बार-बार परीक्षण", s2l6: "ग्राउंड-ट्रूथ तुलना", s2l7: "साक्ष्य स्क्रीनशॉट", s2l8: "पुनरुत्पादकता विश्लेषण", s2l9: "पेशेवर PDF रिपोर्ट", s2Btn: "पेशेवर मूल्यांकन का अनुरोध करें",
+            s3Title: "कस्टम एआई स्ट्रेस टेस्टिंग", customQuote: "कस्टम कोट", s3Desc: "ग्राहक के अपने एआई सिस्टम, नमूनों, मॉडल और शोध उद्देश्यों के आसपास डिज़ाइन किया गया कस्टम मूल्यांकन।",
+            s3l1: "कस्टम परीक्षण नमूने", s3l2: "कस्टम परिवर्तन", s3l3: "कस्टम प्रॉम्प्ट डिज़ाइन", s3l4: "एकाधिक एआई मॉडल", s3l5: "तुलनात्मक परीक्षण", s3l6: "विशेष विश्लेषण", s3l7: "कस्टम रिपोर्टिंग", s3Btn: "कस्टम कोट का अनुरोध करें",
+            s4Title: "एंटरप्राइज़ और अनुसंधान मूल्यांकन", s4Desc: "एआई कंपनियों, शोध संगठनों और एंटरप्राइज़ टीमों के लिए बड़े मूल्यांकन कार्यक्रम।",
+            s4l1: "बड़े पैमाने पर परीक्षण कार्यक्रम", s4l2: "कस्टम बेंचमार्क विकास", s4l3: "मल्टी-मॉडल मूल्यांकन", s4l4: "बहुभाषी परीक्षण", s4l5: "बार-बार नियंत्रित परीक्षण", s4l6: "तकनीकी रिपोर्टिंग", s4l7: "कार्यकारी सारांश", s4l8: "शोध दस्तावेज़ीकरण", s4Btn: "एंटरप्राइज़ कोट के लिए संपर्क करें",
+            ctaTitle: "गहरे एआई मूल्यांकन की आवश्यकता है?", ctaDesc: "अपने एआई सिस्टम, मल्टीमोडल मॉडल या शोध परियोजना के लिए VIST-AI मूल्यांकन का अनुरोध करें।", ctaBtn: "VIST-AI मूल्यांकन का अनुरोध करें",
+            discTitle: "वाणिज्यिक मूल्यांकन नोट:", discText: "VIST-AI मूल्यांकन साक्ष्य-उन्मुख मूल्यांकन हैं। मूल्यांकन प्रक्रिया यह मानकर नहीं चलती है कि एआई सिस्टम विफल हो जाएगा। निष्कर्ष परिभाषित परीक्षण दायरे, देखे गए मॉडल आउटपुट, ग्राउंड-ट्रूथ तुलना और प्रलेखित सीमाओं पर आधारित हैं। दिखाए गए मूल्य सांकेतिक शुरुआती मूल्य हैं और भिन्न हो सकते हैं।",
+            formHeaderSpan: "पेशेवर मूल्यांकन अनुरोध",
+            formMainTitle: "VIST-AI मूल्यांकन का अनुरोध करें",
+            formMainDesc: "हमें अपने एआई सिस्टम और मूल्यांकन आवश्यकताओं के बारे में बताएं। हम आपके अनुरोध की समीक्षा करेंगे और उपयुक्त VIST-AI मूल्यांकन दायरा प्रस्तावित करेंगे।",
+            lblFullName: "पूरा नाम *", lblOrg: "संगठन / कंपनी", lblEmail: "कार्य ईमेल *", lblModel: "एआई सिस्टम / मॉडल *",
+            lblEvalType: "मूल्यांकन प्रकार *", lblTestCases: "अनुमानित परीक्षण मामले", lblNumModels: "एआई मॉडल की संख्या", lblTrials: "बार-बार परीक्षण",
+            lblPDF: "पेशेवर PDF रिपोर्ट आवश्यक है?", lblTimeline: "वांछित समयसीमा", lblProjDesc: "परियोजना विवरण *",
+            optSelectArea: "मूल्यांकन क्षेत्र चुनें", optVisual: "विजुअल ग्राउंडिंग", optGeo: "ज्यामितीय मजबूती", optMulti: "बहुभाषी / OCR", optImgUnd: "छवि समझ", optModelComp: "मॉडल तुलना", optStress: "कस्टम एआई स्ट्रेस टेस्टिंग",
+            optSelectQty: "मात्रा चुनें", opt1Model: "1 मॉडल", opt2Models: "2 मॉडल", opt35Models: "3–5 मॉडल", opt5PlusModels: "5+ मॉडल",
+            optSingleTrial: "एकल परीक्षण", opt3Trials: "3 परीक्षण", opt5Trials: "5 परीक्षण", opt10Trials: "10+ परीक्षण",
+            optYes: "हाँ", optNo: "नहीं", optNotSure: "확신 없음",
+            optSelectTimeline: "समयसीमा चुनें", optASAP: "जितنی जल्दी हो सके", opt12Weeks: "1–2 सप्ताह", opt24Weeks: "2–4 सप्ताह", optFlexible: "लचीला",
+            consentText: "मैं समझता हूं कि VIST-AI एक स्वतंत्र मूल्यांकन प्रदान करता है और पूर्वনির্ধারিত परिणाम की गारंटी नहीं देता है।",
+            formSubmitBtn: "VIST-AI मूल्यांकन का अनुरोध करें",
             contactTitle: "8. VIST-AI से संपर्क करें",
-            contactDesc: "शोध सहयोग या चर्चा के लिए संपर्क करें:",
+            contactDesc: "शोध सहयोग, कस्टम मिरर-राइटिंग नमूनों, बहुभाषी परीक्षण सामग्री, पेशेवर एआई मूल्यांकन या VIST-AI फ्रेमवर्क चर्चा के लिए संपर्क करें:",
+            noticeTitle: "पेशेवर मूल्यांकन:", noticeText: "वाणिज्यिक एआई मूल्यांकन अनुरोधों के लिए, कृपया ऊपर दिए गए «VIST-AI मूल्यांकन का अनुरोध करें» फॉर्म का उपयोग करें ताकि कोटेशन से पहले मूल्यांकन के दायरे की समीक्षा की जा सके।",
             aboutTitle: "VIST-AI के बारे में",
             aboutDesc1: "VIST-AI एक खुला अनुसंधान और मूल्यांकन ढांचा है जो विजुअल ग्राउंडिंग, ज्यामितीय परिवर्तन और मल्टीमोडल AI व्यवहार पर केंद्रित है।",
-            aboutDesc2: "यह फ्रेमवर्क नियंत्रित प्रयोगों का समर्थन करने के लिए है।"
+            aboutDesc2: "यह फ्रेमवर्क नियंत्रित प्रयोगों का समर्थन करने के लिए है।",
+            footerFounder: "संस्थापक:", footerSub: "विजुअल ग्राउंडिंग और ज्यामितीय मजबूती मूल्यांकन के लिए खुला ढांचा"
         },
         ko: {
             title: "글로벌 포렌식 AI 테스터",
             subtitle: "시각적 접지, 기하학적 견고성 및 다국어 AI 평가",
             headerDesc: "멀티모달 AI 시스템이 제어된 시각적, 기하학적, 미러링된 테스트 표본을 해석하는 방법을 조사하기 위한 오픈 연구 프레임워크입니다.",
             badge: "오픈 연구 및 AI 평가 프레임워크",
-            navImg: "이미지 미러", navText: "텍스트 미러", navMethod: "방법론", navGuide: "테스트 가이드", navRecord: "관찰 기록", navContact: "연락처",
+            navImg: "이미지 미러", navText: "텍스트 미러", navMethod: "방법론", navGuide: "테스트 가이드", navRecord: "관찰 기록", navServices: "서비스", navReq: "평가 요청", navContact: "연락처",
             sec1Title: "1. 라이브 이미지 미러 툴",
             sec1Desc: "일반 필기 이미지를 업로드하여 제어된 시각적 평가를 위한 수평 미러링된 테스트 표본을 생성합니다.",
             uploadLabel: "일반 필기 이미지 업로드",
@@ -943,18 +1100,47 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
             recTitle: "5. VIST-AI 관찰 기록",
             recDesc: "재현 가능한 연구를 위해 모든 테스트에 대해 동일한 기본 정보를 기록하십시오.",
             rec1: "테스트 ID", rec2: "테스트 날짜", rec3: "AI 시스템 / 모델", rec4: "입력 유형", rec5: "변환", rec6: "프롬프트", rec7: "관찰된 출력", rec8: "정답 비교",
+            servBadge: "전문 AI 평가 서비스",
+            servMainTitle: "VIST-AI 전문 AI 평가",
+            servMainDesc: "제어된 시각적, 기하학적, 미러링된 조건 하에서 멀티모달 AI 행동에 대한 독립적이고 구조화된 증거 지향적 평가.",
+            s1Title: "기본 평가", priceStart: "시작 가격", s1Desc: "멀티모달 AI 시스템의 초기 평가가 필요한 클라이언트를 위한 집중 평가.",
+            s1l1: "최대 10개의 제어된 테스트 케이스", s1l2: "시각 및 기하학적 테스트", s1l3: "미러링 또는 변환된 표본", s1l4: "정답 비교", s1l5: "기본 결과", s1l6: "간단한 평가 요약", s1Btn: "기본 평가 요청",
+            recLabel: "추천",
+            s2Title: "전문 포렌식 평가", s2Desc: "더 깊은 연구, 문서화 및 전문적인 보고를 위해 설계된 구조화된 VIST-AI 평가.",
+            s2l1: "30–50개의 제어된 테스트 케이스", s2l2: "다양한 시각 조건", s2l3: "다국어 표본", s2l4: "여러 프롬프트", s2l5: "반복 시도", s2l6: "정답 비교", s2l7: "증거 스크린샷", s2l8: "재현성 분석", s2l9: "전문 PDF 보고서", s2Btn: "전문 평가 요청",
+            s3Title: "맞춤형 AI 스트레스 테스트", customQuote: "맞춤 견적", s3Desc: "클라이언트의 자체 AI 시스템, 표본, 모델 및 연구 목표에 맞춰 설계된 맞춤형 평가.",
+            s3l1: "맞춤형 테스트 표본", s3l2: "맞춤형 변환", s3l3: "맞춤형 프롬프트 디자인", s3l4: "여러 AI 모델", s3l5: "비교 테스트", s3l6: "전문 분석", s3l7: "맞춤형 보고", s3Btn: "맞춤 견적 요청",
+            s4Title: "엔터프라이즈 및 연구 평가", s4Desc: "AI 기업, 연구 기관, 대학, 연구소 및 엔터프라이즈 팀을 위한 대규모 평가 프로그램.",
+            s4l1: "대규모 테스트 프로그램", s4l2: "맞춤형 벤치마크 개발", s4l3: "다중 모델 평가", s4l4: "다국어 테스트", s4l5: "반복 제어 시도", s4l6: "기술 보고", s4l7: "요약본", s4l8: "연구 문서화", s4Btn: "엔터프라이즈 견적 문의",
+            ctaTitle: "더 깊은 AI 평가가 필요하십니까?", ctaDesc: "AI 시스템, 멀티모달 모델 또는 연구 프로젝트에 대한 VIST-AI 평가를 요청하십시오.", ctaBtn: "VIST-AI 평가 요청",
+            discTitle: "상업적 평가 참고사항:", discText: "VIST-AI 평가는 증거 지향적 평가입니다. 평가 과정은 AI 시스템이 실패할 것이라고 가정하지 않습니다. 결과는 정의된 테스트 범위, 관찰된 모델 출력, 정답 비교, 반복 시도 및 문서화된 제한 사항을 기반으로 합니다. 표시된 가격은 참고용 시작 가격이며 다를 수 있습니다.",
+            formHeaderSpan: "전문 평가 요청",
+            formMainTitle: "VIST-AI 평가 요청",
+            formMainDesc: "AI 시스템 및 평가 요구 사항에 대해 알려주세요. 요청을 검토하고 적절한 VIST-AI 평가 범위를 제안해 드리겠습니다.",
+            lblFullName: "성함 *", lblOrg: "조직 / 회사", lblEmail: "업무용 이메일 *", lblModel: "AI 시스템 / 모델 *",
+            lblEvalType: "평가 유형 *", lblTestCases: "대략적인 테스트 케이스", lblNumModels: "AI 모델 수", lblTrials: "반복 시도",
+            lblPDF: "전문 PDF 보고서가 필요하십니까?", lblTimeline: "희망 일정", lblProjDesc: "프로젝트 설명 *",
+            optSelectArea: "평가 영역 선택", optVisual: "시각적 접지", optGeo: "기하학적 견고성", optMulti: "다국어 / OCR", optImgUnd: "이미지 이해", optModelComp: "모델 비교", optStress: "맞춤형 AI 스트레스 테스트",
+            optSelectQty: "수량 선택", opt1Model: "1개 모델", opt2Models: "2개 모델", opt35Models: "3–5개 모델", opt5PlusModels: "5개 이상 모델",
+            optSingleTrial: "단일 시도", opt3Trials: "3회 시도", opt5Trials: "5회 시도", opt10Trials: "10회 이상 시도",
+            optYes: "예", optNo: "아니오", optNotSure: "잘 모르겠습니다",
+            optSelectTimeline: "일정 선택", optASAP: "가능한 빨리", opt12Weeks: "1–2주", opt24Weeks: "2–4주", optFlexible: "유연함",
+            consentText: "VIST-AI가 독립적인 평가를 제공하며 미리 결정된 결과를 보장하지 않는다는 것을 이해합니다.",
+            formSubmitBtn: "VIST-AI 평가 요청",
             contactTitle: "8. VIST-AI 연락처",
-            contactDesc: "연구 협력 또는 프레임워크 토론을 위해 다음으로 연락하십시오:",
+            contactDesc: "연구 협력, 맞춤형 미러 라이팅 표본, 다국어 테스트 자료, 전문 AI 평가 또는 VIST-AI 프레임워크 토론을 위해 연락하세요:",
+            noticeTitle: "전문 평가:", noticeText: "상업적 AI 평가 요청의 경우 견적 전에 평가 범위를 검토할 수 있도록 위의 «VIST-AI 평가 요청» 양식을 사용하십시오.",
             aboutTitle: "VIST-AI 소개",
             aboutDesc1: "VIST-AI는 시각적 접지, 기하학적 변환 및 멀티모달 AI 행동에 초점을 맞춘 오픈 연구 및 평가 프레임워크입니다.",
-            aboutDesc2: "이 프레임워크는 제어된 실험과 재현성을 지원하기 위한 것입니다."
+            aboutDesc2: "이 프레임워크는 제어된 실험과 재현성을 지원하기 위한 것입니다.",
+            footerFounder: "창립자:", footerSub: "시각적 접지 및 기하학적 견고성 평가를 위한 오픈 프레임워크"
         },
         zh: {
             title: "全球法医人工智能测试仪",
             subtitle: "视觉基础、几何鲁棒性与多语言AI评估",
             headerDesc: "一个开放的研究框架和实时实用程序，用于研究多模态AI系统如何解释受控的视觉、几何、镜像和多语言测试样本。",
             badge: "开放研究与AI评估框架",
-            navImg: "图像镜像", navText: "文本镜像", navMethod: "研究方法", navGuide: "测试指南", navRecord: "观察记录", navContact: "联系我们",
+            navImg: "图像镜像", navText: "文本镜像", navMethod: "研究方法", navGuide: "测试指南", navRecord: "观察记录", navServices: "服务", navReq: "请求评估", navContact: "联系我们",
             sec1Title: "1. 实时图像镜像工具",
             sec1Desc: "上传普通书写图像以生成用于受控视觉评估的水平镜像测试样本。",
             uploadLabel: "上传普通书写图像",
@@ -983,23 +1169,47 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
             recTitle: "5. VIST-AI 观察记录",
             recDesc: "为了进行可重复的研究，请记录每次测试的基本信息。",
             rec1: "测试 ID", rec2: "测试日期", rec3: "AI 系统 / 模型", rec4: "输入类型", rec5: "转换", rec6: "提示", rec7: "观察到的输出", rec8: "真值比较",
+            servBadge: "专业人工智能评估服务",
+            servMainTitle: "VIST-AI 专业人工智能评估",
+            servMainDesc: "在受控视觉、几何和多语言条件下对多模态 AI 行为进行独立、结构化和以证据为导向的评估。",
+            s1Title: "基础评估", priceStart: "起价", s1Desc: "为需要对多模态 AI 系统进行初步评估的客户提供Focused评估。",
+            s1l1: "最多 10 个受控测试用例", s1l2: "视觉和几何测试", s1l3: "镜像或转换样本", s1l4: "真值比较", s1l5: "基本发现", s1l6: "简短评估摘要", s1Btn: "请求基础评估",
+            recLabel: "推荐",
+            s2Title: "专业法医评估", s2Desc: "专为更深入的研究、文档记录和专业报告而设计的结构化 VIST-AI 评估。",
+            s2l1: "30–50 个受控测试用例", s2l2: "多种视觉条件", s2l3: "多语言样本", s2l4: "多个提示", s2l5: "重复试验", s2l6: "真值比较", s2l7: "证据截图", s2l8: "可重复性分析", s2l9: "专业 PDF 报告", s2Btn: "请求专业评估",
+            s3Title: "自定义 AI 压力测试", customQuote: "自定义报价", s3Desc: "围绕客户自身的 AI 系统、样本、模型和研究目标设计的自定义评估。",
+            s3l1: "自定义测试样本", s3l2: "自定义转换", s3l3: "自定义提示设计", s3l4: "多个 AI 模型", s3l5: "比较测试", s3l6: "专业分析", s3l7: "自定义报告", s3Btn: "请求自定义报价",
+            s4Title: "企业与研究评估", s4Desc: "为 AI 公司、研究机构和企业团队提供更大规模的评估计划。",
+            s4l1: "大规模测试计划", s4l2: "自定义基准开发", s4l3: "多模型评估", s4l4: "多语言测试", s4l5: "重复受控试验", s4l6: "技术报告", s4l7: "执行摘要", s4l8: "研究文档", s4Btn: "联系企业报价",
+            ctaTitle: "需要更深入的 AI 评估？", ctaDesc: "为您的 AI 系统、多模型或研究项目请求 VIST-AI 评估。", ctaBtn: "请求 VIST-AI 评估",
+            discTitle: "商业评估说明:", discText: "VIST-AI 评估是以证据为导向的评估。评估过程并不假设 AI 系统会失败。结论基于定义的测试范围、观察到的模型输出、真值比较、适用的重复试验和记录的 limitations。显示的价格是指引性起步价，可能会有所不同。",
+            formHeaderSpan: "专业评估请求",
+            formMainTitle: "请求 VIST-AI 评估",
+            formMainDesc: "告诉我们您的 AI 系统和评估要求。我们将审核您的请求并提出合适的 VIST-AI 评估范围。",
+            lblFullName: "全名 *", lblOrg: "组织 / 公司", lblEmail: "工作邮箱 *", lblModel: "AI 系统 / 模型 *",
+            lblEvalType: "评估类型 *", lblTestCases: "大约测试用例", lblNumModels: "AI 模型数量", lblTrials: "重复试验",
+            lblPDF: "是否需要专业 PDF 报告？", lblTimeline: "期望时间表", lblProjDesc: "项目描述 *",
+            optSelectArea: "选择评估领域", optVisual: "视觉基础", optGeo: "几何鲁棒性", optMulti: "多语言 / OCR", optImgUnd: "图像理解", optModelComp: "模型比较", optStress: "自定义 AI 压力测试",
+            optSelectQty: "选择数量", opt1Model: "1 个模型", opt2Models: "2 个模型", opt35Models: "3–5 个模型", opt5PlusModels: "5+ 个模型",
+            optSingleTrial: "单次试验", opt3Trials: "3 次试验", opt5Trials: "5 次试验", opt10Trials: "10+ 次试验",
+            optYes: "是", optNo: "否", optNotSure: "不确定",
+            optSelectTimeline: "选择时间表", optASAP: "尽快", opt12Weeks: "1–2 周", opt24Weeks: "2–4 周", optFlexible: "灵活",
+            consentTestText: "我理解 VIST-AI 提供独立评估，不保证预先确定的结果。",
+            formSubmitBtn: "请求 VIST-AI 评估",
             contactTitle: "8. 联系 VIST-AI",
-            contactDesc: "如需研究合作或框架讨论，请联系：",
+            contactDesc: "如需研究合作、自定义镜像书写样本、多语言测试材料、专业 AI 评估或 VIST-AI 框架讨论，请联系：",
+            noticeTitle: "专业评估:", noticeText: "对于商业 AI 评估请求，请使用上面的“请求 VIST-AI 评估”表单，以便在报价前审核评估范围。",
             aboutTitle: "关于 VIST-AI",
-            aboutDesc1: "VIST-AI 是一个专注于视觉基础、几何变换和多模态AI行为的开放研究和评估框架。",
-            aboutDesc2: "该框架旨在支持受控实验和可重复性。"
+            aboutDesc1: "VIST-AI 是一个专注于视觉基础、几何变换和多模态 AI 行为的开放研究和评估框架。",
+            aboutDesc2: "该框架旨在支持受控实验和可重复性。",
+            footerFounder: "创始人:", footerSub: "视觉基础与几何鲁棒性评估开放框架"
         },
         ur: {
             title: "گلوبل فارنزک اے آئی ٹیسٹر",
             subtitle: "وزوئل گراؤنڈنگ، جومیٹرک روبسٹنس اور ملٹی لسنگ اے آئی ایویلویشن",
             headerDesc: "ملٹی موڈل اے آئی سسٹمز کی بصری، جیومیٹرک، مررڈ اور ملٹی لنگول ٹیسٹ سیمپلز کی تشریح کا جائزہ لینے کے لیے ایک اوپن ریسرچ فریم ورک۔",
             badge: "اوپن ریسرچ اینڈ اے آئی ایویلویشن فریم ورک",
-            navImg: "تصویر کا آئینہ",
-            navText: "متن کا آئینہ",
-            navMethod: "طریقہ کار",
-            navGuide: "ٹیسٹنگ گائیڈ",
-            navRecord: "مشاہداتی ریکارڈ",
-            navContact: "رابطہ",
+            navImg: "تصویر کا آئینہ", navText: "متن کا آئینہ", navMethod: "طریقہ کار", navGuide: "ٹیسٹنگ گائیڈ", navRecord: "مشاہداتی ریکارڈ", navServices: "خدمات", navReq: "پند o تخمینہ", navContact: "رابطہ",
             sec1Title: "1. لائیو امیج مرر ٹول",
             sec1Desc: "بصری جانچ کے لیے عام لکھائی کی تصویر اپ لوڈ کریں تاکہ اس کا افقی عکس تیار کیا جا سکے۔",
             uploadLabel: "عام لکھائی کی تصویر اپ لوڈ کریں",
@@ -1014,41 +1224,54 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
             mirrorNote: "نوٹ: یہ ایک بصری افقی تبدیلی ہے۔ بنیادی یونیکوڈ ٹیکسٹ تبدیل یا ترجمہ نہیں ہوتا۔",
             methTitle: "3. VIST-AI ریسرچ میتھڈالوجی",
             methDesc: "VIST-AI جومیٹرک اور ملٹی لسنگ حالات میں ملٹی موڈل AI کی تشریح کا جائزہ لینے کے لیے کنٹرول شدہ بصری نمونے استعمال کرتا ہے۔",
-            stepCond: "ٹیسٹ کی حالت",
-            stepCondDesc: "ایک معروف نمونے کو افقی مررنگ جیسے بصری عمل کے ذریعے تبدیل کیا جاتا ہے۔",
-            stepObs: "ماڈل کا مشاہدہ",
-            stepObsDesc: "وہی نمونہ اور معیاری پرامپٹ ایک یا زیادہ ملٹی موڈل AI سسٹمز کو پیش کیا جا سکتا ہے۔",
-            stepComp: "گراؤنڈ ٹروتھ موازنہ",
-            stepCompDesc: "ماڈل کے آؤٹ پٹ کا معروف سورس نمونے کے ساتھ موازنہ کیا جاتا ہے۔",
-            stepErr: "خرابی کا تجزیہ",
-            stepErrDesc: "محققین قابل مشاہدہ تضادات کو ریکارڈ کر سکتے ہیں۔",
+            stepCond: "ٹیسٹ کی حالت", stepCondDesc: "ایک معروف نمونے کو افقی مررنگ جیسے بصری عمل کے ذریعے تبدیل کیا جاتا ہے۔",
+            stepObs: "ماڈل کا مشاہدہ", stepObsDesc: "وہی نمونہ اور معیاری پرامپٹ ایک یا زیادہ ملٹی موڈل AI سسٹمز کو پیش کیا جا سکتا ہے۔",
+            stepComp: "گراؤنڈ ٹروتھ موازنہ", stepCompDesc: "ماڈل کے آؤٹ پٹ کا معروف سورس نمونے کے ساتھ موازنہ کیا جاتا ہے۔",
+            stepErr: "خرابی کا تجزیہ", stepErrDesc: "محققین قابل مشاہدہ تضادات کو ریکارڈ کر سکتے ہیں۔",
             guideTitle: "4. ملٹی موڈل اے آئی سسٹمز کا ٹیسٹ کیسے کریں",
             guideDesc: "کنٹرول شدہ ٹیسٹ کرنے کے لیے درج ذیل طریقہ کار استعمال کریں۔",
-            gStep1: "مرحلہ 1 — ٹیسٹ کا نمونہ بنائیں",
-            gStep1Desc: "کنٹرول شدہ بصری نمونہ بنانے کے لیے اوپر دیے گئے ٹول کا استعمال کریں۔",
-            gStep2: "مرحلہ 2 — ملٹی موڈل AI سسٹم منتخب کریں",
-            gStep2Desc: "تصویر کا ان پٹ حاصل کرنے کی صلاحیت رکھنے والا AI سسٹم کھولیں۔",
-            gStep3: "مرحلہ 3 — معیاری پرامپٹ استعمال کریں",
-            gStep3Desc: "مرر شدہ نمونہ اپ لوڈ کریں اور ایک غیر جانبدار پرامپٹ استعمال کریں۔",
-            gStep4: "مرحلہ 4 — آؤٹ پٹ ریکارڈ کریں",
-            gStep4Desc: "ماڈل کا جواب، ٹیسٹ کا نمونہ اور تاریخ محفوظ کریں۔",
-            gStep5: "مرحلہ 5 — نتیجہ کا تجزیہ کریں",
-            gStep5Desc: "معروف نمونے کے ساتھ ماڈل آؤٹ پٹ کا موازنہ کریں۔",
+            gStep1: "مرحلہ 1 — ٹیسٹ کا نمونہ بنائیں", gStep1Desc: "کنٹرول شدہ بصری نمونہ بنانے کے لیے اوپر دیے گئے ٹول کا استعمال کریں۔",
+            gStep2: "مرحلہ 2 — ملٹی موڈل AI سسٹم منتخب کریں", gStep2Desc: "تصویر کا ان پٹ حاصل کرنے کی صلاحیت رکھنے والا AI سسٹم کھولیں۔",
+            gStep3: "مرحلہ 3 — معیاری پرامپٹ استعمال کریں", gStep3Desc: "مرر شدہ نمونہ اپ لوڈ کریں اور ایک غیر جانبدار پرامپٹ استعمال کریں۔",
+            gStep4: "مرحلہ 4 — آؤٹ پٹ ریکارڈ کریں", gStep4Desc: "ماڈل کا جواب، ٹیسٹ کا نمونہ اور تاریخ محفوظ کریں۔",
+            gStep5: "مرحلہ 5 — نتیجہ کا تجزیہ کریں", gStep5Desc: "معروف نمونے کے ساتھ ماڈل آؤٹ پٹ کا موازنہ کریں۔",
             recTitle: "5. VIST-AI مشاہداتی ریکارڈ",
             recDesc: "قابلِ تولید تحقیق کے لیے، ہر ٹیسٹ کے لیے ایک جیسی بنیادی معلومات ریکارڈ کریں۔",
-            rec1: "ٹیسٹ ID",
-            rec2: "ٹیسٹ کی تاریخ",
-            rec3: "AI سسٹم / ماڈل",
-            rec4: "ان پٹ کی قسم",
-            rec5: "تبدیلی",
-            rec6: "پرامپٹ",
-            rec7: "مشاہدہ شدہ آؤٹ پٹ",
-            rec8: "گراؤنڈ ٹروتھ موازنہ",
+            rec1: "ٹیسٹ ID", rec2: "ٹیسٹ کی تاریخ", rec3: "AI سسٹم / ماڈل", rec4: "ان پٹ کی قسم", rec5: "تبدیلی", rec6: "پرامپٹ", rec7: "مشاہدہ شدہ آؤٹ پٹ", rec8: "گراؤنڈ ٹروتھ موازنہ",
+            servBadge: "پروفیشنل اے آئی ایویلویشن سروسز",
+            servMainTitle: "VIST-AI پروفیشنل اے آئی ایویلویشن",
+            servMainDesc: "کنٹرول شدہ بصری، جیومیٹرک، مررڈ اور ملٹی لنگول حالات میں ملٹی موڈل اے آئی رویے کا آزاد اور پیشہ ورانہ جائزہ۔",
+            s1Title: "بیسک ایویلویشن", priceStart: "شروع ہوتا ہے", s1Desc: "ان کلائنٹس کے لیے جنہیں ملٹی موڈل اے آئی سسٹم کے ابتدائی جائزے کی ضرورت ہے۔",
+            s1l1: "10 تک کنٹرول شدہ ٹیسٹ کیسز", s1l2: "بصری اور جیومیٹرک ٹیسٹنگ", s1l3: "مرر شدہ یا تبدیل شدہ نمونے", s1l4: "گراؤنڈ ٹروتھ موازنہ", s1l5: "بنیادی نتائج", s1l6: "مختصر خلاصہ", s1Btn: "بیسک ایویلویشن کی درخواست کریں",
+            recLabel: "تجویز کردہ",
+            s2Title: "پروفیشنل فارنزک اسسمنٹ", s2Desc: "گہری تحقیق، دستوائزات اور پیشہ ورانہ رپورٹنگ کے لیے تیار کردہ VIST-AI اسسمنٹ۔",
+            s2l1: "30–50 کنٹرول شدہ ٹیسٹ کیسز", s2l2: "متعدد بصری حالات", s2l3: "ملٹی لنگول نمونے", s2l4: "متعدد پرامپٹس", s2l5: "بار بار آزمائشیں", s2l6: "گراؤنڈ ٹروتھ موازنہ", s2l7: "ثبوت کے اسکرین شاٹس", s2l8: "تخلیقی تجزیہ", s2l9: "پروفیشنل پی ڈی ایف رپورٹ", s2Btn: "پروفیشنل اسسمنٹ کی درخواست کریں",
+            s3Title: "کسٹم اے آئی اسٹریس ٹیسٹنگ", customQuote: "کسٹم کوٹ", s3Desc: "کلائنٹ کے اپنے اے آئی سسٹم، نمونوں اور تحقیقی مقاصد کے مطابق تیار کردہ کسٹم ایویلویشن۔",
+            s3l1: "کسٹم ٹیسٹ نمونے", s3l2: "کسٹم تبدیلیاں", s3l3: "کسٹم پرامپٹ ڈیزائن", s3l4: "متعدد اے آئی ماڈلز", s3l5: "تقابلی ٹیسٹنگ", s3l6: "خصوصی تجزیہ", s3l7: "کسٹم رپورٹنگ", s3Btn: "کسٹم کوٹ کی درخواست کریں",
+            s4Title: "انٹرپرائز اور ریسرچ ایویلویشن", s4Desc: "اے آئی کمپنیوں، تحقیقی اداروں اور انٹرپرائز ٹیموں کے لیے بڑے ایویلویشن پروگرام۔",
+            s4l1: "بڑے پیمانے پر ٹیسٹ پروگرام", s4l2: "کسٹم بینچ مارک ڈویلپمنٹ", s4l3: "ملٹی ماڈل ایویلویشن", s4l4: "ملٹی لنگول ٹیسٹنگ", s4l5: "بار بار کنٹرول شدہ آزمائشیں", s4l6: "تکنیکی رپورٹنگ", s4l7: "ایگزیکتوس خلاصہ", s4l8: "تحقیقی دستاویزات", s4Btn: "انٹرپرائز کوٹ کے لیے رابطہ کریں",
+            ctaTitle: "مزید گہرے اے آئی ایویلویشن کی ضرورت ہے؟", ctaDesc: "اپنے اے آئی سسٹم یا تحقیقی پروجیکٹ کے لیے VIST-AI اسسمنٹ کی درخواست کریں۔", ctaBtn: "VIST-AI اسسمنٹ کی درخواست کریں",
+            discTitle: "تجارتی ایویلویشن نوٹ:", discText: "VIST-AI اسسمنٹس شواہد پر مبنی جائزے ہیں۔ اس عمل میں یہ فرض نہیں کیا جاتا کہ اے آئی سسٹم ناکام ہو گا۔ نتائج متعین کردہ دائرہ کار، دیکھے گئے ماڈل آؤٹ پٹس اور گراؤنڈ ٹروتھ موازنہ پر مبنی ہیں۔ دکھائی गई قیمتیں ابتدائی ہیں۔",
+            formHeaderSpan: "پروفیشنل ایویلویشن کی درخواست",
+            formMainTitle: "VIST-AI اسسمنٹ کی درخواست کریں",
+            formMainDesc: "اپنے اے آئی سسٹم اور ایویلویشن کی ضروریات کے بارے میں بتائیں۔ ہم آپ کی درخواست کا جائزہ لیں گے۔",
+            lblFullName: "पूरा नाम / پورا نام *", lblOrg: "ادارہ / کمپنی", lblEmail: "کام کا ای میل *", lblModel: "اے آئی سسٹم / ماڈل *",
+            lblEvalType: "ایویلویشن کی قسم *", lblTestCases: "تخمینی ٹیسٹ کیسز", lblNumModels: "اے آئی ماڈلز کی تعداد", lblTrials: "بار بار آزمائشیں",
+            lblPDF: "پروفیشنل پی ڈی ایف رپورٹ درکار ہے؟", lblTimeline: "مطلوبہ ٹائم لائن", lblProjDesc: "پروجیکٹ کی تفصیل *",
+            optSelectArea: "ایویلویشن کا شعبہ منتخب کریں", optVisual: "وزوئل گراؤنڈنگ", optGeo: "جیومیٹرک روبسٹنس", optMulti: "ملٹی لنگول / OCR", optImgUnd: "تصویر کی تفہیم", optModelComp: "ماڈل کا موازنہ", optStress: "کسٹم اے آئی اسٹریس ٹیسٹنگ",
+            optSelectQty: "مقدار منتخب کریں", opt1Model: "1 ماڈل", opt2Models: "2 ماڈلز", opt35Models: "3–5 ماڈلز", opt5PlusModels: "5+ ماڈلز",
+            optSingleTrial: "سنگل ٹرائل", opt3Trials: "3 ٹرائلز", opt5Trials: "5 ٹرائلز", opt10Trials: "10+ ٹرائلز",
+            optYes: "ہاں", optNo: "نہیں", optNotSure: "یقین نہیں",
+            optSelectTimeline: "ٹائم لائن منتخب کریں", optASAP: "جتنی جلدی ہو سکے", opt12Weeks: "1–2 ہفتے", opt24Weeks: "2–4 ہفتے", optFlexible: "لچکدار",
+            consentText: "میں سمجھتا ہوں کہ VIST-AI ایک آزاد جائزہ فراہم کرتا ہے اور پہلے سے طے شدہ نتیجے کی ضمانت نہیں دیتا۔",
+            formSubmitBtn: "VIST-AI اسسمنٹ کی درخواست کریں",
             contactTitle: "8. رابطہ VIST-AI",
-            contactDesc: "تحقیقی تعاون، کسٹم مرر رائٹنگ سیمپلز، ملٹی لنگول ٹیسٹ میٹریل، پروفیشنل AI ایویلیوایشن یا VIST-AI فریم ورک کے بارے میں بات چیت کے لیے رابطہ کریں:",
+            contactDesc: "تحقیقی تعاون، کسٹم مرر رائٹنگ سیمپلز، ملٹی لنگول ٹیسٹ میٹریل یا پروفیشنل اے آئی ایویلویشن کے لیے رابطہ کریں:",
+            noticeTitle: "پروفیشنل ایویلویشن:", noticeText: "تجارتی ایویلویشن کی درخواستوں کے لیے، براہ کرم اوپر دیا گیا فارم استعمال کریں تاکہ کوٹیشن سے پہلے دائرہ کار کا جائزہ لیا جا سکے۔",
             aboutTitle: "VIST-AI کے بارے میں",
-            aboutDesc1: "VIST-AI ایک اوپن ریسرچ اور ایویلویشن فریم ورک ہے جو وزوئل گراؤنڈنگ، جیومیٹرک تبدیلیوں، کثیر لسانی تحریری نظاموں اور قابل مشاہدہ ملٹی موڈل AI رویے پر مرکوز ہے۔",
-            aboutDesc2: "یہ فریم ورک کنٹرول شدہ تجربات، قابل تکرار تحقیق، تقابلی ٹیسٹنگ اور فارنزک طرز کے تجزیے کی حمایت کے لیے بنایا گیا ہے۔"
+            aboutDesc1: "VIST-AI ایک اوپن ریسرچ اور ایویلویشن فریم ورک ہے جو وزوئل گراؤنڈنگ، جیومیٹرک تبدیلیوں اور ملٹی موڈل AI رویے پر مرکوز ہے۔",
+            aboutDesc2: "یہ فریم ورک کنٹرول شدہ تجربات کی حمایت کے لیے بنایا گیا ہے۔",
+            footerFounder: "بانی:", footerSub: "وزوئل گراؤنڈنگ اور جومیٹرک روبسٹنس ایویلویشن کے لیے اوپن فریم ورک"
         }
     };
 
