@@ -164,16 +164,27 @@
             border-color: rgba(80, 220, 255, 0.55);
             background: linear-gradient(145deg, rgba(30, 100, 150, 0.12), rgba(255, 255, 255, 0.035));
         }
-        .featured-label {
-            position: absolute; top: 16px; right: 16px; padding: 5px 9px; border-radius: 999px;
-            font-size: 9px; font-weight: 800; letter-spacing: 1px; background: rgba(70, 210, 255, 0.14); color: #64ddff; border: 1px solid rgba(100, 220, 255, 0.25);
+        
+        /* Fixed Header Flex layout for Service Cards to prevent overlap in RTL/LTR */
+        .service-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            gap: 10px;
         }
-        .service-number { font-size: 12px; letter-spacing: 2px; color: #6adfff; margin-bottom: 15px; }
+        .service-number { font-size: 12px; letter-spacing: 2px; color: #6adfff; margin-bottom: 0; }
+        .featured-label {
+            padding: 5px 9px; border-radius: 999px;
+            font-size: 9px; font-weight: 800; letter-spacing: 1px; background: rgba(70, 210, 255, 0.14); color: #64ddff; border: 1px solid rgba(100, 220, 255, 0.25);
+            white-space: nowrap;
+        }
+
         .service-card h3 { font-size: 23px; margin: 0 0 10px; color: #38bdf8; }
         .service-price { margin-bottom: 16px; color: #b8c7d8; }
         .service-price strong { color: #ffffff; font-size: 21px; }
         .service-card p { color: #aebfd1; line-height: 1.7; }
-        .service-card ul { margin: 18px 0; padding-left: 20px; color: #c6d4e2; line-height: 1.85; }
+        .service-card ul { margin: 18px 0; padding-inline-start: 20px; color: #c6d4e2; line-height: 1.85; }
         .service-card li::marker { color: #38bdf8; }
         
         .service-button {
@@ -419,7 +430,9 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
         <div class="service-grid">
             <!-- SERVICE 01 -->
             <div class="service-card">
-                <div class="service-number">SERVICE 01</div>
+                <div class="service-card-header">
+                    <div class="service-number">SERVICE 01</div>
+                </div>
                 <h3 data-key="s1Title">Basic Evaluation</h3>
                 <div class="service-price"><span data-key="priceStart">Starting from</span> <strong>$75</strong></div>
                 <p data-key="s1Desc">A focused evaluation for clients who need an initial assessment of a multimodal AI system.</p>
@@ -436,8 +449,10 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
 
             <!-- SERVICE 02 -->
             <div class="service-card featured">
-                <span class="featured-label" data-key="recLabel">RECOMMENDED</span>
-                <div class="service-number">SERVICE 02</div>
+                <div class="service-card-header">
+                    <div class="service-number">SERVICE 02</div>
+                    <span class="featured-label" data-key="recLabel">RECOMMENDED</span>
+                </div>
                 <h3 data-key="s2Title">Professional Forensic Assessment</h3>
                 <div class="service-price"><span data-key="priceStart">Starting from</span> <strong>$250</strong></div>
                 <p data-key="s2Desc">A structured VIST-AI assessment designed for deeper research, documentation, and professional reporting.</p>
@@ -457,7 +472,9 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
 
             <!-- SERVICE 03 -->
             <div class="service-card">
-                <div class="service-number">SERVICE 03</div>
+                <div class="service-card-header">
+                    <div class="service-number">SERVICE 03</div>
+                </div>
                 <h3 data-key="s3Title">Custom AI Stress Testing</h3>
                 <div class="service-price"><strong data-key="customQuote">Custom Quote</strong></div>
                 <p data-key="s3Desc">Custom evaluation designed around a client's own AI system, specimens, models, prompts, or research objectives.</p>
@@ -475,7 +492,9 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
 
             <!-- SERVICE 04 -->
             <div class="service-card">
-                <div class="service-number">SERVICE 04</div>
+                <div class="service-card-header">
+                    <div class="service-number">SERVICE 04</div>
+                </div>
                 <h3 data-key="s4Title">Enterprise & Research Evaluation</h3>
                 <div class="service-price"><strong data-key="customQuote">Custom Quote</strong></div>
                 <p data-key="s4Desc">Larger evaluation programs for AI companies, research organizations, universities, laboratories, and enterprise teams.</p>
@@ -970,7 +989,7 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
             recLabel: "מומלץ",
             s2Title: "הערכה פורנזית מקצועית", s2Desc: "הערכת VIST-AI מובנית המיועדת למחקר מעמיק, תיעוד ודיווח מקצועי.",
             s2l1: "30–50 מקרי מבחן מבוקרים", s2l2: "תנאים חזותיים מרובים", s2l3: "דגימות רב-לשוניות", s2l4: "הנחיות מרובות", s2l5: "ניסיונות חוזרים", s2l6: "השוואת אמת-יסוד", s2l7: "צילומי מסך של ראיות", s2l8: "ניתוח יכולת שחזור", s2l9: "דוח PDF מקצועי", s2Btn: "בקש הערכה מקצועית",
-            s3Title: "בדיקת מאמץ AI מותאمة", customQuote: "הצעת מחיר מותאמת", s3Desc: "הערכה מותאמת אישית המתוכננת סביב מערכת ה-AI של הלקוח, הדגימות והמודלים.",
+            s3Title: "בדיקת מאמץ AI מותאמת", customQuote: "הצעת מחיר מותאמת", s3Desc: "הערכה מותאמת אישית המתוכננת סביב מערכת ה-AI של הלקוח, הדגימות והמודלים.",
             s3l1: "דגימות בדיקה מותאמות", s3l2: "המרות מותאמות", s3l3: "עיצוב הנחיות מותאם", s3l4: "מודלי AI מרובים", s3l5: "בדיקות השוואתיות", s3l6: "ניתוח מומחה", s3l7: "דיווח מותאם", s3Btn: "בקש הצעת מחיר מותאמת",
             s4Title: "הערכת ארגונים ומחקר", s4Desc: "תוכניות הערכה גדולות יותר עבור חברות AI, ארגוני מחקר וצוותים ארגוניים.",
             s4l1: "תוכניות בדיקה בקנה מידה גדול", s4l2: "פיתוח מדדי השוואה מותאמים", s4l3: "הערכת מודלים מרובים", s4l4: "בדיקות רב-לשוניות", s4l5: "ניסיונות מבוקרים חוזרים", s4l6: "דיווח טכני", s4l7: "סיכום מנהלים", s4l8: "תיעוד מחקר", s4Btn: "צור קשר להצעת מחיר ארגונית",
@@ -978,7 +997,7 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
             discTitle: "הערת הערכה מסחרית:", discText: "הערכות VIST-AI הן הערכות מבוסسات ראיות. תהליך ההערכה אינו מניח שמערכת AI תיכשל. הממצאים מבוססים על היקף הבדיקה המוגדר, פלט המודל הנצפה, השוואת אמת-יסוד, ניסיונות חוזרים והגבלות מתועדות. המחירים המוצגים הם מחירי התחלה אינדיקטיביים ועשויים להשתנות.",
             formHeaderSpan: "בקשת הערכה מקצועית",
             formMainTitle: "בקש הערכת VIST-AI",
-            formMainDesc: "סپر לנו על מערכת ה-AI שלך ודרישות ההערכה. נבחן את בקשתך ונציע היקף הערכת VIST-AI מתאים.",
+            formMainDesc: "ספר לנו על מערכת ה-AI שלך ודרישות ההערכה. נבחן את בקשתך ונציע היקף הערכת VIST-AI מתאים.",
             lblFullName: "שם מלא *", lblOrg: "ארגון / חברה", lblEmail: "אימייל בעבודה *", lblModel: "מערכת AI / מודל *",
             lblEvalType: "סוג הערכה *", lblTestCases: "מקרי מבחן משוערים", lblNumModels: "מספר מודלי AI", lblTrials: "ניסיונות חוזרים",
             lblPDF: "נדרש דוח PDF מקצועי?", lblTimeline: "לוח זמנים רצוי", lblProjDesc: "תיאור הפרויקט *",
@@ -1054,9 +1073,9 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
             optSelectArea: "मूल्यांकन क्षेत्र चुनें", optVisual: "विजुअल ग्राउंडिंग", optGeo: "ज्यामितीय मजबूती", optMulti: "बहुभाषी / OCR", optImgUnd: "छवि समझ", optModelComp: "मॉडल तुलना", optStress: "कस्टम एआई स्ट्रेस टेस्टिंग",
             optSelectQty: "मात्रा चुनें", opt1Model: "1 मॉडल", opt2Models: "2 मॉडल", opt35Models: "3–5 मॉडल", opt5PlusModels: "5+ मॉडल",
             optSingleTrial: "एकल परीक्षण", opt3Trials: "3 परीक्षण", opt5Trials: "5 परीक्षण", opt10Trials: "10+ परीक्षण",
-            optYes: "हाँ", optNo: "नहीं", optNotSure: "확신 없음",
-            optSelectTimeline: "समयसीमा चुनें", optASAP: "जितنی जल्दी हो सके", opt12Weeks: "1–2 सप्ताह", opt24Weeks: "2–4 सप्ताह", optFlexible: "लचीला",
-            consentText: "मैं समझता हूं कि VIST-AI एक स्वतंत्र मूल्यांकन प्रदान करता है और पूर्वনির্ধারিত परिणाम की गारंटी नहीं देता है।",
+            optYes: "हाँ", optNo: "नहीं", optNotSure: "निश्चित नहीं",
+            optSelectTimeline: "समयसीमा चुनें", optASAP: "जितनी जल्दी हो सके", opt12Weeks: "1–2 सप्ताह", opt24Weeks: "2–4 सप्ताह", optFlexible: "लचीला",
+            consentText: "मैं समझता हूं कि VIST-AI एक स्वतंत्र मूल्यांकन प्रदान करता है और पूर्वনিर्धारित परिणाम की गारंटी नहीं देता है।",
             formSubmitBtn: "VIST-AI मूल्यांकन का अनुरोध करें",
             contactTitle: "8. VIST-AI से संपर्क करें",
             contactDesc: "शोध सहयोग, कस्टम मिरर-राइटिंग नमूनों, बहुभाषी परीक्षण सामग्री, पेशेवर एआई मूल्यांकन या VIST-AI फ्रेमवर्क चर्चा के लिए संपर्क करें:",
@@ -1195,7 +1214,7 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
             optYes: "是", optNo: "否", optNotSure: "不确定",
             optSelectTimeline: "选择时间表", optASAP: "尽快", opt12Weeks: "1–2 周", opt24Weeks: "2–4 周", optFlexible: "灵活",
             consentTestText: "我理解 VIST-AI 提供独立评估，不保证预先确定的结果。",
-            formSubmitBtn: "请求 VIST-AI 评估",
+            formSubmitBtn: "Request VIST-AI Assessment",
             contactTitle: "8. 联系 VIST-AI",
             contactDesc: "如需研究合作、自定义镜像书写样本、多语言测试材料、专业 AI 评估或 VIST-AI 框架讨论，请联系：",
             noticeTitle: "专业评估:", noticeText: "对于商业 AI 评估请求，请使用上面的“请求 VIST-AI 评估”表单，以便在报价前审核评估范围。",
@@ -1209,7 +1228,7 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
             subtitle: "وزوئل گراؤنڈنگ، جومیٹرک روبسٹنس اور ملٹی لسنگ اے آئی ایویلویشن",
             headerDesc: "ملٹی موڈل اے آئی سسٹمز کی بصری، جیومیٹرک، مررڈ اور ملٹی لنگول ٹیسٹ سیمپلز کی تشریح کا جائزہ لینے کے لیے ایک اوپن ریسرچ فریم ورک۔",
             badge: "اوپن ریسرچ اینڈ اے آئی ایویلویشن فریم ورک",
-            navImg: "تصویر کا آئینہ", navText: "متن کا آئینہ", navMethod: "طریقہ کار", navGuide: "ٹیسٹنگ گائیڈ", navRecord: "مشاہداتی ریکارڈ", navServices: "خدمات", navReq: "پند o تخمینہ", navContact: "رابطہ",
+            navImg: "تصویر کا آئینہ", navText: "متن کا آئینہ", navMethod: "طریقہ کار", navGuide: "ٹیسٹنگ گائیڈ", navRecord: "مشاہداتی ریکارڈ", navServices: "خدمات", navReq: "ایویلویشن کی درخواست", navContact: "رابطہ",
             sec1Title: "1. لائیو امیج مرر ٹول",
             sec1Desc: "بصری جانچ کے لیے عام لکھائی کی تصویر اپ لوڈ کریں تاکہ اس کا افقی عکس تیار کیا جا سکے۔",
             uploadLabel: "عام لکھائی کی تصویر اپ لوڈ کریں",
