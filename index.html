@@ -17,8 +17,9 @@
             padding: 20px;
             font-family: Arial, Helvetica, sans-serif;
             background: #000000;
-            color: #f1f5f9;
+            color: #f8fafc;
             line-height: 1.5;
+            font-size: 15px; /* Increased by 1px */
             position: relative;
             overflow-x: hidden;
             transition: background 0.5s ease;
@@ -29,8 +30,8 @@
             position: fixed;
             top: 0; left: 0; width: 100vw; height: 100vh;
             background-image: 
-                var(--bg-glow, radial-gradient(circle at 15% 20%, rgba(255, 215, 0, 0.12) 0%, transparent 45%)),
-                radial-gradient(circle at 85% 80%, rgba(218, 165, 32, 0.08) 0%, transparent 45%),
+                var(--bg-glow, radial-gradient(circle at 15% 20%, rgba(255, 102, 0, 0.12) 0%, transparent 45%)),
+                radial-gradient(circle at 85% 80%, rgba(230, 81, 0, 0.08) 0%, transparent 45%),
                 linear-gradient(rgba(40, 40, 40, 0.2) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(40, 40, 40, 0.2) 1px, transparent 1px);
             background-size: 100% 100%, 100% 100%, 50px 50px, 50px 50px;
@@ -52,8 +53,8 @@
             backdrop-filter: blur(12px);
             padding: 25px;
             border-radius: 12px;
-            border: 1px solid rgba(255, 215, 0, 0.4);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.95), 0 0 25px rgba(255, 215, 0, 0.15);
+            border: 1px solid rgba(255, 102, 0, 0.4);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.95), 0 0 25px rgba(255, 102, 0, 0.15);
             position: relative;
         }
 
@@ -62,11 +63,11 @@
 
         .lang-select {
             background: #121212;
-            color: #ffd700;
-            border: 1px solid rgba(255, 215, 0, 0.4);
+            color: #ff6600;
+            border: 1px solid rgba(255, 102, 0, 0.4);
             padding: 6px 12px;
             border-radius: 6px;
-            font-size: 13px;
+            font-size: 14px;
             font-weight: bold;
             cursor: pointer;
         }
@@ -78,92 +79,95 @@
             background: rgba(20, 20, 20, 0.9);
             padding: 6px 16px;
             border-radius: 50px;
-            border: 1px solid rgba(255, 215, 0, 0.6);
-            box-shadow: 0 0 15px rgba(255, 215, 0, 0.25);
+            border: 1px solid rgba(255, 102, 0, 0.6);
+            box-shadow: 0 0 15px rgba(255, 102, 0, 0.25);
             margin-bottom: 12px;
         }
 
-        .brand-name { font-size: 22px; font-weight: 900; color: #ffd700; letter-spacing: 1.5px; text-shadow: 0 0 10px rgba(255, 215, 0, 0.7); }
-        h1 { color: #ffd700; font-size: 28px; margin: 0 0 4px; line-height: 1.2; text-shadow: 0 0 12px rgba(255, 215, 0, 0.4); }
-        .founder-title { color: #ffffff; font-size: 15px; font-weight: bold; margin: 4px 0; }
-        .subtitle { color: #e2e8f0; font-size: 14px; margin: 3px 0 8px; }
-        .header-description { max-width: 780px; margin: 6px auto 0; color: #a3a3a3; font-size: 14px; }
+        .brand-name { font-size: 23px; font-weight: 900; color: #ff6600; letter-spacing: 1.5px; text-shadow: 0 0 10px rgba(255, 102, 0, 0.7); }
+        h1 { color: #ff6600; font-size: 29px; margin: 0 0 4px; line-height: 1.2; text-shadow: 0 0 12px rgba(255, 102, 0, 0.4); }
+        .founder-title { color: #ffffff; font-size: 16px; font-weight: bold; margin: 4px 0; }
+        .subtitle { color: #f1f5f9; font-size: 15px; margin: 3px 0 8px; }
+        .header-description { max-width: 780px; margin: 6px auto 0; color: #b3b3b3; font-size: 15px; }
 
         .nav-bar {
             display: flex; justify-content: center; flex-wrap: wrap; gap: 5px;
-            margin: 18px 0; padding: 8px; background: #050505; border-radius: 8px; border: 1px solid rgba(255, 215, 0, 0.3);
+            margin: 18px 0; padding: 8px; background: #050505; border-radius: 8px; border: 1px solid rgba(255, 102, 0, 0.3);
             position: sticky; top: 10px; z-index: 10;
         }
         .nav-bar a {
-            color: #ffd700; text-decoration: none; font-size: 11.5px; font-weight: bold;
-            padding: 6px 9px; background: #141414; border-radius: 5px; border: 1px solid rgba(255, 215, 0, 0.2); transition: all 0.25s ease;
+            color: #ffffff; text-decoration: none; font-size: 12.5px; font-weight: bold;
+            padding: 6px 9px; background: #141414; border-radius: 5px; border: 1px solid rgba(255, 102, 0, 0.3); transition: all 0.25s ease;
             white-space: nowrap;
         }
-        .nav-bar a:hover { background: #ffd700; color: #000000; box-shadow: 0 0 15px rgba(255, 215, 0, 0.8); }
+        .nav-bar a:hover { background: #ff6600; color: #ffffff; box-shadow: 0 0 15px rgba(255, 102, 0, 0.8); }
 
         .research-badge { text-align: center; margin: 10px auto 18px; }
         .research-badge span {
-            display: inline-block; padding: 5px 12px; border: 1px solid rgba(255, 215, 0, 0.5); border-radius: 20px;
-            color: #ffd700; background: #121212; font-size: 12px; font-weight: bold; box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+            display: inline-block; padding: 5px 12px; border: 1px solid rgba(255, 102, 0, 0.5); border-radius: 20px;
+            color: #ffffff; background: #ff6600; font-size: 13px; font-weight: bold; box-shadow: 0 0 10px rgba(255, 102, 0, 0.4);
         }
 
-        .section { background: #121212; padding: 18px; border-radius: 8px; margin-top: 16px; border: 1px solid rgba(255, 215, 0, 0.25); box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6); }
-        .section.highlight { background: #181818; border: 1px solid rgba(255, 215, 0, 0.4); }
-        h2, h3 { color: #ffd700; }
-        h3 { font-size: 17px; margin-top: 0; margin-bottom: 8px; }
-        p { color: #b3b3b3; margin: 6px 0; }
+        .section { background: #121212; padding: 18px; border-radius: 8px; margin-top: 16px; border: 1px solid rgba(255, 102, 0, 0.25); box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6); }
+        .section.highlight { background: #181818; border: 1px solid rgba(255, 102, 0, 0.4); }
+        h2, h3 { color: #ff6600; }
+        h3 { font-size: 18px; margin-top: 0; margin-bottom: 8px; }
+        p { color: #c0c0c0; margin: 6px 0; font-size: 15px; }
         strong { color: #ffffff; }
-        label { display: block; color: #e5e5e5; margin-top: 8px; font-weight: bold; font-size: 14px; }
+        label { display: block; color: #f1f5f9; margin-top: 8px; font-weight: bold; font-size: 15px; }
         
         input[type="file"], textarea, button {
-            width: 100%; padding: 10px; font-size: 14px; margin-top: 6px; border-radius: 6px;
-            border: 1px solid rgba(255, 215, 0, 0.3); background: #080808; color: #ffffff; font-family: Arial, Helvetica, sans-serif;
+            width: 100%; padding: 10px; font-size: 15px; margin-top: 6px; border-radius: 6px;
+            border: 1px solid rgba(255, 102, 0, 0.3); background: #080808; color: #ffffff; font-family: Arial, Helvetica, sans-serif;
         }
         textarea { resize: vertical; min-height: 80px; }
-        button { background: #ffd700; color: #000000; border: none; cursor: pointer; font-weight: bold; transition: all 0.25s ease; }
-        button:hover { background: #cca700; box-shadow: 0 0 15px rgba(255, 215, 0, 0.8); }
-
-        .result-box { background: #050505; padding: 15px; border-left: 4px solid #ffd700; margin-top: 14px; border-radius: 6px; display: none; text-align: center; }
-        .result-title { color: #ffd700; font-weight: bold; margin-bottom: 8px; }
-        .evidence-image { max-width: 100%; max-height: 450px; height: auto; border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 6px; margin: 10px auto; display: block; }
-        .download-button { display: inline-block; width: auto; margin-top: 6px; padding: 8px 18px; background: #22c55e; color: #ffffff; text-decoration: none; border-radius: 6px; font-weight: bold; font-size: 14px; }
         
-        .mirror-output { background: #050505; padding: 15px; border-radius: 6px; margin-top: 8px; font-size: 18px; text-align: center; color: #ffd700; border: 1px solid rgba(255, 215, 0, 0.3); transform: scaleX(-1); min-height: 45px; }
-        .mirror-note { color: #888888; font-size: 11px; margin-top: 6px; }
+        /* All Buttons set to White font and Orange background */
+        button { background: #ff6600; color: #ffffff; border: none; cursor: pointer; font-weight: bold; transition: all 0.25s ease; }
+        button:hover { background: #e05a00; box-shadow: 0 0 15px rgba(255, 102, 0, 0.8); }
 
-        .step { background: #181818; border: 1px solid rgba(255, 215, 0, 0.2); border-radius: 6px; padding: 12px; margin: 10px 0; }
-        .step-number { color: #ffd700; font-weight: bold; }
-        code.prompt-box { display: block; margin-top: 6px; padding: 10px; background: #050505; border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 6px; color: #ffeb3b; white-space: pre-wrap; font-family: monospace; font-size: 13px; }
+        .result-box { background: #050505; padding: 15px; border-left: 4px solid #ff6600; margin-top: 14px; border-radius: 6px; display: none; text-align: center; }
+        .result-title { color: #ff6600; font-weight: bold; margin-bottom: 8px; font-size: 16px; }
+        .evidence-image { max-width: 100%; max-height: 450px; height: auto; border: 1px solid rgba(255, 102, 0, 0.3); border-radius: 6px; margin: 10px auto; display: block; }
+        
+        .download-button { display: inline-block; width: auto; margin-top: 6px; padding: 8px 18px; background: #22c55e; color: #ffffff; text-decoration: none; border-radius: 6px; font-weight: bold; font-size: 15px; }
+        
+        .mirror-output { background: #050505; padding: 15px; border-radius: 6px; margin-top: 8px; font-size: 19px; text-align: center; color: #ff6600; border: 1px solid rgba(255, 102, 0, 0.3); transform: scaleX(-1); min-height: 45px; }
+        .mirror-note { color: #888888; font-size: 12px; margin-top: 6px; }
+
+        .step { background: #181818; border: 1px solid rgba(255, 102, 0, 0.2); border-radius: 6px; padding: 12px; margin: 10px 0; }
+        .step-number { color: #ff6600; font-weight: bold; font-size: 15px; }
+        code.prompt-box { display: block; margin-top: 6px; padding: 10px; background: #050505; border: 1px solid rgba(255, 102, 0, 0.3); border-radius: 6px; color: #ffab40; white-space: pre-wrap; font-family: monospace; font-size: 14px; }
 
         .record-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-        .record-item { background: #181818; border: 1px solid rgba(255, 215, 0, 0.2); border-radius: 6px; padding: 10px; font-size: 14px; }
-        .record-item strong { display: block; color: #ffd700; margin-bottom: 2px; }
+        .record-item { background: #181818; border: 1px solid rgba(255, 102, 0, 0.2); border-radius: 6px; padding: 10px; font-size: 15px; }
+        .record-item strong { display: block; color: #ff6600; margin-bottom: 2px; }
 
         /* Commercial Services */
         .commercial-section {
             padding: 45px 25px;
             background: linear-gradient(180deg, rgba(12, 12, 12, 0.98), rgba(5, 5, 5, 1));
-            border: 1px solid rgba(255, 215, 0, 0.3);
+            border: 1px solid rgba(255, 102, 0, 0.3);
         }
         .commercial-heading { max-width: 850px; margin: 0 auto 35px; text-align: center; }
         .commercial-label {
-            display: inline-block; margin-bottom: 12px; font-size: 11px; letter-spacing: 2px; font-weight: 700;
-            color: #ffd700; border: 1px solid rgba(255, 215, 0, 0.4); padding: 6px 12px; border-radius: 20px; background: rgba(255, 215, 0, 0.08);
+            display: inline-block; margin-bottom: 12px; font-size: 12px; letter-spacing: 2px; font-weight: 700;
+            color: #ffffff; border: 1px solid rgba(255, 102, 0, 0.4); padding: 6px 12px; border-radius: 20px; background: #ff6600; box-shadow: 0 0 10px rgba(255,102,0,0.4);
         }
-        .commercial-heading h2 { margin: 0 0 15px; color: #ffd700; font-size: clamp(27px, 5vw, 42px); line-height: 1.2; text-shadow: 0 0 10px rgba(255,215,0,0.3); }
-        .commercial-heading p { color: #cccccc; line-height: 1.8; max-width: 750px; margin: auto; }
+        .commercial-heading h2 { margin: 0 0 15px; color: #ff6600; font-size: clamp(28px, 5vw, 43px); line-height: 1.2; text-shadow: 0 0 10px rgba(255,102,0,0.3); }
+        .commercial-heading p { color: #d0d0d0; line-height: 1.8; max-width: 750px; margin: auto; font-size: 15px; }
         
         .service-grid { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
         .service-card {
-            position: relative; padding: 28px; border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 18px;
+            position: relative; padding: 28px; border: 1px solid rgba(255, 102, 0, 0.3); border-radius: 18px;
             background: rgba(20, 20, 20, 0.6); box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
             transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
         }
-        .service-card:hover { transform: translateY(-4px); border-color: rgba(255, 215, 0, 0.8); box-shadow: 0 0 20px rgba(255, 215, 0, 0.2); }
+        .service-card:hover { transform: translateY(-4px); border-color: rgba(255, 102, 0, 0.8); box-shadow: 0 0 20px rgba(255, 102, 0, 0.2); }
         .service-card.featured {
-            border-color: rgba(255, 215, 0, 0.8);
-            background: linear-gradient(145deg, rgba(50, 40, 0, 0.2), rgba(20, 20, 20, 0.6));
-            box-shadow: 0 0 25px rgba(255, 215, 0, 0.15);
+            border-color: rgba(255, 102, 0, 0.8);
+            background: linear-gradient(145deg, rgba(60, 20, 0, 0.25), rgba(20, 20, 20, 0.6));
+            box-shadow: 0 0 25px rgba(255, 102, 0, 0.15);
         }
         
         .service-card-header {
@@ -173,91 +177,94 @@
             margin-bottom: 15px;
             gap: 10px;
         }
-        .service-number { font-size: 12px; letter-spacing: 2px; color: #ffd700; margin-bottom: 0; font-weight: bold; }
+        .service-number { font-size: 13px; letter-spacing: 2px; color: #ff6600; margin-bottom: 0; font-weight: bold; }
         .featured-label {
             padding: 5px 9px; border-radius: 999px;
-            font-size: 9px; font-weight: 800; letter-spacing: 1px; background: rgba(255, 215, 0, 0.15); color: #ffd700; border: 1px solid rgba(255, 215, 0, 0.4);
-            white-space: nowrap;
+            font-size: 10px; font-weight: 800; letter-spacing: 1px; background: #ff6600; color: #ffffff; border: 1px solid rgba(255, 102, 0, 0.4);
+            white-space: nowrap; box-shadow: 0 0 8px rgba(255,102,0,0.5);
         }
 
-        .service-card h3 { font-size: 23px; margin: 0 0 10px; color: #ffd700; }
-        .service-price { margin-bottom: 16px; color: #cccccc; }
-        .service-price strong { color: #ffd700; font-size: 21px; text-shadow: 0 0 8px rgba(255, 215, 0, 0.4); }
-        .service-card p { color: #b3b3b3; line-height: 1.7; }
-        .service-card ul { margin: 18px 0; padding-inline-start: 20px; color: #d4d4d4; line-height: 1.85; }
-        .service-card li::marker { color: #ffd700; }
+        .service-card h3 { font-size: 24px; margin: 0 0 10px; color: #ff6600; }
+        .service-price { margin-bottom: 16px; color: #cccccc; font-size: 15px; }
+        .service-price strong { color: #ff6600; font-size: 22px; text-shadow: 0 0 8px rgba(255, 102, 0, 0.4); }
+        .service-card p { color: #c0c0c0; line-height: 1.7; font-size: 15px; }
+        .service-card ul { margin: 18px 0; padding-inline-start: 20px; color: #e2e8f0; line-height: 1.85; font-size: 15px; }
+        .service-card li::marker { color: #ff6600; }
         
+        /* All Service Buttons with White Text */
         .service-button {
-            display: inline-block; padding: 12px 18px; border-radius: 9px; text-decoration: none; font-weight: 700; font-size: 12px;
-            background: #ffd700; color: #000000; transition: transform 0.2s ease, box-shadow 0.2s ease;
+            display: inline-block; padding: 12px 18px; border-radius: 9px; text-decoration: none; font-weight: 700; font-size: 13px;
+            background: #ff6600; color: #ffffff; transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
-        .service-button:hover { transform: translateY(-2px); box-shadow: 0 0 15px rgba(255, 215, 0, 0.8); }
-        .service-button.secondary { background: #1a1a1a; color: #ffd700; border: 1px solid rgba(255, 215, 0, 0.4); }
+        .service-button:hover { transform: translateY(-2px); box-shadow: 0 0 15px rgba(255, 102, 0, 0.8); color: #ffffff; }
+        .service-button.secondary { background: #1a1a1a; color: #ffffff; border: 1px solid rgba(255, 102, 0, 0.5); }
+        .service-button.secondary:hover { background: #ff6600; color: #ffffff; }
 
         .commercial-cta {
             max-width: 800px; margin: 40px auto 0; padding: 35px 25px; text-align: center; border-radius: 20px;
-            border: 1px solid rgba(255, 215, 0, 0.4); background: rgba(40, 30, 0, 0.15); box-shadow: 0 0 20px rgba(255, 215, 0, 0.1);
+            border: 1px solid rgba(255, 102, 0, 0.4); background: rgba(50, 20, 0, 0.2); box-shadow: 0 0 20px rgba(255, 102, 0, 0.1);
         }
-        .commercial-cta h3 { font-size: 27px; margin-bottom: 12px; color: #ffd700; }
-        .commercial-cta p { max-width: 680px; margin: 0 auto 22px; color: #cccccc; line-height: 1.8; }
+        .commercial-cta h3 { font-size: 28px; margin-bottom: 12px; color: #ff6600; }
+        .commercial-cta p { max-width: 680px; margin: 0 auto 22px; color: #d0d0d0; line-height: 1.8; font-size: 15px; }
+        
         .primary-cta {
-            display: inline-block; padding: 13px 21px; border-radius: 10px; text-decoration: none; font-weight: 700; font-size: 13px;
-            background: #ffd700; color: #000000; transition: transform 0.2s ease, box-shadow 0.2s ease;
+            display: inline-block; padding: 13px 21px; border-radius: 10px; text-decoration: none; font-weight: 700; font-size: 14px;
+            background: #ff6600; color: #ffffff; transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
-        .primary-cta:hover { transform: translateY(-2px); box-shadow: 0 0 15px rgba(255, 215, 0, 0.8); }
+        .primary-cta:hover { transform: translateY(-2px); box-shadow: 0 0 15px rgba(255, 102, 0, 0.8); color: #ffffff; }
         
         .commercial-disclaimer {
-            max-width: 800px; margin: 22px auto 0; padding: 13px 16px; border-left: 3px solid #ffd700;
-            background: rgba(10, 10, 10, 0.8); color: #aaaaaa; font-size: 11px; line-height: 1.7; border-radius: 4px;
+            max-width: 800px; margin: 22px auto 0; padding: 13px 16px; border-left: 3px solid #ff6600;
+            background: rgba(10, 10, 10, 0.8); color: #b3b3b3; font-size: 12px; line-height: 1.7; border-radius: 4px;
         }
 
         /* Assessment Form */
         .assessment-section {
             background: linear-gradient(180deg, #0c0c0c, #050505);
-            border: 1px solid rgba(255, 215, 0, 0.4);
+            border: 1px solid rgba(255, 102, 0, 0.4);
             padding: 45px 25px;
         }
         .assessment-heading { max-width: 800px; margin: 0 auto 35px; text-align: center; }
         .assessment-heading span {
-            display: inline-block; padding: 6px 12px; border: 1px solid rgba(255, 215, 0, 0.4); border-radius: 20px;
-            color: #ffd700; font-size: 11px; font-weight: bold; letter-spacing: 1.5px; margin-bottom: 12px; background: rgba(255, 215, 0, 0.08);
+            display: inline-block; padding: 6px 12px; border: 1px solid rgba(255, 102, 0, 0.4); border-radius: 20px;
+            color: #ffffff; font-size: 12px; font-weight: bold; letter-spacing: 1.5px; margin-bottom: 12px; background: #ff6600; box-shadow: 0 0 10px rgba(255,102,0,0.4);
         }
-        .assessment-heading h2 { color: #ffd700; font-size: clamp(28px, 5vw, 40px); margin: 0 0 14px; text-shadow: 0 0 10px rgba(255,215,0,0.3); }
-        .assessment-heading p { color: #cccccc; line-height: 1.8; }
+        .assessment-heading h2 { color: #ff6600; font-size: clamp(29px, 5vw, 41px); margin: 0 0 14px; text-shadow: 0 0 10px rgba(255,102,0,0.3); }
+        .assessment-heading p { color: #d0d0d0; line-height: 1.8; font-size: 15px; }
 
         .assessment-form-wrapper {
             max-width: 900px; margin: 0 auto; padding: 32px; border-radius: 20px;
-            border: 1px solid rgba(255, 215, 0, 0.3); background: rgba(18, 18, 18, 0.8); box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 102, 0, 0.3); background: rgba(18, 18, 18, 0.8); box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
         }
         .form-row { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
         .form-group { margin-bottom: 20px; }
-        .form-group label { display: block; margin-bottom: 8px; color: #ffd700; font-size: 13px; font-weight: 700; }
+        .form-group label { display: block; margin-bottom: 8px; color: #ff6600; font-size: 14px; font-weight: 700; }
         .form-group input, .form-group select, .form-group textarea {
-            width: 100%; box-sizing: border-box; padding: 13px 14px; border: 1px solid rgba(255, 215, 0, 0.3);
-            border-radius: 9px; outline: none; background: rgba(5, 5, 5, 0.9); color: #ffffff; font-family: Arial, sans-serif; font-size: 14px;
+            width: 100%; box-sizing: border-box; padding: 13px 14px; border: 1px solid rgba(255, 102, 0, 0.3);
+            border-radius: 9px; outline: none; background: rgba(5, 5, 5, 0.9); color: #ffffff; font-family: Arial, sans-serif; font-size: 15px;
         }
         .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
-            border-color: #ffd700; box-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+            border-color: #ff6600; box-shadow: 0 0 10px rgba(255, 102, 0, 0.4);
         }
         .form-group select option { background: #121212; color: #ffffff; }
         .form-group textarea { resize: vertical; min-height: 150px; }
         
-        .form-consent { margin: 5px 0 22px; color: #b3b3b3; font-size: 12px; line-height: 1.7; }
-        .form-consent label { display: flex; align-items: flex-start; gap: 8px; cursor: pointer; color: #b3b3b3; }
-        .form-consent input { margin-top: 4px; accent-color: #ffd700; }
+        .form-consent { margin: 5px 0 22px; color: #c0c0c0; font-size: 13px; line-height: 1.7; }
+        .form-consent label { display: flex; align-items: flex-start; gap: 8px; cursor: pointer; color: #c0c0c0; font-size: 13px; }
+        .form-consent input { margin-top: 4px; accent-color: #ff6600; }
 
         .assessment-submit {
             width: 100%; padding: 15px 20px; border: none; border-radius: 10px;
-            background: linear-gradient(90deg, #cca700, #ffd700); color: #000000; font-size: 14px; font-weight: 800; cursor: pointer; transition: transform 0.2s ease, box-shadow 0.2s ease;
+            background: linear-gradient(90deg, #e05a00, #ff6600); color: #ffffff; font-size: 15px; font-weight: 800; cursor: pointer; transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
-        .assessment-submit:hover { transform: translateY(-2px); box-shadow: 0 0 20px rgba(255, 215, 0, 0.8); }
-        .form-note { margin-top: 15px; text-align: center; color: #888888; font-size: 11px; line-height: 1.6; }
+        .assessment-submit:hover { transform: translateY(-2px); box-shadow: 0 0 20px rgba(255, 102, 0, 0.8); color: #ffffff; }
+        .form-note { margin-top: 15px; text-align: center; color: #aaaaaa; font-size: 12px; line-height: 1.6; }
 
-        .research-notice { background: #0c0c0c; border-left: 4px solid #ffd700; padding: 12px; border-radius: 6px; margin-top: 12px; font-size: 14px; color: #b3b3b3; }
-        .email { color: #ffd700; font-size: 15px; font-weight: bold; text-shadow: 0 0 8px rgba(255,215,0,0.3); }
+        .research-notice { background: #0c0c0c; border-left: 4px solid #ff6600; padding: 12px; border-radius: 6px; margin-top: 12px; font-size: 15px; color: #c0c0c0; }
+        .email { color: #ff6600; font-size: 16px; font-weight: bold; text-shadow: 0 0 8px rgba(255,102,0,0.3); }
 
-        .footer-box { text-align: center; margin-top: 35px; padding-top: 18px; border-top: 1px solid rgba(255, 215, 0, 0.2); color: #ffffff; font-size: 12px; }
-        .footer-box a { color: #ffd700; text-decoration: none; }
+        .footer-box { text-align: center; margin-top: 35px; padding-top: 18px; border-top: 1px solid rgba(255, 102, 0, 0.2); color: #ffffff; font-size: 13px; }
+        .footer-box a { color: #ff6600; text-decoration: none; }
 
         @media (max-width: 800px) {
             .service-grid, .form-row { grid-template-columns: 1fr; gap: 0; }
@@ -284,13 +291,14 @@
             </select>
         </div>
 
+        <!-- Logo is fixed and independent of language changes -->
         <div class="top-logo-container">
             <svg width="35" height="35" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="VIST-AI logo">
-                <polygon points="60,5 110,32.5 110,87.5 60,115 10,87.5 10,32.5" stroke="#ffd700" stroke-width="4" fill="#080808"/>
-                <line x1="35" y1="60" x2="85" y2="60" stroke="#ffd700" stroke-width="2" stroke-dasharray="4 2"/>
-                <line x1="60" y1="35" x2="60" y2="85" stroke="#ffd700" stroke-width="2" stroke-dasharray="4 2"/>
-                <circle cx="60" cy="60" r="18" fill="#000000" stroke="#ffd700" stroke-width="3"/>
-                <circle cx="60" cy="60" r="8" fill="#ffd700"/>
+                <polygon points="60,5 110,32.5 110,87.5 60,115 10,87.5 10,32.5" stroke="#ff6600" stroke-width="4" fill="#080808"/>
+                <line x1="35" y1="60" x2="85" y2="60" stroke="#ff6600" stroke-width="2" stroke-dasharray="4 2"/>
+                <line x1="60" y1="35" x2="60" y2="85" stroke="#ff6600" stroke-width="2" stroke-dasharray="4 2"/>
+                <circle cx="60" cy="60" r="18" fill="#000000" stroke="#ff6600" stroke-width="3"/>
+                <circle cx="60" cy="60" r="8" fill="#ff6600"/>
             </svg>
             <span class="brand-name">VIST-AI</span>
         </div>
@@ -639,7 +647,7 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
                 </div>
 
                 <button type="submit" class="assessment-submit" data-key="formSubmitBtn">Request VIST-AI Assessment</button>
-                <div class="form-note" id="formSuccessMsg" style="display:none; color: #ffd700; font-weight: bold; margin-top: 15px;"></div>
+                <div class="form-note" id="formSuccessMsg" style="display:none; color: #ff6600; font-weight: bold; margin-top: 15px;"></div>
             </form>
         </div>
     </section>
@@ -719,7 +727,7 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
             s3Title: "Custom AI Stress Testing", customQuote: "Custom Quote", s3Desc: "Custom evaluation designed around a client's own AI system, specimens, models, prompts, or research objectives.",
             s3l1: "Custom test specimens", s3l2: "Custom transformations", s3l3: "Custom prompt design", s3l4: "Multiple AI models", s3l5: "Comparative testing", s3l6: "Specialized analysis", s3l7: "Custom reporting", s3Btn: "Request Custom Quote",
             s4Title: "Enterprise & Research Evaluation", s4Desc: "Larger evaluation programs for AI companies, research organizations, universities, laboratories, and enterprise teams.",
-            s4l1: "Large-scale test programs", s4l2: "Custom benchmark development", s4l3: "Multi-model evaluation", s4l4: "Multilingual testing", s4l5: "Repeated controlled trials", s4l6: "Technical reporting", s4l7: "Executive summary", s4l8: "Research documentation", s4Btn: "Contact for Enterprise Quote",
+            s4l1: "Large-scale test programs", s4l2: "Custom benchmark development", s4l3: "Multi-model evaluation", s4l4: "Multilingual testing", s4l5: "Repeated controlled trials", s4l6: "Technical reporting", s4l7: "Executive summary", s4l8: "Research documentation", s4l4: "Large-scale test programs", s4Btn: "Contact for Enterprise Quote",
             ctaTitle: "Need a Deeper AI Evaluation?", ctaDesc: "Request a VIST-AI assessment for your AI system, multimodal model, research project, or custom visual evaluation requirement.", ctaBtn: "Request a VIST-AI Assessment",
             discTitle: "Commercial Evaluation Note:", discText: "VIST-AI assessments are evidence-oriented evaluations. The evaluation process does not assume that an AI system will fail. Findings are based on the defined test scope, observed model outputs, ground-truth comparison, repeated trials where applicable, and documented limitations. Prices shown are indicative starting prices and may vary according to project scope, number of specimens, models, repetitions, reporting requirements, and delivery timeline.",
             formHeaderSpan: "PROFESSIONAL EVALUATION REQUEST",
@@ -1216,7 +1224,7 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
             optSingleTrial: "单次试验", opt3Trials: "3 次试验", opt5Trials: "5 次试验", opt10Trials: "10+ 次试验",
             optYes: "是", optNo: "否", optNotSure: "不确定",
             optSelectTimeline: "选择时间表", optASAP: "尽快", opt12Weeks: "1–2 周", opt24Weeks: "2–4 周", optFlexible: "灵活",
-            consentText: "我理解 VIST-AI 提供独立评估，不保证预先确定的结果。",
+            consentTestText: "我理解 VIST-AI 提供独立评估，不保证预先确定的结果。",
             formSubmitBtn: "Request VIST-AI Assessment",
             contactTitle: "8. 联系 VIST-AI",
             contactDesc: "如需研究合作、自定义镜像书写样本、多语言测试材料、专业 AI 评估或 VIST-AI 框架讨论，请联系：",
@@ -1271,7 +1279,7 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
             s3Title: "کسٹم اے آئی اسٹریس ٹیسٹنگ", customQuote: "کسٹم کوٹ", s3Desc: "کلائنٹ کے اپنے اے آئی سسٹم، نمونوں اور تحقیقی مقاصد کے مطابق تیار کردہ کسٹم ایویلویشن۔",
             s3l1: "کسٹم ٹیسٹ نمونے", s3l2: "کسٹم تبدیلیاں", s3l3: "کسٹم پرامپٹ ڈیزائن", s3l4: "متعدد اے آئی ماڈلز", s3l5: "تقابلی ٹیسٹنگ", s3l6: "خصوصی تجزیہ", s3l7: "کسٹم رپورٹنگ", s3Btn: "کسٹم کوٹ کی درخواست کریں",
             s4Title: "انٹرپرائز اور ریسرچ ایویلویشن", s4Desc: "اے آئی کمپنیوں، تحقیقی اداروں اور انٹرپرائز ٹیموں کے لیے بڑے ایویلویشن پروگرام۔",
-            s4l1: "बड़े پیمانے پر ٹیسٹ پروگرام", s4l2: "کسٹم بینچ مارک ڈویلپمنٹ", s4l3: "ملٹی ماڈل ایویلویشن", s4l4: "ملٹی لنگول ٹیسٹنگ", s4l5: "بار بار کنٹرول شدہ آزمائشیں", s4l6: "تکنیکی رپورٹنگ", s4l7: "ایگزیکتوس خلاصہ", s4l8: "تحقیقی دستاویزات", s4Btn: "انٹرپرائز کوٹ کے لیے رابطہ کریں",
+            s4l1: "بڑے پیمانے پر ٹیسٹ پروگرام", s4l2: "کسٹم بینچ مارک ڈویلپمنٹ", s4l3: "ملٹی ماڈل ایویلویشن", s4l4: "ملٹی لنگول ٹیسٹنگ", s4l5: "بار بار کنٹرول شدہ آزمائشیں", s4l6: "تکنیکی رپورٹنگ", s4l7: "ایگزیکتوس خلاصہ", s4l8: "تحقیقی دستاویزات", s4Btn: "انٹرپرائز کوٹ کے لیے رابطہ کریں",
             ctaTitle: "مزید گہرے اے آئی ایویلویشن کی ضرورت ہے؟", ctaDesc: "اپنے اے آئی سسٹم یا تحقیقی پروجیکٹ کے لیے VIST-AI اسسمنٹ کی درخواست کریں۔", ctaBtn: "VIST-AI اسسمنٹ کی درخواست کریں",
             discTitle: "تجارتی ایویلویشن نوٹ:", discText: "VIST-AI اسسمنٹس شواہد پر مبنی جائزے ہیں۔ اس عمل میں یہ فرض نہیں کیا جاتا کہ اے آئی سسٹم ناکام ہو گا۔ نتائج متعین کردہ دائرہ کار، دیکھے گئے ماڈل آؤٹ پٹس اور گراؤنڈ ٹروتھ موازنہ پر مبنی ہیں۔ دکھائی गई قیمتیں ابتدائی ہیں۔",
             formHeaderSpan: "پروفیشنل ایویلویشن کی درخواست",
@@ -1285,7 +1293,7 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
             optSingleTrial: "سنگل ٹرائل", opt3Trials: "3 ٹرائلز", opt5Trials: "5 ٹرائلز", opt10Trials: "10+ ٹرائلز",
             optYes: "ہاں", optNo: "نہیں", optNotSure: "یقین نہیں",
             optSelectTimeline: "ٹائم لائن منتخب کریں", optASAP: "جتنی جلدی ہو سکے", opt12Weeks: "1–2 ہفتے", opt24Weeks: "2–4 ہفتے", optFlexible: "لچکدار",
-            consentText: "میں سمجھتا ہوں کہ VIST-AI ایک آزاد جائزہ فراہم करता ہے اور پہلے سے طے شدہ نتیجے کی ضمانت نہیں دیتا۔",
+            consentText: "میں سمجھتا ہوں کہ VIST-AI ایک آزاد جائزہ فراہم کرتا ہے اور پہلے سے طے شدہ نتیجے کی ضمانت نہیں دیتا۔",
             formSubmitBtn: "VIST-AI اسسمنٹ کی درخواست کریں",
             contactTitle: "8. رابطہ VIST-AI",
             contactDesc: "تحقیقی تعاون، کسٹم مرر رائٹنگ سیمپلز، ملٹی لنگول ٹیسٹ میٹریل یا پروفیشنل اے آئی ایویلویشن کے لیے رابطہ کریں:",
@@ -1298,15 +1306,15 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
     };
 
     const bgThemes = {
-        en: "radial-gradient(circle at 15% 20%, rgba(56, 189, 248, 0.15) 0%, transparent 45%)",
-        ja: "radial-gradient(circle at 50% 50%, rgba(239, 68, 68, 0.2) 0%, rgba(255, 255, 255, 0.05) 50%, transparent 70%)",
-        ru: "radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.18) 0%, rgba(239, 68, 68, 0.12) 60%, transparent 80%)",
-        ar: "radial-gradient(circle at 20% 20%, rgba(16, 185, 129, 0.15) 0%, rgba(239, 68, 68, 0.12) 60%, transparent 80%)",
-        he: "radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.18) 0%, rgba(255, 255, 255, 0.08) 60%, transparent 80%)",
-        hi: "radial-gradient(circle at 50% 50%, rgba(249, 115, 22, 0.18) 0%, rgba(16, 185, 129, 0.15) 60%, transparent 80%)",
-        ko: "radial-gradient(circle at 30% 30%, rgba(239, 68, 68, 0.15) 0%, rgba(59, 130, 246, 0.15) 60%, transparent 80%)",
-        zh: "radial-gradient(circle at 20% 20%, rgba(239, 68, 68, 0.22) 0%, rgba(234, 179, 8, 0.15) 50%, transparent 80%)",
-        ur: "radial-gradient(circle at 20% 20%, rgba(16, 185, 129, 0.18) 0%, rgba(255, 255, 255, 0.08) 60%, transparent 80%)"
+        en: "radial-gradient(circle at 15% 20%, rgba(255, 102, 0, 0.15) 0%, transparent 45%)",
+        ja: "radial-gradient(circle at 50% 50%, rgba(255, 102, 0, 0.2) 0%, rgba(255, 255, 255, 0.05) 50%, transparent 70%)",
+        ru: "radial-gradient(circle at 20% 20%, rgba(255, 102, 0, 0.18) 0%, rgba(230, 81, 0, 0.12) 60%, transparent 80%)",
+        ar: "radial-gradient(circle at 20% 20%, rgba(255, 102, 0, 0.18) 0%, rgba(230, 81, 0, 0.12) 60%, transparent 80%)",
+        he: "radial-gradient(circle at 50% 50%, rgba(255, 102, 0, 0.18) 0%, rgba(255, 255, 255, 0.08) 60%, transparent 80%)",
+        hi: "radial-gradient(circle at 50% 50%, rgba(255, 102, 0, 0.18) 0%, rgba(230, 81, 0, 0.15) 60%, transparent 80%)",
+        ko: "radial-gradient(circle at 30% 30%, rgba(255, 102, 0, 0.18) 0%, rgba(230, 81, 0, 0.15) 60%, transparent 80%)",
+        zh: "radial-gradient(circle at 20% 20%, rgba(255, 102, 0, 0.22) 0%, rgba(230, 81, 0, 0.15) 50%, transparent 80%)",
+        ur: "radial-gradient(circle at 20% 20%, rgba(255, 102, 0, 0.18) 0%, rgba(255, 255, 255, 0.08) 60%, transparent 80%)"
     };
 
     function changeLanguage(lang) {
