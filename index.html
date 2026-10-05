@@ -282,19 +282,19 @@
         </div>
 
         <!-- PERMANENTLY LOCKED STATIC LOGO -->
-        <div class="top-logo-container">
-            <svg width="35" height="35" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="VIST-AI logo">
+        <div class="top-logo-container" translate="no" data-static-logo="true">
+            <svg width="35" height="35" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="VIST-AI logo" translate="no">
                 <polygon points="60,5 110,32.5 110,87.5 60,115 10,87.5 10,32.5" stroke="#38bdf8" stroke-width="4" fill="#111827"/>
                 <line x1="35" y1="60" x2="85" y2="60" stroke="#0284c7" stroke-width="2" stroke-dasharray="4 2"/>
                 <line x1="60" y1="35" x2="60" y2="85" stroke="#0284c7" stroke-width="2" stroke-dasharray="4 2"/>
                 <circle cx="60" cy="60" r="18" fill="#090d16" stroke="#38bdf8" stroke-width="3"/>
                 <circle cx="60" cy="60" r="8" fill="#38bdf8"/>
             </svg>
-            <span class="brand-name">VIST-AI</span>
+            <span class="brand-name" translate="no" data-static-logo="true">VIST-AI</span>
         </div>
 
         <h1 data-key="title">Global Forensic AI Tester</h1>
-        <div class="founder-title">Founded by Mushtaque Ahmed Rajput</div>
+        <div class="founder-title" data-key="founderTitle">Founded by Mushtaque Ahmed Rajput</div>
         <p class="subtitle" data-key="subtitle">Visual Grounding, Geometric Robustness & Multilingual AI Evaluation</p>
         <p class="header-description" data-key="headerDesc">An open research framework and live utility for investigating how multimodal AI systems interpret controlled visual, geometric, mirrored, and multilingual test specimens.</p>
     </header>
@@ -432,7 +432,7 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
             <!-- SERVICE 01 -->
             <div class="service-card">
                 <div class="service-card-header">
-                    <div class="service-number">SERVICE 01</div>
+                    <div class="service-number" data-key="service01">SERVICE 01</div>
                 </div>
                 <h3 data-key="s1Title">Basic Evaluation</h3>
                 <div class="service-price"><span data-key="priceStart">Starting from</span> <strong>$75</strong></div>
@@ -451,7 +451,7 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
             <!-- SERVICE 02 -->
             <div class="service-card featured">
                 <div class="service-card-header">
-                    <div class="service-number">SERVICE 02</div>
+                    <div class="service-number" data-key="service02">SERVICE 02</div>
                     <span class="featured-label" data-key="recLabel">RECOMMENDED</span>
                 </div>
                 <h3 data-key="s2Title">Professional Forensic Assessment</h3>
@@ -474,7 +474,7 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
             <!-- SERVICE 03 -->
             <div class="service-card">
                 <div class="service-card-header">
-                    <div class="service-number">SERVICE 03</div>
+                    <div class="service-number" data-key="service03">SERVICE 03</div>
                 </div>
                 <h3 data-key="s3Title">Custom AI Stress Testing</h3>
                 <div class="service-price"><strong data-key="customQuote">Custom Quote</strong></div>
@@ -494,7 +494,7 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
             <!-- SERVICE 04 -->
             <div class="service-card">
                 <div class="service-card-header">
-                    <div class="service-number">SERVICE 04</div>
+                    <div class="service-number" data-key="service04">SERVICE 04</div>
                 </div>
                 <h3 data-key="s4Title">Enterprise & Research Evaluation</h3>
                 <div class="service-price"><strong data-key="customQuote">Custom Quote</strong></div>
@@ -538,22 +538,22 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
                 <div class="form-row">
                     <div class="form-group">
                         <label for="full-name" data-key="lblFullName">Full Name *</label>
-                        <input type="text" id="full-name" name="Full Name" required placeholder="Your full name">
+                        <input type="text" id="full-name" name="Full Name" required placeholder="Your full name" data-placeholder-key="phFullName">
                     </div>
                     <div class="form-group">
                         <label for="organization" data-key="lblOrg">Organization / Company</label>
-                        <input type="text" id="organization" name="Organization" placeholder="Company or research organization">
+                        <input type="text" id="organization" name="Organization" placeholder="Company or research organization" data-placeholder-key="phOrg">
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group">
                         <label for="client-email" data-key="lblEmail">Work Email *</label>
-                        <input type="email" id="client-email" name="Email" required placeholder="name@company.com">
+                        <input type="email" id="client-email" name="Email" required placeholder="name@company.com" data-placeholder-key="phEmail">
                     </div>
                     <div class="form-group">
                         <label for="ai-model" data-key="lblModel">AI System / Model *</label>
-                        <input type="text" id="ai-model" name="AI System / Model" required placeholder="Example: Vision-Language Model">
+                        <input type="text" id="ai-model" name="AI System / Model" required placeholder="Example: Vision-Language Model" data-placeholder-key="phModel">
                     </div>
                 </div>
 
@@ -574,11 +574,11 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
                         <label for="test-cases" data-key="lblTestCases">Approximate Test Cases</label>
                         <select id="test-cases" name="Approximate Test Cases">
                             <option value="" data-key="optSelectQty">Select quantity</option>
-                            <option value="Up to 10">Up to 10</option>
-                            <option value="10-30">10–30</option>
-                            <option value="30-50">30–50</option>
-                            <option value="50-100">50–100</option>
-                            <option value="100+">100+</option>
+                            <option value="Up to 10" data-key="qty10">Up to 10</option>
+                            <option value="10-30" data-key="qty30">10–30</option>
+                            <option value="30-50" data-key="qty50">30–50</option>
+                            <option value="50-100" data-key="qty100">50–100</option>
+                            <option value="100+" data-key="qtyPlus">100+</option>
                         </select>
                     </div>
                 </div>
@@ -626,7 +626,7 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
 
                 <div class="form-group">
                     <label for="description" data-key="lblProjDesc">Project Description *</label>
-                    <textarea id="description" name="Project Description" rows="7" required placeholder="Briefly describe what you would like VIST-AI to evaluate."></textarea>
+                    <textarea id="description" name="Project Description" rows="7" required placeholder="Briefly describe what you would like VIST-AI to evaluate." data-placeholder-key="phDescription"></textarea>
                 </div>
 
                 <div class="form-consent">
@@ -663,7 +663,7 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
 
     <!-- FOOTER -->
     <div class="footer-box">
-        <p>&copy; 2026 VIST-AI Framework. All Rights Reserved.</p>
+        <p data-key="copyright">© 2026 VIST-AI Framework. All Rights Reserved.</p>
         <p><strong data-key="footerFounder">Founder:</strong> Mushtaque Ahmed Rajput</p>
         <p data-key="footerSub">Open Framework for Visual Grounding & Geometric Robustness Evaluation</p>
     </div>
@@ -1155,6 +1155,75 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
             aboutDesc2: "The framework is intended to support controlled experiments, reproducibility, comparative testing, and forensic-style analysis of model outputs.",
             footerFounder: "Founder:", footerSub: "Open Framework for Visual Grounding & Geometric Robustness Evaluation"
         },
+        URDU: {
+            title: "گلوبل فارنزک AI ٹیسٹر",
+            subtitle: "بصری گراؤنڈنگ، جیومیٹرک مضبوطی اور کثیر لسانی AI جائزہ",
+            headerDesc: "ایک اوپن ریسرچ فریم ورک اور لائیو یوٹیلیٹی جو یہ جانچنے کے لیے استعمال ہوتی ہے کہ ملٹی موڈل AI سسٹمز کنٹرول شدہ بصری، جیومیٹرک، آئینے دار اور کثیر لسانی ٹیسٹ نمونوں کی تشریح کیسے کرتے ہیں۔",
+            badge: "اوپن ریسرچ اور AI ایویلیوایشن فریم ورک",
+            navImg: "امیج مرر", navText: "ٹیکسٹ مرر", navMethod: "طریقۂ کار", navGuide: "ٹیسٹنگ گائیڈ", navRecord: "مشاہداتی ریکارڈ", navServices: "سروسز", navReq: "ایویلیوایشن کی درخواست", navContact: "رابطہ",
+            sec1Title: "1. لائیو امیج مرر ٹول",
+            sec1Desc: "عام تحریری تصویر اپ لوڈ کریں تاکہ کنٹرول شدہ بصری جائزے کے لیے افقی طور پر آئینہ دار ٹیسٹ نمونہ بنایا جا سکے۔",
+            uploadLabel: "عام تحریری تصویر اپ لوڈ کریں",
+            genImgBtn: "آئینہ دار ٹیسٹ نمونہ بنائیں",
+            resTitle: "آئینہ دار ٹیسٹ نمونہ",
+            dlBtn: "ٹیسٹ نمونہ ڈاؤن لوڈ کریں",
+            sec2Title: "2. لائیو کثیر لسانی ٹیکسٹ مرر ٹول",
+            sec2Desc: "کسی بھی معاون تحریری نظام میں متن درج کریں تاکہ کنٹرول شدہ ٹیسٹنگ کے لیے بصری طور پر آئینہ دار پیش منظر بنایا جا سکے۔",
+            enterTextLabel: "ٹیسٹ متن درج کریں",
+            genTextBtn: "آئینہ دار پیش منظر بنائیں",
+            previewLabel: "بصری آئینہ دار پیش منظر",
+            mirrorNote: "نوٹ: یہ ایک بصری افقی تبدیلی ہے۔ بنیادی Unicode متن کو الٹا یا ترجمہ نہیں کیا جاتا۔",
+            methTitle: "3. VIST-AI تحقیقی طریقۂ کار",
+            methDesc: "VIST-AI جیومیٹرک اور کثیر لسانی حالات میں ملٹی موڈل AI کی تشریح کا جائزہ لینے کے لیے کنٹرول شدہ بصری نمونے استعمال کرتا ہے۔",
+            stepCond: "ٹیسٹ کی حالت", stepCondDesc: "ایک معلوم نمونے کو افقی آئینہ سازی جیسی متعین بصری کارروائی کے ذریعے تبدیل کیا جاتا ہے۔",
+            stepObs: "ماڈل کا مشاہدہ", stepObsDesc: "ایک ہی نمونے اور معیاری prompt کو ایک یا زیادہ ملٹی موڈل AI سسٹمز کے سامنے پیش کیا جا سکتا ہے۔",
+            stepComp: "گراؤنڈ ٹروتھ سے موازنہ", stepCompDesc: "ماڈل کے output کا موازنہ معلوم اصل نمونے، تبدیلی کی حالت اور متوقع تشریح سے کیا جاتا ہے۔",
+            stepErr: "غلطیوں کا تجزیہ", stepErrDesc: "محققین مشاہدے میں آنے والی عدم مطابقتیں، حروف کی غلط شناخت، جگہ سے متعلق تشریحی غلطیاں اور دیگر غیر متوقع دعوے ریکارڈ کر سکتے ہیں۔",
+            guideTitle: "4. ملٹی موڈل AI سسٹمز کی ٹیسٹنگ کیسے کریں",
+            guideDesc: "کنٹرول شدہ VIST-AI بصری گراؤنڈنگ اور جیومیٹرک مضبوطی کا ٹیسٹ کرنے کے لیے درج ذیل طریقہ استعمال کریں۔",
+            gStep1: "مرحلہ 1 — ٹیسٹ نمونہ بنائیں", gStep1Desc: "اوپر موجود Image Mirror Tool یا Text Mirror Tool استعمال کرکے ایک کنٹرول شدہ بصری نمونہ بنائیں۔",
+            gStep2: "مرحلہ 2 — ملٹی موڈل AI سسٹم منتخب کریں", gStep2Desc: "ایسا ملٹی موڈل AI سسٹم کھولیں جو image input وصول کر سکتا ہو۔",
+            gStep3: "مرحلہ 3 — معیاری prompt استعمال کریں", gStep3Desc: "آئینہ دار نمونہ اپ لوڈ کریں اور ایک غیر جانب دار prompt استعمال کریں۔",
+            gStep4: "مرحلہ 4 — output ریکارڈ کریں", gStep4Desc: "ماڈل کا جواب، ٹیسٹ نمونہ، prompt، model/version کی معلومات اور ٹیسٹ کی تاریخ محفوظ کریں۔",
+            gStep5: "مرحلہ 5 — نتیجے کا تجزیہ کریں", gStep5Desc: "ماڈل کے output کا معلوم نمونے اور تبدیلی کی حالت سے موازنہ کریں۔ پہلے سے ناکامی فرض کیے بغیر مشاہداتی فرق ریکارڈ کریں۔",
+            recTitle: "5. VIST-AI مشاہداتی ریکارڈ",
+            recDesc: "قابلِ تکرار تحقیق کے لیے ہر ٹیسٹ میں ایک جیسی بنیادی معلومات ریکارڈ کریں۔",
+            rec1: "ٹیسٹ ID", rec2: "ٹیسٹ کی تاریخ", rec3: "AI سسٹم / ماڈل", rec4: "ان پٹ کی قسم", rec5: "تبدیلی", rec6: "Prompt", rec7: "مشاہدہ شدہ Output", rec8: "گراؤنڈ ٹروتھ سے موازنہ",
+            servBadge: "پروفیشنل AI ایویلیوایشن سروسز",
+            servMainTitle: "VIST-AI پروفیشنل AI ایویلیوایشن",
+            servMainDesc: "کنٹرول شدہ بصری، جیومیٹرک، آئینہ دار، تبدیل شدہ اور کثیر لسانی حالات میں ملٹی موڈل AI کے رویے کا آزاد، منظم اور شواہد پر مبنی جائزہ۔",
+            s1Title: "بنیادی ایویلیوایشن", priceStart: "ابتدائی قیمت", s1Desc: "ان کلائنٹس کے لیے مرکوز جائزہ جنہیں ملٹی موڈل AI سسٹم کی ابتدائی جانچ درکار ہو۔",
+            s1l1: "10 تک کنٹرول شدہ ٹیسٹ کیسز", s1l2: "بصری اور جیومیٹرک ٹیسٹنگ", s1l3: "آئینہ دار یا تبدیل شدہ نمونے", s1l4: "گراؤنڈ ٹروتھ سے موازنہ", s1l5: "بنیادی نتائج", s1l6: "مختصر ایویلیوایشن خلاصہ", s1Btn: "بنیادی ایویلیوایشن کی درخواست کریں",
+            recLabel: "تجویز کردہ",
+            s2Title: "پروفیشنل فارنزک ایویلیوایشن", s2Desc: "گہری تحقیق، دستاویزات اور پیشہ ورانہ رپورٹنگ کے لیے تیار کردہ منظم VIST-AI ایویلیوایشن۔",
+            s2l1: "30–50 کنٹرول شدہ ٹیسٹ کیسز", s2l2: "متعدد بصری حالات", s2l3: "کثیر لسانی / متعدد رسم الخط کے نمونے", s2l4: "متعدد prompts", s2l5: "دہرائے گئے ٹرائلز", s2l6: "گراؤنڈ ٹروتھ سے موازنہ", s2l7: "ثبوتی اسکرین شاٹس", s2l8: "Reproducibility کا تجزیہ", s2l9: "پروفیشنل PDF رپورٹ", s2Btn: "پروفیشنل ایویلیوایشن کی درخواست کریں",
+            s3Title: "کسٹم AI اسٹریس ٹیسٹنگ", customQuote: "کسٹم کوٹ", s3Desc: "کلائنٹ کے اپنے AI سسٹم، نمونوں، ماڈلز، prompts یا تحقیقی مقاصد کے مطابق تیار کردہ کسٹم ایویلیوایشن۔",
+            s3l1: "کسٹم ٹیسٹ نمونے", s3l2: "کسٹم تبدیلیاں", s3l3: "کسٹم prompt ڈیزائن", s3l4: "متعدد AI ماڈلز", s3l5: "تقابلی ٹیسٹنگ", s3l6: "خصوصی تجزیہ", s3l7: "کسٹم رپورٹنگ", s3Btn: "کسٹم کوٹ کی درخواست کریں",
+            s4Title: "انٹرپرائز اور ریسرچ ایویلیوایشن", s4Desc: "AI کمپنیوں، تحقیقی اداروں، یونیورسٹیوں، لیبارٹریز اور انٹرپرائز ٹیموں کے لیے بڑے پیمانے کے ایویلیوایشن پروگرام۔",
+            s4l1: "بڑے پیمانے کے ٹیسٹ پروگرام", s4l2: "کسٹم بینچ مارک ڈویلپمنٹ", s4l3: "ملٹی ماڈل ایویلیوایشن", s4l4: "کثیر لسانی ٹیسٹنگ", s4l5: "دہرائے گئے کنٹرول شدہ ٹرائلز", s4l6: "تکنیکی رپورٹنگ", s4l7: "ایگزیکٹو خلاصہ", s4l8: "تحقیقی دستاویزات", s4Btn: "انٹرپرائز کوٹ کے لیے رابطہ کریں",
+            ctaTitle: "کیا آپ کو مزید گہری AI ایویلیوایشن چاہیے؟", ctaDesc: "اپنے AI سسٹم، ملٹی موڈل ماڈل، تحقیقی منصوبے یا کسٹم بصری ایویلیوایشن کے لیے VIST-AI assessment کی درخواست کریں۔", ctaBtn: "VIST-AI Assessment کی درخواست کریں",
+            discTitle: "کمرشل ایویلیوایشن نوٹ:", discText: "VIST-AI assessments شواہد پر مبنی جائزے ہیں۔ ایویلیوایشن کا عمل یہ فرض نہیں کرتا کہ AI سسٹم لازماً ناکام ہوگا۔ نتائج متعین ٹیسٹ scope، مشاہدہ شدہ model outputs، ground-truth comparison، جہاں قابلِ اطلاق ہو repeated trials، اور دستاویزی limitations کی بنیاد پر ہوتے ہیں۔ دکھائی گئی قیمتیں ابتدائی indicative prices ہیں اور project scope، نمونوں کی تعداد، models، repetitions، reporting requirements اور delivery timeline کے مطابق تبدیل ہو سکتی ہیں۔",
+            formHeaderSpan: "پروفیشنل ایویلیوایشن کی درخواست",
+            formMainTitle: "VIST-AI Assessment کی درخواست کریں",
+            formMainDesc: "اپنے AI سسٹم اور ایویلیوایشن کی ضروریات کے بارے میں معلومات دیں۔ ہم آپ کی درخواست کا جائزہ لے کر مناسب VIST-AI ایویلیوایشن scope تجویز کریں گے۔",
+            lblFullName: "مکمل نام *", lblOrg: "ادارہ / کمپنی", lblEmail: "کام کا ای میل *", lblModel: "AI سسٹم / ماڈل *",
+            lblEvalType: "ایویلیوایشن کی قسم *", lblTestCases: "تقریباً کتنے ٹیسٹ کیسز", lblNumModels: "AI ماڈلز کی تعداد", lblTrials: "دہرائے گئے ٹرائلز",
+            lblPDF: "کیا پروفیشنل PDF رپورٹ درکار ہے؟", lblTimeline: "مطلوبہ مدت", lblProjDesc: "پروجیکٹ کی تفصیل *",
+            optSelectArea: "ایویلیوایشن کا شعبہ منتخب کریں", optVisual: "Visual Grounding", optGeo: "Geometric Robustness", optMulti: "کثیر لسانی / OCR", optImgUnd: "Image Understanding", optModelComp: "Model Comparison", optStress: "Custom AI Stress Testing",
+            optSelectQty: "تعداد منتخب کریں", opt1Model: "1 ماڈل", opt2Models: "2 ماڈلز", opt35Models: "3–5 ماڈلز", opt5PlusModels: "5+ ماڈلز",
+            optSingleTrial: "ایک ٹرائل", opt3Trials: "3 ٹرائلز", opt5Trials: "5 ٹرائلز", opt10Trials: "10+ ٹرائلز",
+            optYes: "ہاں", optNo: "نہیں", optNotSure: "یقین نہیں",
+            optSelectTimeline: "مدت منتخب کریں", optASAP: "جتنی جلد ممکن ہو", opt12Weeks: "1–2 ہفتے", opt24Weeks: "2–4 ہفتے", optFlexible: "لچکدار",
+            consentText: "میں سمجھتا/سمجھتی ہوں کہ VIST-AI ایک آزاد ایویلیوایشن فراہم کرتا ہے اور کسی پہلے سے طے شدہ نتیجے کی ضمانت نہیں دیتا۔",
+            formSubmitBtn: "VIST-AI Assessment کی درخواست بھیجیں",
+            contactTitle: "8. VIST-AI سے رابطہ",
+            contactDesc: "ریسرچ تعاون، کسٹم mirror-writing specimens، کثیر لسانی ٹیسٹ مواد، پروفیشنل AI ایویلیوایشن یا VIST-AI فریم ورک پر گفتگو کے لیے رابطہ کریں:",
+            noticeTitle: "پروفیشنل ایویلیوایشن:", noticeText: "کمرشل AI ایویلیوایشن کے لیے اوپر موجود VIST-AI Assessment Request فارم استعمال کریں تاکہ quotation سے پہلے ایویلیوایشن scope کا جائزہ لیا جا سکے۔",
+            aboutTitle: "VIST-AI کے بارے میں",
+            aboutDesc1: "VIST-AI ایک اوپن ریسرچ اور ایویلیوایشن فریم ورک ہے جو visual grounding، geometric transformations، multilingual writing systems اور مشاہدہ کیے جانے والے multimodal AI behavior پر مرکوز ہے۔",
+            aboutDesc2: "یہ فریم ورک controlled experiments، reproducibility، comparative testing اور model outputs کے forensic-style analysis میں معاونت کے لیے بنایا گیا ہے۔",
+            footerFounder: "بانی:", footerSub: "Visual Grounding اور Geometric Robustness Evaluation کے لیے اوپن فریم ورک"
+        },
         RUSSIAN: {
             title: "Глобальный тестер судебной экспертизы ИИ",
             subtitle: "Визуальное обоснование, геометрическая устойчивость и многоязычная оценка ИИ",
@@ -1238,36 +1307,165 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
         URDU: "radial-gradient(circle at 20% 20%, rgba(56, 189, 248, 0.18) 0%, rgba(255, 255, 255, 0.08) 60%, transparent 80%)"
     };
 
+    // =========================================================
+    // VIST-AI UNIFIED LANGUAGE ENGINE
+    // The VIST-AI logo is permanently static and is never translated.
+    // =========================================================
+    const languageMeta = {
+        en: { htmlLang: "en", title: "VIST-AI | Visual Grounding & Geometric Robustness Testing", dir: "ltr" },
+        ARABIC: { htmlLang: "ar", title: "VIST-AI | اختبار الاستدلال البصري والمتانة الهندسية", dir: "rtl" },
+        CHINESE: { htmlLang: "zh", title: "VIST-AI | 视觉基础与几何稳健性测试", dir: "ltr" },
+        HEBREW: { htmlLang: "he", title: "VIST-AI | בדיקת עיגון חזותי וחוסן גיאומטרי", dir: "rtl" },
+        HINDI: { htmlLang: "hi", title: "VIST-AI | विजुअल ग्राउंडिंग और ज्यामितीय मजबूती परीक्षण", dir: "ltr" },
+        JAPANESE: { htmlLang: "ja", title: "VIST-AI | ビジュアルグラウンディングと幾何学的堅牢性テスト", dir: "ltr" },
+        KOREAN: { htmlLang: "ko", title: "VIST-AI | 시각적 근거 및 기하학적 견고성 테스트", dir: "ltr" },
+        RUSSIAN: { htmlLang: "ru", title: "VIST-AI | Тестирование визуального обоснования и геометрической устойчивости", dir: "ltr" },
+        URDU: { htmlLang: "ur", title: "VIST-AI | بصری گراؤنڈنگ اور جیومیٹرک مضبوطی ٹیسٹنگ", dir: "rtl" }
+    };
+
+    const languagePatches = {
+        en: {
+            founderTitle:"Founded by Mushtaque Ahmed Rajput", service01:"SERVICE 01", service02:"SERVICE 02", service03:"SERVICE 03", service04:"SERVICE 04",
+            qty10:"Up to 10", qty30:"10–30", qty50:"30–50", qty100:"50–100", qtyPlus:"100+", copyright:"© 2026 VIST-AI Framework. All Rights Reserved.",
+            phFullName:"Your full name", phOrg:"Company or research organization", phEmail:"name@company.com", phModel:"Example: Vision-Language Model", phDescription:"Briefly describe what you would like VIST-AI to evaluate.",
+            alertImage:"Please select a writing image first.", alertImageType:"Please select a valid image file.", alertText:"Please enter text first.", successPrefix:"Thank you, ", successMid:"! Your VIST-AI assessment request has been successfully submitted. We will review your details and contact you shortly at ", successEnd:"."
+        },
+        ARABIC: {
+            founderTitle:"تأسس بواسطة مشتاق أحمد راجبوت", service01:"الخدمة 01", service02:"الخدمة 02", service03:"الخدمة 03", service04:"الخدمة 04",
+            qty10:"حتى 10", qty30:"10–30", qty50:"30–50", qty100:"50–100", qtyPlus:"100+", copyright:"© 2026 إطار VIST-AI. جميع الحقوق محفوظة.",
+            phFullName:"اسمك الكامل", phOrg:"الشركة أو المؤسسة البحثية", phEmail:"name@company.com", phModel:"مثال: نموذج لغة ورؤية", phDescription:"صف باختصار ما الذي تريد من VIST-AI تقييمه.",
+            ctaTitle:"هل تحتاج إلى تقييم أعمق للذكاء الاصطناعي؟", ctaDesc:"اطلب تقييم VIST-AI لنظام الذكاء الاصطناعي أو النموذج متعدد الوسائط أو المشروع البحثي أو متطلبات التقييم البصري المخصصة.", ctaBtn:"طلب تقييم VIST-AI", discTitle:"ملاحظة التقييم التجاري:", formHeaderSpan:"طلب تقييم احترافي", formMainTitle:"طلب تقييم VIST-AI", optSelectArea:"اختر مجال التقييم", noticeText:"لطلبات التقييم التجاري، يرجى استخدام نموذج طلب تقييم VIST-AI أعلاه حتى تتم مراجعة نطاق التقييم قبل تقديم عرض السعر.",
+            alertImage:"يرجى اختيار صورة كتابة أولاً.", alertImageType:"يرجى اختيار ملف صورة صالح.", alertText:"يرجى إدخال النص أولاً.", successPrefix:"شكرًا لك، ", successMid:"! تم إرسال طلب تقييم VIST-AI بنجاح. سنراجع بياناتك ونتواصل معك قريبًا على ", successEnd:"."
+        },
+        CHINESE: {
+            founderTitle:"由 Mushtaque Ahmed Rajput 创立", service01:"服务 01", service02:"服务 02", service03:"服务 03", service04:"服务 04",
+            qty10:"最多 10", qty30:"10–30", qty50:"30–50", qty100:"50–100", qtyPlus:"100+", copyright:"© 2026 VIST-AI 框架。保留所有权利。",
+            phFullName:"您的姓名", phOrg:"公司或研究机构", phEmail:"name@company.com", phModel:"例如：视觉语言模型", phDescription:"请简要描述您希望 VIST-AI 评估的内容。",
+            ctaTitle:"需要更深入的 AI 评估？", ctaDesc:"为您的 AI 系统、多模态模型、研究项目或定制视觉评估需求申请 VIST-AI 评估。", ctaBtn:"申请 VIST-AI 评估", discTitle:"商业评估说明：", formHeaderSpan:"专业评估申请", formMainTitle:"申请 VIST-AI 评估", optSelectArea:"选择评估领域", noticeText:"如需商业 AI 评估，请使用上方 VIST-AI 评估申请表，以便在报价前审核评估范围。",
+            alertImage:"请先选择一张书写图像。", alertImageType:"请选择有效的图像文件。", alertText:"请先输入文本。", successPrefix:"谢谢您，", successMid:"！您的 VIST-AI 评估申请已成功提交。我们会审核您的信息，并很快通过 ", successEnd:" 与您联系。"
+        },
+        HEBREW: {
+            founderTitle:"נוסד על ידי Mushtaque Ahmed Rajput", service01:"שירות 01", service02:"שירות 02", service03:"שירות 03", service04:"שירות 04",
+            qty10:"עד 10", qty30:"10–30", qty50:"30–50", qty100:"50–100", qtyPlus:"100+", copyright:"© 2026 מסגרת VIST-AI. כל הזכויות שמורות.",
+            phFullName:"השם המלא שלך", phOrg:"חברה או ארגון מחקר", phEmail:"name@company.com", phModel:"לדוגמה: מודל ראייה-שפה", phDescription:"תאר בקצרה מה תרצה ש-VIST-AI יעריך.",
+            ctaTitle:"זקוקים להערכת AI מעמיקה יותר?", ctaDesc:"בקשו הערכת VIST-AI עבור מערכת AI, מודל רב-מודלי, פרויקט מחקר או דרישת הערכה חזותית מותאמת.", ctaBtn:"בקשת הערכת VIST-AI", discTitle:"הערה לגבי הערכה מסחרית:", formHeaderSpan:"בקשת הערכה מקצועית", formMainTitle:"בקשת הערכת VIST-AI", optSelectArea:"בחרו תחום הערכה", noticeText:"לבקשות הערכה מסחריות, השתמשו בטופס בקשת הערכת VIST-AI למעלה כדי שניתן יהיה לבדוק את היקף ההערכה לפני הצעת המחיר.",
+            alertImage:"נא לבחור תחילה תמונת כתיבה.", alertImageType:"נא לבחור קובץ תמונה תקין.", alertText:"נא להזין טקסט תחילה.", successPrefix:"תודה, ", successMid:"! בקשת הערכת VIST-AI שלך נשלחה בהצלחה. נבדוק את הפרטים וניצור איתך קשר בקרוב בכתובת ", successEnd:"."
+        },
+        HINDI: {
+            founderTitle:"Mushtaque Ahmed Rajput द्वारा स्थापित", service01:"सेवा 01", service02:"सेवा 02", service03:"सेवा 03", service04:"सेवा 04",
+            qty10:"10 तक", qty30:"10–30", qty50:"30–50", qty100:"50–100", qtyPlus:"100+", copyright:"© 2026 VIST-AI फ्रेमवर्क। सर्वाधिकार सुरक्षित।",
+            phFullName:"आपका पूरा नाम", phOrg:"कंपनी या शोध संगठन", phEmail:"name@company.com", phModel:"उदाहरण: विज़न-लैंग्वेज मॉडल", phDescription:"संक्षेप में बताएं कि आप VIST-AI से क्या मूल्यांकन करवाना चाहते हैं।",
+            ctaTitle:"क्या आपको अधिक गहरा AI मूल्यांकन चाहिए?", ctaDesc:"अपने AI सिस्टम, मल्टीमोडल मॉडल, शोध परियोजना या कस्टम विजुअल मूल्यांकन आवश्यकता के लिए VIST-AI मूल्यांकन का अनुरोध करें।", ctaBtn:"VIST-AI मूल्यांकन का अनुरोध करें", discTitle:"व्यावसायिक मूल्यांकन नोट:", formHeaderSpan:"पेशेवर मूल्यांकन अनुरोध", formMainTitle:"VIST-AI मूल्यांकन का अनुरोध करें", optSelectArea:"मूल्यांकन क्षेत्र चुनें", noticeText:"व्यावसायिक AI मूल्यांकन के लिए ऊपर दिए गए VIST-AI मूल्यांकन अनुरोध फॉर्म का उपयोग करें ताकि कोटेशन से पहले मूल्यांकन का दायरा देखा जा सके।",
+            alertImage:"कृपया पहले लिखावट की छवि चुनें।", alertImageType:"कृपया मान्य छवि फ़ाइल चुनें।", alertText:"कृपया पहले टेक्स्ट दर्ज करें।", successPrefix:"धन्यवाद, ", successMid:"! आपका VIST-AI मूल्यांकन अनुरोध सफलतापूर्वक भेज दिया गया है। हम आपकी जानकारी की समीक्षा करके जल्द ही ", successEnd:" पर संपर्क करेंगे।"
+        },
+        JAPANESE: {
+            founderTitle:"Mushtaque Ahmed Rajput によって設立", service01:"サービス 01", service02:"サービス 02", service03:"サービス 03", service04:"サービス 04",
+            qty10:"10件まで", qty30:"10–30", qty50:"30–50", qty100:"50–100", qtyPlus:"100+", copyright:"© 2026 VIST-AI フレームワーク。無断転載を禁じます。",
+            phFullName:"氏名", phOrg:"会社または研究機関", phEmail:"name@company.com", phModel:"例：ビジョン・ランゲージ・モデル", phDescription:"VIST-AIに評価してほしい内容を簡潔に説明してください。",
+            ctaTitle:"より深いAI評価が必要ですか？", ctaDesc:"AIシステム、マルチモーダルモデル、研究プロジェクト、またはカスタム視覚評価要件についてVIST-AI評価を依頼できます。", ctaBtn:"VIST-AI評価を依頼", discTitle:"商用評価に関する注意：", formHeaderSpan:"専門評価リクエスト", formMainTitle:"VIST-AI評価を依頼", optSelectArea:"評価分野を選択", noticeText:"商用AI評価をご希望の場合は、上記のVIST-AI評価リクエストフォームをご利用ください。見積り前に評価範囲を確認します。",
+            alertImage:"最初に文字画像を選択してください。", alertImageType:"有効な画像ファイルを選択してください。", alertText:"最初にテキストを入力してください。", successPrefix:"ありがとうございます、", successMid:"さん。VIST-AI評価リクエストが正常に送信されました。内容を確認し、", successEnd:" にご連絡します。"
+        },
+        KOREAN: {
+            founderTitle:"Mushtaque Ahmed Rajput 설립", service01:"서비스 01", service02:"서비스 02", service03:"서비스 03", service04:"서비스 04",
+            qty10:"최대 10", qty30:"10–30", qty50:"30–50", qty100:"50–100", qtyPlus:"100+", copyright:"© 2026 VIST-AI 프레임워크. 모든 권리 보유.",
+            phFullName:"성명", phOrg:"회사 또는 연구기관", phEmail:"name@company.com", phModel:"예: 비전-언어 모델", phDescription:"VIST-AI가 평가하기를 원하는 내용을 간단히 설명해 주세요.",
+            ctaTitle:"더 심층적인 AI 평가가 필요하신가요?", ctaDesc:"AI 시스템, 멀티모달 모델, 연구 프로젝트 또는 맞춤형 시각 평가 요구사항에 대한 VIST-AI 평가를 요청하세요.", ctaBtn:"VIST-AI 평가 요청", discTitle:"상업 평가 안내:", formHeaderSpan:"전문 평가 요청", formMainTitle:"VIST-AI 평가 요청", optSelectArea:"평가 영역 선택", noticeText:"상업적 AI 평가 요청은 위의 VIST-AI 평가 요청 양식을 사용해 주세요. 견적 전에 평가 범위를 검토합니다.",
+            alertImage:"먼저 필기 이미지를 선택해 주세요.", alertImageType:"유효한 이미지 파일을 선택해 주세요.", alertText:"먼저 텍스트를 입력해 주세요.", successPrefix:"감사합니다, ", successMid:"님. VIST-AI 평가 요청이 성공적으로 제출되었습니다. 내용을 검토한 후 ", successEnd:"로 연락드리겠습니다."
+        },
+        RUSSIAN: {
+            founderTitle:"Основано Муштаком Ахмедом Раджпутом", service01:"УСЛУГА 01", service02:"УСЛУГА 02", service03:"УСЛУГА 03", service04:"УСЛУГА 04",
+            qty10:"До 10", qty30:"10–30", qty50:"30–50", qty100:"50–100", qtyPlus:"100+", copyright:"© 2026 Фреймворк VIST-AI. Все права защищены.",
+            phFullName:"Ваше полное имя", phOrg:"Компания или исследовательская организация", phEmail:"name@company.com", phModel:"Например: мультимодальная модель", phDescription:"Кратко опишите, что вы хотите оценить с помощью VIST-AI.",
+            ctaTitle:"Нужна более глубокая оценка ИИ?", ctaDesc:"Запросите оценку VIST-AI для вашей AI-системы, мультимодальной модели, исследовательского проекта или индивидуальной задачи визуального тестирования.", ctaBtn:"Запросить оценку VIST-AI", discTitle:"Примечание о коммерческой оценке:", formHeaderSpan:"ЗАПРОС ПРОФЕССИОНАЛЬНОЙ ОЦЕНКИ", formMainTitle:"Запросить оценку VIST-AI", optSelectArea:"Выберите область оценки", noticeText:"Для коммерческой оценки ИИ используйте форму запроса оценки VIST-AI выше, чтобы область оценки была проверена до подготовки предложения.",
+            alertImage:"Сначала выберите изображение с письмом.", alertImageType:"Выберите корректный файл изображения.", alertText:"Сначала введите текст.", successPrefix:"Спасибо, ", successMid:"! Ваш запрос на оценку VIST-AI успешно отправлен. Мы рассмотрим данные и свяжемся с вами по адресу ", successEnd:"."
+        },
+        URDU: {
+            founderTitle:"بانی: مشتاق احمد راجپوت", service01:"سروس 01", service02:"سروس 02", service03:"سروس 03", service04:"سروس 04",
+            qty10:"10 تک", qty30:"10–30", qty50:"30–50", qty100:"50–100", qtyPlus:"100+", copyright:"© 2026 VIST-AI Framework۔ تمام حقوق محفوظ ہیں۔",
+            phFullName:"آپ کا مکمل نام", phOrg:"کمپنی یا تحقیقی ادارہ", phEmail:"name@company.com", phModel:"مثال: Vision-Language Model", phDescription:"مختصر طور پر بتائیں کہ آپ VIST-AI سے کیا evaluate کروانا چاہتے ہیں۔",
+            ctaTitle:"کیا آپ کو مزید گہری AI Evaluation چاہیے؟", ctaDesc:"اپنے AI system، multimodal model، research project یا custom visual evaluation کے لیے VIST-AI assessment کی درخواست کریں۔", ctaBtn:"VIST-AI Assessment کی درخواست کریں", discTitle:"Commercial Evaluation Note:", formHeaderSpan:"PROFESSIONAL EVALUATION REQUEST", formMainTitle:"VIST-AI Assessment کی درخواست کریں", optSelectArea:"Evaluation area منتخب کریں", noticeText:"Commercial AI evaluation کے لیے اوپر موجود VIST-AI Assessment form استعمال کریں تاکہ quotation سے پہلے evaluation scope کا جائزہ لیا جا سکے۔",
+            alertImage:"براہ کرم پہلے writing image منتخب کریں۔", alertImageType:"براہ کرم درست image file منتخب کریں۔", alertText:"براہ کرم پہلے text درج کریں۔", successPrefix:"شکریہ، ", successMid:"! آپ کی VIST-AI assessment request کامیابی سے submit ہو گئی ہے۔ ہم آپ کی معلومات کا جائزہ لے کر جلد ہی ", successEnd:" پر رابطہ کریں گے۔"
+        }
+    };
+
+    Object.keys(languagePatches).forEach(lang => {
+        if (translations[lang]) Object.assign(translations[lang], languagePatches[lang]);
+    });
+
     function changeLanguage(lang) {
-        const t = translations[lang];
-        if (!t) return;
+        const t = translations[lang] || translations.en;
+        const meta = languageMeta[lang] || languageMeta.en;
+
+        // Translate every element registered with data-key.
         document.querySelectorAll("[data-key]").forEach(el => {
             const key = el.getAttribute("data-key");
-            if (t[key]) {
-                el.textContent = t[key];
+            if (Object.prototype.hasOwnProperty.call(t, key)) {
+                // innerHTML is required for translated notices containing <strong>.
+                el.innerHTML = t[key];
             }
         });
+
+        // Translate all form placeholders without changing user-entered values.
+        document.querySelectorAll("[data-placeholder-key]").forEach(el => {
+            const key = el.getAttribute("data-placeholder-key");
+            if (t[key]) el.setAttribute("placeholder", t[key]);
+        });
+
+        // Keep the VIST-AI logo permanently locked/static.
+        document.querySelectorAll("[data-static-logo=\"true\"]").forEach(el => {
+            el.setAttribute("translate", "no");
+        });
+
+        document.documentElement.lang = meta.htmlLang;
+        document.documentElement.dir = meta.dir;
+        document.title = meta.title;
+
         if (bgThemes[lang]) {
             document.documentElement.style.setProperty('--bg-glow', bgThemes[lang]);
         }
-        if (lang === "ARABIC" || lang === "URDU" || lang === "HEBREW") {
-            document.documentElement.dir = "rtl";
-        } else {
-            document.documentElement.dir = "ltr";
-        }
+
+        // Keep the selected language after refresh.
+        localStorage.setItem("vistAI_language", lang);
+        const selector = document.getElementById("languageSelect");
+        if (selector && selector.value !== lang) selector.value = lang;
+        restoreLockedLogo();
+    }
+
+    // HARD LOCK: never allow the language engine or browser translation to alter the VIST-AI logo.
+    const lockedLogoHTML = (() => {
+        const logo = document.getElementById("vistAILogo");
+        return logo ? logo.innerHTML : null;
+    })();
+
+    function restoreLockedLogo() {
+        const logo = document.getElementById("vistAILogo");
+        if (!logo || lockedLogoHTML === null) return;
+        if (logo.innerHTML !== lockedLogoHTML) logo.innerHTML = lockedLogoHTML;
+        logo.setAttribute("translate", "no");
+        logo.setAttribute("data-static-logo", "true");
+    }
+
+    function initLanguage() {
+        const saved = localStorage.getItem("vistAI_language");
+        const browser = (navigator.language || "en").toLowerCase();
+        const browserMap = { ar:"ARABIC", zh:"CHINESE", he:"HEBREW", iw:"HEBREW", hi:"HINDI", ja:"JAPANESE", ko:"KOREAN", ru:"RUSSIAN", ur:"URDU", en:"en" };
+        const lang = saved || browserMap[browser.split("-")[0]] || "en";
+        const selector = document.getElementById("languageSelect");
+        if (selector) selector.value = lang;
+        changeLanguage(lang);
     }
 
     // Image Mirror Tool
     const imageInput = document.getElementById("imageNormalInput");
     const processImageButton = document.getElementById("processImageButton");
     const output = document.getElementById("output");
-    const evidenceImg = Document.getElementById("evidenceImg");
+    const evidenceImg = document.getElementById("evidenceImg");
     const downloadLink = document.getElementById("downloadLink");
 
     processImageButton.addEventListener("click", function () {
         const file = imageInput.files[0];
-        if (!file) { alert("Please select a writing image first."); return; }
-        if (!file.type.startsWith("image/")) { alert("Please select a valid image file."); return; }
+        if (!file) { alert((translations[localStorage.getItem("vistAI_language")] || translations.en).alertImage); return; }
+        if (!file.type.startsWith("image/")) { alert((translations[localStorage.getItem("vistAI_language")] || translations.en).alertImageType); return; }
 
         const reader = new FileReader();
         reader.onload = function (event) {
@@ -1301,7 +1499,7 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
 
     generateTextButton.addEventListener("click", function () {
         const text = textInput.value;
-        if (!text.trim()) { alert("Please enter text first."); return; }
+        if (!text.trim()) { alert((translations[localStorage.getItem("vistAI_language")] || translations.en).alertText); return; }
         mirroredDisplay.textContent = text;
         mirrorResultBox.style.display = "block";
         mirrorResultBox.scrollIntoView({ behavior: "smooth", block: "center" });
@@ -1317,11 +1515,19 @@ Do not guess missing characters. Clearly distinguish direct visual observations 
         const clientEmail = document.getElementById("client-email").value;
 
         formSuccessMsg.style.display = "block";
-        formSuccessMsg.textContent = `Thank you, ${clientName}! Your VIST-AI assessment request has been successfully submitted. We will review your details and contact you shortly at ${clientEmail}.`;
+        const currentLang = localStorage.getItem("vistAI_language") || "en";
+        const msg = translations[currentLang] || translations.en;
+        formSuccessMsg.textContent = `${msg.successPrefix}${clientName}${msg.successMid}${clientEmail}${msg.successEnd}`;
         
         assessmentForm.reset();
         formSuccessMsg.scrollIntoView({ behavior: "smooth", block: "center" });
     });
+    initLanguage();
+
+    // Final logo protection against accidental DOM or translation changes.
+    const logoObserver = new MutationObserver(restoreLockedLogo);
+    const logoElement = document.getElementById("vistAILogo");
+    if (logoElement) logoObserver.observe(logoElement, { childList: true, subtree: true, characterData: true, attributes: true });
 </script>
 
 </body>
